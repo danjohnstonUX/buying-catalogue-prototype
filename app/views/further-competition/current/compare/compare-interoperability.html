@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /views/layout.html -->
-{% extends 'layout-full-width.html' %}
+{% extends 'layout.html' %}
 <!--
   In /views/layout.html you can:
     - change the header and footer
@@ -16,21 +16,7 @@ Buying Catalogue
 {% endblock %}
 
 {% block header %}
-<style>
-  .app-width-container--full {
-    margin: 0;
-    max-width: none
-  }
 
-  .app-homepage .nhsuk-section:nth-of-type(even) {
-    background: #fff
-  }
-
-  .section-content {
-    margin-top: 32px;
-    margin-bottom: 32px;
-  }
-</style>
 {% include "includes/header.html" %}
 {% endblock%}
 
@@ -42,48 +28,50 @@ Buying Catalogue
 <!-- Your page content goes inside the content block -->
 <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
+<div class="nhsuk-grid-row">
+
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "compare-dashboard",
+    "text": "Go back"
+    }) }}
+
+    <h1>Compare interoperability<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Your competition
+      </span></h1>
+    <p class="nhsuk-lede-text">
+      Compare and score shortlisted solutions based on your interoperability criteria.
+    </p>
+
+    {{ details({
+    "text": "How do I score solutions?",
+    "HTML": "
+    <p><b>How to score solutions:</p></b>
 
 
-<section class="nhsuk-section">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds section-content">
+    <p>1 = Bad, no requirements met</p>
+    <p>2 = Poor, few requirements met</p>
+    <p>3 = Adequate, just meets requirements</p>
+    <p>4 = Good, requirements covered well</p>
+    <p>5 = Excellent, all requirements covered well</p>
 
-        {{ backLink({
-          "href": "compare-dashboard",
-          "text": "Go back"
-        }) }}
+    <p>You should keep a record of the rationale you used to score each solution.</p>
+    "
+    }) }}
 
-        <h1>Compare interoperability<span class="nhsuk-caption-xl nhsuk-caption--bottom">
-          <span class="nhsuk-u-visually-hidden"> - </span>
-          Your competition
-        </span></h1>
-        <p class="nhsuk-lede-text">
-          Compare and score shortlisted solutions based on your interoperability criteria. 
-        </p>
+    <hr>
 
-        {{ details({
-          "text": "How do I score solutions?",
-          "HTML": "
-          <p><b>How to score solutions:</p></b>
-            
-           
-                <p>1 = Bad, no requirements met</p>
-                <p>2 = Poor, few requirements met</p>
-                <p>3 = Adequate, just meets requirements</p>
-                <p>4 = Good, requirements covered well</p>
-                <p>5 = Excellent, all requirements covered well</p>
-            
-            <p>You should keep a record of the rationale you used to score each solution.</p>
-          "
-        }) }}
+    <h2>
+      Your interoperability criteria
+    </h2>
 
-        <h2>
-          Your interoperability criteria
-        </h2>
-
-        <h3>IM1 integrations</h3>
-
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">
+          IM1 Integrations
+        </h3>
         <dl class="nhsuk-summary-list">
 
           <div class="nhsuk-summary-list__row">
@@ -113,19 +101,24 @@ Buying Catalogue
           </div>
 
         </dl>
-
       </div>
     </div>
+
+    <hr>
+
   </div>
-</section>
 
-<section class="nhsuk-section">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full section-content">
+  <div class="nhsuk-grid-column-full">
 
-        <h2>Online and Video Consult</h2>
+    <h2>Online and Video Consult</h2>
 
+    <details class="nhsuk-details nhsuk-expander" open>
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          View Online and Video Consult interoperability details
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
         <h3>IM1 integrations</h3>
 
         <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
@@ -194,8 +187,8 @@ Buying Catalogue
 
         <br>
 
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
             What score would you give this solution?
           </label>
           <div class="nhsuk-hint" id="example-with-hint-text-hint">
@@ -204,18 +197,30 @@ Buying Catalogue
           <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
         </div>
 
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
+            What is your justification for this score?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, quas.
+          </div>
+          <textarea class="nhsuk-textarea" id="example" name="example" rows="5"
+            aria-describedby="example-hint"></textarea>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </details>
 
-<section class="nhsuk-section">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full section-content">
+    <hr>
 
-        <h2>Q Doctor</h2>
+    <h2>Q Doctor</h2>
 
+    <details class="nhsuk-details nhsuk-expander" open>
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          View Q Doctor interoperability details
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
         <h3>IM1 integrations</h3>
 
         <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
@@ -277,15 +282,15 @@ Buying Catalogue
             </tr>
           </tbody>
         </table>
-
+    
         <h3>GP Connect integrations</h3>
-
+    
         <p>This solution has no GP Connect integrations listed</p>
 
         <br>
 
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
             What score would you give this solution?
           </label>
           <div class="nhsuk-hint" id="example-with-hint-text-hint">
@@ -294,18 +299,30 @@ Buying Catalogue
           <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
         </div>
 
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
+            What is your justification for this score?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, quas.
+          </div>
+          <textarea class="nhsuk-textarea" id="example" name="example" rows="5"
+            aria-describedby="example-hint"></textarea>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </details>
 
-<section class="nhsuk-section">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full section-content">
+    <hr>
 
-        <h2>Engage Consult</h2>
+    <h2>Engage Consult</h2>
 
+    <details class="nhsuk-details nhsuk-expander" open>
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          View Q Doctor interoperability details
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
         <h3>IM1 integrations</h3>
 
         <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
@@ -367,15 +384,15 @@ Buying Catalogue
             </tr>
           </tbody>
         </table>
-
+    
         <h3>GP Connect integrations</h3>
-
+    
         <p>This solution has no GP Connect integrations listed</p>
 
         <br>
 
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
             What score would you give this solution?
           </label>
           <div class="nhsuk-hint" id="example-with-hint-text-hint">
@@ -384,14 +401,26 @@ Buying Catalogue
           <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
         </div>
 
-        <br>
-
-        <a class="nhsuk-button" href="compare-dashboard">Save and continue</a>
-
+        <div class="nhsuk-form-group nhsuk-u-reading-width">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-0" for="input-width-3">
+            What is your justification for this score?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, quas.
+          </div>
+          <textarea class="nhsuk-textarea" id="example" name="example" rows="5"
+            aria-describedby="example-hint"></textarea>
+        </div>
       </div>
-    </div>
+    </details>
+
+
+    <a class="nhsuk-button" href="compare-dashboard">Save and continue</a>
+
   </div>
-</section>
+
+</div>
+
 
 
 

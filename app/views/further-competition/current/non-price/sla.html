@@ -17,7 +17,7 @@
 {% from 'back-link/macro.njk' import backLink %}
 
 {{ backLink({
-  "href": "non-price-elements",
+  "href": "interoperability",
   "text": "Go back"
 }) }}
 
@@ -68,20 +68,77 @@
 
 <br>
 
-{{ input({
-  "label": {
-    "text": "Applicable days",
-    "classes": "nhsuk-label--m nhsuk-u-margin-bottom-2"
+{{ checkboxes({
+  "idPrefix": "example",
+  "name": "example",
+  "fieldset": {
+    "legend": {
+      "text": "Applicable days",
+      "classes": "nhsuk-fieldset__legend--m",
+      isPageHeading: false
+    }
   },
-    "hint": {
-    "text": "Enter the days you require core support to be available, including if you need support on Bank Holidays."
+  "hint": {
+    "text": "Enter the days you require core support to be available."
   },
-  id: "example-with-hint-text",
-  name: "example-with-hint-text",
-  classes: "nhsuk-input--width-30",
-  inputmode: "text"
+  "items": [
+    {
+      "value": "mon",
+      "text": "Monday"
+    },
+    {
+      "value": "tue",
+      "text": "Tuesday"
+    },
+    {
+      "value": "wed",
+      "text": "Wednesday"
+    },
+    {
+      "value": "thu",
+      "text": "Thursday"
+    },
+    {
+      "value": "fri",
+      "text": "Friday"
+    },
+    {
+      "value": "sat",
+      "text": "Saturday"
+    },
+    {
+      "value": "sun",
+      "text": "Sunday"
+    }
+  ]
 }) }}
 
+<br>
+
+{{ radios({
+  "idPrefix": "example",
+  "name": "example",
+  "fieldset": {
+    "legend": {
+      "text": "Bank holidays",
+      "classes": "nhsuk-fieldset__legend--m",
+      isPageHeading: false
+    }
+  },
+  "hint": {
+    "text": "Include whether you need support on Bank Holidays"
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes, include bank holidays"
+    },
+    {
+      "value": "no",
+      "text": "No, exclude bank holidays"
+    }
+  ]
+}) }}
 
 <br>
 <br>
@@ -90,7 +147,7 @@
 <form>
 {{ button({
   "text": "Save and continue",
-  "href":"non-price-hub-complete"
+  "href":"features"
 }) }}
 </form>
 

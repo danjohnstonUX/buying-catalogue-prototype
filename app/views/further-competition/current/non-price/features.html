@@ -16,24 +16,9 @@
 {% block content %}
 {% from 'back-link/macro.njk' import backLink %}
 
-<script>
-  function sendForm() {
-    var selectedValue = document.querySelector('input[name="select-criteria"]:checked').value;
-
-    switch(selectedValue){
-        case "yes":
-           document.location.href = "hosting-type";
-           break;
-        case "no":
-           document.location.href = "hosting-type";
-            break;
-    }
-  }
-</script>
-
 
 {{ backLink({
-  "href": "#",
+  "href": "sla",
   "text": "Go back"
 }) }}
 
@@ -45,31 +30,21 @@
 {% from 'hint/macro.njk' import hint %}
 {% from 'input/macro.njk' import input %}
 
-<h1>Do you wish to describe any features your Solution requires?</h1>
+<h1>Features requirements</h1>
 
 <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
 
-{% from 'radios/macro.njk' import radios %}
 
-{{ radios({
-  "idPrefix": "select-criteria",
-  "name": "select-criteria",
-  "fieldset": {
-    "legend": {
-      "text": "",
-      "isPageHeading": false
-    }
+{{ textarea({
+  "name": "example",
+  "id": "example",
+  "label": {
+    "text": "Can you provide more detail?",
+    "classes": "nhsuk-label--m nhsuk-u-margin-bottom-2"
   },
-  "items": [
-    {
-      "value": "yes",
-      "text": "Yes"
-    },
-    {
-      "value": "no",
-      "text": "No"
-    }
-  ]
+  "hint": {
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem tempore eligendi sed deserunt. "
+  }
 }) }}
 
 
@@ -79,7 +54,7 @@
 <form>
 {{ button({
   "text": "Save and continue",
-  "href":"javascript: sendForm();"
+  "href":"non-price-hub-complete"
 }) }}
 </form>
 

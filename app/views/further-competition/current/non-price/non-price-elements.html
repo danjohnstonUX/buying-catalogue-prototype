@@ -13,7 +13,7 @@
   <!-- Your page content goes inside the content block -->
   {% block content %}
  
-  <script>
+  <!--<script>
     function sendForm() {
       var selectedValue = document.querySelector('input[name="select-criteria"]:checked').value;
   
@@ -29,7 +29,7 @@
               break;
       }
     }
-  </script>
+  </script>-->
 
     {{ backLink({
       "href": "non-price-hub",
@@ -47,7 +47,7 @@
         <p class="nhsuk-lede-text">You can add any or all optional non-price elements to help you score your shortlisted solutions.</p>
 
         <form>
-          {{ radios({
+          {{ checkboxes({
             "idPrefix": "criteria-radio",
             "name": "select-criteria",
             "fieldset": {
@@ -72,6 +72,10 @@
               {
                 "value": "sla",
                 "text": "Service levels"
+              },
+              {
+                "value": "features",
+                "text": "Features"
               }
             ]
           }) }}
@@ -82,7 +86,7 @@
         <form>
           {{ button({
             "text": "Save and continue",
-            "href":"javascript: sendForm();"
+            "href":"implementation"
           }) }}
         </form>
 

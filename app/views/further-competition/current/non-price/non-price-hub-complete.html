@@ -137,7 +137,7 @@ Buying Catalogue
         text: "Applicable days"
       },
       value: {
-        text: "Monday to Friday, including bank holidays"
+        html: "• Monday<br>• Tuesday<br>• Wednesday<br>• Thursday<br>• Friday"
       },
       actions: {
         items: [
@@ -145,6 +145,47 @@ Buying Catalogue
             href: "#",
             text: "Edit",
             visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Bank holidays included?"
+      },
+      value: {
+        html: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="nhsuk-heading-m">Features</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Features details"
+      },
+      value: {
+        html: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>• Odit ipsum accusantium eos reprehenderit nemo atque pariatur ducimus? <br>• Laboriosam assumenda porro, at pariatur blanditiis ratione omnis, aperiam eum praesentium magnam, suscipit officia veniam qui autem aut ipsa vitae architecto quod?<br>• Iusto deserunt nesciunt facilis, id cumque ab, nisi dolorem minus aperiam, beatae incidunt ex sunt rem. <br>• Impedit nemo vel eligendi perspiciatis esse harum magnam quis facilis provident dolorum quia qui voluptatibus illo non quo consequuntur totam pariatur sunt laudantium, dolorem tenetur dignissimos quod eum sit."
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "features"
           }
         ]
       }
