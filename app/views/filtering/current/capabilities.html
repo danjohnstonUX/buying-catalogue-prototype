@@ -1,0 +1,800 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Filter by Capabilities for Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<style>
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter {
+    background-color: #005eb8;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: -1px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text {
+    text-decoration: none;
+  }
+</style>
+
+{{ backLink({
+"href": "#",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-9">
+
+    <h1>Filter by Capabilities for Catalogue Solutions</h1>
+
+    <p class="nhsuk-lede-text">Capabilities describe business needs. Select the ones you want a Catalogue Solution to
+      address.</p>
+
+    <h2>40 Capabilities available</h2>
+
+    <hr>
+
+    <h3>Select Capabilities</h3>
+
+    <p>0 out of 40 selected</p>
+
+    <button class="nhsuk-button nhsuk-button--secondary">Clear selection</button>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+
+    <form>
+
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span
+              class="nhsuk-u-visually-hidden">letter</span>Appointments<span class="nhsuk-u-visually-hidden">-</span>
+          </h3><span class="nhsuk-details__summary-text">4 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Appointments"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that enable staff to efficiently manage time and resources, ensuring all patients have timely
+            access to appropriate medical services.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_0__Selected"
+                          name="SelectedItems[0].Selected" subgroup="Appointments" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_0__Selected">Appointments
+                          Management – Citizen</label><input id="SelectedItems_0__Id" name="SelectedItems[0].Id"
+                          type="hidden" value="1"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_1__Selected"
+                          name="SelectedItems[1].Selected" subgroup="Appointments" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_1__Selected">Appointments
+                          Management – COVID-19 Vaccinations</label><input id="SelectedItems_1__Id"
+                          name="SelectedItems[1].Id" type="hidden" value="46"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_2__Selected"
+                          name="SelectedItems[2].Selected" subgroup="Appointments" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_2__Selected">Appointments
+                          Management – GP</label><input id="SelectedItems_2__Id" name="SelectedItems[2].Id"
+                          type="hidden" value="5"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_3__Selected"
+                          name="SelectedItems[3].Selected" subgroup="Appointments" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_3__Selected">Cross-organisation
+                          Appointment Booking</label><input id="SelectedItems_3__Id" name="SelectedItems[3].Id"
+                          type="hidden" value="23"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Care
+            coordination<span class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">3
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="Carecoordination"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that support patient communication, efficient handling of test results and referrals and help
+            identify anyone needing COVID-19 vaccinations.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_4__Selected"
+                          name="SelectedItems[4].Selected" subgroup="Carecoordination" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_4__Selected">Cohort Identification</label><input id="SelectedItems_4__Id"
+                          name="SelectedItems[4].Id" type="hidden" value="45"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_5__Selected"
+                          name="SelectedItems[5].Selected" subgroup="Carecoordination" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_5__Selected">Digital Diagnostics</label><input id="SelectedItems_5__Id"
+                          name="SelectedItems[5].Id" type="hidden" value="8"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_6__Selected"
+                          name="SelectedItems[6].Selected" subgroup="Carecoordination" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_6__Selected">Referral Management</label><input id="SelectedItems_6__Id"
+                          name="SelectedItems[6].Id" type="hidden" value="11"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Citizen
+            services<span class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">4
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="Citizenservices"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that enable service users to be more involved in their healthcare, including accessing health
+            records, monitoring conditions and managing their appointments.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_7__Selected"
+                          name="SelectedItems[7].Selected" subgroup="Citizenservices" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_7__Selected">Communicate With Practice – Citizen</label><input
+                          id="SelectedItems_7__Id" name="SelectedItems[7].Id" type="hidden" value="2"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_8__Selected"
+                          name="SelectedItems[8].Selected" subgroup="Citizenservices" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_8__Selected">Personal Health Record</label><input id="SelectedItems_8__Id"
+                          name="SelectedItems[8].Id" type="hidden" value="33"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_9__Selected"
+                          name="SelectedItems[9].Selected" subgroup="Citizenservices" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_9__Selected">Prescription Ordering – Citizen</label><input
+                          id="SelectedItems_9__Id" name="SelectedItems[9].Id" type="hidden" value="3"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_10__Selected"
+                          name="SelectedItems[10].Selected" subgroup="Citizenservices" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_10__Selected">View Record – Citizen</label><input id="SelectedItems_10__Id"
+                          name="SelectedItems[10].Id" type="hidden" value="4"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span
+              class="nhsuk-u-visually-hidden">letter</span>Community-based care<span
+              class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">2
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="Community-basedcare"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that help provide healthcare services to care home residents and anyone who needs additional
+            support living in their own home.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_11__Selected"
+                          name="SelectedItems[11].Selected" subgroup="Community-basedcare" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_11__Selected">Domiciliary Care</label><input id="SelectedItems_11__Id"
+                          name="SelectedItems[11].Id" type="hidden" value="27"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_12__Selected"
+                          name="SelectedItems[12].Selected" subgroup="Community-basedcare" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_12__Selected">Social Prescribing</label><input id="SelectedItems_12__Id"
+                          name="SelectedItems[12].Id" type="hidden" value="37"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span
+              class="nhsuk-u-visually-hidden">letter</span>Consultations<span class="nhsuk-u-visually-hidden">-</span>
+          </h3><span class="nhsuk-details__summary-text">6 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Consultations"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that support the delivery of remote consultations.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_13__Selected"
+                          name="SelectedItems[13].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_13__Selected">Clinical Decision
+                          Support</label><input id="SelectedItems_13__Id" name="SelectedItems[13].Id" type="hidden"
+                          value="6"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_14__Selected"
+                          name="SelectedItems[14].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_14__Selected">e-Consultations
+                          (Professional to Professional)</label><input id="SelectedItems_14__Id"
+                          name="SelectedItems[14].Id" type="hidden" value="29"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_15__Selected"
+                          name="SelectedItems[15].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_15__Selected">Online
+                          Consultation</label><input id="SelectedItems_15__Id" name="SelectedItems[15].Id" type="hidden"
+                          value="43"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_16__Selected"
+                          name="SelectedItems[16].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_16__Selected">Recording
+                          Consultations</label><input id="SelectedItems_16__Id" name="SelectedItems[16].Id"
+                          type="hidden" value="15"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_17__Selected"
+                          name="SelectedItems[17].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_17__Selected">Vaccination and
+                          Adverse Reaction Recording</label><input id="SelectedItems_17__Id" name="SelectedItems[17].Id"
+                          type="hidden" value="47"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_18__Selected"
+                          name="SelectedItems[18].Selected" subgroup="Consultations" type="checkbox" value="true"><label
+                          class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_18__Selected">Video
+                          Consultation</label><input id="SelectedItems_18__Id" name="SelectedItems[18].Id" type="hidden"
+                          value="44"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Document
+            and artefact management<span class="nhsuk-u-visually-hidden">-</span></h3><span
+            class="nhsuk-details__summary-text">3 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Documentandartefactmanagement"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that support the management of electronic documents.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_19__Selected"
+                          name="SelectedItems[19].Selected" subgroup="Documentandartefactmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_19__Selected">Document Management</label><input id="SelectedItems_19__Id"
+                          name="SelectedItems[19].Id" type="hidden" value="9"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_20__Selected"
+                          name="SelectedItems[20].Selected" subgroup="Documentandartefactmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_20__Selected">Scanning</label><input id="SelectedItems_20__Id"
+                          name="SelectedItems[20].Id" type="hidden" value="17"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_21__Selected"
+                          name="SelectedItems[21].Selected" subgroup="Documentandartefactmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_21__Selected">Unstructured Data Extraction</label><input
+                          id="SelectedItems_21__Id" name="SelectedItems[21].Id" type="hidden" value="19"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Health or
+            care organisation management<span class="nhsuk-u-visually-hidden">-</span></h3><span
+            class="nhsuk-details__summary-text">5 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Healthorcareorganisationmanagement"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that support the efficient running of a health or care organisation.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_22__Selected"
+                          name="SelectedItems[22].Selected" subgroup="Healthorcareorganisationmanagement"
+                          type="checkbox" value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_22__Selected">Caseload Management</label><input id="SelectedItems_22__Id"
+                          name="SelectedItems[22].Id" type="hidden" value="22"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_23__Selected"
+                          name="SelectedItems[23].Selected" subgroup="Healthorcareorganisationmanagement"
+                          type="checkbox" value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_23__Selected">Cross-organisation Workflow Tools</label><input
+                          id="SelectedItems_23__Id" name="SelectedItems[23].Id" type="hidden" value="24"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_24__Selected"
+                          name="SelectedItems[24].Selected" subgroup="Healthorcareorganisationmanagement"
+                          type="checkbox" value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_24__Selected">Cross-organisation Workforce Management</label><input
+                          id="SelectedItems_24__Id" name="SelectedItems[24].Id" type="hidden" value="25"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_25__Selected"
+                          name="SelectedItems[25].Selected" subgroup="Healthorcareorganisationmanagement"
+                          type="checkbox" value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_25__Selected">Resource Management</label><input id="SelectedItems_25__Id"
+                          name="SelectedItems[25].Id" type="hidden" value="12"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_26__Selected"
+                          name="SelectedItems[26].Selected" subgroup="Healthorcareorganisationmanagement"
+                          type="checkbox" value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_26__Selected">Workflow</label><input id="SelectedItems_26__Id"
+                          name="SelectedItems[26].Id" type="hidden" value="20"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Medicines
+            management<span class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">4
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="Medicinesmanagement"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that allow the safe prescribing and dispensing of medicines.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_27__Selected"
+                          name="SelectedItems[27].Selected" subgroup="Medicinesmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_27__Selected">Dispensing</label><input id="SelectedItems_27__Id"
+                          name="SelectedItems[27].Id" type="hidden" value="42"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_28__Selected"
+                          name="SelectedItems[28].Selected" subgroup="Medicinesmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_28__Selected">Medicines Optimisation</label><input
+                          id="SelectedItems_28__Id" name="SelectedItems[28].Id" type="hidden" value="30"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_29__Selected"
+                          name="SelectedItems[29].Selected" subgroup="Medicinesmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_29__Selected">Medicines Verification</label><input
+                          id="SelectedItems_29__Id" name="SelectedItems[29].Id" type="hidden" value="40"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_30__Selected"
+                          name="SelectedItems[30].Selected" subgroup="Medicinesmanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_30__Selected">Prescribing</label><input id="SelectedItems_30__Id"
+                          name="SelectedItems[30].Id" type="hidden" value="14"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Patient
+            care management<span class="nhsuk-u-visually-hidden">-</span></h3><span
+            class="nhsuk-details__summary-text">3 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Patientcaremanagement"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that support the maintenance and sharing of patient information.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_31__Selected"
+                          name="SelectedItems[31].Selected" subgroup="Patientcaremanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_31__Selected">Patient Information Maintenance</label><input
+                          id="SelectedItems_31__Id" name="SelectedItems[31].Id" type="hidden" value="13"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_32__Selected"
+                          name="SelectedItems[32].Selected" subgroup="Patientcaremanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_32__Selected">Shared Care Plans</label><input id="SelectedItems_32__Id"
+                          name="SelectedItems[32].Id" type="hidden" value="36"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_33__Selected"
+                          name="SelectedItems[33].Selected" subgroup="Patientcaremanagement" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_33__Selected">Unified Care Record</label><input id="SelectedItems_33__Id"
+                          name="SelectedItems[33].Id" type="hidden" value="39"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Reporting
+            and data analytics<span class="nhsuk-u-visually-hidden">-</span></h3><span
+            class="nhsuk-details__summary-text">5 results&nbsp;&nbsp;<span class="counter-class"
+              subgroup="Reportinganddataanalytics"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that allow local data analysis across all aspects of a GP practice.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_34__Selected"
+                          name="SelectedItems[34].Selected" subgroup="Reportinganddataanalytics" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_34__Selected">Data Analytics for Integrated and Federated
+                          Care</label><input id="SelectedItems_34__Id" name="SelectedItems[34].Id" type="hidden"
+                          value="26"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_35__Selected"
+                          name="SelectedItems[35].Selected" subgroup="Reportinganddataanalytics" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_35__Selected">GP Extracts Verification</label><input
+                          id="SelectedItems_35__Id" name="SelectedItems[35].Id" type="hidden" value="10"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_36__Selected"
+                          name="SelectedItems[36].Selected" subgroup="Reportinganddataanalytics" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_36__Selected">Population Health Management</label><input
+                          id="SelectedItems_36__Id" name="SelectedItems[36].Id" type="hidden" value="34"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_37__Selected"
+                          name="SelectedItems[37].Selected" subgroup="Reportinganddataanalytics" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_37__Selected">Reporting</label><input id="SelectedItems_37__Id"
+                          name="SelectedItems[37].Id" type="hidden" value="16"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_38__Selected"
+                          name="SelectedItems[38].Selected" subgroup="Reportinganddataanalytics" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_38__Selected">Risk Stratification</label><input id="SelectedItems_38__Id"
+                          name="SelectedItems[38].Id" type="hidden" value="35"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Supplier
+            defined Capabilities<span class="nhsuk-u-visually-hidden">-</span></h3><span
+            class="nhsuk-details__summary-text">1 result&nbsp;&nbsp;<span class="counter-class"
+              subgroup="SupplierdefinedCapabilities"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            Find solutions that have met Capabilities defined by a supplier.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption">Capability name</caption>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_39__Selected"
+                          name="SelectedItems[39].Selected" subgroup="SupplierdefinedCapabilities" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_39__Selected">Productivity</label><input id="SelectedItems_39__Id"
+                          name="SelectedItems[39].Id" type="hidden" value="41"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+
+    </form>
+
+    <br />
+
+    <form>
+      {{ button({
+      "text": "Save and continue",
+      "href":"include-epics"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

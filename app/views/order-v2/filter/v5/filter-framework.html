@@ -1,0 +1,143 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Filter by frameworks
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/order-v2/filter/v5/catalogue-solutions-start",
+    text: "Catalogue Solutions"
+  },
+  {
+    href: "/order-v2/filter/v5/filter-framework",
+    text: "Frameworks"
+}]
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("price-1").checked ? document.getElementById("price-1").value : "";
+    var opt2 = document.getElementById("price-2").checked ? document.getElementById("price-2").value : "";
+    var opt3 = document.getElementById("price-3").checked ? document.getElementById("price-3").value : "";
+    var opt4 = document.getElementById("price-4").checked ? document.getElementById("price-4").value : "";
+
+    if(opt1=="opt1") {
+        document.location.href = "catalogue-solutions";
+    }
+    else if(opt2=="opt2") {
+        document.location.href = "catalogue-solutions";
+    }
+    else if(opt3=="opt3") {
+        document.location.href = "catalogue-solutions";
+    }
+    else if(opt4=="opt4") {
+        document.location.href = "catalogue-solutions";
+    }
+    else if(opt4=="opt5") {
+        document.location.href = "catalogue-solutions";
+    }
+  }
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+
+<h1>Filter by framework</h1>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-lede-text">See what’s available on the frameworks the Buying Catalogue supports.</p>
+
+      <!-- <hr style="margin-bottom:20px;"/>
+      <h4 class="nhsuk-heading-l" style="margin-bottom:10px;">Search a solution</h4>
+      <div class="app-search__contents" >
+        <label class="c-search__label visually-hidden" for="query">Filter Catalogue Solutions</label>
+        <input class="app-search__input ui-autocomplete-input" id="query" placeholder="Search by supplier, solution name or Capabilities" autocomplete="off" name="query" type="search" maxlength="50">
+        <button type="submit" class="app-search__submit">
+            <svg class="icon icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                <image class="icon__search icon__search--fallback" src="/apps-library/static/apps_library/images/icon-search-blue.352e1118d687.png" xlink:href="">
+            </image></svg>
+            <span class="visually-hidden">Search</span>
+        </button>
+    </div>
+
+      <hr style="margin-bottom:20px;"/> -->
+
+
+
+      {% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+
+{% call fieldset({
+  legend: {
+    "text": "Select a framework",
+    "classes": "nhsuk-fieldset__legend--l",
+    "isPageHeading": true
+  }
+  }) %}
+  {{ hint({
+    "text": ""
+  }) }}
+  {{ radios({
+    "idPrefix": "price",
+    "name": "price",
+    "items": [
+  {
+    "value": "opt1",
+    "text": "All frameworks",
+    "checked": true
+  },
+  {
+    "value": "opt2",
+    "text": "GP IT Futures framework"
+  },
+  {
+    "value": "opt3",
+    "text": "DVOFCVC framework"
+  },
+  {
+    "value": "opt4",
+    "text": "Tech Innovation framework"
+  },
+  {
+    "value": "opt5",
+    "text": "Adult and Social Care framework"
+  }
+]
+}) }}
+{% endcall %}
+<br />
+
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

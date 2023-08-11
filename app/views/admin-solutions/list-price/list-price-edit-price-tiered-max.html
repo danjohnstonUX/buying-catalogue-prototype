@@ -1,0 +1,344 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %} {{ breadcrumb({ items: [ ], href: "/", text: "Home" }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+    "href": "./",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>
+          <span role="text">Edit a tiered list price
+            <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden">
+                -
+              </span>
+              Caltech Web GP
+            </span>
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Provide the following information about the pricing model for your Catalogue Solution.</p>
+
+        <form action="list-price-confirmation" method="get">
+
+          {% set unitofTimeHtml %}
+          {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Billing period (optional)"
+                },
+                "hint": {
+                  "text": "Select if it’s monthly or yearly."
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "Select"
+                  },
+                  {
+                    "value": 2,
+                    "text": "Per month"
+                  },
+                  {
+                    "value": 3,
+                    "text": "Per year"
+                  }
+                ]
+              }) }}
+          {% endset -%}
+
+          {{ radios({
+              "idPrefix": "example",
+              "name": "example",
+              "fieldset": {
+                "legend": {
+                  "text": "Provisioning type",
+                  "classes": "nhsuk-fieldset__legend--m"
+                }
+              },
+              "items": [
+                {
+                  "value": "1",
+                  "text": "Per patient per year",
+                  "checked": true
+                },
+                {
+                  "value": "2",
+                  "text": "Declarative",
+                  "conditional" :{
+                    "html": unitofTimeHtml
+                  }
+                },
+                {
+                  "value": "3",
+                  "text": "On demand",
+                  "conditional" :{
+                    "html": unitofTimeHtml
+                  }
+                }
+              ]
+              }) }}
+
+          {{ radios({
+              "idPrefix": "calc-type",
+              "name": "calc-type",
+              "fieldset": {
+                "legend": {
+                  "text": "Calculation type",
+                  "classes": "nhsuk-fieldset__legend--m"
+                }
+              },
+              "items": [
+                {
+                  "value": "single-fixed",
+                  "text": "Single fixed",
+                  "hint": {
+        "text": "Buyers pay one fixed price no matter what quantity they want to buy."
+      }
+
+                },
+                {
+                  "value": "tiered-cumulative",
+                  "text": "Tiered cumulative",
+                  "hint": {
+        "text": "Buyers pay one price for the quantity of units that fall into the first tier, another price for units that fall into the next tier and so on."
+      }
+
+                },
+                {
+                  "value": "tiered-flat",
+                  "text": "Tiered volume",
+                  "hint": {
+        "text": "Buyers pay the same price for all units based on how many they buy and the tier that quantity falls into."
+      }
+                }
+              ]
+              }) }}
+
+          {{ input({
+            "label": {
+              "text": "Unit"
+            },
+            "hint": {
+              "text": "For example, per consultation, per practice, per licence."
+            },
+            "id": "example",
+            "name": "example",
+            "value": "per patient per year"
+            }) }}
+
+          {{ textarea({
+            "name": "example",
+            "id": "example",
+            "label": {
+              "text": "Unit definition (optional)"
+            },
+            "hint": {
+              "text": "For example, if the unit is per day, between what hours?"
+            }
+          }) }}
+
+          {{ input({
+          "label": {
+            "text": "Range definition"
+          },
+          "hint": {
+            "text": "For example: patients, users or licenses"
+          },
+          "id": "example",
+          "name": "example",
+          "value": "patients"
+          }) }}
+
+          <br/>
+
+        </div>
+
+        <div class="nhsuk-grid-column-full">
+
+          {{ insetText({
+            "HTML": "<p>This is a published list price, which means you can only update the price for each tier.</p>
+
+            <p>To edit tier ranges, add further pricing tiers or to delete this price, you must first unpublish this list price.</p>
+
+            <p>You can also <a href='#'>create a new list price</a> populated with the values from this price which you can then edit.</p>
+            <p>The maximum number of tiers you can publish is 5.</p>"
+
+          }) }}
+
+            {{ table({
+              responsive: true,
+              panel: false,
+              caption: "Pricing tiers",
+              firstCellIsHeader: false,
+              head: [
+                  {
+                  text: "Tier"
+                  },
+                  {
+                  text: "Price"
+                  },
+                  {
+                  text: "Range"
+                  },
+                  {
+                  text: "Action"
+                  }
+              ],
+              rows: [
+                  [
+                      {
+                          text: "Tier 1"
+                      },
+                      {
+                          text: "£0.5000 per patient per year"
+                      },
+                      {
+                          text: "1 to 99,999 patients"
+                      },
+                      {
+                          html: '<a href="list-price-add-pricing-band">Edit</a>'
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 2"
+                      },
+                      {
+                          text: "£0.4500 per patient per year"
+                      },
+                      {
+                          text: "100,000 to 199,999 patients"
+                      },
+                      {
+                          html: '<a href="list-price-add-pricing-band">Edit</a>'
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 3"
+                      },
+                      {
+                          text: "£0.4000 per patient per year"
+                      },
+                      {
+                          text: "200,000 to 299,999 patients"
+                      },
+                      {
+                          html: '<a href="list-price-add-pricing-band">Edit</a>'
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 4"
+                      },
+                      {
+                          text: "£0.3500 per patient per year"
+                      },
+                      {
+                          text: "300,000 to 399,999 patients"
+                      },
+                      {
+                          html: '<a href="list-price-add-pricing-band">Edit</a>'
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 5"
+                      },
+                      {
+                          text: "£0.3000 per patient per year"
+                      },
+                      {
+                          text: "400,000+ patients"
+                      },
+                      {
+                          html: '<a href="list-price-add-pricing-band">Edit</a>'
+                      }
+                  ]
+              ]
+            }) }}
+
+          <br/>
+
+          <br/>
+
+        </div>
+
+        <div class="nhsuk-grid-column-two-thirds">
+
+          <h2 class="nhsuk-heading-m">Publication status</h2>
+
+          {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+            "legend": {
+            "text": "",
+            "classes": "nhsuk-fieldset__legend--l"
+            }
+        },
+        "hint": {
+            "text": ""
+        },
+        "items": [
+                        {
+            "value": "publish",
+            "text": "Published"
+
+            },
+            {
+            "value": "save-draft",
+            "text": "Unpublished"
+            }
+        ]
+        }) }}
+
+          <br/>
+
+          {{ button({
+            "text": "Save and continue"
+          }) }}
+
+          <p>
+            <a href="confirm-delete-price-tiered" style="color: red;">Delete list price</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,225 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Capabilities and epics
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content"> 
+      <h1>
+        Capabilities and epics
+        <span class="nhsuk-caption-xl">Caltech Web GP</span> 
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+      <h2>Capabilities and epics</h2>
+      
+
+      {% from 'details/macro.njk' import details %}
+
+      {{ details({
+        "text": "What are Capabilities?",
+        "HTML": "<p>Capabilities are how you can match a Catalogue Solution to a business need. For example, you may want to enable GP staff to make a digital record of any consultation with a patient. You can therefore identify Catalogue Solutions which offer the 'Recording Consultations' Capability.</p>
+                <p>Each Capability is a set of requirements that are defined using short descriptions called Epics. The more functionality a Catalogue Solution has, the more Epics it will be able to meet for a particular Capability.</p>"
+      }) }}
+
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">Capabilities met</h3>
+          <p>This Catalogue Solution has demonstrated that it can help meet the following business needs:</p>
+          {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  responsive: true,
+  panel: false,
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Capability"
+    },
+    {
+      text: "Details"
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>Clinical Decision Support</b><br />Supports clinical decision-making to improve Patient safety at the point of care.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>GP Extracts Verification</b><br />Supports Practice staff in ensuring&nbsp;accuracy of the data that is used with&nbsp;the Calculating Quality Reporting Service (CQRS).'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: "<b>Medicines Optimisation</b><br />Supports clinicians and pharmacists in reviewing a Patient's medication and requesting changes to medication to ensure the Patient is taking the best combination of medicines."
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+    ]
+  ]
+}) }}
+        </div>
+      </div>
+
+      
+      
+
+<p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Solution information last reviewed: 31 March 2020
+</p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "list-price",
+    "previousPage": "List price",
+    "nextUrl": "additional-services",
+    "nextPage": "Additional Services"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+
+});
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

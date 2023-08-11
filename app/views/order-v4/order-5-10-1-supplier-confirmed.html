@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-supplier-results",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Supplier contact details</h1>
+
+      {% from 'warning-callout/macro.njk' import warningCallout %}
+      {{ warningCallout({
+        "heading": "Confirming your supplier",
+        "HTML": "<p>As you've confirmed the supplier details for this order they cannot be changed.</p>
+        <p>If you need to select a new supplier, you must start a new order.</p>"
+      }) }}
+
+      <p class="nhsuk-lede-text">Cyberdyne Systems</p>
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Supplier name"
+            },
+            value: {
+              text: "Cyberdyne Systems"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal name"
+            },
+            value: {
+              text: "Genesys Skynet Cyberdyne Systems"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered address"
+            },
+            value: {
+              html: '<p>Rawdon House</p>
+              <p>Green Lane</p>
+              <p>West Yorkshire</p>
+              <p>LS19 7BY</p>
+              <p>England</p>'
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <div>
+        <div style="display:inline-block;">
+          <form method="post" action="order-5-10-2-supplier-contact-details">
+            {% from 'button/macro.njk' import button %}
+    
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div style="display:inline-block;">
+          <form action="order-0-1-list">
+          {{ button({
+            "text": "Save for later",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+        </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-standard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Edit a standard milestone
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      {{ actionLink({
+        "text": "Add more acceptance criteria to this milestone",
+        "href": "implementation-add-bullet"
+      }) }}
+
+      {{ table({
+        panel: false,
+        caption: "Milestone M1-1",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Acceptance Criteria"
+          },
+          {
+            text: "Action"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<ul>
+                <li>
+                  The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Detailed Implementation Plan includes all Deliverables and all Supplier, Call Off Ordering Party and Service Recipient responsibilities with appropriate time allocated to the execution of each.
+                </li>
+              </ul>"
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+
+      <br />
+
+
+      {{ button({
+        "text": "Continue",
+        "href": "implementation-plan-bespoke-1"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

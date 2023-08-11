@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {{ backLink({
+      "href": "associated-service-requirements",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services requirements documentation
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Explain where your Associated Services requirements are documented.</p>
+
+        {{ textarea({
+          "idPrefix": "document-name",
+          "name": "document-name",
+          "hint": {
+            "text": "You'll need to attach this document when you submit your order."
+          },
+          label: {
+            text: "What is this document called?"
+          }
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"../order-4-summary-assc-services-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

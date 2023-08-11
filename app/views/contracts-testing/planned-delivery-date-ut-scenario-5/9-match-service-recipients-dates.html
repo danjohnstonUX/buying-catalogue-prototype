@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Match changes
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("decision-1").checked ? document.getElementById("decision-1").value : "";
+    var opt2 = document.getElementById("decision-2").checked ? document.getElementById("decision-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "10-planned-delivery-dates-training-yes";
+    }
+    else if(opt2=="no") {
+        document.location.href = "10-planned-delivery-dates-training-no";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "8-planned-delivery-dates-migration-yes",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Match planned delivery dates for Associated Service
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Training Day at Practice
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Select if you want the same delivery dates you used for your Catalogue Solution to be applied to your Associated Service.</p>
+
+      {{ insetText({
+        "HTML": "<p>If you have any extra Service Recipients for your service, you can add planned delivery dates for them later.</p>"
+      }) }}
+
+      {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "decision",
+  "name": "decision",
+  "fieldset": {
+    "legend": {
+      "text": "Do you want to use the same delivery dates for your Associated Service?",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": "If you choose not to match, then the planned delivery date for the majority of your Service Recipients will be applied. You’ll be able to edit the dates later."
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+<br />
+
+        <div>
+          {{ button({
+            "text": "Save and continue",
+            "href":"javascript: sendForm();"
+          }) }}
+
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

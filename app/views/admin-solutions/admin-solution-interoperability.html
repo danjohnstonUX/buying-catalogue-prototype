@@ -1,0 +1,480 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>
+      <span role="text">Interoperability
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <!--h2>User accounts</h2-->
+
+    <p class="nhsuk-lede-text">Provide information on the integrations your Catalogue Solution works with.</p>
+
+
+    <h2>NHS assured integrations (optional)</h2>
+
+    <details class="nhsuk-details "><summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">What are NHS assured integrations?&nbsp;&nbsp;</span></summary><div class="nhsuk-details__text">
+      <p class="nhsuk-body">
+          IM1, GP Connect and the NHS App offer integrations specified and assured by the NHS. They allow clinical information and data to be shared quickly and efficiently between IT systems.
+      </p>
+      <p class="nhsuk-body">
+          If your Catalogue Solution uses any of these integrations, you must provide information on them using the add integrations links.
+      </p>
+      <p class="nhsuk-body">
+          You can find more information about <a href="https://digital.nhs.uk/services/gp-it-futures-systems/im1-pairing-integration">IM1 integrations</a>, <a href="https://digital.nhs.uk/services/gp-connect">GP Connect integrations</a> and <a href="https://digital.nhs.uk/services/nhs-app">NHS App integrations</a> on the NHS Digital website.
+      </p>
+      </div>
+    </details>
+
+    <h3 class="nhsuk-heading-m">IM1 integrations</h3>
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Add an IM1 integration",
+      "href": "admin-solution-interop-add"
+    }) }}
+<p>Use the link to add information on each of the IM1 integrations your Catalogue Solution works with.</p>
+    {% from 'tables/macro.njk' import table %}
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          IM1 Bulk
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        {{ table({
+          responsive: true,
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+            {
+            text: "Provider or consumer"
+            },
+            {
+            text: "System integrating with"
+            },
+            {
+            text: "Description"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+          [
+          {
+            header: "Provider or consumer",
+            text: "Provider"
+          },
+          {
+            header: "System integrating with",
+            text: "Audit+"
+          },
+          {
+            header: "Description",
+            text: "Audit+ utilises a bulk extraction of full clinical records (including confidential and deceased patients) from EMIS Web to provide General Practices with a crossplatform clinical decision support and management tool; supporting QOF performance management, improvement and NHS Health Checks."
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ],
+          [
+          {
+            header: "Provider or consumer",
+            text: "Provider"
+          },
+          {
+            header: "System integrating with",
+            text: "Informatics Platform"
+          },
+          {
+            header: "Description",
+            text: "A Risk Stratification tool"
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ],
+          [
+          {
+            header: "Provider or consumer",
+            text: "Provider"
+          },
+          {
+            header: "System integrating with",
+            text: "Censura"
+          },
+          {
+            header: "Description",
+            text: "Storm is a sophisticated management information reporting interface that presents EMIS Web, allowing users to display their data in the most impactful and effective format; selecting from a range of arrangements and graphical forms."
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ]
+          ]
+          }) }}
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander nhsuk-u-margin-bottom-7">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          IM1 Transactional
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        {{ table({
+          responsive: true,
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Provider or consumer"
+            },
+            {
+              text: "System integrating with"
+            },
+            {
+              text: "Description"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Provider or consumer",
+                text: "Provider"
+              },
+              {
+                header: "System integrating with",
+                text: "Audit+"
+              },
+              {
+                header: "Description",
+                text: "Audit+ utilises a bulk extraction of full clinical records (including confidential and deceased patients) from EMIS Web to provide General Practices with a crossplatform clinical decision support and management tool; supporting QOF performance management, improvement and NHS Health Checks."
+              },
+              {
+                html: '<a href="#">Edit</a>'
+              }
+            ],
+            [
+              {
+                header: "Provider or Consumer",
+                text: "Provider"
+              },
+              {
+                header: "System integrating with",
+                text: "Informatics Platform"
+              },
+              {
+                header: "Description",
+                text: "A Risk Stratification tool"
+              },
+              {
+                html: '<a href="#">Edit</a>'
+              }
+            ],
+            [
+              {
+                header: "Provider or Consumer",
+                text: "Provider"
+              },
+              {
+                header: "System integrating with",
+                text: "Censura"
+              },
+              {
+                header: "Description",
+                text: "Storm is a sophisticated management information reporting interface that presents EMIS Web, allowing users to display their data in the most impactful and effective format; selecting from a range of arrangements and graphical forms."
+              },
+              {
+                html: '<a href="#">Edit</a>'
+              }
+            ]
+          ]
+        }) }}
+      </div>
+    </details>
+
+    <hr>
+
+    <h3 class="nhsuk-heading-m nhsuk-u-margin-top-5">GP Connect integrations</h3>
+
+    {{ actionLink({
+      "text": "Add a GP Connect integration",
+      "href": "admin-solution-interop-addGPC"
+    }) }}
+    <p>Use the link to add information on each of the GP Connect integrations your Catalogue Solution works with.</p>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          GP Connect - HTML View
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        {{ table({
+          responsive: true,
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+          {
+          text: "Provider or consumer"
+          },
+          {
+          text: "Additional information"
+          },
+          {
+          text: ""
+          }
+          ],
+          rows: [
+          [
+          {
+            header: "Provider or consumer",
+            text: "Provider"
+          },
+          {
+            header: "Additional information",
+            text: "EMIS Web received Full Roll Out Approval from NHS Digital for GP Connect HTML View Provision on 20/06/19"
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ],
+          [
+          {
+            header: "Provider or consumer",
+            text: "Consumer"
+          },
+          {
+            header: "Additional information",
+            text: "EMIS Web is accredited to consume GP Connect HTML views"
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ]
+          ]
+          }) }}
+      </div>
+    </details>
+    
+    <details class="nhsuk-details nhsuk-expander nhsuk-u-margin-bottom-7">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          GP Connect - Appointment Booking
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        {{ table({
+          responsive: true,
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+          {
+          text: "Provider or consumer"
+          },
+          {
+          text: "Additional information"
+          },
+          {
+            text: ""
+          }
+          ],
+          rows: [
+          [
+          {
+            header: "Provider or consumer",
+            text: "Provider"
+          },
+          {
+            header: "Additional information",
+            text: "EMIS Web received Full Roll Out Approval from NHS Digital for GP Connect HTML View Provision on 20/06/19"
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ],
+          [
+          {
+            header: "Provider or consumer",
+            text: "Consumer"
+          },
+          {
+            header: "Additional information",
+            text: "EMIS Web is accredited to consume GP Connect HTML views"
+          },
+          {
+            html: '<a href="#">Edit</a>'
+          }
+          ]
+          ]
+          }) }}
+      </div>
+    </details>
+
+    <hr>
+
+    <h3 class="nhsuk-heading-m nhsuk-u-margin-top-5">NHS App integrations</h3>
+
+    {{ actionLink({
+      "text": "Add NHS App integrations",
+      "href": "admin-solution-interop-nhs-app"
+    }) }}
+    <p>Use the link to add all the NHS App integrations your Catalogue Solution works with.</p>
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">Selected NHS App integrations</h3>
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key no-bottom-border">
+              Integrations
+            </dt>
+            <dd class="nhsuk-summary-list__value no-bottom-border">
+              <ul class="nhsuk-list">
+                <li>Online Consultation Services</li>
+                <li>Secondary Care Notifications & Messaging</li>
+                <li>Personal Health Records (PHR)</li>
+              </ul>
+            </dd>
+        
+            <dd class="nhsuk-summary-list__actions no-bottom-border">
+        
+              <a href="admin-solution-interop-nhs-app">
+                Edit<span class="nhsuk-u-visually-hidden"> name</span>
+              </a>
+        
+            </dd>
+        
+          </div>
+        
+        </dl>
+        
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Supplier asserted integrations (optional)</h2>
+
+
+
+    {{ input({
+      "label": {
+        "text": "Link to supplier asserted integrations"
+      },
+      "hint": {
+        "text": "Provide a URL to a page that gives information about your own integrations. They may only allow your Catalogue Solution to partially integrate with other systems."
+      },
+      "id": "last-name",
+      "name": "last-name"
+    }) }}
+    <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+    {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>If you are providing a URL, it must link to a page detailing all the supplier asserted integrations for your Catalogue Solution. It’s your responsibility to keep this page up-to-date.</p>"
+}) }}
+
+    <br /><br />
+
+
+    <form action="admin-solution">
+    {{ button({
+      "text": "Save and continue",
+      "href": "admin-solution"
+    }) }}
+    </form>
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    
+    jQuery.goup({
+      bottomOffset: 120,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+  
+});
+
+
+</script>
+
+
+{% endblock %}

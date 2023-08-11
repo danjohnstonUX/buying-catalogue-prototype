@@ -1,0 +1,240 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("add-milestone-1").checked ? document.getElementById("add-milestone-1").value : "";
+    var opt2 = document.getElementById("add-milestone-2").checked ? document.getElementById("add-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "order-4-summary-implementation-completed";
+    }
+    else if(opt2=="no") {
+        document.location.href = "implementation-add-bespoke-milestone";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-1",
+  "text": "Go back"
+}) }}
+
+{% set acHtml %}
+
+{{ textarea({
+"idPrefix": "ac-description",
+"name": "acceptance-criteria",
+"label": {
+  text: "What is the acceptance criteria for this milestone?"
+}
+}) }}
+
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Review bespoke Milestones
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      {{ table({
+        panel: false,
+        caption: "Milestone M1: Go Live",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone ID"
+          },
+          {
+            text: "Milestone description"
+          },
+          {
+            text: "Action"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "M1-1"
+            },
+            {
+              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M1-2"
+            },
+            {
+              text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M1-3"
+            },
+            {
+              text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M1-4"
+            },
+            {
+              text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ table({
+        panel: false,
+        caption: "Milestone M2: Service Stability",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone ID"
+          },
+          {
+            text: "Milestone description"
+          },
+          {
+            text: "Action"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "M2-1"
+            },
+            {
+              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M2-2"
+            },
+            {
+              text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M2-3"
+            },
+            {
+              text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "M2-4"
+            },
+            {
+              text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+              header: "Action",
+              html: "<a href='#'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+
+      {{ radios({
+        "idPrefix": "add-milestone",
+        "name": "add-milestone-radios",
+        "fieldset": {
+          "legend": {
+            "text": "Have you finished adding milestones?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, I am satisfied with these milestones"
+          },
+          {
+            "value": "no",
+            "text": "No, I want to add another milestone"
+          }
+        ]
+      }) }}
+
+      <br />
+
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

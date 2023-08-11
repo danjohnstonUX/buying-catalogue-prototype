@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Which application types do you require?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "price-weighting",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Which application types do you require?</h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "app-type-checkbox",
+            "name": "app-type-checkbox",
+            "classes": "nhsuk-u-margin-bottom-5",
+            "fieldset": {
+              "legend": {
+                "text": "Application type",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, accusamus.</p>"
+            },
+            "items": [
+              {
+                "value": "browser",
+                "text": "Browser-based application"
+              },
+              {
+                "value": "desktop",
+                "text": "Desktop application"
+              },
+              {
+                "value": "mobile",
+                "text": "Mobile or tablet application"
+              }
+            ]
+          }) }}
+
+
+        </form>
+
+        <br/>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"mobile-app"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

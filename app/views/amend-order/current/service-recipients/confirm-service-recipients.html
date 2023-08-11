@@ -1,0 +1,350 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "amend-service-recipients",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C00001-02
+      </span>
+    </h1>
+  </div>
+</div>
+
+{# {% for key, value in postParams %}
+{% if key.startsWith('serviceRecipient') %}
+<p>{{ key }}: {{ value }}</p>
+{% endif %}
+{% endfor %} #}
+
+{# <p>checls are {{data['NHS-WEST-YORKSHIRE-CB-02T'].length}}</p>
+{% if data['NHS WEST YORKSHIRE ICB - 03R'] %}
+bob bob
+{% endif %}
+
+<ul>
+  {% for value in request.body['NHS-WEST-YORKSHIRE-CB-02T'] %}
+  <li>{{ value }}</li>
+  {% endfor %}
+</ul> #}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <p class="nhsuk-lede-text">Review the changes you’ve made to the organisations from your previous order.</p>
+    </div>
+
+    <details class="nhsuk-details nhsuk-expander" open>
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS WEST YORKSHIRE ICB - 02T
+        </span>
+        <span class="expander-count"><b class="expander-count-text">17</b> recipients selected</span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <table role="table" class="nhsuk-table-responsive nhsuk-u-margin-bottom-7">
+          <caption class="nhsuk-table__caption">Service Recipients</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Status
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Organisation
+              </th>
+              <th role="columnheader" class="" scope="col">
+                ODS Code
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span><span class="nhsuk-table-responsive__heading">Status </span><strong class="nhsuk-tag nhsuk-tag--pink">
+                  Removed
+                </strong>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>BANKFIELD SURGERY 
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84016
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span><span class="nhsuk-table-responsive__heading">Status </span><strong class="nhsuk-tag nhsuk-tag--pink">
+                  Removed
+                </strong>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>BEECHWOOD MEDICAL CENTRE 
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84613
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span><span class="nhsuk-table-responsive__heading">Status </span><strong class="nhsuk-tag nhsuk-tag--pink">
+                  Removed
+                </strong>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>BRIG ROYD SURGERY 
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84007
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>CARITAS GROUP PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84618
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>CHURCH LANE SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84011
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>DR CHIN AND PARTNERS
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84008
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>HEBDEN BRIDGE GROUP PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84004
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>KEIGHLEY ROAD SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84010
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>KING CROSS PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84021
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span><strong class="nhsuk-tag nhsuk-tag--blue">
+                  Added
+                </strong>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>LISTER LANE SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84612
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span><strong class="nhsuk-tag nhsuk-tag--blue">
+                  Added
+                </strong>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>LONGROYDE SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84623
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>PLANE TREES GROUP PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84013
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>RASTRICK HEALTH CENTRE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84014
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>ROSEGARTH SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84005
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>RYDINGS HALL SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84003
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>SPRING HALL GROUP PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84012
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>STAINLAND ROAD MEDICAL CENTRE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84009
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>STATION ROAD SURGERY
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84001
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>THE BOULEVARD MEDICAL PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84019
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Status </span>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation </span>TODMORDEN GROUP PRACTICE
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code </span>B84006
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </details>
+
+    <br />
+
+    <p class="nhsuk-u-reading-width">You can <a href="add-service-recipients-global">add or remove Service Recipients</a> if needed, or edit them
+      later if
+      you continue with your order.</p>
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        <a href="../tasklists/tasklist-sr-completed" class="nhsuk-button">Continue</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

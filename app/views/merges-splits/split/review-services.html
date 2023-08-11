@@ -1,0 +1,243 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<style>
+  .nhsuk-expander .nhsuk-details__summary>span,
+  .nhsuk-expander .nhsuk-details__summary-text {
+    color: black;
+    text-decoration: none;
+  }
+
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander {
+    background: none;
+  }
+</style>
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "confirm-price",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Review order<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+    <p class="nhsuk-lede-text">Review the information you've added to this order.</p>
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+    "text": "Edit Service Recipients",
+    "href": "select-recipients"
+    }) }}
+
+
+    <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+    <hr />
+  </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h2>Associated Services</h2>
+
+
+    <!-- <h3 style="margin-bottom: 2;">Associated Services</h3>  -->
+
+    <details class="nhsuk-details nhsuk-expander" open>
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>Practice Split</b>
+        </span>
+        <span style="float:right;">
+          <b>Subtotal:</b> £6,000.00
+          <span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <br />
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients to be split</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                Service Recipient (ODS code)
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity <br />per practice
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">BURNBRAE MEDICAL PRACTICE (B81085)</td>
+              <td class="nhsuk-table__cell" style="width:40%">Not applicable</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients to receive patients</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                Service Recipient (ODS code)
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity <br />per practice
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">CAMPUS HEALTH CENTRE (B81104)</td>
+              <td class="nhsuk-table__cell" style="width:40%">1</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">CHP LTD - BRANSHOLME (B81002)</td>
+              <td class="nhsuk-table__cell" style="width:40%">1</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Total quantity
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">£3,000 per practice split</td>
+              <td class="nhsuk-table__cell" style="width:40%">2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <br />
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+    rows: [
+    {
+    key: {
+    text: "Total one-off cost:"
+    },
+    value: {
+    text: "£6,000.00"
+    },
+    actions: {
+    items: [
+
+    ]
+    }
+    },
+    {
+    key: {
+    text: "Total monthly cost:"
+    },
+    value: {
+    text: "£0.00"
+    },
+    actions: {
+    items: [
+    ]
+    }
+    },
+    {
+    key: {
+    text: "Total annual cost:"
+    },
+    value: {
+    html: '<p>£0.00</p>'
+    },
+    actions: {
+    items: [
+    ]
+    }
+    }
+    ]
+    }) }}
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+    rows: [
+
+    {
+    key: {
+    text: ""
+    },
+    value: {
+    text: ""
+    },
+    actions: {
+    items: [
+
+    ]
+    }
+    }
+    ]
+    }) }}
+
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        <form method="post" action="../order-tasklist-incomplete">
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+          "text": "Continue"
+          }) }}
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

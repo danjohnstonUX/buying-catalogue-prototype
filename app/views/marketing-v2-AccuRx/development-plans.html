@@ -1,0 +1,165 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+AccuRx - Development plans
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">AccuRx</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to AccuRx</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav-accurx.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+
+      <h1>
+        Development plans
+        <span class="nhsuk-caption-xl">AccuRx</span> 
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+           <dd class="nhsuk-summary-list__value">
+            <a href="supplier-details" class="nhsuk-link nhsuk-link--no-visited-state">	
+              AccuRx</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+              
+  10030-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Tech Innovation
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            No
+          </dd>
+          
+        </div>
+  
+      
+      
+    </dl>
+      <h2 class="nhsuk-heading-l">Development plans</h2>
+
+      <p>These are the development plans for this Catalogue Solution:</p>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Roadmaps
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>The supplier has provided a roadmap detailing the development plans for this Catalogue Solution.</p>
+
+      <p><a href="https://trello.com/b/ah3Uum3Z/accurx-public-roadmap" target="_blank" class="nhsuk-link">View supplier’s roadmap for this Catalogue Solution (opens in a new tab)</a> </p>
+
+      <p>The GP IT Futures Capabilities and Standards roadmap outlines future changes to the Capabilities and Standards model.</p>
+
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133519/Roadmap" target="_blank" class="nhsuk-link">View GP IT Futures Capabilities and Standards roadmap (opens in a new tab)</a></p>
+
+        </div>
+      </details>
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "service-level-agreement",
+    "previousPage": "Service agreement"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){  
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+
+});
+
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,324 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<!--
+Radio 1: order-2-2-triage-under40
+Radio 2: order-2-2-triage-40-250
+Radio 3: order-2-2-triage-over250
+Radio 4: order-2-4-triage-instructions
+-->
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("price-1").checked ? document.getElementById("price-1").value : "";
+    var opt2 = document.getElementById("price-2").checked ? document.getElementById("price-2").value : "";
+    var opt3 = document.getElementById("price-3").checked ? document.getElementById("price-3").value : "";
+    var opt4 = document.getElementById("price-4").checked ? document.getElementById("price-4").value : "";
+
+    if(opt1=="opt1") {
+        document.location.href = "order-2-2-triage-under40";
+    }
+    else if(opt2=="opt2") {
+        document.location.href = "order-2-2-triage-40-250";
+    }
+    else if(opt3=="opt3") {
+        document.location.href = "order-2-2-triage-over250";
+    }
+    else if(opt4=="opt4") {
+        document.location.href = "order-2-4-triage-instructions";
+    }
+  }
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-0-1-list",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Implementation plan
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            What is a standard implementation plan?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <h1>Milestones</h1>
+          <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet.</p>
+
+          <h2>Section C.1 Milestones and Milestone Achievement Criteria</h2>
+          <p>The Milestones set out below will apply to all Service Instances.</p>
+
+          {% from 'tables/macro.njk' import table %}
+          {{ table({
+            panel: false,
+            caption: "Milestones",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Milestone ID and title"
+              },
+              {
+                text: "Milestone Payments scope"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "M1 (Go Live Milestone)"
+                },
+                {
+                  text: "No payment."
+                }
+              ],
+              [
+                {
+                  text: "M2 (Service Stable Milestone)"
+                },
+                {
+                  text: "The Periodic Service Charges commence on Achievement of Milestone M1, but are withheld from payment until Milestone M2 is Achieved."
+                }
+              ]
+            ]
+          }) }}
+
+
+          <h2>Milestone Achievement Criteria</h2>
+          <p>Call Off Ordering Parties may amend the table below for a particular Service Instance where appropriate and reasonable to do so. Where more than one set of Milestone Achievement Criteria are specified then the mapping of each set of Milestone Achievement Criteria to the Service Instances listed in the Order Summary must be clearly stated.</p>
+
+          {% from 'tables/macro.njk' import table %}
+          {{ table({
+            panel: false,
+            caption: "Milestone M1: Go Live",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Unique Ref"
+              },
+              {
+                text: "Acceptance Criteria"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "M1-1"
+                },
+                {
+                  text: "The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Detailed Implementation Plan includes all Deliverables and all Supplier, Call Off Ordering Party and Service Recipient responsibilities with appropriate time allocated to the execution of each."
+                }
+              ],
+              [
+                {
+                  text: "M1-2"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s satisfaction that the Catalogue Solution has been configured, as necessary, to meet the Service Recipient’s operational requirements."
+                }
+              ],
+              [
+                {
+                  text: "M1-3"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s satisfaction that the Supplier’s obligations under the Training Standard have been met."
+                }
+              ],
+              [
+                {
+                  text: "M1-4"
+                },
+                {
+                  text: "Where the Supplier is responsible for training, the Supplier evidences to the Service Recipient’s satisfaction that its End Users are trained to the extent that they can use the Catalogue Solution to fulfil their relevant business functions."
+                }
+              ],
+              [
+                {
+                  text: "M1-5"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s satisfaction that the national and other interfaces applicable to the Catalogue Solution can be connected to and accessed."
+                }
+              ],
+              [
+                {
+                  text: "M1-6"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s satisfaction that any Associated Services ordered with the Service Instance that are applicable to implementation have been effectively provided."
+                }
+              ],
+              [
+                {
+                  text: "M1-7"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s satisfaction that the requirements of the Data Migration Standard and Catalogue Solution Migration Process applicable to the Supplier for go live have been met and that the relevant data has migrated to the extent necessary for the Service Recipient to conduct their relevant business functions effectively."
+                }
+              ],
+              [
+                {
+                  text: "M1-8"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient and Call Off Ordering Party’s satisfaction that the Supplier will meet their Call Off Ordering Party related obligations set out within the Service Management Standard."
+                }
+              ],
+              [
+                {
+                  text: "M1-9"
+                },
+                {
+                  text: "The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Supplier has appropriate invoicing arrangements in place."
+                }
+              ],
+              [
+                {
+                  text: "M1-10"
+                },
+                {
+                  text: "Any commercial issues identified to date are visible to both Parties and an agreement on how they are to be handled has been reached between the Parties."
+                }
+              ],
+              [
+                {
+                  text: "M1-11"
+                },
+                {
+                  text: "Approval by the Call Off Ordering Party that all Milestone M1 activities have been successfully completed."
+                }
+              ]
+            ]
+          }) }}
+
+
+          {{ table({
+            panel: false,
+            caption: "Milestone M2: Service Stability",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Unique Ref"
+              },
+              {
+                text: "Acceptance Criteria"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "M2-1"
+                },
+                {
+                  text: "The Service Recipient confirms that the Catalogue Solution is functioning in accordance with the Supplier’s specification and that its End Users can use the Catalogue Solution effectively."
+                }
+              ],
+              [
+                {
+                  text: "M2-2"
+                },
+                {
+                  text: "The Supplier evidences to the Service Recipient’s and Call Off Ordering Party’s satisfaction that all of the requirements of the Data Migration Standard and Catalogue Solution Migration Process applicable to the Supplier have been met and that all of the relevant data has migrated to the Catalogue Solution."
+                }
+              ],
+              [
+                {
+                  text: "M2-3"
+                },
+                {
+                  text: 'The Supplier evidences to the Service Recipient and Call Off Ordering Party’s satisfaction that the Supplier is meeting its Call Off Ordering Party service management obligations set out on the "Call Off Ordering Party" tab of appendix 2 of the Service Management Standard, to the extent that the same can be reasonably demonstrated within 10 Working Days of Achievement of Milestone M1.'
+                }
+              ],
+              [
+                {
+                  text: "M2-4"
+                },
+                {
+                  text: "In relation to Type 2 Catalogue Solutions only, the Supplier evidences to the Service Recipient’s and Call Off Ordering Party’s satisfaction that the Catalogue Solution is meeting the applicable Service Levels."
+                }
+              ],
+              [
+                {
+                  text: "M2-5"
+                },
+                {
+                  text: "Any commercial issues identified to date are visible to both Parties and an agreement on how they are to be handled has been reached between the Parties."
+                }
+              ],
+              [
+                {
+                  text: "M2-6"
+                },
+                {
+                  text: "Approval by the Call Off Ordering Party that all Milestone M1 and M2 activities have been successfully completed."
+                }
+              ]
+            ]
+          }) }}
+
+        </div>
+      </details>
+
+
+      {{ radios({
+        "idPrefix": "bespoke-implementation",
+        "name": "bespoke-implementation-radios",
+        "fieldset": {
+          "legend": {
+            "text": "Do you have a bespoke implementation plan?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+        {
+          "value": "no",
+          "text": "No"
+        },
+        {
+          "value": "yes",
+          "text": "Yes"
+        }
+        ]
+      }) }}
+
+{{ button({
+  "text": "Continue",
+  "href":"#"
+}) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

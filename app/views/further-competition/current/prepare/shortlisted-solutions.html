@@ -1,0 +1,129 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-hint-solutions {
+    font-size: 1rem;
+  }
+</style>
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+    "href": "compare-solutions",
+    "text": "Go back"
+    }) }}
+
+    <h1>Shortlisted Catalogue Solutions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        OC/VC competition
+      </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the solutions you added to your shortlist for this competition.
+    </p>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>Your shortlisted solutions</h2>
+
+        <br>
+
+        <h3 class="nhsuk-heading-s">
+          <a href="#">Online and Video Consult (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Additional Services required:</h4>
+
+        <p class="nhsuk-body">Document Management, Caltech Mobile</p>
+
+        <hr>
+
+        <h3 class="nhsuk-heading-s">
+          <a href="#">Q Doctor (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            MyMed Ltd
+          </span>
+        </h3>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Additional Services required:</h4>
+
+        <p class="nhsuk-body">None</p>
+
+        <hr>
+
+        <h3 class="nhsuk-heading-s">
+          <a href="#">healthya Online and Video Consultation (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            ADDVantage Technologies
+          </span>
+        </h3>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Additional Services required:</h4>
+
+        <p class="nhsuk-body">None</p>
+
+        <br><br>
+
+        <!--<h2>Solutions not included in your shortlist</h2>
+
+        <br>
+
+        <h3 class="nhsuk-heading-s">
+          <a href="#">Engage Consult (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Engage Health Systems Limited 
+          </span>
+        </h3>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Additional Services required:</h4>
+
+        <p class="nhsuk-body">Document Management, Engage Mobile</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Your reason for not including this solution</h4>
+
+        <p class="nhsuk-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur doloribus repellendus impedit quod ipsam inventore reprehenderit. Commodi perferendis quos quis quia, voluptates minima rem, pariatur praesentium nisi ratione obcaecati atque. </p>
+      -->
+        <br>
+
+        <a href="../competition-tasklist" class="nhsuk-button">Continue</a>
+
+
+      </div>
+    </div>
+    <br /><br />
+
+    {% endblock %}
+
+    {% block footer %}
+    {% include "includes/footer.html" %}
+    {% endblock %}

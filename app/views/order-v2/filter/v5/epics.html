@@ -1,0 +1,362 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Filter by Epics
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "/order-v2/filter/v5/catalogue-solutions-start",
+      text: "Catalogue Solutions"
+    },
+    {
+      href: "/order-v2/filter/v5/capabilities",
+      text: "Capabilities"
+    }
+    ],
+    href: "/order-v2/filter/v5/epics",
+    text: "Epics"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<style>
+  .nhsuk-expander-index{
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary{
+    padding-top:40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text{
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter{
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color:#212b32;
+    display: block;
+  }
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){
+  updateGlobalCount();
+  updateAllSubgroupCounters();
+  document.getElementById('selection-counter').removeAttribute('style');
+
+  const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+  for (var i = 0; i < allCheckboxes.length; i++){
+    allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+  }
+}
+
+function updateSubGroupCount(selectedCheckbox){
+  var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+  updateSubGroupCountWorker(subgroup);
+  updateGlobalCount();
+}
+
+function updateSubGroupCountWorker(subgroup){
+  const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+  const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+  if(count > 0){
+    counter.innerText = ` - ${count} selected`;
+  }
+  else{
+    counter.innerText = '';
+  }
+}
+
+function updateAllSubgroupCounters(){
+  const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+  const allSubgroups = [];
+  allSelectedCheckboxes.forEach(function(cv, ci, lo)
+  {
+  allSubgroups.push(cv.getAttribute('subgroup'));
+  });
+  const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+  uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+}
+
+function updateGlobalCount(){
+  const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+  const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+  const globalCounter = document.getElementById('selection-counter');
+  globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+  }
+</script>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Filter by Epics<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+
+      </h1>
+      <p class="nhsuk-lede-text">Select the Epics you want to filter by.</p>
+
+     {#
+      {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+      #}
+
+      <hr />
+
+      <h2>6 Epics found with this search criteria:</h2>
+
+      <br />
+      <h4>Capabilities selected:</h4>
+      <ul>
+        <li>Appointments Management - GP</li>
+        <li>Appointment Management - Citizen</li>
+        <li>Clinic Decision Support</li>
+        <li>Online Consultation</li>
+        <li>GP Extracts Verification</li>
+      </ul> 
+     
+
+     
+      <p class="nhsuk-body-m"><a href="capabilities">Edit Capabilities</a></p>
+      
+
+
+
+      
+
+      <!-- <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            View your search criteria
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+        <p><b>Capabilities selected:</b></p>
+        <ul>
+          <li>Appointments Management - GP</li>
+          <li>Appointment Management - Citizen</li>
+          <li>Clinic Decision Support</li>
+          <li>Online Consultation</li>
+          <li>GP Extracts Verification</li>
+        </ul>
+
+        </div>
+      </details> -->
+
+      <hr />
+
+      <h2>Select Epics</h2>
+
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Clear Epic filters",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+      
+
+      <p id="selection-counter" style="display:none;"></p>
+      <br/>
+      <br />
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Appointments Management - GP
+            <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              4 results<span class="counter-class" subgroup="A"></span>
+            </span>
+          </span>
+        </summary>
+        <div style="margin-left: 25px; margin-right: 25px;"><p>Supports the administration, scheduling, resourcing and reporting of appointments.</p></div>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Epic name"
+                },
+                {
+                  text: "Epic type"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Cancel booked COVID-19 vaccination appointments for Patients
+                    </div>'
+                  },
+                  {
+                    text: "Supplier defined epic"
+                  }
+                ],
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Automatically send appointment cancellation notifications to Patients via SMS messages for COVID-19 appointments
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "NHS defined epic"
+                  }
+                ],
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Bulk send SMS messages for COVID-19 vaccination invite communications
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Supplier defined epic"
+                  }
+                ],
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Import COVID-19 vaccination Patient cohorts data via .CSV file
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "NHS defined epic"
+                  }
+                ],
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Patients can book their own COVID-19 vaccination appointments
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Supplier defined epic"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <br />
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Appointments Management - Citizen <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              4 results<span class="counter-class" subgroup="B"></span>
+            </span>
+          </span>
+        </summary>
+        <div style="margin-left: 25px; margin-right: 25px;"><p>Enables citizens to manage their appointments online. Supports the use of appointment slots that have been configured in Appointments Management – GP.</p></div>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Epic name"
+                },
+                {
+                  text: "Epic type"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-2" name="example" type="checkbox" value="email" subgroup="B">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-2">
+                        Appointments Management – GP
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Supplier defined epic"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <p>0 out of 6 selected</p>
+
+      <br /><br />
+
+      <form action="catalogue-solutions">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

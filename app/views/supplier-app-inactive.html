@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-basic.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Supplier onboarding application no longer available</h1>
+
+
+      <p>Please contact either your nominated GP IT Futures Supplier Manager or the <a href="mailto:gpitfutures@nhs.net">GP IT Futures programme</a>.</p>
+
+
+
+    </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

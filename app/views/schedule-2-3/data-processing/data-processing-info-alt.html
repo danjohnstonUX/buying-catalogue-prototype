@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("dpi-1").checked ? document.getElementById("dpi-1").value : "";
+      var opt2 = document.getElementById("dpi-2").checked ? document.getElementById("dpi-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "order-4-summary-data-processing-completed";
+      }
+      else if(opt2=="no") {
+          document.location.href = "data-processing-info-1";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-assc-services-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Data Processing Information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        {{ checkboxes({
+          "idPrefix": "dpi",
+          "name": "dpi",
+          "fieldset": {
+            "legend": {
+              "text": "Please confirm you are happy to proceed with the default Data Processing Information",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+          {
+            "value": "yes",
+            "text": "I am happy to proceed with the default Data Processing Information"
+          }
+          ]
+        }) }}
+
+        {{ details({
+          "text": "The default Data Processing Information is not sufficient for me",
+          "HTML": '
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <form>
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                <h1 class="nhsuk-fieldset__heading">
+                  Do you need to make changes to the default Data Processing Information?
+                </h1>
+              </legend>
+
+              <div class="nhsuk-checkboxes">
+
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="dpi-2" name="custom-dpi" type="checkbox" value="no">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                    I need to make changes to the default Data Processing Information
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+        </form>
+          '
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"javascript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

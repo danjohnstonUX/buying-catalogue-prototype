@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "contract-submit",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Order complete
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua:</p>
+
+        <ul>
+          <li>
+            <a href="#">Contractual obligation document 1</a>
+          </li>
+          <li>
+            <a href="#">Other legal obligation document 2</a>
+          </li>
+          <li>
+            <a href="#">Further information document 3</a>
+          </li>
+        </ul>
+
+        <h2>Next steps</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <br />
+
+        {{ button({
+          "text": "Continue",
+          "href":"order-4-summary-contract-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

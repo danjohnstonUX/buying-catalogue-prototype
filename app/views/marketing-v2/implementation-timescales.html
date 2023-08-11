@@ -1,0 +1,157 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Implementation timescale
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Implementation
+        <span class="nhsuk-caption-xl">Caltech Web GP</span> 
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+      <h2>Implementation details</h2>
+      <p><strong>These are the typical processes and timescales to implement this Catalogue Solution:</strong></p>
+      <p>The typical timescales for the implementation of Caltech Web are around 12 weeks depending on the patient list size.</p>
+      <p>An implementation plan is provided and agreed at the beginning of the process outlining all key dates and activities. Where required these dates are negotiable to fit the needs of the customer.</p>
+      
+          <h3 class="nhsuk-card__heading">Key activities:</h3>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Customer supplied with high level implementation plan and welcome pack</li>
+            <li>Engineer visit to perform install of client software and check connectivity</li>
+            <li>Customer supplied test data loaded into a test system and made available</li>
+            <li>Learning needs analysis performed &amp; agreed training plan for go-live</li>
+            <li>On site visit to train the customer how to check and cleanse their data</li>
+            <li>Any defects and corrections completed on migrated data</li>
+            <li>Practice sign-off of test data</li>
+            <li>Agreed training provide pre and post go-live in line with results from LNA</li>
+            <li>Go-live day, trainers and engineer onsite to support a smooth transition</li>
+          </ul>
+        </div>
+      </div>   
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "associated-services",
+    "previousPage": "Associated Services",
+    "nextUrl": "supplier-details",
+    "nextPage": "Supplier details"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){  
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+ 
+  });
+
+</script>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

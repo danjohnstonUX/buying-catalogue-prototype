@@ -1,0 +1,321 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS to Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: to change the header and footer to add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %} {{ breadcrumb({ items: [ ], href: "/admin-solutions/", text: "Manage Catalogue Solutions" }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {{ backLink({
+  "href": "../admin-solution",
+  "text": "Go back"
+}) }}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>
+          <span role="text">List price
+            <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden">
+                to
+              </span>
+              Caltech Web GP
+            </span>
+          </span>
+        </h1>
+
+        <!--h2>User accounts</h2-->
+
+        <p class="nhsuk-lede-text">Provide details of how much your Catalogue Solution costs. You must add at least one price type.</p>
+
+        {{ actionLink({
+          "text": "Add a list price",
+          "href": "list-price-select-type"
+        }) }}
+            <p>Use the link to add information on each pricing type for your Catalogue Solution.</p>
+            {{ checkboxes({
+          "idPrefix": "example",
+          "name": "example",
+          "items": [
+            {
+              "value": "email",
+              "text": "Show unpublished list prices",
+              "checked": true
+            }
+          ]
+        }) }}
+        <hr>
+        <h2>Tiered price for per patient for 1 care plan</h2>
+        <p>
+          <b>Status:
+          </b>
+          <strong class="nhsuk-tag nhsuk-tag--grey">Unpublished</strong>
+        </p>
+        {{ actionLink({
+              "text": "Edit price",
+              "href": "list-price-edit-price-tiered"
+            }) }}
+        {{ table({
+              responsive: true,
+              panel: false,
+              caption: "Pricing tiers",
+              firstCellIsHeader: false,
+              head: [
+                  {
+                  text: "Tier"
+                  },
+                  {
+                  text: "Price"
+                  },
+                  {
+                  text: "Range"
+                  }
+              ],
+              rows: [
+                  [
+                      {
+                          text: "Tier 1"
+                      },
+                      {
+                          text: "£0.1160 per patient per year"
+                      },
+                      {
+                          text: "1 to 89,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 2"
+                      },
+                      {
+                          text: "£0.0830 per patient per year"
+                      },
+                      {
+                          text: "90,000 to 899,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 3"
+                      },
+                      {
+                          text: "£0.0540 per patient per year"
+                      },
+                      {
+                          text: "900,000+ patients"
+                      }
+                  ]
+              ]
+          }) }}
+        <br/><br/>
+        <h2>Tiered price for per patient for 2-5 care plans</h2>
+        <p>
+          <b>Status:
+          </b>
+          <strong class="nhsuk-tag nhsuk-tag--green">Published</strong>
+        </p>
+        {{ actionLink({
+              "text": "Edit price",
+              "href": "list-price-edit-published-price-tiered"
+            }) }}
+        {{ table({
+              responsive: true,
+              panel: false,
+              caption: "Pricing tiers",
+              firstCellIsHeader: false,
+              head: [
+                  {
+                  text: "Tier"
+                  },
+                  {
+                  text: "Price"
+                  },
+                  {
+                  text: "Range"
+                  }
+              ],
+              rows: [
+                  [
+                      {
+                          text: "Tier 1"
+                      },
+                      {
+                          text: "£0.1160 per patient per year"
+                      },
+                      {
+                          text: "1 to 89,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 2"
+                      },
+                      {
+                          text: "£0.0830 per patient per year"
+                      },
+                      {
+                          text: "90,000 to 899,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 3"
+                      },
+                      {
+                          text: "£0.0540 per patient per year"
+                      },
+                      {
+                          text: "900,000 to 1,499,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 4"
+                      },
+                      {
+                          text: "£0.0490 per patient per year"
+                      },
+                      {
+                          text: "1,500,000+ patients"
+                      }
+                  ]
+              ]
+          }) }}
+        <br/><br/>
+        <h2>Tiered price for per patient for 6-10 care plans</h2>
+        <p>
+          <b>Status:
+          </b>
+          <strong class="nhsuk-tag nhsuk-tag--grey">Unpublished</strong>
+        </p>
+        {{ actionLink({
+              "text": "Edit price",
+              "href": "list-price-edit-price-tiered-6-10"
+            }) }}
+        {{ table({
+              responsive: true,
+              panel: false,
+              caption: "Pricing tiers",
+              firstCellIsHeader: false,
+              head: [
+                  {
+                  text: "Tier"
+                  },
+                  {
+                  text: "Price"
+                  },
+                  {
+                  text: "Range"
+                  }
+              ],
+              rows: [
+                  [
+                      {
+                          text: "Tier 1"
+                      },
+                      {
+                          text: "£0.1130 per patient per year"
+                      },
+                      {
+                          text: "1 to 89,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 2"
+                      },
+                      {
+                          text: "£0.0800 per patient per year"
+                      },
+                      {
+                          text: "90,000 to 899,999 patients"
+                      }
+                  ],
+                  [
+                      {
+                          text: "Tier 3"
+                      },
+                      {
+                          text: "£0.0510 per patient per year"
+                      },
+                      {
+                          text: "900,000+ patients"
+                      }
+                  ]
+              ]
+          }) }}
+
+        <br/><br/>
+        <h2>Flat price for per patient per year</h2>
+        <p>
+          <b>Status:
+          </b>
+          <strong class="nhsuk-tag nhsuk-tag--grey">Unpublished</strong>
+        </p>
+        {{ actionLink({
+              "text": "Edit price",
+              "href": "list-price-edit-price-flat"
+            }) }}
+        {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Provisioning type"
+                  },
+                  value: {
+                    text: "Per patient per year"
+                  }
+                },
+                {
+                  key: {
+                    text: "Time unit"
+                  },
+                  value: {
+                    text: "None"
+                  }
+                },
+                {
+                  key: {
+                    text: "Price"
+                  },
+                  value: {
+                    text: "£1,000.01"
+                  }
+                }
+              ]
+            }) }}
+        <form action="./admin-solution">
+          {{ button({
+      "text": "Continue",
+      "href": "admin-solution"
+    }) }}
+        </form>
+
+        <br/>
+        <br/>
+
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

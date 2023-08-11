@@ -1,0 +1,114 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Buying Catalogue</h1>
+        <p class="nhsuk-lede-text">
+          Find out what clinical information solutions are available from procurement frameworks on the Buying Catalogue.
+        </p>
+
+        <hr>
+
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>About the Buying Catalogue</h2>
+
+        <p>
+          The NHS Digital Buying Catalogue is an online marketplace where you can purchase clinical information systems that meet digital needs in health and social care.
+        </p>
+
+        <p>
+          All the listed products – known as Catalogue Solutions – have been assessed against a set of Capabilities defined by the NHS and a set of Standards defined by NHS Digital.
+        </p>
+
+        <p>
+          The functionality of the Buying Catalogue will be enhanced and the number of Catalogue Solutions available will increase over time.
+        </p>
+
+        {% from 'action-link/macro.njk' import actionLink %}
+
+        {{ actionLink({
+          "text": "Browse Catalogue Solutions",
+          "href": "/catalogue-solution/"
+        }) }}
+
+        <hr>
+
+        <h2>What would you like to do?</h2>
+
+        <ul>
+          <li>
+            <a href="/order-v2/">
+              <strong>Create or manage orders</strong>
+            </a>
+            <br/>
+            Place a new order or complete an order you've already started (log in required).
+          </li>
+          <li>
+            <a href="/registration/request-account">
+              <strong>Request an account</strong>
+            </a>
+            <br/>
+            Get log in credentials so you can create orders on the Buying Catalogue.
+          </li>
+          <li>
+            <a href="/proxy-buyer/nominate-email">
+              <strong>Nominate an organisation</strong>
+            </a>
+            <br/>
+            Allow an organisation to create orders on your behalf (user account required).
+          </li>
+        </ul>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <h2>What's new</h2>
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-heading-s">
+              <a class="nhsuk-card__link" href="advanced-telephony/advanced-telephony-info">Advanced Telephony framework</a>
+            </h3>
+            <p class="nhsuk-card__description">Supports the commissioning of advanced, cloud-hosted GP telephony systems.</p>
+          </div>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-heading-m">
+              <a class="nhsuk-card__link" href="tif/tif-info">Tech Innovation framework</a>
+            </h3>
+            <p class="nhsuk-card__description">Supports the delivery of cloud-based, innovative solutions in to the GP marketplace.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients Emis Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "select-new-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Practice Split
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the practices involved in the split you’re ordering.</p>
+
+
+    <h2>Service Recipients to be split</h2>
+    
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>BURNBRAE MEDICAL PRACTICE (B81085)</li>
+    
+    </ol>
+
+    <h2>Service Recipients to receive patients</h2>
+
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>CAMPUS HEALTH CENTRE (B81104)</li>
+      <li>CHP LTD - BRANSHOLME (B81002)</li>
+    </ol>
+
+  <br/>
+
+  <p>You can <a href="select-lead-recipient">add or remove Service Recipients </a> if needed.</p>
+
+      <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="confirm-price">
+                  {% from 'button/macro.njk' import button %}
+          
+                  {{ button({
+                    "text": "Continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

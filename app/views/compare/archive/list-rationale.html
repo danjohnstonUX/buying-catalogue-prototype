@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Shortlist rationale
+
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "solution-qdoctor",
+      text: "Q Doctor"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-name",
+      text: "Shortlist name"
+    },
+    {
+      href: "list-existing-3",
+      text: "New shortlist"
+    },
+    {
+      href: "list-your-shortlists-2",
+      text: "Your shortlists"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-rationale",
+      text: "Add rationale"
+  }]
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Add your rationale</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">Enter the rationale for choosing this Catalogue Solution to your chosen shortlist.</p>
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="example" style="font-weight: bold; font-size: x-large;" >
+    Rationale (optional)
+  </label>
+  <div class="nhsuk-hint" id="example-hint">
+    Please enter a reasons for adding this Catalogue Solutions to this shortlist.
+  </div>
+  <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
+</div>
+<p>You have 1500 characters remaining</p>
+
+
+    <br />
+
+    <form action="list-edit-rationale">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+    </form>
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

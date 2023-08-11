@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Do you want to describe the minimum Service Level Agreement your Solution requires?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="select-criteria"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "hosting-type";
+           break;
+        case "no":
+           document.location.href = "hosting-type";
+            break;
+  }
+</script>
+
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Do you want to describe the minimum Service Level Agreement your Solution requires?</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "select-criteria",
+  "name": "select-criteria",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,582 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Catalogue Solution quantity
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "4-confirm-cs-price",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Quantity of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            EMIS Web GP
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">We’ve included the latest practice list sizes published by NHS Digital.</p>
+
+        {% from 'inset-text/macro.njk' import insetText %}
+
+        {{ insetText({
+"HTML": "<p>The latest practice list sizes are published on <a href=\"https://digital.nhs.uk/data-and-information/publications/statistical/patients-registered-at-a-gp-practice/\" title=\"External website\">the NHS Digital website (opens in a new tab)</a>.</p>"
+}) }}
+
+        <table class="nhsuk-table-responsive" role="table">
+          <caption class="nhsuk-table__caption"></caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Recipient name (ODS code)</th>
+              <th role="columnheader" scope="col">Practice list size</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_0__Name" name="ServiceRecipients[0].Name" value="BURNBRAE MEDICAL PRACTICE">
+                <input type="hidden" id="ServiceRecipients_0__OdsCode" name="ServiceRecipients[0].OdsCode" value="B81085">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_0__Quantity" name="ServiceRecipients[0].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  BURNBRAE MEDICAL PRACTICE (B81085)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_0__InputQuantity" maxlength="500" name="ServiceRecipients[0].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_1__Name" name="ServiceRecipients[1].Name" value="CAMPUS HEALTH CENTRE">
+                <input type="hidden" id="ServiceRecipients_1__OdsCode" name="ServiceRecipients[1].OdsCode" value="B81104">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_1__Quantity" name="ServiceRecipients[1].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  CAMPUS HEALTH CENTRE (B81104)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_1__InputQuantity" maxlength="500" name="ServiceRecipients[1].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_2__Name" name="ServiceRecipients[2].Name" value="CHP LTD - BRANSHOLME">
+                <input type="hidden" id="ServiceRecipients_2__OdsCode" name="ServiceRecipients[2].OdsCode" value="B81002">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_2__Quantity" name="ServiceRecipients[2].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  CHP LTD - BRANSHOLME (B81002)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_2__InputQuantity" maxlength="500" name="ServiceRecipients[2].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_3__Name" name="ServiceRecipients[3].Name" value="CHP LTD - FIELD VIEW">
+                <input type="hidden" id="ServiceRecipients_3__OdsCode" name="ServiceRecipients[3].OdsCode" value="B81095">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_3__Quantity" name="ServiceRecipients[3].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  CHP LTD - FIELD VIEW (B81095)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_3__InputQuantity" maxlength="500" name="ServiceRecipients[3].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_4__Name" name="ServiceRecipients[4].Name" value="CITY HEALTH PRACTICE LTD">
+                <input type="hidden" id="ServiceRecipients_4__OdsCode" name="ServiceRecipients[4].OdsCode" value="B81074">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_4__Quantity" name="ServiceRecipients[4].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  CITY HEALTH PRACTICE LTD (B81074)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_4__InputQuantity" maxlength="500" name="ServiceRecipients[4].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_5__Name" name="ServiceRecipients[5].Name" value="CLIFTON HOUSE MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_5__OdsCode" name="ServiceRecipients[5].OdsCode" value="B81054">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_5__Quantity" name="ServiceRecipients[5].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  CLIFTON HOUSE MEDICAL CENTRE (B81054)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_5__InputQuantity" maxlength="500" name="ServiceRecipients[5].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_6__Name" name="ServiceRecipients[6].Name" value="DELTA HEALTHCARE">
+                <input type="hidden" id="ServiceRecipients_6__OdsCode" name="ServiceRecipients[6].OdsCode" value="B81097">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_6__Quantity" name="ServiceRecipients[6].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  DELTA HEALTHCARE (B81097)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_6__InputQuantity" maxlength="500" name="ServiceRecipients[6].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_7__Name" name="ServiceRecipients[7].Name" value="DR GT HENDOW'S PRACTICE">
+                <input type="hidden" id="ServiceRecipients_7__OdsCode" name="ServiceRecipients[7].OdsCode" value="B81616">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_7__Quantity" name="ServiceRecipients[7].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  DR GT HENDOW'S PRACTICE (B81616)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_7__InputQuantity" maxlength="500" name="ServiceRecipients[7].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_8__Name" name="ServiceRecipients[8].Name" value="DR JAD WEIR &amp; PARTNERS">
+                <input type="hidden" id="ServiceRecipients_8__OdsCode" name="ServiceRecipients[8].OdsCode" value="B81040">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_8__Quantity" name="ServiceRecipients[8].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  DR JAD WEIR &amp; PARTNERS (B81040)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_8__InputQuantity" maxlength="500" name="ServiceRecipients[8].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_9__Name" name="ServiceRecipients[9].Name" value="DRS RAUT AND THOUFEEQ">
+                <input type="hidden" id="ServiceRecipients_9__OdsCode" name="ServiceRecipients[9].OdsCode" value="B81631">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_9__Quantity" name="ServiceRecipients[9].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  DRS RAUT AND THOUFEEQ (B81631)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_9__InputQuantity" maxlength="500" name="ServiceRecipients[9].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_10__Name" name="ServiceRecipients[10].Name" value="EAST HULL FAMILY PRACTICE">
+                <input type="hidden" id="ServiceRecipients_10__OdsCode" name="ServiceRecipients[10].OdsCode" value="B81008">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_10__Quantity" name="ServiceRecipients[10].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  EAST HULL FAMILY PRACTICE (B81008)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_10__InputQuantity" maxlength="500" name="ServiceRecipients[10].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_11__Name" name="ServiceRecipients[11].Name" value="EAST PARK PRACTICE">
+                <input type="hidden" id="ServiceRecipients_11__OdsCode" name="ServiceRecipients[11].OdsCode" value="B81645">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_11__Quantity" name="ServiceRecipients[11].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  EAST PARK PRACTICE (B81645)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_11__InputQuantity" maxlength="500" name="ServiceRecipients[11].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_12__Name" name="ServiceRecipients[12].Name" value="GOODHEART SURGERY">
+                <input type="hidden" id="ServiceRecipients_12__OdsCode" name="ServiceRecipients[12].OdsCode" value="B81119">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_12__Quantity" name="ServiceRecipients[12].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  GOODHEART SURGERY (B81119)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_12__InputQuantity" maxlength="500" name="ServiceRecipients[12].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_13__Name" name="ServiceRecipients[13].Name" value="HASTINGS MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_13__OdsCode" name="ServiceRecipients[13].OdsCode" value="B81075">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_13__Quantity" name="ServiceRecipients[13].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  HASTINGS MEDICAL CENTRE (B81075)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_13__InputQuantity" maxlength="500" name="ServiceRecipients[13].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_14__Name" name="ServiceRecipients[14].Name" value="HAXBY GROUP CALVERT &amp; NEWINGTON">
+                <input type="hidden" id="ServiceRecipients_14__OdsCode" name="ServiceRecipients[14].OdsCode" value="B81675">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_14__Quantity" name="ServiceRecipients[14].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  HAXBY GROUP CALVERT &amp; NEWINGTON (B81675)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_14__InputQuantity" maxlength="500" name="ServiceRecipients[14].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_15__Name" name="ServiceRecipients[15].Name" value="JAMES ALEXANDER FAMILY PRACTICE">
+                <input type="hidden" id="ServiceRecipients_15__OdsCode" name="ServiceRecipients[15].OdsCode" value="B81112">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_15__Quantity" name="ServiceRecipients[15].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  JAMES ALEXANDER FAMILY PRACTICE (B81112)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_15__InputQuantity" maxlength="500" name="ServiceRecipients[15].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_16__Name" name="ServiceRecipients[16].Name" value="KINGSTON HEALTH (HULL)">
+                <input type="hidden" id="ServiceRecipients_16__OdsCode" name="ServiceRecipients[16].OdsCode" value="B81011">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_16__Quantity" name="ServiceRecipients[16].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  KINGSTON HEALTH (HULL) (B81011)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_16__InputQuantity" maxlength="500" name="ServiceRecipients[16].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_17__Name" name="ServiceRecipients[17].Name" value="KINGSTON MEDICAL GROUP">
+                <input type="hidden" id="ServiceRecipients_17__OdsCode" name="ServiceRecipients[17].OdsCode" value="B81017">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_17__Quantity" name="ServiceRecipients[17].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  KINGSTON MEDICAL GROUP (B81017)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_17__InputQuantity" maxlength="500" name="ServiceRecipients[17].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_18__Name" name="ServiceRecipients[18].Name" value="LAURBEL SURGERY">
+                <input type="hidden" id="ServiceRecipients_18__OdsCode" name="ServiceRecipients[18].OdsCode" value="B81635">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_18__Quantity" name="ServiceRecipients[18].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  LAURBEL SURGERY (B81635)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_18__InputQuantity" maxlength="500" name="ServiceRecipients[18].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_19__Name" name="ServiceRecipients[19].Name" value="MODALITY PARTNERSHIP (HULL)">
+                <input type="hidden" id="ServiceRecipients_19__OdsCode" name="ServiceRecipients[19].OdsCode" value="B81048">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_19__Quantity" name="ServiceRecipients[19].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  MODALITY PARTNERSHIP (HULL) (B81048)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_19__InputQuantity" maxlength="500" name="ServiceRecipients[19].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_20__Name" name="ServiceRecipients[20].Name" value="ORCHARD 2000 GROUP">
+                <input type="hidden" id="ServiceRecipients_20__OdsCode" name="ServiceRecipients[20].OdsCode" value="B81018">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_20__Quantity" name="ServiceRecipients[20].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  ORCHARD 2000 GROUP (B81018)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_20__InputQuantity" maxlength="500" name="ServiceRecipients[20].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_21__Name" name="ServiceRecipients[21].Name" value="PRINCES MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_21__OdsCode" name="ServiceRecipients[21].OdsCode" value="B81052">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_21__Quantity" name="ServiceRecipients[21].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  PRINCES MEDICAL CENTRE (B81052)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_21__InputQuantity" maxlength="500" name="ServiceRecipients[21].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_22__Name" name="ServiceRecipients[22].Name" value="ST ANDREWS SURGERY">
+                <input type="hidden" id="ServiceRecipients_22__OdsCode" name="ServiceRecipients[22].OdsCode" value="B81027">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_22__Quantity" name="ServiceRecipients[22].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  ST ANDREWS SURGERY (B81027)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_22__InputQuantity" maxlength="500" name="ServiceRecipients[22].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_23__Name" name="ServiceRecipients[23].Name" value="SYDENHAM GROUP PRACTICE">
+                <input type="hidden" id="ServiceRecipients_23__OdsCode" name="ServiceRecipients[23].OdsCode" value="B81058">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_23__Quantity" name="ServiceRecipients[23].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  SYDENHAM GROUP PRACTICE (B81058)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_23__InputQuantity" maxlength="500" name="ServiceRecipients[23].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_24__Name" name="ServiceRecipients[24].Name" value="THE AVENUES MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_24__OdsCode" name="ServiceRecipients[24].OdsCode" value="B81035">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_24__Quantity" name="ServiceRecipients[24].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  THE AVENUES MEDICAL CENTRE (B81035)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_24__InputQuantity" maxlength="500" name="ServiceRecipients[24].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_25__Name" name="ServiceRecipients[25].Name" value="THE BRIDGE GROUP PRACTICE">
+                <input type="hidden" id="ServiceRecipients_25__OdsCode" name="ServiceRecipients[25].OdsCode" value="B81046">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_25__Quantity" name="ServiceRecipients[25].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  THE BRIDGE GROUP PRACTICE (B81046)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_25__InputQuantity" maxlength="500" name="ServiceRecipients[25].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_26__Name" name="ServiceRecipients[26].Name" value="THE OAKS MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_26__OdsCode" name="ServiceRecipients[26].OdsCode" value="B81038">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_26__Quantity" name="ServiceRecipients[26].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  THE OAKS MEDICAL CENTRE (B81038)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_26__InputQuantity" maxlength="500" name="ServiceRecipients[26].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_27__Name" name="ServiceRecipients[27].Name" value="THE SUTTON MANOR SURGERY">
+                <input type="hidden" id="ServiceRecipients_27__OdsCode" name="ServiceRecipients[27].OdsCode" value="B81020">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_27__Quantity" name="ServiceRecipients[27].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  THE SUTTON MANOR SURGERY (B81020)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_27__InputQuantity" maxlength="500" name="ServiceRecipients[27].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_28__Name" name="ServiceRecipients[28].Name" value="WILBERFORCE SURGERY">
+                <input type="hidden" id="ServiceRecipients_28__OdsCode" name="ServiceRecipients[28].OdsCode" value="B81032">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_28__Quantity" name="ServiceRecipients[28].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  WILBERFORCE SURGERY (B81032)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_28__InputQuantity" maxlength="500" name="ServiceRecipients[28].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                <input type="hidden" id="ServiceRecipients_29__Name" name="ServiceRecipients[29].Name" value="WOLSELEY MEDICAL CENTRE">
+                <input type="hidden" id="ServiceRecipients_29__OdsCode" name="ServiceRecipients[29].OdsCode" value="B81047">
+                <input type="hidden" data-val="true" data-val-required="The Quantity field is required." id="ServiceRecipients_29__Quantity" name="ServiceRecipients[29].Quantity" value="0">
+                <div style="margin-top: 6px">
+                  WOLSELEY MEDICAL CENTRE (B81047)
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Practice list size</span>
+                <div style="text-align: right">
+                  <div class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" data-val="true" data-val-length-max="500" id="ServiceRecipients_29__InputQuantity" maxlength="500" name="ServiceRecipients[29].InputQuantity" type="text" value=""></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br/>
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="6-select-ad-service-recipients">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+          "text": "Save and continue"
+        }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <br/><br/>
+    {% endblock %}
+
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}

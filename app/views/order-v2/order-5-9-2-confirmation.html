@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        Before you start
+      </h1>
+
+
+      <p><b>Have you lorem ipsum dolor sit amet:</b></p>
+      <ul>
+        <li>Check that you have compared different solutions</li>
+        <li>Browse the catalogue, found what you want</li>
+        <li>Find the supplier details</li>
+        <li>You might need the practices sizes</li>
+        <li>You might need the deliveries dates</li>
+        <li>Know your allocation: Are you aware about the funding streams? eg. Central, local</li>
+        <li>Make sure you understand what additional and associated services are needed (contact the supplier for guidance)</li>
+        <li>Have you undertaken the procurement procedure? Link to buyers guide</li>
+      </ul>
+
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

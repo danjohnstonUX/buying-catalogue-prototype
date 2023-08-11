@@ -1,0 +1,153 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "filtered-list",
+      "text": "Go back"
+    }) }}
+
+    <h1>Save filters</h1>
+    <p class="nhsuk-lede-text">
+      Save your selected filters so you can use them to carry out a competition using the results.
+    </p>
+
+    {{ input({
+      "label": {
+        "text": "Filter name"
+      },
+      "hint": {
+        "text": "Provide a unique name for this set of filters so you can use them to carry out a competition."
+      },
+      "id": "example",
+      "name": "example",
+      "classes": "nhsuk-u-margin-bottom-3"
+    }) }}
+
+    {{ textarea({
+      "name": "example",
+      "id": "example",
+      "classes": "nhsuk-u-margin-bottom-9",
+      "label": {
+        "text": "Filter description"
+      },
+      "hint": {
+        "text": "Provide a description for this set of filters to remind you what search criteria was used."
+      }
+    }) }}
+
+    <h2>Filters to be saved</h2>
+
+    {{ table({
+      responsive: true,
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      panel: false,
+      caption: "Capabilities and Epics",
+      captionClasses: "capabilities-caption",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Capability"
+        },
+        {
+          text: "Epic"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Capability",
+            text: "Appointments Management - Citizen"
+          },
+          {
+            header: "Epics",
+            html: "<ul><li>Manage Appointments</li></ul>"
+          }
+        ],
+        [
+          {
+            header: "Capability",
+            text: "Video Consultation"
+          },
+          {
+            header: "Epics",
+            html: "<ul><li>Conduct video consultation</li><li>Conduct video consultation with a proxy</li><li>Direct messaging during a video consultation</li><li>End video consultation with a patient or service user</li><li>Waiting room</li></ul>"
+          }
+        ]
+      ]
+    }) }}
+
+    <h3>Additional filters</h3>
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Client application type"
+          },
+          value: {
+            text: "Desktop application"
+          }
+        },
+        {
+          key: {
+            text: "Framework"
+          },
+          value: {
+            text: "GP IT Futures"
+          }
+        },
+        {
+          key: {
+            text: "Hosting type"
+          },
+          value: {
+            text: "On premise"
+          }
+        }
+      ]
+    }) }}
+
+    <br>
+
+    <a href="saved-filter" class="nhsuk-button">Save and continue</a>
+
+    <p><a href="filtered-list">Cancel</a></p>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

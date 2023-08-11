@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "marketing-page-additional",
+  "text": "Go back"
+}) }}
+
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>
+        <span role="text">Enterprise Search and Reports
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+      <p>Supports the administration, scheduling, resourcing and reporting of appointments.</p>
+
+      {% from 'details/macro.njk' import details %}
+
+      {{ details({
+        "text": "What are Capabilities?",
+        "HTML": "<p>Capabilities are how you can match a Catalogue Solution to a business need. For example, you may want to enable GP staff to make a digital record of any consultation with a patient. You can therefore identify Catalogue Solutions which offer the 'Recording Consultations' Capability.</p>
+                <p>Each Capability is a set of requirements that are defined using short descriptions called Epics. The more functionality a Catalogue Solution has, the more Epics it will be able to meet for a particular Capability.</p>"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+
+      {{ table({
+      responsive: true,
+      panel: false,
+      caption: "",
+      firstCellIsHeader: false,
+      head: [
+      {
+      text: "Capability"
+      },
+      {
+      text: ""
+      }
+      ],
+      rows: [
+      [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-add-epics-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+      ],
+      [
+      {
+        header: "Capability",
+        html: '<b>Clinical Decision Support</b><br />Supports clinical decision-making to improve Patient safety at the point of care.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-add-epics-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+      ],
+      [
+      {
+        header: "Capability",
+        html: '<b>GP Extracts Verification</b><br />Supports Practice staff in ensuring&nbsp;accuracy of the data that is used with&nbsp;the Calculating Quality Reporting Service (CQRS).'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-add-epics-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+      ],
+      [
+      {
+        header: "Capability",
+        html: "<b>Medicines Optimisation</b><br />Supports clinicians and pharmacists in reviewing a Patient's medication and requesting changes to medication to ensure the Patient is taking the best combination of medicines."
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-add-epics-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+      ],
+      [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-add-epics-detail" style="white-space: nowrap;">Check Epics</a>'
+      }
+      ]
+      ]
+      }) }}
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

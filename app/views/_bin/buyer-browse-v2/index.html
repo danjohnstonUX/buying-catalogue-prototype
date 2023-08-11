@@ -1,0 +1,74 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  NHS Digital Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "../includes/header.html" %}
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+<div class="nhsuk-u-padding-top-7 nhsuk-u-padding-bottom-7 buyer-browse-3">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full" id="content">
+      <!-- Change the page title here -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+
+          <!-- Change the page title here -->
+          <h2>
+            Welcome to browse Solutions
+          </h2>
+
+          <h4>The Buying Catalogues provides you with all the Solutions and information you need to help you make an informed decision when procuring for you sites.</h4>
+
+          <p>There are some key terms you need to understanding when using the Buying Catalogue:</p>
+          <ul>
+            <li><b>Catalogue Solution</b> = a product or service on the Buying Catalogue.</li>
+            <li><b>Capabilities</b> = express a business need, for example, 'Recording Consultations' describes the need for General Practice staff to be able to make a digital record of any consultation with a patient.</li>
+            <li><b>Epics</b> = the functions that make up the Capability, for example, under ‘Recording Consultations’ the Epics are: ‘record Consultation information’ and ‘manage Consultation form templates’. There are two types of Epic – Must Epics which must be met, and May Epics which are optional</li>
+            <li><b>Acceptance Criteria</b> = describe the requirements of an Epic and are used to assess whether an Epic has been met</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full nhsuk-u-margin-top-4">
+            {{ actionLink({
+              "text": "Next: Capabilities",
+              "href": "/buyer-browse-v2/guide-2"
+            }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- End of content -->
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "../includes/footer.html" %}
+{% endblock %}

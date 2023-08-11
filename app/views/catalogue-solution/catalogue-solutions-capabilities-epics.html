@@ -1,0 +1,1727 @@
+{% from 'components/bc-list-capability-epic/macro.njk' import bcListCapEpic %}
+{{ bcListCapEpic({
+  idPrefix: "foundation",
+  category: "Foundation Solutions",
+  description: "Find solutions that meet the 6 Foundation Capabilities which are the minimum requirement to enable a GP practice to operate.",
+capabilities: [
+    {
+      text: "Foundation Capabilities (3)",
+      mustEpics: [
+        {
+          text: "Manage Appointments (3)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage Appointments (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+{{ bcListCapEpic({
+  idPrefix: "appointments",
+  category: "Appointments",
+  description: "Find solutions that enable patients and staff to efficiently manage time and resources.",
+  capabilities: [
+    {
+      text: "Appointments Management – Citizen (4)",
+      mustEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "Manage Appointments by Proxy (2)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "Manage Appointments by Proxy (2)"
+        }
+      ]
+    },
+    {
+      text: "Appointments Management – COVID-19 Vaccinations (2)",
+      mustEpics: [
+        {
+          text: "Manage Session templates (4)"
+        },
+        {
+          text: "Manage Sessions (4)"
+        },
+        {
+          text: "Configure Appointments (4)"
+        },
+        {
+          text: "Practice configuration (2)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage Session templates (4)"
+        },
+        {
+          text: "Manage Sessions (4)"
+        },
+        {
+          text: "Configure Appointments (4)"
+        },
+        {
+          text: "Practice configuration (2)"
+        }
+      ]
+    },
+    {
+      text: "Appointments Management – GP (4)",
+      mustEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "View Appointment reports (4)"
+        },
+        {
+          text: "Access Patient Record (4)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "View Appointment reports (4)"
+        },
+        {
+          text: "Access Patient Record (4)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+{{ bcListCapEpic({
+  idPrefix: "consultation",
+  category: "Consultations and communication",
+  description: "Find solutions that support the delivery of remote consultations and digital care.",
+  capabilities: [
+    {
+      text: "Clinical Decision Support (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Communicate With Practice – Citizen (5)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Communication Managemen (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "e-Consultations: Patient/Service User to Professional (1)",
+      mustEpics: [
+        {
+          text: "Patient/Service User requests support (2)"
+        },
+        {
+          text: "Respond to request for support from Patient/Service User (2)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Patient/Service User makes administrative request (4)"
+        },
+        {
+          text: "Link requests and responses to Patient/Service User Record (4)"
+        },
+        {
+          text: "Self-help and signposting (3)"
+        },
+        {
+          text: "Live Consultation: Patient/Service User and Health and Care Professionals (3)"
+        },
+        {
+          text: "Group e-Consultations (2)"
+        },
+        {
+          text: "Reports (2)"
+        }
+      ]
+    },
+    {
+      text: "e-Consultations: Professional to Professional (3)",
+      mustEpics: [
+        {
+          text: "Patient/Service User requests support (2)"
+        },
+        {
+          text: "Respond to request for support from Patient/Service User (2)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Patient/Service User makes administrative request (4)"
+        },
+        {
+          text: "Link requests and responses to Patient/Service User Record (4)"
+        },
+        {
+          text: "Self-help and signposting (3)"
+        },
+        {
+          text: "Live Consultation: Patient/Service User and Health and Care Professionals (3)"
+        },
+        {
+          text: "Group e-Consultations (2)"
+        },
+        {
+          text: "Reports (2)"
+        }
+      ]
+    },
+    {
+      text: "Online Consultation (7)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Recording Consultations (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Telecare (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Telehealth (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "Video Consultation (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+{{ bcListCapEpic({
+  idPrefix: "crossorg",
+  category: "Cross-organisation practice management",
+  description: "Find solutions that help improve how data is shared across care settings.",
+  capabilities: [
+    {
+      text: "Cross-organisation Appointment Booking (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Cross-organisation Workflow Tools (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Cross-organisation Workforce Management (5)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Digital Diagnostics (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Unified Care Record (1)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+{{ bcListCapEpic({
+  idPrefix: "document",
+  category: "Document and artefact management",
+  description: "Find solutions that support the management of electronic documents.",
+  capabilities: [
+    {
+      text: "Document Management (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Scanning (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Unstructured Data Extraction (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+
+{{ bcListCapEpic({
+  idPrefix: "medicines",
+  category: "Medicines management",
+  description: "Find solutions that allow the safe prescribing and dispensing of medicines.",
+  capabilities: [
+    {
+      text: "Dispensing (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Medicines Optimisation (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Medicines Verification (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Prescribing (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Prescription Ordering – Citizen (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Social Prescribing (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+
+{{ bcListCapEpic({
+  idPrefix: "patient",
+  category: "Patient record",
+  description: "Find solutions that support the maintenance and sharing of patient information.",
+  capabilities: [
+    {
+      text: "Cohort Identification (1)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Patient Information Maintenance (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Personal Health Budget (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Personal Health Record (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Referral Management (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Shared Care Plans (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Vaccination and Adverse Reaction Recording (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "View Record – Citizen (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+
+{{ bcListCapEpic({
+  idPrefix: "practice",
+  category: "Practice management",
+  description: "Find solutions that support the efficient running of a GP practice.",
+  capabilities: [
+    {
+      text: "Care Homes (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Caseload Management (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Domiciliary Care (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Resource Management (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Workflow (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+{{ bcListCapEpic({
+  idPrefix: "reporting",
+  category: "Reporting and data analytics",
+  description: "Find solutions that allow local data analysis across all aspects of a GP practice.",
+  capabilities: [
+    {
+      text: "Data Analytics for Integrated and Federated Care (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "GP Extracts Verification (3)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Population Health Management (4)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Reporting (5)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    },
+    {
+      text: "Risk Stratification (2)",
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+{{ bcListCapEpic({
+  idPrefix: "supplier-defined-capabilities",
+  category: "Supplier defined Capabilities",
+  description: "Find solutions that have met Capabilities defined by a supplier.",
+capabilities: [
+    {
+      text: "Productivity (14)"
+    }
+  ]
+}) }}
+
+{{ bcListCapEpic({
+  idPrefix: "supplier-defined-epics",
+  category: "Supplier defined Epics",
+  description: "Find solutions that have met Epics defined by a supplier.",
+  capabilities: [
+    {
+      text: "Caltech Messaging (1)"
+    },
+    {
+      text: "Caltech Productivity (1)"
+    }
+  ]
+}) }}
+
+
+
+
+
+
+
+<div style="display: none;">
+
+
+<details class="nhsuk-details details-arrow">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Filter by capabilities
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+    <p class="nhsuk-hint">
+      Search for a solution based on the business needs of your organisation.
+    </p>
+    {% from 'checkboxes/macro.njk' import checkboxes %}
+    {% include "catalogue-solution/catalogue-solutions-capabilities.html" %}
+  </div>
+</details>
+
+
+
+<!-- <div class="nhsuk-grid-column-full view-results">
+  <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+    <path fill="#005eb8" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+  </svg>
+  <a href="#header-navigation">
+     Back to top
+  </a>
+</div> -->
+
+
+</div>

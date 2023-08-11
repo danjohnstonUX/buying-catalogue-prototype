@@ -1,0 +1,172 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <!---<script>
+    function sendForm() {
+      var opt1 = document.getElementById("default-payment-schedule-1").checked ? document.getElementById("default-payment-schedule-1").value : "";
+      var opt2 = document.getElementById("default-payment-schedule-2").checked ? document.getElementById("default-payment-schedule-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "#";
+      }
+      else if(opt2=="no") {
+          document.location.href = "associated-service-billing-1";
+      }
+    }
+  </script>-->
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "associated-service-billing-4",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      </div>
+      <div class="nhsuk-grid-column-full">
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Payment triggers for your selected Associated Services",
+          tableClasses: "nhsuk-u-margin-bottom-7",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Milestone"
+            },
+            {
+              text: "Quantity"
+            },
+            {
+              text: "Implementation"
+            },
+            {
+              text: "Training"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Milestone",
+                text: "M1"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Implementation",
+                text: "5"
+              },
+              {
+                header: "Training",
+                text: "0"
+              }
+            ],
+            [
+              {
+                header: "Milestone",
+                text: "M2"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Implementation",
+                text: "5"
+              },
+              {
+                header: "Training",
+                text: "0"
+              }
+            ],[
+              {
+                header: "Milestone",
+                text: "M3"
+              },
+              {
+                header: "Quantity",
+                text: "0"
+              },
+              {
+                header: "Implementation",
+                text: "0"
+              },
+              {
+                header: "Training",
+                text: "10"
+              }
+            ]
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+
+        {{ radios({
+          "idPrefix": "default-payment-schedule",
+          "name": "default-payment-schedule-radios",
+          "classes": "nhsuk-u-margin-bottom-3",
+          "fieldset": {
+            "legend": {
+              "text": "Are you happy with this payment schedule?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, I would like to use this payment schedule"
+            },
+            {
+              "value": "no",
+              "text": "No, I would like an implementation based payment schedule"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"order-4-summary-assc-services-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

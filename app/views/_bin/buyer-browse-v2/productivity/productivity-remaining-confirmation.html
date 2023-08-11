@@ -1,0 +1,239 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  NHS Digital Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "../../includes/header.html" %}
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+  items: [
+    {
+      href: "/buyer-browse-v2",
+      text: "Welcome"
+    },
+    {
+      href: "/buyer-browse-v2/guide-2",
+      text: "Guidance"
+    },
+    {
+      href: "/buyer-browse-v2/start-browse",
+      text: "Begin browse"
+    },
+    {
+      href: "/buyer-browse-v2/capability-selector",
+      text: "Capability Selector"
+    },
+    {
+      href: "/buyer-browse-v2/productivity/productivity-search-results",
+      text: "Search Results"
+    }
+  ],
+  href: "/buyer-browse-v2/productivity/productivity-deselect",
+  text: "Deselect Solutions"
+  }) }}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+<div class="nhsuk-u-padding-top-7 nhsuk-u-padding-bottom-7 buyer-browse-3">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full" id="content">
+      <!-- Change the page title here -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-7">
+          <!-- Change the page title here -->
+          <h2>
+            Browse Solutions - Confirm remaining Solutions
+          </h2>
+
+          <h4 class="nhsuk-body-l">Below are the Solutions that are remaining in your search results.</h4>
+
+          <p>
+            These will be the results you will be taking to competition. You can deselect further Solutions or continue to start a competition.
+          </p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <p class="blue view-results">
+            <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
+            </svg>
+            <a href="#" onclick="history.go(-1)" class="view-results">Previous page</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-half">
+          <p class="blue nhsuk-u-margin-top-6">
+          </p>
+        </div>
+        <div class="nhsuk-grid-column-one-half">
+          <div class="view-results">
+            <h4 class="nhsuk-u-margin-top-2">10 results in total</h4>
+            {{ button({
+              "text": "Continue: Start a competition",
+              "href": "/buyer-browse-v2/coming-soon"
+            }) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-table-responsive">
+            <table class="nhsuk-table">
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col">Solution name</th>
+                  <th class="nhsuk-table__header" scope="col">Base price</th>
+                  <th class="nhsuk-table__header" scope="col">Capabilities matched</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/invios-multirequest">Invios MultiRequest</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£1.60 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/clarimy-access-diagnostics">Clarimy Access Diagnostics</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£9 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/sinous-investigation">Sinous Investigation</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£5 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/biovus-manager">Biovus Manager</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£110 / per user</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/chemegic-care">Chemegic Care</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£20 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/kinaegis-caredigital">Kinaegis CareDigital</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£120 / per user</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/clarimy-budget">Clarimy Budget</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£120 / per user</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/uniwell-records">Uniwell Records</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£50 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/chemixal-multipatient">Chemixal MultiPatient</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£18 / per user</td>
+                  <td class="nhsuk-table__cell ">
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">
+                      <b class="blue"><a href="/buyer-browse-v2/productivity/productivity-mp/atmios-multidiagnose">Atmios MultiDiagnose</a></b>
+                  </td>
+                  <td class="nhsuk-table__cell ">£16 / per patient</td>
+                  <td class="nhsuk-table__cell ">
+                    <b>Offered by additional service</b>
+                    <ul>
+                      <li>Professional to Professional Communication</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+      <!-- End of content -->
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "../../includes/footer.html" %}
+{% endblock %}

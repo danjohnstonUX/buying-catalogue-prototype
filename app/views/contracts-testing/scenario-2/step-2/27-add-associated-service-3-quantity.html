@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Training Day at Practice quantity
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "26-associated-service-3-price",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Quantity of Associated Service<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Training Day at Practice
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Enter the amount that you want to order for each Service Recipient.</p>
+
+        {{ details({
+         "text": "What quantity should I enter?",
+         "HTML": "
+           <p>A typical amount of training days for a new installation is likely to be six days. Additional training is available and would obviously be dependant on scale and user needs. Training is available on a needs basis. This could be one day or purchased in bulk.</p>"
+       }) }}
+
+        <div class="nhsuk-form-group">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Training days per practice</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Recipient name (ODS code)
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Assura ER LLP Hull Dermatology (Y03508)</td>
+                <td class="nhsuk-form-group"><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Bevan Limited (Y07021)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Dermatology Clinic (Y00894)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Hasby Group Hull (Y02747)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Hull CCG VocareNHS111 OOH (Y06959)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">James Alexander Family Practice (B81112)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Laurbel Surgery (B81635)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text" ></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Pain Management GPSI (Y01218)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">St Andrews Surgery (B81027)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Sydenham Group Practice (B81058)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">The Avenues Medical Centre (B81035)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">The Bridge Group Practice (B81046)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">The Sutton Manor Surgery (B81020)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Wilberforce Surgery (B81032)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Wolseley Medical Centre (B81047)</td>
+                <td class="nhsuk-table__cell "><input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="test-width-5" type="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="28-review-all">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <br/><br/>
+    {% endblock %}
+
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}

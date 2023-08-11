@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-update-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <h1>Select services to update<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Emis Web GP
+      </span></h1>
+      <p class="nhsuk-lede-text">Select the services you want to update the Service Recipients for.</p>
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      <form>
+        {{ checkboxes({
+          "idPrefix": "example",
+          "name": "example",
+          "fieldset": {
+            "legend": {
+              "text": "Additional Services",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: true
+            }
+          },
+          "hint": {
+            "text": "The Service Recipients for any of the Additional Services you select will be updated to match those for your Catalogue Solution."
+          },
+          "items": [
+            {
+              "value": "extract services",
+              "text": "Extract Services"
+            },
+            {
+              "value": "extract services",
+              "text": "Risk stratification"
+            }
+          ]
+        }) }}
+      </form>
+
+      <br />
+
+      <form>
+        {{ checkboxes({
+          "idPrefix": "example",
+          "name": "example",
+          "fieldset": {
+            "legend": {
+              "text": "Associated Services",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: true
+            }
+          },
+          "hint": {
+            "text": "The Service Recipients for any of the Associated Services you select will be updated to match those for your Catalogue Solution."
+          },
+          "items": [
+            {
+              "value": "migration",
+              "text": "Migration"
+            }
+          ]
+        }) }}
+      </form>
+
+
+
+<br/>
+
+<div>
+  <div style="display:inline-block;">
+    <form method="post" action="order-5-4-2-updated-service-service-recipient-review">
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

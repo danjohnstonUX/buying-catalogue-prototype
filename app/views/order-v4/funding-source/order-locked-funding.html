@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+<style>
+  .bc-summary-totals .nhsuk-summary-list__row {
+    text-align: right;
+  }
+  .bc-summary-totals .nhsuk-summary-list__key,
+  .bc-summary-totals .nhsuk-summary-list__value,
+  .bc-summary-totals .nhsuk-summary-list__actions {
+    display: inline-block;
+    width: auto;
+  }
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Funding source<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C01001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">This Catalogue Solution can only be paid for with local funding due to the framework it’s available from.</p>
+
+
+
+    <table class="nhsuk-table bc-detail">
+      <caption class="nhsuk-table__caption">Funding sources</caption>
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row" class="small-text">
+            <th role="columnheader" class="" scope="col">
+              Solution or service
+            </th>
+            <th role="columnheader" class="bc-align-right" scope="col">
+              Local funding
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Total cost
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Emis Web GP</td>
+            <td class="nhsuk-table__cell bc-align-right">£1726.00</td>
+            <td class="nhsuk-table__cell ">£1726.00</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Automated Arrivals</td>
+            <td class="nhsuk-table__cell bc-align-right">£6000.00</td>
+            <td class="nhsuk-table__cell ">£6,000.00</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Document Management</td>
+            <td class="nhsuk-table__cell bc-align-right">£3288.00</td>
+            <td class="nhsuk-table__cell ">£3288.00</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Migration</td>
+            <td class="nhsuk-table__cell bc-align-right">£4000.00</td>
+            <td class="nhsuk-table__cell ">£4000.00</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text bc-last-row">
+            <td role="cell" class="nhsuk-table__cell"><b>Total<b></td>
+            <td role="cell" class="nhsuk-table__cell bc-align-right">£15,014.00</td>
+            <td class="nhsuk-table__cell ">£15,014.00</td>
+        </tbody>
+      </table>
+
+      <form action="order-4-summary-completed">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

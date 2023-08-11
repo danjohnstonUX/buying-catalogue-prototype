@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-bespoke-1",
+  "text": "Go back"
+}) }}
+
+{% set paymentHtml %}
+
+{{ textarea({
+"idPrefix": "payment-trigger-required",
+"name": "security-trigger-required",
+"label": {
+  "text": "What payment trigger do you want to attach to this milestone?"
+},
+"hint": {
+  "text": ""
+}
+}) }}
+
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Payment triggers
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+
+      {{ radios({
+        "idPrefix": "payment-trigger",
+        "name": "payment-trigger-radios",
+        "fieldset": {
+          "legend": {
+            "text": "Do you want to attach a payment trigger to this milestone?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "hint": {
+          "text": "Lorem ipsum dolor sit amet"
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes",
+            "conditional": {
+              "html": paymentHtml
+            }
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Continue",
+        "href": "implementation-hub-milestone-1-ac-added"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

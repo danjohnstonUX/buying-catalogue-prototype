@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-completed",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Sign contract digitally</h1>
+      <p class="nhsuk-lede-text">A link was sent to the Buyer with signature role and the Supplier. This process will be completed when they open the email and sign the document.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+        "HTML": "<p>The Call Off Commencement Date is the date of signature by the later of the two parties, unless agreed otherwise in writing by the parties and recorded on the relevant section of the Order Summary.</p>"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+
+      {{ table({
+        panel: false,
+        caption: "Signatures",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Party"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Call-off ordering party"
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Signed on 10/10/2021</strong>'
+            },
+            {
+              html: ''
+            }
+          ],
+          [
+            {
+              text: "Supplier"
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--blue">Awaiting signature</strong>'
+            },
+            {
+              html: '<a href="#">Resend link</a>'
+            }
+          ]
+        ]
+      }) }}
+
+      <!-- Call Off Commencement Date
+The Call Off Commencement Date is the date of signature by the later of the two parties, unless agreed otherwise in writing by the parties and recorded on the relevant section of the Order Summary.
+
+Call Off Agreement maximum period
+This will be 48 months, unless the procurement procedure requires it to be less (for example, a Continuity Call Off will have a maximum period of no longer than 12 months). -->
+
+      <!-- {% from 'input/macro.njk' import input %}
+      {{ input({
+        "label": {
+          "text": "Order description",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+          "hint": {
+          "text": "Provide a brief description of your order to help identify it from any others you’ve worked on."
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }} -->
+
+      <form action="order-6-complete">
+      {{ button({
+        "text": "Complete"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1>Call-off Ordering Party contact details
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Order C000001-01
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Provide information about the primary contact for this order.</p>
+
+        <h2>Primary contact details</h2>
+
+        {{ hint({
+          text: "Who is the best person to contact about this order?"
+        })}}
+
+        {% from 'input/macro.njk' import input %}
+
+        {{ input({
+          "label": {
+            "text": "First name"
+          },
+          "id": "first-name",
+          "name": "first-name"
+        }) }}
+
+        {{ input({
+          "label": {
+            "text": "Last name"
+          },
+          "id": "last-name",
+          "name": "last-name"
+        }) }}
+
+        {#{{ input({
+          "label": {
+          "text": "Telephone number"
+          },
+          "id": "phone",
+          "name": "phone",
+          "classes": "nhsuk-input--width-10"
+        }) }}#}
+
+        {{ input({
+          "label": {
+            "text": "Email address"
+          },
+          "id": "email",
+          "name": "email"
+        }) }}
+
+        <br />
+
+
+
+        </form>
+       
+        
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="order-4-summary">
+              {% from 'button/macro.njk' import button %}
+      
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+     
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

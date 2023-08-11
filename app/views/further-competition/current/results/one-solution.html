@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../competitions-hub",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Competition results<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Your competition
+      </span></h1>
+
+    <p class="nhsuk-lede-text">The filter used for this competition only returned one result. This means you can execute a direct award for this solution.</p>
+
+  </div>
+
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-heading-m">
+          <a href="#">Online and Video Consult (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h2>
+
+      </div>
+    </div>
+
+    <h2>Filter information</h2>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          View filter information
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        {{ table({
+          responsive: true,
+          tableClasses: "nhsuk-u-margin-bottom-9",
+          panel: false,
+          caption: "Capabilities and Epics",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Capability"
+            },
+            {
+              text: "Epic"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Capability",
+                text: "Appointments Management - Citizen"
+              },
+              {
+                header: "Epic",
+                html: "<ul><li>Manage Appointments</li></ul>"
+              }
+            ],
+            [
+              {
+                header: "Capability",
+                text: "Video Consultation"
+              },
+              {
+                header: "Epic",
+                html: "<ul><li>Conduct video consultation</li><li>Conduct video consultation with a proxy</li><li>Direct messaging during a video consultation</li><li>End video consultation with a patient or service user</li><li>Waiting room</li></ul>"
+              }
+            ]
+          ]
+        }) }}
+    
+        <h2 class="nhsuk-heading-s">Additional filters</h2>
+
+          {{ summaryList({
+          rows: [
+          {
+          key: {
+          text: "Framework"
+          },
+          value: {
+          text: "GP IT Futures"
+          }
+          },
+          {
+          key: {
+          text: "Application type"
+          },
+          value: {
+          html: "Mobile or tablet<br>Browser based"
+          }
+          },
+          {
+            key: {
+            text: "Hosting type"
+            },
+            value: {
+            text: "On site"
+            }
+            }
+          ]
+          }) }}
+      </div>
+    </details>
+
+    <br>
+
+    <form>
+
+      <h2>Download your results</h2>
+      <p class="nhsuk-body nhsuk-u-reading-width">Download the results of your competition as evidence of how you arrived at one solution.</p>
+
+      <a class="nhsuk-button nhsuk-u-margin-bottom-7" href="/files/fc_one_result_pdf.pdf" draggable="false">
+        Download results (PDF)
+      </a>
+
+
+      <h2>Ordering information</h2>
+      <p class="nhsuk-body nhsuk-u-reading-width">As you only have one result, you can procure this solution using a direct award.</p>
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

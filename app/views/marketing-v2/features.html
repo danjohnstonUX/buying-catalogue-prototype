@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Features
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Features
+        <span class="nhsuk-caption-xl">Caltech Web GP</span> 
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">Caltech Web GP features</h3>
+        <ul class="nhsuk-u-margin-bottom-0">
+          <li>Access to real-time patient data that can be shared between locations &amp; healthcare organisations</li>
+          <li>One-click access to patient summary information</li>
+          <li>Quick data entry using protocols, templates and concepts tailored to your practice requirements</li>
+          <li>Integrated clinical safety alerts graded to highlight severity</li>
+          <li>Automatic notification of linked pre-existing conditions when recording a new acute problem</li>
+          <li>Integrated patient recall system to target specific lists of patients for specific clinics</li>
+          <li>Intelligent alerts and auto-templates to capture outstanding QOF information</li>
+          <li>Integrated QOF-finder to identify patients where you’re losing QOF points</li>
+          <li>Seamless data exchange with over 100 partners including Graphnet, Cerner and Optum</li>
+          <li>Integration with Patient Access enables patients to book appointments and order prescriptions</li>
+        </ul>
+      </div>
+      </div>
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "solution-page",
+    "previousPage": "Summary",
+    "nextUrl": "list-price",
+    "nextPage": "List price"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+  
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+
+});
+
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

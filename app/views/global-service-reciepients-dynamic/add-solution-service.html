@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Catalogue Solutions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+    <span class="nhsuk-u-visually-hidden"> - </span>
+      EMIS Health
+    </span></h1>
+  <p class="nhsuk-lede-text">Select the Catalogue Solution you want to order.</p>
+  <form action="add-associated-service" method="post">
+  <div class="nhsuk-radios nhsuk-radios--conditional nhsuk-u-margin-bottom-5">
+
+    <div class="nhsuk-radios__item">
+      {# <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false"> #}
+      <input class="nhsuk-radios__input" id="contact-1" name="cat_solution" type="radio" value="EMIS Web GP" >
+      <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+        EMIS Web GP
+      </label>
+    </div>
+    
+
+    {# <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="email">
+         <strong>Do you want to add any Additional Services?</strong>
+        </label>
+        <div class="nhsuk-hint" id="addsols-hint">
+          These are optional add-ons to the main solution that provide extra functionality.
+        </div>
+        
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-1" name="addsols" type="checkbox" value="Automated Arrivals">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-1">
+            Automated Arrivals
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-2" name="addsols" type="checkbox" value="Document Management">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-2">
+            Document Management
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-3" name="addsols" type="checkbox" value="EMIS Mobile">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-3">
+            EMIS Mobile
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-4" name="addsols" type="checkbox" value="EMIS Web Dispensing">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-4">
+            EMIS Web Dispensing
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-5" name="addsols" type="checkbox" value="Enterprise Search and Reports">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-5">
+            Enterprise Search and Reports
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="checks-6" name="addsols" type="checkbox" value="Extract Services">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="checks-6">
+            Extract Services
+          </label>
+        </div>
+
+      </div>
+
+    </div> #}
+
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="contact-2" name="cat_solution" type="radio" value="Online and Video Consult">
+      <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+        Online and Video Consult
+      </label>
+    </div>
+
+
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="contact-3" name="cat_solution" type="radio" value="Video Consult">
+      <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+        Video Consult
+      </label>
+    </div>
+
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="contact-3" name="cat_solution" type="radio" value="Anywhere Consult">
+      <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+        Anywhere Consult
+      </label>
+    </div>
+
+
+  </div>
+
+
+
+<br/>
+
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

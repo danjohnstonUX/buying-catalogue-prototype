@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "3-confirm-supplier",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Supplier contact details
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select an existing contact for EMIS Health or add a different one.</p>
+
+        {% from 'inset-text/macro.njk' import insetText %}
+        {{ insetText({
+      "HTML": "<h3>Your confirmed supplier</h3><p>As you've confirmed the supplier details for this order, they cannot be changed.</p>
+      <p>If you need to select a different supplier, you must start a new order.</p>"
+      }) }}
+
+        {{ radios({
+          "idPrefix": "contact",
+          "name": "contact",
+          "fieldset": {
+            "legend": {
+              "text": "Who is your contact for this order?",
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": "false"
+            }
+          },
+          "hint": {
+            "text": "Select one option."
+          },
+          "items": [
+            {
+              "value": "jim",
+              "text" : "Mr Jim Jones (Marketing)"
+            },
+            {
+              "value": "jan",
+              "text" : "Ms Jan Smith (Sales)"
+            }
+          ]
+        }) }}
+        <br/>
+
+        {{ actionLink({
+          "text": "Add a different contact",
+          "href": "3-supplier-add-contact"
+        }) }}
+
+        <p>If your contact for this supplier is not listed, you can add their details using the link. The information will only appear on this order.</p>
+
+        <!-- {{ table({ panel: false, caption: "Contacts added for this order", firstCellIsHeader: false, head: [ { text: "Name" }, { text: "Department" } ], rows: [ [ { text: "Mr Jack Symmonds" }, { text: "Purchasing" }, { html: "<a
+        href='order-5-10-2-supplier-add-contact'>Edit</a>" } ] ] }) }} -->
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="summary-3-supplier-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                    "text": "Save and continue"
+                  }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br/><br/>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

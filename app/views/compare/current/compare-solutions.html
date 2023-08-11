@@ -1,0 +1,839 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-full-width.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  $(document).ready(() => {
+    const selector = ".solution-name";
+    function resize() {
+      const nodes = $(selector)
+        .css("height", "auto")
+        .sort((a, b) => $(a).height() - $(b).height()),
+        heighest = nodes.last().height();
+      if (nodes.first().height() != heighest)
+        $(selector).css(`height`, `${heighest}px`);
+    }
+
+    resize();
+
+    const observer = new MutationObserver(resize);
+    $(selector).each((idx, el) => observer.observe(el, { childList: true, subtree: true }));
+  })
+</script>
+
+<style>
+  .nhsuk-grid-row {
+    margin-bottom: 3rem;
+  }
+
+  .tiered-price-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .services-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .capabilities-container {
+    margin-bottom: 2rem;
+  }
+</style>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        {{ backLink({
+        "href": "index",
+        "text": "Go back"
+        }) }}
+
+        <h1>Compare Catalogue Solutions</h1>
+        <p class="nhsuk-lede-text">
+          Lorem ipsum dolor sit amet consectutor.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+        <h2>List price</h2>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s"><a href="#">Online and Video Consult</a>
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Flat price</h4>
+        <p>£1.26 per patient per year</p>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s"><a href="#">Q Doctor</a>
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Flat price</h4>
+        <p>£1.26 per patient per year</p>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s"><a href="#">healthya Online and Video Consultation</a>
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Tiered price</h4>
+        <div class="tiered-price-container">
+          <p class="nhsuk-u-margin-bottom-1">£1.26 per patient per year</p>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Up to 50,000 patients
+          </div>
+        </div>
+        <div class="tiered-price-container">
+          <p class="nhsuk-u-margin-bottom-1">£1.24 per patient per year</p>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            50,000 to 100,000 patients
+          </div>
+        </div>
+        <div class="tiered-price-container">
+          <p class="nhsuk-u-margin-bottom-1">£1.22 per patient per year</p>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            100,000+ patients
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Additional Services</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Caltech Mobile</a></p>
+          <p>£0.0700 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Automated Arrivals</a></p>
+          <p>£420.00 per day</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Extract Services</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Caltech Web Dispensing</a></p>
+          <p>£0.2500 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Document Management</a></p>
+          <p>£0.1200 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Risk Stratification</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Enterprise Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Automated Arrivals</a></p>
+          <p>£420.00 per day</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Extract Services</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Document Management</a></p>
+          <p>£0.1200 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Risk Stratification</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Enterprise Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">healthya Mobile</a></p>
+          <p>£0.0700 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">healthya Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Associated Services</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Caltech Mobile</a></p>
+          <p>£0.0700 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Automated Arrivals</a></p>
+          <p>£420.00 per day</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Extract Services</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Caltech Web Dispensing</a></p>
+          <p>£0.2500 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Document Management</a></p>
+          <p>£0.1200 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Risk Stratification</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Enterprise Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Automated Arrivals</a></p>
+          <p>£420.00 per day</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Extract Services</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Document Management</a></p>
+          <p>£0.1200 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Risk Stratification</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">Enterprise Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">healthya Mobile</a></p>
+          <p>£0.0700 per patient per year</p>
+        </div>
+        <div class="services-container">
+          <p class="nhsuk-u-margin-bottom-0"><a href="#">healthya Search and Reports</a></p>
+          <p>£0.0600 per patient per year</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+        <h2>Capabilities and Epics</h2>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Appointments Management GP</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access Patient Record</li>
+            <li>Configure Appointments</li>
+            <li>Manage Appointments</li>
+            <li>Manage Session templates</li>
+            <li>Manage Sessions</li>
+            <li>Practice configuration</li>
+            <li>View Appointment reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Clinical Decision Support</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access to Clinical Decision Support</li>
+            <li>Local configuration for Clinical Decision Support triggering</li>
+            <li>View Clinical Decision Support reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">GP Extracts Verification</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>View GPES payment extract reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Referral Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage Referrals</li>
+            <li>View Referral reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Resource Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage General Practice and Branch site information</li>
+            <li>Manage General Practice Staff Members</li>
+            <li>Manage Related Organisation Staff Members</li>
+            <li>Manage Related Organisations information</li>
+            <li>Manage Staff Member Groups</li>
+            <li>Manage Staff Member inactivity periods</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Patient Information Maintenance</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access Patient Record</li>
+            <li>Configure Citizen service access for the Practice</li>
+            <li>Configure Patient notifications</li>
+            <li>Identify Patients outside of Catchment Area</li>
+            <li>Manage Patient Cohorts from Search Results</li>
+            <li>Manage Patient Communications</li>
+            <li>Manage Patient Related Persons</li>
+            <li>Manage Patients&nbsp;</li>
+            <li>Manage Patients for Citizen Services</li>
+            <li>Manage Practice notifications – Patient</li>
+            <li>Search for Patient Records</li>
+            <li>View Patient Reports</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Referral Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage Referrals</li>
+            <li>View Referral reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Resource Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage General Practice and Branch site information</li>
+            <li>Manage General Practice Staff Members</li>
+            <li>Manage Related Organisation Staff Members</li>
+            <li>Manage Related Organisations information</li>
+            <li>Manage Staff Member Groups</li>
+            <li>Manage Staff Member inactivity periods</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Appointments Management GP</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access Patient Record</li>
+            <li>Configure Appointments</li>
+            <li>Manage Appointments</li>
+            <li>Manage Session templates</li>
+            <li>Manage Sessions</li>
+            <li>Practice configuration</li>
+            <li>View Appointment reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Clinical Decision Support</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access to Clinical Decision Support</li>
+            <li>Local configuration for Clinical Decision Support triggering</li>
+            <li>View Clinical Decision Support reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Referral Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage Referrals</li>
+            <li>View Referral reports</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Resource Management</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Manage General Practice and Branch site information</li>
+            <li>Manage General Practice Staff Members</li>
+            <li>Manage Related Organisation Staff Members</li>
+            <li>Manage Related Organisations information</li>
+            <li>Manage Staff Member Groups</li>
+            <li>Manage Staff Member inactivity periods</li>
+          </ul>
+        </div>
+        <div class="capabilities-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Patient Information Maintenance</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>Access Patient Record</li>
+            <li>Configure Citizen service access for the Practice</li>
+            <li>Configure Patient notifications</li>
+            <li>Identify Patients outside of Catchment Area</li>
+            <li>Manage Patient Cohorts from Search Results</li>
+            <li>Manage Patient Communications</li>
+            <li>Manage Patient Related Persons</li>
+            <li>Manage Patients&nbsp;</li>
+            <li>Manage Patients for Citizen Services</li>
+            <li>Manage Practice notifications – Patient</li>
+            <li>Search for Patient Records</li>
+            <li>View Patient Reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Interoperability</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">IM1 Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>IM1 Bulk</li>
+            <li>IM1 Transactional</li>
+            <li>IM1 Patient Facing</li>
+          </ul>
+        </div>
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">GP Connect Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>GP Connect HTML View</li>
+            <li>GP Connect Appointment Booking</li>
+            <li>GP Connect Structured Record</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">IM1 Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>IM1 Bulk</li>
+          </ul>
+        </div>
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">GP Connect Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>No GP Connect Integrations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">IM1 Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>IM1 Bulk</li>
+            <li>IM1 Transactional</li>
+            <li>IM1 Patient Facing</li>
+          </ul>
+        </div>
+        <div class="interoperability-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">GP Connect Integrations</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-body-s">
+            <li>No GP Connect Integrations</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Implementation</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="implementation-container">
+          <p class="nhsuk-body-s" style="white-space: pre-line">The typical timescales for the implementation of EMIS
+            Web are around 12 weeks depending on the patient list size.
+
+            An implementation plan is provided and agreed at the beginning of the process outlining all key dates and
+            activities. Where required these dates are negotiable to fit the needs of the customer.
+
+            Key activities:
+
+            • Customer supplied with high level implementation plan and welcome pack
+
+            • Engineer visit to perform install of client software and check connectivity
+
+            • Customer supplied test data loaded into a test system and made available
+
+            • Learning needs analysis performed &amp; agreed training plan for go-live
+
+            • On site visit to train the customer how to check and cleanse their data
+
+            • Any defects and corrections completed on migrated data
+
+            • Practice sign-off of test data
+
+            • Agreed training provide pre and post go-live in line with results from LNA
+
+            • Go-live day, trainers and engineer onsite to support a smooth transition</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="implementation-container">
+          <p class="nhsuk-body-s">
+            The typical timescales for the implementation of Q Doctor is 6 weeks depending on the patient list size.
+          </p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="implementation-container">
+          <p class="nhsuk-body-s">
+            healthya Online and Video Consultation has been built around the needs of frontline healthcare staff. That
+            means healthcare users can start using healthya Online and Video Consultation via our website within minutes
+            without any training.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Client application type</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Browser based application</h4>
+          <p>Yes</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Desktop application</h4>
+          <p>Yes</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Mobile or tablet application</h4>
+          <p>Yes</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Browser based application</h4>
+          <p>Yes</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Desktop application</h4>
+          <p>Yes</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Mobile or tablet application</h4>
+          <p>Yes</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Browser based application</h4>
+          <p>Yes</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Desktop application</h4>
+          <p>No</p>
+        </div>
+        <div class="client-app-container">
+          <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Mobile or tablet application</h4>
+          <p>Yes</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Hosting type</h2>
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Online and Video Consult
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              Caltech Health
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="hosting-container">
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Public cloud</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">Q Doctor
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              MyMed Ltd
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="hosting-container">
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Public cloud</li>
+            <li>Private cloud</li>
+            <li>Hybrid</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="solution-name">
+          <h3 class="nhsuk-heading-s">healthya Online and Video Consultation
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+              ADDVantage Technologies
+            </div>
+          </h3>
+        </div>
+        <hr>
+        <div class="client-app-container">
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Public cloud</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,135 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    {% from 'breadcrumb/macro.njk' import breadcrumb %}
+    {{ breadcrumb({
+  items: [{
+    href: "/",
+    text: "Home"
+  }],
+  href: "manage-organisations",
+  text: "Organisation details"
+  }) }}
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-u-margin-bottom-7">
+          <h1 class="nhsuk-u-margin-bottom-0">User accounts</h1>
+          <p id="page-heading-org-name" class="nhsuk-caption-xl">Cheshire and Merseyside Commissioning Hub</p>
+        </div>
+
+        <p class="nhsuk-lede-text">Add, edit and view user accounts for this organisation name.</p>
+
+
+      </div>
+
+      <div class="nhsuk-grid-column-full">
+
+
+
+        {{ actionLink({
+          "text": "Add a user",
+          "href": "admin-add-user"
+        }) }}
+
+
+        {% from 'tables/macro.njk' import table %}
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Existing users",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "Email address"
+            },
+            {
+              text: "Status"
+            }
+            ,
+            {
+              text: "Action"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Name",
+                text: "Test Test"
+              },
+              {
+                header: "Email address",
+                text: "test@test.com"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag nhsuk-tag--grey">Account inactive</strong>'
+              },
+              {
+                header: "Action",
+                html: '<a href="edit-user">Edit</a>'
+
+              }
+            ],
+            [
+              {
+                header: "Name",
+                text: "Test Test2"
+              },
+              {
+                header: "Email address",
+                text: "test2@test.com"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag nhsuk-tag--green">Account active</strong>'
+              },
+              {
+                header: "Action",
+                html: '<a href="edit-user">Edit</a>'
+              }
+            ]
+          ]
+        }) }}
+<br/ >
+        {% from 'button/macro.njk' import button %}
+
+        <form action="manage-organisations">
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

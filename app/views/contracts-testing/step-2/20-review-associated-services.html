@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "19-add-associated-service-1-quantity",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Associated Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Review the Associated Services that you've added to this order.
+        You can edit the items that you've added at any time.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Edit Associated Services",
+        "href": "/order-v2/edit-associated-services/v3/order-4-edit-solutions-and-services-3"
+      }) }}
+
+
+      <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+<hr />
+    </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+{% include "order-v2/order-5-4-1-table-orders3.html" %}
+
+
+<br />
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="../order-4-summary-solutions-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

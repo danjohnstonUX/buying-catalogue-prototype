@@ -1,0 +1,419 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Review planned delivery dates
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "15-planned-delivery-date-hub",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+
+    <h1>
+      <span role="text">Review planned delivery dates
+        <!-- <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          EMIS Web GP
+        </span> -->
+      </span>
+    </h1>
+
+    <!--h2>User accounts</h2-->
+
+    <p class="nhsuk-lede-text">Review the planned delivery dates for your solutions and services.</p>
+
+    <p style="font-size: 24px;"><b>Main planned delivery date:</b> 1 September 2022</p>
+
+        <hr />
+
+        {{ actionLink({
+          "text": "Edit planned delivery dates",
+          "href": ""
+        }) }}
+    
+        <hr />
+
+
+    <!-- <p>Use the link to add information on each of the hosting types your Catalogue Solution works with.</p> -->
+    <!-- <p><b>15 September 2022</b></p> -->
+
+    {% from 'tables/macro.njk' import table %}
+
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "EMIS Web GP",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Service Recipients"
+        },
+        {
+          text: "ODS code"
+        },
+        {
+          text: "Planned delivery date"
+        }
+      ],
+      rows: [
+      [
+      {
+         text: "ASSURA ER LLP HULL DERMATOLOGY"
+       },
+       {
+         text: "Y03508"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "BEVAN LIMITED"
+       },
+       {
+         text: "Y03507"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "DERMATOLOGY CLINIC GPSI"
+       },
+       {
+         text: "Y00894"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "HAXBY GROUP HULL"
+       },
+       {
+         text: "Y02747"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "HULL CCG VOCARENHS111 OOH"
+       },
+       {
+         text: "Y06959"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "JAMES ALEXANDER FAMILY PRACTICE"
+       },
+       {
+         text: "B81112"
+       },
+       {
+         html: '<p>1 November 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "LAURBEL SURGERY"
+       },
+       {
+         text: "B81635"
+       },
+       {
+         html: '<p>1 November 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "PAIN MANAGEMENT GPSI"
+       },
+       {
+         text: "Y01218"
+       },
+       {
+         html: '<p>1 November 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "ST ANDREWS SURGERY"
+       },
+       {
+         text: "B81027"
+       },
+       {
+         html: '<p>1 November 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "SYDENHAM GROUP PRACTICE"
+       },
+       {
+         text: "B81058"
+       },
+       {
+         html: '<p>1 November 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "THE AVENUES MEDICAL CENTRE"
+       },
+       {
+         text: "B81035"
+       },
+       {
+         html: '<p>1 October 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "THE BRIDGE GROUP PRACTICE"
+       },
+       {
+         text: "B81046"
+       },
+       {
+         html: '<p>1 September 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "THE SUTTON MANOR SURGERY"
+       },
+       {
+         text: "B81020"
+       },
+       {
+         html: '<p>1 September 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "WILBERFORCE SURGERY"
+       },
+       {
+         text: "B81032"
+       },
+       {
+         html: '<p>1 September 2022</p>'
+       }
+     ],
+     [
+       {
+         text: "WOLSELEY MEDICAL CENTRE"
+       },
+       {
+         text: "B81047"
+       },
+       {
+         html: '<p>1 September 2022</p>'
+       }
+     ]      
+    ]
+    }) }}
+
+    
+    <br /><br />
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "Training Day at Practice",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      },
+      {
+        text: "Planned delivery date"
+      }
+    ],
+    rows: [
+    [
+    {
+       text: "ASSURA ER LLP HULL DERMATOLOGY"
+     },
+     {
+       text: "Y03508"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "BEVAN LIMITED"
+     },
+     {
+       text: "Y03507"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "DERMATOLOGY CLINIC GPSI"
+     },
+     {
+       text: "Y00894"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "HAXBY GROUP HULL"
+     },
+     {
+       text: "Y02747"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "HULL CCG VOCARENHS111 OOH"
+     },
+     {
+       text: "Y06959"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "JAMES ALEXANDER FAMILY PRACTICE"
+     },
+     {
+       text: "B81112"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "LAURBEL SURGERY"
+     },
+     {
+       text: "B81635"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "PAIN MANAGEMENT GPSI"
+     },
+     {
+       text: "Y01218"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "ST ANDREWS SURGERY"
+     },
+     {
+       text: "B81027"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ],
+   [
+     {
+       text: "SYDENHAM GROUP PRACTICE"
+     },
+     {
+       text: "B81058"
+     },
+     {
+       html: '<p>24 December 2022</p>'
+     }
+   ]
+   ]
+  }) }}
+   
+    {#
+    <br /><br />
+
+    {{ actionLink({
+      "text": "Assign another delivery date",
+      "href": "16-planned-delivery-date-hub-all-2"
+    }) }}
+    #}
+   
+    <br /><br />
+    {{ button({
+      "text": "Continue",
+      "href": "15-implementation-plan-standard"
+    }) }}
+
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

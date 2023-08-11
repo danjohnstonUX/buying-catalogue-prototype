@@ -1,0 +1,1333 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Summary
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue
+          Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+
+  <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+    <nav class="side-nav theiaStickySidebar">
+      {% set template = "includes/sticky-side-nav-reviews.njk" %}
+      {% include template %}
+    </nav>
+  </div>
+  <div class="nhsuk-grid-column-two-thirds content " id="content">
+    <h1>
+      Solution reviews
+      <span class="nhsuk-caption-xl">Caltech Web GP </span>
+    </h1>
+
+
+    {% from 'contents-list/macro.njk' import contentsList %}
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Supplier name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a>
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Solution ID
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          10000-001
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Framework(s)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          GP IT Futures
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Foundation Solution
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Yes
+        </dd>
+
+      </div>
+
+    </dl>
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">
+          Overall rating</h3>
+          <label class="nhsuk-label" for="overall-rating-stars">4.5 out of 5</label>
+          <div class="stars-container" id="overall-rating-stars">
+            <span class="stars material-symbols-outlined">
+              star
+            </span>
+            <span class="stars material-symbols-outlined">
+              star
+            </span>
+            <span class="stars material-symbols-outlined">
+              star
+            </span>
+            <span class="stars material-symbols-outlined">
+              star
+            </span>
+            <span class="stars material-symbols-outlined">
+              star_half
+            </span>
+          </div>
+          <p>20 buyer reviews</p>
+
+          <table class="histogram-table">
+            <tr>
+              <td class="histogram-rating-label-td">
+                <span>5 star</span>
+              </td>
+              <td class="histogram-td">
+                <div class="histogram histogram-50"></div>
+              </td>
+              <td>
+                <span>50%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="histogram-rating-label-td">
+                <span>4 star</span>
+              </td>
+              <td class="histogram-td">
+                <div class="histogram histogram-50"></div>
+              </td>
+              <td>
+                <span>50%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="histogram-rating-label-td">
+                <span>3 star</span>
+              </td>
+              <td class="histogram-td">
+                <div class="histogram"></div>
+              </td>
+              <td>
+                <span>0%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="histogram-rating-label-td">
+                <span>2 star</span>
+              </td>
+              <td class="histogram-td">
+                <div class="histogram"></div>
+              </td>
+              <td>
+                <span>0%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="histogram-rating-label-td">
+                <span>1 star</span>
+              </td>
+              <td class="histogram-td">
+                <div class="histogram"></div>
+              </td>
+              <td>
+                <span>0%</span>
+              </td>
+            </tr>
+          </table>
+
+      </div>
+    </div>
+
+    <h2>Individual reviews</h2>
+    <p>Displaying <strong>1</strong> to <strong>10</strong> of <strong>20</strong></p>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 5 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 June 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <div class="review-container">
+      <h3 class="nhsuk-u-margin-bottom-2">Rated 4 out of 5</h3>
+      <div class="stars-container nhsuk-u-margin-bottom-3" id="overall-rating-stars">
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars material-symbols-outlined">
+          star
+        </span>
+        <span class="stars stars-grey material-symbols-outlined">
+          star
+        </span>
+      </div>
+
+      <div class="stars-container" id="implementation-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Implementation</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="sl-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Service levels</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              5 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stars-container" id="value-rating-stars">
+        <table class="individual-ratings-table nhsuk-u-margin-bottom-1">
+          <caption class="nhsuk-table__caption">Value for money</caption>
+          <tr>
+            <td>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars material-symbols-outlined">
+                star
+              </span>
+              <span class="stars stars-grey material-symbols-outlined">
+                star
+              </span>
+            </td>
+            <td>
+              4 out of 5
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="nhsuk-body-s">Reviewed 1 May 2023</p>
+    </div>
+
+    <hr>
+
+    <!--{{ pagination({
+      "nextUrl": "#",
+      "nextPage": "Next 10 reviews"
+      }) }}-->
+
+    <button class="nhsuk-button nhsuk-button--secondary">View next 10 reviews</button>
+
+    <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+      Solution information last reviewed: 31 March 2020
+    </p>
+
+    {% from 'pagination/macro.njk' import pagination %}
+
+    {{ pagination({
+    "previousUrl": "#",
+    "previousPage": "Development plans"
+    }) }}
+
+    <!--<hr />
+
+    <h2>Learn more</h2>
+    <p>Learn more about this Catalogue Solution, for example its price, the standards it has met and any additional or associated services available.</p>
+    <p><a href="https://buyingcatalogue.digital.nhs.uk/solutions/foundation/10000-001/document/Catalogue%20Solution%20Listing%20Caltech%20Web%20GP%20v1.5.pdf">Download more information for Caltech Web (PDF, 233KB)</a></p>
+-->
+  </div>
+</div>
+
+{% endblock %}
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+  });
+
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

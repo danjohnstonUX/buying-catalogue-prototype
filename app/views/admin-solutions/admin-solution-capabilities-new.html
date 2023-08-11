@@ -1,0 +1,162 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Capabilities and Epice
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+{% from 'includes/capabilities-must-may.njk' import newCaps %} 
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+"href": "",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1>Capabilities and Epics<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        AccuRx
+      </span></h1>
+    <p class="nhsuk-lede-text">Select the Capabilities and any Epics met by your Catalogue Solution.</p>
+
+    <form>
+
+      {% for category in newCaps %}
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            {{category['category-name']}}
+          </span>
+          <span class="expander-count"><b class="expander-count-text">0</b> Epics selected</span>
+        </summary>
+        <div class="nhsuk-details__text">
+
+          <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+            {% for cap in category['all-capabilities']%}
+
+            <div class="nhsuk-checkboxes__item">
+
+              <input class="nhsuk-checkboxes__input capper" {% if cap['expired'] %} disabled {% endif %}
+                id="{{cap['capability-code']}}" name="{{cap['category-name']}}" type="checkbox"
+                value="{{cap['capability']}}" aria-controls="conditional-{{cap['capability-code']}}"
+                aria-expanded="false">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="{{cap['capability-code']}}">
+                {{cap['capability']}} {% if cap['expired'] %} <strong
+                  class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-3">Expired</strong>{% endif %}
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
+              id="conditional-{{cap['capability-code']}}">
+
+              <legend
+                class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
+                <label class="nhsuk-fieldset__heading">Must Epics ({{cap['must-capabilties'].length}})</label></legend>
+
+              {% for epic in cap['must-capabilties']%}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input epic-caps must-epics" id="{{epic['code']}}" name="{{cap['capability-code']}}"
+                  type="checkbox" value="{{epic['name']}}">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">
+                  ({{epic['code']}}) {{epic['name']}}
+                </label>
+              </div>
+              {% endfor %}
+
+              {% if cap['may-capabilities'].length > 0 %}
+              <legend
+                class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
+                <label class="nhsuk-fieldset__heading">May Epics ({{cap['may-capabilities'].length}})</label></legend>
+
+              {% for mepic in cap['may-capabilities']%}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input epic-caps" id="{{mepic['code']}}" name="{{cap['capability-code']}}"
+                  type="checkbox" value="{{mepic['name']}}">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">
+                  ({{mepic['code']}}) {{mepic['name']}}
+                </label>
+              </div>
+              {% endfor %}
+              {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </details>
+      {% endfor %}
+
+  </div>
+
+</div>
+
+{{ button({
+"text": "Save and continue"
+}) }}
+</form>
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+function updateCounts() {
+    $('.nhsuk-details').each(function() {
+        var count = $(this).find('.epic-caps:checked').length;
+        $(this).find('.expander-count-text').text(count);
+    });
+}
+
+updateCounts();
+
+$('.nhsuk-details .epic-caps, .capper').on('change', updateCounts);
+
+$('.capper').on('change', function() {
+    if ($(this).is(':checked')) { // Check if the 'capper' checkbox was checked
+        // Navigate up to the parent and then down to find the '.must-epics' checkboxes
+        $(this).parent().next().find('.must-epics').prop('checked', true);
+    } else {
+        $(this).parent().next().find('.must-epics').prop('checked', false);
+    }
+    // Trigger custom event on the .capper checkbox
+    $(this).trigger("checkboxChanged");
+});
+
+// Listening for the custom event on .capper checkboxes
+$('.capper').on("checkboxChanged", function() {
+    console.log("Checkbox has been checked!");
+    updateCounts();
+});
+});
+
+
+</script>
+
+{% endblock %}

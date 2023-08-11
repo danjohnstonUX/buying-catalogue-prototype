@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service-recipient",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>List price for Genysys Web GP</h1>
+    <p class="nhsuk-lede-text">Select the list price for this Catalogue Solution. If you've agreed a different price with the supplier, the values can be altered later.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "cat_solution",
+  "name": "cat_solution",
+  "fieldset": {
+    "legend": {
+      "text": "Select list price",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "true"
+    }
+  },
+
+  "items": [
+    {
+      "value": "list-price-1",
+      "text":"List price 1",
+      "hint": {
+        "html": "Tier 1: £1.10 per patient per year<br />Tier 2: £0.99 per patient per year<br />Tier 3: £0.075 per patient per year"
+      }
+    },
+    {
+      "value": "list-price-2",
+      "text":"List price 2",
+      "hint": {
+        "html": "Tier 1: £1.25 per patient per year<br />Tier 2: £0.90 per patient per year<br />Tier 3: £0.07 per patient per year"
+      }
+    }
+  ]
+}) }}
+
+<br/>
+
+<form action="catalogue-solution-price-tiered">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

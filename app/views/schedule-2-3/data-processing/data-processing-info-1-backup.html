@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "data-processing-hub-variation-added",
+      "text": "Go back"
+    }) }}
+
+    <script>
+      function sendForm() {
+        var opt1 = document.getElementById("add-another-variation-1").checked ? document.getElementById("add-another-variation-1").value : "";
+        var opt2 = document.getElementById("add-another-variation-2").checked ? document.getElementById("add-another-variation-2").value : "";
+
+        if(opt1=="yes") {
+            document.location.href = "data-processing-info-1";
+        }
+        else if(opt2=="no") {
+            document.location.href = "data-processing-info-review";
+        }
+      }
+    </script>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Add a variation to the default data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide information on the changes to the default data processing information.</p>
+
+
+        {{ textarea({
+          "label": {
+            "text": "What variation has been agreed with the supplier?"
+          },
+          "id": "variation",
+          "name": "variation"
+        }) }}
+
+        {{ input({
+          "label": {
+            "text": "Where is this variation referenced?"
+          },
+          "id": "variation-reference",
+          "name": "variation-reference"
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"data-processing-hub-variation-added"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

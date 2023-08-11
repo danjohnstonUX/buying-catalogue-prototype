@@ -1,0 +1,36 @@
+
+<br />
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      }
+    ],
+    rows: [
+    [
+     {
+       text: "WOODBANK MEDICAL CENTRE"
+     },
+     {
+       text: "P83017"
+     }
+   ],
+   [
+     {
+       text: "THE ELMS MEDICAL CENTRE"
+     },
+     {
+       text: "P83608"
+     }
+   ]
+  ]
+  }) }}

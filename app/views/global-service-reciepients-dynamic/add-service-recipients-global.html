@@ -1,0 +1,290 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{% from 'includes/service-receipients.njk' import serviceRecipients %}
+
+{{ backLink({
+"href": "/global-service-reciepients",
+"text": "Go back"
+}) }}
+
+<style>
+  .nhsuk-expander-index {
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary {
+    padding-top: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text {
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter {
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color: #212b32;
+    display: block;
+  }
+
+  .vl {
+    border-left: 6px solid green;
+    height: 500px;
+  }
+</style>
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>
+      Service Recipients for this order<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden">
+          -
+        </span>
+        Order C00001-01
+      </span>
+    </h1>
+    <p class="nhsuk-lede-text">Select the organisations you want to receive the items you’re ordering.</p>
+    <hr>
+    
+    <h2 class="nhsuk-heading-l change-me">Upload your Service Recipients</h2>
+    <p class="nhsuk-body-">You can upload your Service Recipients using a CSV file or select them manually below.</p>
+
+    {{ actionLink({
+      "text": "Upload Service Recipients",
+      "href": "#"
+      }) }}
+
+    <hr>
+
+    <!--<h2 class="nhsuk-heading-l">Select your Service Recipients below</h2>-->
+
+    <button class="nhsuk-button nhsuk-button--secondary" id="select-all-srs" type="submit">
+      Select all
+    </button>
+
+    <button class="nhsuk-button nhsuk-button--secondary" id="deselect-all-srs" disabled type="submit">
+      Deselect all
+    </button>
+
+    <style>
+      .table-seperator {
+        border-left: solid 2px #d8dde0 !important;
+        padding-left: 20px !important;
+      }
+    </style>
+
+    <form id="srForm" action="/global-service-recipients-route" method="post">
+
+    {% for serviceRecipient in serviceRecipients %}
+    <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>{{serviceRecipient['display-name']}}</b>
+        </span>
+        <span class="expander-count"><b class="expander-count-text">0</b> recipients selected</span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        {# <button class="nhsuk-button nhsuk-button--secondary sub-sr-selector" type="submit">
+          Select all {{serviceRecipient['category-name']}}
+        </button>
+
+        <button class="nhsuk-button nhsuk-button--secondary sub-sr-selector" disabled type="submit">
+          Deselect all
+        </button> #}
+
+        <div class="nhsuk-form-group">
+          <table class="nhsuk-table-responsive" role="table">
+            <caption class="nhsuk-table__caption"></caption>
+            <thead class="nhsuk-table__head" role="rowgroup">
+              <tr role="row">
+                <th role="columnheader" scope="col">
+                  
+                    {# <input class=" sub-sr-selector" id="" name="" type="checkbox" value="">
+                    {# <label class="nhsuk-label nhsuk-checkboxes__label hide-element" for="select-all-{{serviceRecipient['category-name']}}">
+                      Select all {{serviceRecipient['category-name']}}
+                    </label> #} 
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input sub-sr-selector" id="select-all-{{serviceRecipient['category-name']}}" name="serRs" type="checkbox" value="">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" style="margin-left: 40px;" for="select-all-{{serviceRecipient['category-name']}}">
+                        Organisation
+                      </label>
+                    </div>
+                    
+                </th>
+                {# <th role="columnheader table-seperator" style=" padding-left: 40px !important;" scope="col">Organisation</th> #}
+                <th role="columnheader" scope="col">ODS code</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              {% for org in serviceRecipient['organisations'] %}
+              <tr role="row" class="nhsuk-table__row">
+                <td role="cell" class="nhsuk-table__cell">
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input gather-data" id="{{org.code}}-{{org.name}}" name="selected-srs" type="checkbox" data-category="{{serviceRecipient['category-name']}}" data-orgCode="{{org.code}}" value="{{org.name}}">
+                    <label style="margin-left: 40px;" class="nhsuk-label nhsuk-checkboxes__label " for="{{org.code}}-{{org.name}}">
+                      {{org.name}}
+                    </label>
+                  </div>
+                </td>
+                {# <input type="checkbox" name="{{org.name}}-{{org.code}}" /><label>{{org.name}}</label> #}
+                {# <td role="cell table-cell-separation" style=" padding-left: 40px !important;" class="nhsuk-table__cell"><span
+                    class="nhsuk-table-responsive__heading">Organisation</span>
+                    {{org.name}}
+                </td> #}
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">ODS code</span>
+                  <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">
+                    {{org.code}} 
+                  </div>
+                  <input type="hidden" id="{{ord.name}}-{{org.code}}"
+                    name="checkycheckcheck" value="{{org.code}}">
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    {% endfor %}
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+
+          <input type="hidden" id="srJsonData" name="srJsonData" />
+        
+          <button type="submit" class="nhsuk-button">Save and continue</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    console.log('document is ready');
+
+    $('#srForm').on('submit', function(e) {
+    var data = [];
+    $('.gather-data:checked').each(function() {
+        var checkbox = $(this);
+        data.push({
+            orgCode: checkbox.data('orgcode'),
+            category: checkbox.data('category'),
+            name: checkbox.val()
+        });
+    });
+
+    // Convert the data array into a JSON string
+    var jsonData = JSON.stringify(data);
+
+    // Put the JSON data into the hidden input field
+    $('#srJsonData').val(jsonData);
+});
+
+    $('.sub-sr-selector').click(function() {
+      var container = $(this).closest('.nhsuk-details');
+      var checkboxes = container.find(':checkbox').not('.sub-sr-selector');
+      var checkedCount = checkboxes.filter(':checked').length;
+      var toggleState = checkedCount !== checkboxes.length;
+
+      // Toggle the checkboxes
+      checkboxes.prop('checked', toggleState);
+
+      checkedCount = toggleState ? checkboxes.length : 0;
+      console.log('checked count >>> ', checkedCount);
+      container.find('.expander-count-text').text(checkedCount);
+    });
+
+    $('.nhsuk-checkboxes__input').change(function() {
+      var container = $(this).closest('.nhsuk-details');
+      var checkboxes = container.find('.nhsuk-checkboxes__input');
+      
+      var checkedCount = checkboxes.filter(':checked').length;
+      container.find('.expander-count-text').text(checkedCount);
+    });
+
+    $('#select-all-srs').click(function() {
+      console.log('checked checked');
+      $('input[type="checkbox"]').prop('checked', true);
+      $('#deselect-all-srs').removeAttr('disabled');
+      $(this).prop('disabled', true)
+      $('.nhsuk-expander').each(function() {
+        console.log('running for each')
+        var container = $(this);
+        var checkboxes = container.find(':checkbox').not('.sub-sr-selector');
+        var checkboxCount = checkboxes.length;
+
+        container.find('.expander-count-text').text(checkboxCount);
+      });
+    });
+
+    $('#deselect-all-srs').click(function() {
+      $('#select-all-srs').removeAttr('disabled');
+      $(this).prop('disabled', true);
+      $('input[type="checkbox"]').prop('checked', false);
+      $('.nhsuk-expander').each(function() {
+        console.log('running for each')
+        var container = $(this);
+        container.find('.expander-count-text').text('0');
+      });
+    })
+
+
+
+  });
+
+
+
+ 
+</script>
+
+{% endblock %}

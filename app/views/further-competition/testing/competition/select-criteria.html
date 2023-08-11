@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How do you want to decide the criteria for your competition?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+
+{{ backLink({
+  "href": "competition-tasklist",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>What award criteria do you want to use for this competition?<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  OC/VC competition 
+</span></h1>
+
+<p class="nhsuk-lede-text">Select if you want to use price only or price and non-price elements.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "select-criteria",
+  "name": "select-criteria",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "value": "price",
+      "text": "Price only"
+    },
+    {
+      "value": "non-price",
+      "text": "Price and non-price elements"
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"competition-tasklist"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

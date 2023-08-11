@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-solutions",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Add an Additional Service
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Order C000001-01
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">These are the additional services for the Catalog Solution you have added to this order. Select the services that you want to purchase from this list.</p>
+
+      <!-- <p><a href="#">Add or remove service recipients</a></p> -->
+
+      <!-- {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Edit service recipients",
+        "href": "order-5-4-2-add-solution-service-recipient"
+      }) }} -->
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+<form>
+  {{ checkboxes({
+    "idPrefix": "example",
+    "name": "example",
+    "fieldset": {
+      "legend": {
+        "text": "Additional Services",
+        "classes": "nhsuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": ""
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "text": "Automated Arrivals"
+      },
+      {
+        "value": "document management",
+        "text": "Document Management"
+      },
+      {
+        "value": "emis mobile",
+        "text": "EMIS Mobile"
+      },
+      {
+        "value": "emis web dispensing",
+        "text": "EMIS Web Dispensing"
+      },
+      {
+        "value": "enterprise search and reports",
+        "text": "Enterprise Search and Reports"
+      },
+      {
+        "value": "extract services",
+        "text": "Extract Services"
+      },
+      {
+        "value": "long term conditions manager",
+        "text": "Long Term Conditions Manager"
+      },
+      {
+        "value": "risk stratification",
+        "text": "Risk Stratification"
+      }
+    ]
+  }) }}
+</form>
+
+
+        <br />
+      <form action="order-5-4-2-add-additional-service-price-1">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

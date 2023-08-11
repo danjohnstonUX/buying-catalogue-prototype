@@ -1,0 +1,241 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+{% set dpiErrors = data['dpierror'] | default('') %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "/admin-solutions/admin-solution",
+"text": "Go back"
+}) }}
+
+<form action="/dpi-processing-route-one" method="post">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {%if dpiErrors.length > 0 %}
+      <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+        <h2 class="nhsuk-error-summary__title" id="dpi-choice-title">
+          There is a problem
+        </h2>
+        <div class="nhsuk-error-summary__body">
+          <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+            {% if 'subjectmatter' in dpiErrors %}
+            <li>
+              <a href="#subject-matter">Specify the subject matter of the processing</a>
+            </li>
+            {% endif %}
+            {% if 'durationprocessing' in dpiErrors %}
+            <li>
+              <a href="#duration-processing">Specify the duration of processing</a>
+            </li>
+            {% endif %}
+            {% if 'natureprocessing' in dpiErrors %}
+            <li>
+              <a href="#nature-processing">Specify the nature and purposes of processing</a>
+            </li>
+            {% endif %}
+            {% if 'typesofpersonaldata' in dpiErrors %}
+            <li>
+              <a href="#types-of-personal-data">Specify the types of personal data</a>
+            </li>
+            {% endif %}
+            {% if 'categoriesdatasubjects' in dpiErrors %}
+            <li>
+              <a href="#categories-data-subjects">Specify the categories of data subjects</a>
+            </li>
+            {% endif %}
+            {% if 'locationofprocessing' in dpiErrors %}
+            <li>
+              <a href="#location-of-processing">Specify the location of processing</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <h1>
+        <span role="text">General data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Let buyers know how your Catalogue Solution processes data.</p>
+      
+      <hr>
+      {# <h2>Solution details</h2> #}
+
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h3 class="nhsuk-fieldset__heading">
+            
+          </h3>
+        </legend>
+
+
+        <div class="nhsuk-form-group {% if 'subjectmatter' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="subject-matter">
+            Subject matter of the processing
+          </label>
+          {%if 'subjectmatter' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the subject matter of the processing
+            </span>
+          {% endif %}
+          {# <div class="nhsuk-hint" id="example-hint">
+            Do not include personal or financial information, for example, your National Insurance number or credit card
+            details.
+          </div> #}
+          <textarea class="nhsuk-textarea {% if 'subjectmatter' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="subject-matter"  name="subject-matter" rows="3"
+            aria-describedby="example-hint">{{data['subject-matter']}}</textarea>
+        </div>
+
+        <div class="nhsuk-form-group {% if 'durationprocessing' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="duration-processing">
+            Duration of the processing
+          </label>
+          {%if 'durationprocessing' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the duration of processing
+            </span>
+          {% endif %}
+          {# <div class="nhsuk-hint" id="example-hint">
+            Do not include personal or financial information, for example, your National Insurance number or credit card
+            details.
+          </div> #}
+          <textarea class="nhsuk-textarea {% if 'durationprocessing' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="duration-processing" name="duration-processing" rows="3">{{data['duration-processing ']}}</textarea>
+        </div>
+
+        <div class="nhsuk-form-group {% if 'natureprocessing' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="nature-processing">
+            Nature and purposes of processing
+          </label>
+          {%if 'natureprocessing' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the nature and prupose of processing
+            </span>
+          {% endif %}
+          {# <div class="nhsuk-hint" id="example-hint">
+            Do not include personal or financial information, for example, your National Insurance number or credit card
+            details.
+          </div> #}
+          <textarea class="nhsuk-textarea {% if 'natureprocessing' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="nature-processing" name="nature-processing" rows="3">{{data['nature-processing']}}</textarea>
+        </div>
+
+        <div class="nhsuk-form-group {% if 'typesofpersonaldata' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="types-of-personal-data">
+            Types of personal data
+          </label>
+          {%if 'typesofpersonaldata' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the types of personal data
+            </span>
+          {% endif %}
+          {# <div class="nhsuk-hint" id="example-hint">
+            Do not include personal or financial information, for example, your National Insurance number or credit card
+            details.
+          </div> #}
+          <textarea class="nhsuk-textarea {% if 'typesofpersonaldata' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="types-of-personal-data" name="types-of-personal-data"
+            rows="3">{{data['types-of-personal-data']}}</textarea>
+        </div>
+
+        <div
+          class="nhsuk-form-group {% if 'categoriesdatasubjects' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="categories-data-subjects">
+            Categories of data subjects
+          </label>
+          {%if 'categoriesdatasubjects' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the categories of data subjects
+            </span>
+          {% endif %}
+          {# <div class="nhsuk-hint" id="example-hint">
+            Do not include personal or financial information, for example, your National Insurance number or credit card
+            details.
+          </div> #}
+          <textarea class="nhsuk-textarea {% if 'categoriesdatasubjects' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="categories-data-subjects" name="categories-data-subjects"
+            rows="3">{{data['categories-data-subjects']}}</textarea>
+        </div>
+
+
+        <div class="nhsuk-form-group {% if 'locationofprocessing' in dpiErrors %} nhsuk-form-group--error {% endif %}">
+          <label class="nhsuk-label" for="location-of-processing">
+            Location of data processing
+          </label>
+          <div class="nhsuk-hint" id="example-hint">
+            
+          </div>
+          {%if 'locationofprocessing' in dpiErrors %}
+            <span class="nhsuk-error-message" id="example-error-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Specify the location of data processing
+            </span>
+          {% endif %}
+          <textarea class="nhsuk-textarea {% if 'locationofprocessing' in dpiErrors %} nhsuk-textarea--error {% endif %}" id="location-of-processing" name="location-of-processing"
+            rows="3">{{data['location-of-processing']}}</textarea>
+        </div>
+
+        {{ textarea({
+  "name": "example",
+  "id": "example",
+  "label": {
+    "text": "Additional jurisdiction if processing data outside of the UK (optional)"
+  },
+  "hint": {
+    "text": ""
+  }
+}) }}
+
+      </fieldset>
+
+
+
+
+      <button class="nhsuk-button nhsuk-u-margin-top-7" data-module="nhsuk-button" type="submit">
+        Save and continue
+      </button>
+
+</form>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

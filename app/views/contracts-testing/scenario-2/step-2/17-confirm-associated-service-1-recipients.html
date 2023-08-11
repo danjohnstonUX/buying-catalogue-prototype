@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Engineering Service recipients
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "16-add-associated-service-1-recipients",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Confirm Service Recipients
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Engineering
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Associated Service.</p>
+
+        <h2>Selected Service Recipients</h2>
+        <p>You’ve selected 15 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>Assura ER LLP Hull Dermatology</li>
+          <li>Bevan Ltd</li>
+          <li>Dermatology Clinic GPSI</li>
+          <li>Haxby Group Hull</li>
+          <li>Hull CCG VocareNHS111 OOH</li>
+          <li>James Alexander Family Practice</li>
+          <li>Laurbel Surgery</li>
+          <li>Pain Management GPSI</li>
+          <li>St Andrew's Surgery</li>
+          <li>Sydenham Group Practice</li>
+          <li>The Avenues Medical Centre</li>
+          <li>The Bridge Group Practice</li>
+          <li>The Sutton Manner Surgery</li>
+          <li>Wilberforce Surgery</li>
+          <li>Wolseley Medical Centre</li>
+        </ol>
+        <br/>
+
+        <p>You can
+          <a href="16-add-associated-service-1-recipients">add or remove Service Recipients</a>
+          if needed, or edit them later if you continue with your order.</p>
+
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="18-associated-service-1-price">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <br/><br/>
+    {% endblock %}
+
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}

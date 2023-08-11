@@ -1,0 +1,437 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+    {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+    {{ breadcrumb({
+  items: [{
+
+  }],
+  href: "/",
+  text: "Home"
+  }) }}
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+    <style type="text/css">
+      <!--
+      .tab {
+        margin-left: 40px;
+      }
+
+      -->
+    </style>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-u-margin-top-5">Buying Catalogue terms of use</h1>
+
+        <p class="nhsuk-lede-text">You must agree to comply with these terms of use to place orders on the Buying Catalogue.</p>
+
+        <section>
+
+          <h2>1. Purpose of these terms of use</h2>
+
+          <p>
+            <span>
+              <strong>1.1</strong>
+            </span>
+            <span>
+              The Buying Catalogue (<a href="https://buyingcatalogue.digital.nhs.uk/">https://buyingcatalogue.digital.nhs.uk/</a>) is managed by NHS Digital (<strong>“we”, “us”, “our”</strong>).
+            </span>
+          </p>
+
+          <p>
+            <strong>1.2</strong>
+            The Buying Catalogue is a tool to support the call-off procurement processes for products and services established by specific framework agreements. It helps you conduct pre-procurement market research and, once you register, enables you to compare
+            and select digital solutions and services offered by suppliers and available for purchase via regulated framework agreements (known as
+            <strong>“Catalogue Solutions”</strong>).
+          </p>
+
+          <p>
+            <strong>1.3</strong>
+            These terms of use set out the standards that apply when you access the Buying Catalogue, use it to support call-off procurement processes for Catalogue Solutions, and (if the functionality is made available) add content to the Buying Catalogue, make
+            contact with other users on the Buying Catalogue, link to the Buying Catalogue, or interact with it in any other way.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>2. Acceptance of these terms of use</h2>
+
+          <p>
+            <strong>2.1</strong>
+            If you do not agree to these terms of use, you’ll not be able to use the Buying Catalogue.
+          </p>
+
+          <p>
+            <strong>2.2</strong>
+            We may amend these terms of use from time to time and will maintain and publish version control details.
+          </p>
+
+          <p>
+            <strong>2.3</strong>
+            By continuing to use the Buying Catalogue, you’ll be accepting the current version of these terms of use.
+          </p>
+
+          <p>
+            <strong>2.4</strong>
+            You must have the permission of your employer to register for a Buying Catalogue user account.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>3. Your permitted use of the Buying Catalogue</h2>
+
+          <p>
+            <strong>3.1</strong>
+            We grant a non-exclusive, non-transferable, royalty free licence to you to view authorised parts of the Buying Catalogue.
+          </p>
+
+          <p>
+            <strong>3.2</strong>
+            You may use the Buying Catalogue only for lawful purposes.
+          </p>
+
+          <p>
+            <strong>3.3</strong>
+            You may not use the Buying Catalogue:
+          </p>
+          <p class="tab">
+            <strong>3.3.1</strong>
+            in any way that breaches any applicable local, national or international law or regulation;
+          </p>
+          <p class="tab">
+            <strong>3.3.2</strong>
+            in any way that is unlawful or fraudulent, or has any unlawful or fraudulent purpose or effect;
+          </p>
+          <p class="tab">
+            <strong>3.3.3</strong>
+            for the purpose of harming or attempting to harm minors in any way;
+          </p>
+          <p class="tab">
+            <strong>3.3.4</strong>
+            to send, knowingly receive, upload, download, use or reuse any material which does not comply with our content standards (outlined in the Interactive Services section of these terms of use);
+          </p>
+          <p class="tab">
+            <strong>3.3.5</strong>
+            to transmit, or procure the sending of, any unsolicited or unauthorised advertising or promotional material or any other form of similar solicitation (spam); or
+          </p>
+          <p class="tab">
+            <strong>3.3.6</strong>
+            to knowingly transmit any data, send or upload any material that contains viruses, Trojan horses, worms, time-bombs, keystroke loggers, spyware, adware or any other harmful programs or similar computer code designed to adversely affect the operation
+            of any computer software or hardware.
+          </p>
+
+          <p>
+            <strong>3.4</strong>
+            You also agree that you will not:
+          </p>
+          <p class="tab">
+            <strong>3.4.1</strong>
+            reproduce, duplicate, copy or re-sell any part of the Buying Catalogue;
+          </p>
+          <p class="tab">
+            <strong>3.4.2</strong>
+            attempt to:
+          </p>
+
+          <ul>
+            <li class="tab">copy, adapt, duplicate, modify, create derivative works from or distribute all or any portion of any application program interface technology you access through the Buying Catalogue; or</li>
+            <li class="tab">reverse compile, decompile, disassemble, reverse engineer or otherwise reduce to human-perceivable form all or any part of the Buying Catalogue; or</li>
+            <li class="tab">make changes or error corrections to the Buying Catalogue in whole or in part;
+            </li>
+          </ul>
+          <p class="tab">
+            <strong>3.4.3</strong>
+            access without permission, interfere with, damage or disrupt:
+          </p>
+          <ul>
+            <li class="tab">any equipment or network on which the Buying Catalogue is stored;
+            </li>
+            <li class="tab">any software used in the provision of the Buying Catalogue;</li>
+            <li class="tab">any equipment or network or software owned or used by any third party.</li>
+          </ul>
+
+          <p>
+            <strong>3.5</strong>
+            You accept that all intellectual property rights created and developed by us which subsist or are used in, or in connection with, the Buying Catalogue and the specification of the functional capabilities (known as
+            <strong>“Capabilities”</strong>) and the associated standards mapped to the Capabilities (known as
+            <strong>“Standards”</strong>) will remain our property.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>4. Data, security and confidentiality</h2>
+
+          <p>
+            <strong>4.1</strong>
+            In relation to how data from activity on the Buying Catalogue is collected and used, you can review the
+            <a href="https://buyingcatalogue.digital.nhs.uk/privacy-policy">privacy policy and cookies policy</a>
+            for users of the Buying Catalogue.
+          </p>
+
+          <p>
+            <strong>4.2</strong>
+            You must keep passwords for accessing the Buying Catalogue private and confidential.
+          </p>
+
+          <p>
+            <strong>4.3</strong>
+            You will keep Confidential Information secret and confidential and will not use or disclose Confidential Information without NHS Digital's prior written consent.
+          </p>
+
+          <p>
+            <strong>4.4</strong>
+            <strong>“Confidential Information”</strong>
+            means all information which relates to the Buying Catalogue, a Catalogue Solution, a supplier of a Catalogue Solution and/or us which is disclosed before or after the start date of this contract by us to you however conveyed and which: is marked
+            confidential or which is accompanied by a written or oral statement saying that it is confidential or proprietary or ought reasonably to be considered confidential. This excludes information published on the Buying Catalogue or otherwise which is in
+            the public domain other than as a result of a breach of the obligations of confidentiality in these terms, was independently disclosed to by a third party entitled to disclose the information; and/or is required to be disclosed under any applicable
+            law, or by order of a court or governmental body or authority of competent jurisdiction).
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>5. Breach of these terms of use</h2>
+
+          <p>
+            <strong>5.1</strong>
+            When a breach of these terms of use has occurred, we may take such action as we deem appropriate, including suspending or blocking your access to the Buying Catalogue.
+          </p>
+          <p>
+            <strong>5.2</strong>
+            We exclude our liability to the extent permitted by law for all action we may take in response to breaches of these terms of use.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>6. Disclaimers and liability</h2>
+
+          <p>
+            <strong>6.1</strong>
+            You use the Buying Catalogue entirely at your own risk and, to the extent permitted under the laws of England and Wales, we assume no duty of care or other legal liability or responsibility to you, or for any loss or damage suffered by you as a
+            result of such use and will not be liable to contribute to or otherwise share in any liability to compensate any third party harmed as a result of the usage of the Buying Catalogue, including in relation to the performance and or results associated
+            with the Buying Catalogue.
+          </p>
+
+          <p>
+            <strong>6.2</strong>
+            The Buying Catalogue is provided on an “as is” basis without (to the extent permitted by law) any warranty or representation of any kind either expressed or implied (including the implied warranties of merchantability and fitness for a particular
+            purpose).
+          </p>
+
+          <p>
+            <strong>6.3</strong>
+            We will have no liability for unavailability or impaired performance of the Catalogue. From time to time, the Buying Catalogue may be unavailable due to maintenance or other technical issues.
+          </p>
+
+          <p>
+            <strong>6.4</strong>
+            The Buying Catalogue provides information about Catalogue Solutions. We will not be held responsible for errors in the information available on the Catalogue Solution listings pages.
+          </p>
+
+          <p>
+            <strong>6.5</strong>
+            Catalogue Solutions which are visible and/or available to purchase have been certified as compliant only with the relevant Capability and Standards. Certification is awarded based on the Catalogue Solution completing all relevant self-certifications,
+            testing and holding specific accreditations managed by external bodies. We’ll not be responsible for the functionality or suitability of the Catalogue Solutions which are presented for purchase. The setting and assuring of Standards does not transfer
+            risk to NHS Digital.
+          </p>
+
+          <p>
+            <strong>6.6</strong>
+            You are responsible for considering all relevant Catalogue Solutions and evaluating which is the most suitable against your needs, according to the evaluation criteria you have defined. Clinicians and subject matter experts must continue to use their
+            own professional judgement with regards to their use of, and reliance upon, any Catalogue Solutions that they purchase.
+          </p>
+
+          <p>
+            <strong>6.7</strong>
+            To the extent permissible by the laws of England and Wales, we will not be liable for any direct, special, indirect or consequential losses and/or damages nor for any loss (whether direct or indirect) of use, data, business or profits arising out of
+            or in connection with these terms of use, whether such liability arises from any claim based upon contract, warranty, tort (including negligence), strict liability or otherwise, and whether or not we have been advised of the possibility of such loss
+            or damage.
+          </p>
+
+          <p>
+            <strong>6.8</strong>
+            Our financial liability in connection with these terms of use to you will be limited to £50.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>7. Which country's laws apply to any disputes?</h2>
+
+          <p>
+            <strong>7.1</strong>
+            These terms of use, the subject matter and the formation (and any non-contractual disputes or claims), are governed by the laws of England and Wales and subject to the jurisdiction of the courts of England.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>8. Interactive Services</h2>
+
+          <p>
+            <strong>8.1</strong>
+            We may from time to time provide Interactive Services to registered users, including, without limitation:
+          </p>
+          <p class="tab">
+            <strong>8.1.1</strong>
+            sharing reviews of the digital products and services on the Buying Catalogue by customers;
+          </p>
+          <p class="tab">
+            <strong>8.1.2</strong>
+            chat rooms; and
+          </p>
+          <p class="tab">
+            <strong>8.1.3</strong>
+            bulletin boards,
+          </p>
+          <p>(known as
+            <strong>“Interactive Services”</strong>).
+          </p>
+
+          <p>
+            <strong>8.2</strong>
+            Where we do provide any Interactive Service, we’ll provide clear information to you about the kind of service offered, if it is moderated and what form of moderation is used (including whether it is human or technical).
+          </p>
+
+          <p>
+            <strong>8.3</strong>
+            We’ll do our best to assess any possible risks for users from third parties when they use any Interactive Service provided on the Buying Catalogue, and we will decide in each case whether it is appropriate to use moderation of the relevant service
+            (including what kind of moderation to use) in light of those risks. However, we are under no obligation to oversee, monitor or moderate any Interactive Service we provide on the Buying Catalogue, and we expressly exclude our liability for any loss or
+            damage arising from the use of any Interactive Service by a user in contravention of our content standards (outlined in the Interactive Services section of these terms of use), whether the service is moderated or not.
+          </p>
+
+          <p>
+            <strong>8.4</strong>
+            Where we do moderate an Interactive Service, we’ll normally provide you with a means of contacting the moderator, should a concern or difficulty arise.
+          </p>
+
+        </section>
+
+        <section>
+
+          <h2>9. Rules for contribution of content</h2>
+
+          <p>
+            <strong>9.1</strong>
+            The Buying Catalogue may enable you to contribute content, for example as part of Interactive Services (known as
+            <strong>“Contribution”</strong>).
+          </p>
+
+          <p>
+            <strong>9.2</strong>
+            You will ensure that if you make a Contribution:
+          </p>
+          <p class="tab">
+            <strong>9.2.1</strong>
+            any facts stated are accurate;
+          </p>
+          <p class="tab">
+            <strong>9.2.2</strong>
+            any opinions asserted are genuinely held;
+          </p>
+          <p class="tab">
+            <strong>9.2.3</strong>
+            it complies with the law applicable in England and Wales and in any country from which it is posted; and
+          </p>
+          <p class="tab">
+            <strong>9.2.4</strong>
+            the Contribution will not:
+          </p>
+
+          <ul>
+            <li class="tab">be false or misleading;</li>
+            <li class="tab">be defamatory of any person;</li>
+            <li class="tab">be obscene, offensive, hateful or inflammatory;</li>
+            <li class="tab">promote sexually explicit material;</li>
+            <li class="tab">promote violence;</li>
+            <li class="tab">promote discrimination based on race, sex, religion, nationality, disability, sexual orientation or age;</li>
+            <li class="tab">infringe any copyright, database right or trade mark of any other person;</li>
+            <li class="tab">be likely to deceive any person;</li>
+            <li class="tab">breach any legal duty owed to a third party, such as a contractual duty or a duty of confidence;</li>
+            <li class="tab">promote any illegal activity;</li>
+            <li class="tab">be in contempt of court;</li>
+            <li class="tab">be threatening, abuse or invade another's privacy, or cause annoyance, inconvenience or needless anxiety;</li>
+            <li class="tab">be likely to harass, upset, embarrass, alarm or annoy any other person;</li>
+            <li class="tab">impersonate any person, or misrepresent your identity or affiliation with any person;</li>
+            <li class="tab">give the impression that the contribution emanates from us, a party managing a framework agreement or any other Government body, if this is not the case;</li>
+            <li class="tab">advocate, promote, incite any party to commit, or assist any unlawful or criminal act, for example copyright infringement or computer misuse; or</li>
+            <li class="tab">contain a statement which you know or believe, or have reasonable grounds for believing, that members of the public to whom the statement is, or is to be, published are likely to understand as a direct or indirect encouragement or
+              other inducement to the commission, preparation or instigation of acts of terrorism.</li>
+          </ul>
+
+          <p>
+            <strong>9.3</strong>
+            We’ll determine, in our sole discretion acting reasonably, whether a Contribution breaches the rules set out above.
+          </p>
+
+        </section>
+
+        {% from 'checkboxes/macro.njk' import checkboxes %}
+
+        <form>
+          {{ checkboxes({
+                "idPrefix": "example",
+                "name": "example",
+                "fieldset": {
+                  "legend": {
+                    "text": "",
+                    "classes": "nhsuk-fieldset__legend--l",
+                    isPageHeading: true
+                  }
+                },
+                "hint": {
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "value": "email",
+                    "text": "I have read and agree to comply with these terms of use"
+                  },
+                  {
+                    "value": "phone",
+                    "html": "<span>I have read and understood the <a href='https://www.allaboutcookies.org/' target='_blank'>privacy policy (opens in a new tab)</a></span>"
+                  },
+                  {
+                    "value": "text message",
+                    "text": "I am happy to be contacted about taking part in user research (optional)"
+                  }
+                ]
+              }) }}
+
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+  "text": "Save and continue"
+}) }}
+
+        </form>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

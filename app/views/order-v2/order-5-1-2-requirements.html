@@ -1,0 +1,215 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Call-off Ordering Party requirements for [Call-off ID]</h1>
+        <p class="nhsuk-lede-text">Answer the following questions about the Call-off Ordering Party.</p>
+
+        {% from 'details/macro.njk' import details %}
+
+        {{ details({
+          "text": "More information",
+          "HTML": '
+
+          <p>For help answering the following questions, refer to the <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1933575165/GP+IT+Futures+Contracts">Additional Clauses document 5.7</a></p>
+          '
+        }) }}
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "security",
+  "name": "security",
+  "fieldset": {
+    "legend": {
+      "text": 'Are ‘security measures’ required?',
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    text: 'For example, if anything of a sensitive nature is being shared with the supplier.'
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+
+<br />
+
+{{ radios({
+  "idPrefix": "crown",
+  "name": "crown",
+  "fieldset": {
+    "legend": {
+      "text": "Is the Call-off Ordering Party a Crown body?",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    text: 'Answer ‘Yes’ if the Call-off Ordering Party is an agency of the Crown.'
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+
+<br />
+
+{{ radios({
+  "idPrefix": "foia",
+  "name": "foia",
+  "fieldset": {
+    "legend": {
+      "text": "Is the Call-off Ordering Party a FIOA public body?",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    text: 'Answer ‘Yes’ if the Call-off Ordering Party is subject to freedom of information requests.'
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+
+<br />
+
+{% from 'input/macro.njk' import input %}
+
+{% set yesHtml %}
+  <h3>Additional jurisdictions where data processing is permitted</h3>
+  <p>Provide information on each service instance where data is processed outside the UK.</p>
+
+
+
+  <br />
+
+  {% from 'action-link/macro.njk' import actionLink %}
+
+  {{ actionLink({
+    "text": "Add a jurisdiction",
+    "href": "order-5-1-1-add-jurisdiction"
+  }) }}
+<p>Use the link to add information on each jurisdiction where data processing is permitted.</p>
+  {% from 'tables/macro.njk' import table %}
+
+  {{ table({
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Catalogue Solution and Service Instance ID"
+      },
+      {
+        text: "Additional jurisdiction"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Applicable to all Service Instance IDs in the Order Summary"
+        },
+        {
+          text: "European Economic Area (EEA): The third party who host video consultations and are compliant with UK GDPR. All communication between participants’ devices and the third party is over an encrypted connection. As long as the participants are using their devices in the European Economic Area, it is guaranteed that any data is hosted and processed within the EEA, in line with NHS best practice guidelines on health and social care cloud security."
+        },
+        {
+          html: '<a href="order-5-1-1-edit-jurisdiction">Edit</a>'
+        }
+      ]
+    ]
+  }) }}
+{% endset -%}
+
+{{ radios({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "Is the processing of personal data permitted outside the UK?",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    text: 'For example, in restricted countries. The default is expected to be ‘No’.'
+  },
+  "items": [
+    {
+      "value": "email",
+      "text": "Yes, it is permitted outside the UK",
+      "conditional": {
+        "html": yesHtml
+      }
+    },
+    {
+      "value": "phone",
+      "text": "No, permitted only in the UK"
+    }
+  ]
+}) }}
+
+      <form action="order-4-summary">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

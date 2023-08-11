@@ -1,0 +1,82 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  NHS Digital Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "../includes/header.html" %}
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{{ breadcrumb({
+href: "/buyer-browse-v2/",
+text: "Welcome"
+}) }}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+<div class="nhsuk-u-padding-top-7 nhsuk-u-padding-bottom-7 buyer-browse-3">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full" id="content">
+      <!-- Change the page title here -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <!-- Change the page title here -->
+          <h2>
+            Browse Solutions - Capabilities
+          </h2>
+
+          <h4>All but one of the Capabilities have been pre-defined, you can read more about them here <a href="">[link]</a>.</h4>
+
+          <p>The scope of a Catalogue Solution is described using Capabilities. A Catalogue Solution may have just one Capability, or it may have a group of Capabilities.</p>
+
+          <p>Each Capability has a title, description, Epics and Acceptance Criteria. Each Capability can have a number of Epics. For some Capabilities, a Catalogue Solution must meet the Acceptance Criteria for all the Must Epics, and for others, they only need to meet the Acceptance Criteria of at least one Must Epic. The Buying Catalogue will show you which Epics have been assessed as being met, so you will be able to understand the differences between Catalogue Solutions.</p>
+
+          <p><b>There are six Foundation Capabilities.</b></p>
+          <p>These Capabilities are a subset of the Capabilities mandated in the NHS England GPIT Operating Model. On the Buying Catalogue, a Catalogue Solution or Solutions that combine to fulfil the Foundation Capabilities is known as a Catalogue Foundation Solution Set. For practices, the GMS funding must be used to purchase the Foundation Capabilities first, and if you have funds remaining, you can use that to buy further Catalogue Solutions providing the other Capabilities. You can also purchase a Solution with your own funds.</p>
+
+          <p>You can search for Catalogue Solutions by choosing to either search for Catalogue Foundation Solution Sets, or you can identify your needs, map them to one or more Capabilities, and search for Catalogue Solutions using the Capabilities.</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <p class="blue view-results">
+            <a href="/buyer-browse-v2/start-browse">Skip to begin browse</a> →
+          </p>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full nhsuk-u-margin-top-4">
+            {{ actionLink({
+              "text": "Next: Supplier defined capabilities",
+              "href": "/buyer-browse-v2/guide-3"
+            }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- End of content -->
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "../includes/footer.html" %}
+{% endblock %}

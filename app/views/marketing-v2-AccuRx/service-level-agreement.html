@@ -1,0 +1,461 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+AccuRx - Service level agreement
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">AccuRx</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to AccuRx</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav-accurx.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Service Level Agreement
+        <span class="nhsuk-caption-xl">AccuRx</span> 
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+      {% from 'tables/macro.njk' import table %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+           <dd class="nhsuk-summary-list__value">
+            <a href="supplier-details" class="nhsuk-link nhsuk-link--no-visited-state">	
+              AccuRx</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+              
+  10030-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Tech Innovation
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            No
+          </dd>
+          
+        </div>
+  
+      
+      
+    </dl>
+      <h2>Service level agreement</h2>
+
+      <p>These are the levels of service the supplier has committed to for this Catalogue Solution:</p>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Service availability
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>This is when you can contact support services for this Catalogue Solution.</p>
+      
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Category"
+          },
+          {
+            text: "Time period"
+          },
+          {
+            text: "Applicable days"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Core support hours"
+            },
+            {
+              text: "06:30 – 20:30"
+            },
+            {
+              text: "Monday – Sunday inclusive and including Bank Holidays."
+            }
+          ],
+          [
+            {
+              text: "Non-core support hours"
+            },
+            {
+              text: "20:30 – 06:30"
+            },
+            {
+              text: "Monday – Sunday inclusive and including Bank Holidays."
+            }
+          ]
+        ]
+      }) }}
+
+
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Contact details
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>This is how you can contact support services for this Catalogue Solution.</p>
+
+  {{ table({
+    panel: false,
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Channel"
+      },
+
+      {
+        text: "Contact"
+      },
+      {
+        text: "Accessible hours"
+      }
+    ],
+    rows:
+    [
+     [
+      {
+        text: "Email"
+      },
+      {
+        text : "support@accurx.com"
+      },
+      {
+        text : "06:30 - 20:30"
+      }
+    ]
+    ]
+  }) }}
+        </div>
+      </details>
+
+      <hr>
+
+      <h4 class="nhsuk-heading-s">Service levels</h4>
+      <p class="nhsuk-body">These are the levels of service provided for this Catalogue Solution.</p>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Catalogue Solution availability including interfaces to national systems
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Service level
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                99.9% availability during each calendar month and less than 10 minutes downtime in total
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                How the service levels are measured
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Measured on a per practice basis by suppliers monitoring tools and reported to service management
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Are service credits applied?
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+          
+            </div>
+
+          </dl>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Catalogue Solution responsiveness
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Service level
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                99.9% of transactions take less than 2 seconds
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                How the service levels are measured
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Measured per transaction within the boundaries of the suppliers datacentre and reported to service management
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Are service credits applied?
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+          
+            </div>
+
+          </dl>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Clinical safety 
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Service level
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                No Clinical Safety Incidents in a calendar month and not resolved within the resolution time
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                How the service levels are measured
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Any Clinical Safety Incidents being reported in accordance with DCB0129
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Are service credits applied?
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+          
+            </div>
+
+          </dl>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Other failures 
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Service level
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                No High Severity Service Incidents in a calendar month and not resolved with resolution time
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                How the service levels are measured
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Any High Severity Service Incidents being reported
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Are service credits applied?
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+          
+            </div>
+
+          </dl>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Service desk performance
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Service level
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Applicable service failures and their definitions to be agreed with each supplier
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                How the service levels are measured
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                To be taken from the approved proposal from the supplier
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Are service credits applied?
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+          
+            </div>
+
+          </dl>
+        </div>
+      </details>
+
+
+  <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+    Solution information last reviewed: 31 March 2020
+  </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "standards",
+    "previousPage": "Standards",
+    "nextUrl": "development-plans",
+    "nextPage": "Development plans"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+  
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+});
+
+</script>
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

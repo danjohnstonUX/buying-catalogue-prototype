@@ -1,0 +1,813 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Standards
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+    <nav class="side-nav theiaStickySidebar">
+      {% set template = "includes/sticky-side-nav.njk" %}
+      {% include template %}
+    </nav>
+  </div>
+  <div class="nhsuk-grid-column-two-thirds content" id="content">
+    <h1>
+      Standards
+      <span class="nhsuk-caption-xl">Caltech Web GP</span>  
+    </h1>
+    {% from 'contents-list/macro.njk' import contentsList %}
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Supplier name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+        </dd>
+        
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Solution ID
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          10000-001
+        </dd>
+        
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Framework(s)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          GP IT Futures
+        </dd>
+        
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Foundation Solution
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Yes
+        </dd>
+        
+      </div>
+    
+  </dl>
+  <h2>Standards</h2>
+     
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+<p>Standards describe the technical specifications or operating conditions required for a Catalogue Solution to be published on the Buying Catalogue. This is how Caltech Web GP has performed against the relevant Standards:</p>
+
+{% from 'details/macro.njk' import details %}
+
+{{ details({
+  "text": "Standards not fully met",
+  "HTML": "
+  <p>Any Standard that has not been fully met will have a status of ‘in progress’ and the Catalogue Solution will be subject to a Compliance Work-off Plan.</p>
+    <p>This means the supplier has agreed to complete any outstanding work to meet the Standard within an agreed timeframe.</p>
+
+    <p>Use the ‘view details’ link to find more information about any outstanding Work-off Plans.</p>
+  "
+}) }}
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Overarching Standards
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+    <p>These Standards must be fully met by all Catalogue Solutions within an agreed timeframe.</p>
+    {{ table({
+      panel: false,
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Standard"
+        },
+              {
+          text: "Description"
+        },
+        {
+          text: "Status"
+        }
+      ],
+      rows: [
+              [
+                {
+                  text: "Business Continuity and Disaster Recovery"
+                },
+                {
+                  html: 'Ensures that solutions are supported by robust business continuity plans and disaster recovery measures.  <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134058/Business+Continuity+and+Disaster+Recovery">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Clinical Safety"
+                },
+                {
+                  html: 'Supports the management of clinical risk and patient safety. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134225/Clinical+Safety">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Commercial"
+                },
+                {
+                  html: 'Underpins all commercial activity relating to the Buying Catalogue by defining rules governing commercial relationships and setting out standards of behaviour. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134121/Commercial">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+                }
+              ],
+              [
+                {
+                text: "Data Migration"
+                },
+                {
+                html: 'Supports the safe and effective migration of data if a buyer changes from one solution to another. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134456/Data+Migration">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Data Standards"
+                },
+                {
+                  html: 'Defines detailed technical standards for the storage, management and organisation of data and specifies standardised reference data, terminology and codes. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134407/Data+Standards">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Hosting and Infrastructure"
+                },
+                {
+                  html: 'Supports best practices for infrastructure and hosting of systems. For example, ensuring systems are cost effective, secure and energy efficient. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134324/Hosting+Infrastructure">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Information Governance"
+                },
+                {
+                  html: 'Supports the controls needed to ensure that sensitive personal data is kept confidential, is accurate and is available to authorised users when required. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134230/Information+Governance">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Non-Functional Questions"
+                },
+                {
+                html: 'Enables NHS Digital to assess the risk associated with the assessment of a solution against other overarching Standards. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1569980472/Non-Functional+Questions">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+                }
+              ],
+              [
+                {
+                text: "Service Management"
+                },
+                {
+                html: 'Supports suppliers in the delivery and management of services that enable their solutions to continue working. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133802/Service+Management">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+                }
+              ],
+              [
+                {
+                  text: "Testing"
+                },
+                {
+                  html: 'Ensures that a suppliers’ software delivery test processes are of sufficient quality and rigour. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133583/Testing">More information about this Standard</a>'
+                },
+                {
+                  html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+                }
+              ],
+              [
+                {
+                text: "Training"
+                },
+                {
+                html: 'Enables NHS Digital to assess the risk associated with the assessment of a solution against other overarching Standards. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133846/Training">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ]
+            ]
+      }) }}
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Interoperability Standards
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+<p>These Standards are relevant to solutions that meet particular Capabilities. </p>
+{{ table({
+  panel: false,
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Standard"
+    },
+          {
+      text: "Description"
+    },
+    {
+      text: "Status"
+    }
+  ],
+  rows: [
+          [
+            {
+              text: "111"
+            },
+            {
+              html: 'Supports the receiving and consuming of data sent by 111 provider systems for transfer of care to a GP practice. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133945/111">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Digital Diagnostics and Pathology Messaging"
+            },
+            {
+              html: 'Supports the transmission and validation of results data to GP systems where a test request has been placed with a laboratory. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133752/Digital+Diagnostics+Pathology+Messaging">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Digital Medicines and Pharmacy FHIR Payload"
+            },
+            {
+              html: 'Supports the receiving and consuming of data sent by a pharmacy to a GP practice relating to administration of immunisations or supply of emergency medication to patients. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/10752983078/Digital+Medicines+and+Pharmacy+FHIR+Payload">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+            }
+          ],
+          [
+            {
+              text: "e-Referrals Service (e-RS)"
+            },
+            {
+              html: 'Supports electronic booking of hospital or clinic appointments, with a choice of place, date and time. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133966/e-Referrals+Service+e-RS">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Electronic Prescription Service (EPS)"
+            },
+            {
+              html: 'Supports the sending of prescriptions electronically to a dispenser, for example a pharmacy, of the patient\'s choice. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133858/Electronic+Prescription+Service+EPS+-+Prescribing">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Electronic Yellow Card Reporting"
+            },
+            {
+              html: 'Supports electronic reporting of suspected adverse drug reactions. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134080/Electronic+Yellow+Card+Reporting">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "eMED3 (Fit Notes)"
+            },
+            {
+              html: 'Supports the creation of eMED3 data, its integration into a Patient Record, printing MED3 fit note certificates and the extraction of data to NHS Digital. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134121/Commercial">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "GP2GP"
+            },
+            {
+              html: 'Supports the electronic transfer of a Patient Record when a patient moves from one GP practice to another. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134336/GP2GP">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+            }
+          ],
+          [
+            {
+              text: "GP Connect"
+            },
+            {
+              html: 'Supports sharing of data held within GP IT solutions across health and social care organisations. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133650/GP+Connect">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "GP Data for Planning and Research"
+            },
+            {
+              html: 'Supports the extraction and submission of GP data, for health and social care purposes (including planning, policy development, public health, commissioning and research) to NHS Digital. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/11235426957/GP+Data+for+Planning+and+Research">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "GPES Data Extraction"
+            },
+            {
+              html: 'Supports secure collection of information from GP practices and its delivery to approved organisations. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134238/GPES+Data+Extraction">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "IM1 Interface Mechanism"
+            },
+            {
+              html: 'Supports the implementation of interfaces between solutions. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133895/IM1+-+Interface+Mechanism">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "NHAIS HA/GP Links"
+            },
+            {
+              html: 'Supports the management of patient registration and demographic information with National Health Application and Infrastructure Services. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133619/NHAIS+HA+GP+Links">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Personal Demographics Service (PDS)"
+            },
+            {
+              html: 'Supports solution integration with the Personal Demographics Service which stores patient details. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133999/Personal+Demographics+Service+PDS">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Screening Messaging"
+            },
+            {
+              html: 'Supports the validation and transfer of screening result data to solutions. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133789/Screening+messaging">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ],
+          [
+            {
+              text: "Summary Care Record (SCR)"
+            },
+            {
+              html: 'Supports the management of Summary Care Record data and staff access to the data. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133699/Summary+Care+Record+SCR">More information about this Standard</a>'
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--green">Fully met</strong>'
+            }
+          ]
+        ]
+  }) }}
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Capability Specific Standards
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+    <p>These Standards must be fully met due to the Capabilities this Catalogue Solution has mapped to.</p>
+    {{ table({
+      panel: false,
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Standard"
+        },
+              {
+          text: "Description"
+        },
+        {
+          text: "Status"
+        }
+      ],
+      rows: [
+              [
+                {
+                text: "Appointments Management - Citizen"
+                },
+                {
+                html: 'Enables citizens to manage their appointments online and supports the use of appointment slots that have been configured in Appointments Management - GP. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134369/Appointments+Management+-+Citizen+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Communicate with Practice - Citizen"
+                },
+                {
+                html: 'Supports secure and trusted electronic communications between citizens and a GP practice. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134173/Communicate+with+Practice+-+Citizen+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Prescription Ordering - Citizen"
+                },
+                {
+                html: 'Enables citizens to request medication online and manage nominated and preferred pharmacies for patients. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134356/Prescription+Ordering+-+Citizen+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "View Record - Citizen"
+                },
+                {
+                html: 'Enables citizens to view their Patient Record online. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134394/View+Record+-+Citizen+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Appointments Management - GP"
+                },
+                {
+                html: 'Supports the administration, scheduling, resourcing and reporting of appointments. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134382/Appointments+Management+-+GP+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "General Practice Appointments Data Reporting"
+                },
+                {
+                html: 'Enables the collection and submission to NHS Digital of appointment data to support capacity planning and management. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133692/General+Practice+Appointments+Data+Reporting">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Clinical Decision Support"
+                },
+                {
+                html: 'Supports clinical decision-making to improve patient safety at the point of care. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134143/Clinical+Decision+Support+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Communication Management"
+                },
+                {
+                html: 'Supports the delivery and management of communications to citizens and GP practice staff. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134296/Communication+Management+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Digital Diagnostics"
+                },
+                {
+                html: 'Supports electronic requesting with other healthcare organisations. Test results can be received, reviewed and stored against a Patient Record. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133783/Digital+Diagnostics+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Document Management"
+                },
+                {
+                html: 'Supports the secure management and classification of all forms of unstructured electronic documents including those created by scanning paper documents. Also enables processing of documents and matching documents with patients. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134289/Document+Management+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "GP Extracts Verification"
+                },
+                {
+                html: 'Supports GP practice staff in ensuring accuracy of the data that is used with the Calculating Quality Reporting Service (CQRS). <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133808/GP+Extracts+Verification+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Patient Information Maintenance"
+                },
+                {
+                html: 'Supports the registration of patients and the maintenance of all their personal information. Enables the organisation and presentation of a comprehensive Patient Record. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134401/Patient+Information+Maintenance+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Primary Care Clinical Terminology Usage Report"
+                },
+                {
+                html: 'Supports the collection and submission to NHS Digital of information about usage of clinical coded terms. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134283/Primary+Care+Clinical+Terminology+Usage+Report">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Prescribing"
+                },
+                {
+                html: 'Supports the effective and safe prescribing of medical products and appliances to patients and makes available information to support prescribing. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134363/Prescribing+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Recording Consultations"
+                },
+                {
+                html: 'Supports the standardised recording of consultations and other GP practice activities. Also supports the extraction of Female Genital Mutilation (FGM) data for the FGM data set. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134136/Recording+Consultations+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Referral Management"
+                },
+                {
+                html: 'Supports recording, reviewing, sending, and reporting of patient referrals. Enables referral information to be included in a Patient Record. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133630/Referral+Management+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Reporting"
+                },
+                {
+                html: 'Enables reporting and analysis of data from other Capabilities in the GP practice solution to support clinical care and practice management. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134256/Reporting+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Resource Management"
+                },
+                {
+                html: 'Supports the management and reporting of practice information, resources, staff members and related organisations. Also enables management of staff member availability and inactivity. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133828/Resource+Management+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Scanning"
+                },
+                {
+                html: 'Supports the conversion of paper documentation into a digital format, preserving the document quality and structure. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134270/Scanning">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Telehealth"
+                },
+                {
+                html: 'Enables citizens and patients that use health monitoring solutions to share monitoring data with health and care professionals to support remote delivery of care and increase self-care outside of clinical settings. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134248/Telehealth">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Unstructured Data Extraction"
+                },
+                {
+                html: 'Enables automated and manual interpretation and extraction of structured data from paper documents and unstructured electronic documents to support their classification and matching with a Patient Record. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134330/Unstructured+Data+Extraction+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Workflow"
+                },
+                {
+                html: 'Supports manual and automated management of work in a GP practice, and enables effective planning, tracking, monitoring and reporting. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134376/Workflow+-+Standard">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Citizen Access"
+                },
+                {
+                html: 'Enables citizens to access their services safely and securely and also supports them in viewing and updating patient information online. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133929/Citizen+Access">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Common Reporting"
+                },
+                {
+                html: 'Supports the reporting needs common to GP practices and includes searchable report templates. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133675/Common+Reporting">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ],
+              [
+                {
+                text: "Management Information (MI) Reporting"
+                },
+                {
+                html: 'Supports the submission of aggregated counts of information regarding services, appointments, prescriptions and documents to NHS Digital. <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134317/Management+Information+MI+Reporting">More information about this Standard</a>'
+                },
+                {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;progress</strong>'
+                }
+              ]
+            ]
+      }) }}
+  </div>
+</details>
+
+<p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Solution information last reviewed: 31 March 2020
+</p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "hosting-type",
+    "previousPage": "Hosting type",
+    "nextUrl": "service-level-agreement",
+    "nextPage": "Service Level Agreement"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){  
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+});
+
+</script>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Interoperability
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "non-price-elements",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Interoperability requirements<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  Your competition
+</span></h1>
+
+<p class="nhsuk-lede-text">Select which integrations your winning solution needs to work with.</p>
+
+{{ checkboxes({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "IM1 integrations",
+      "classes": "nhsuk-fieldset__legend--m",
+      isPageHeading: false
+    }
+  },
+  "hint": {
+    "text": "Select all options that are relevant to you."
+  },
+  "items": [
+    {
+      "value": "bulk",
+      "text": "IM1 Bulk"
+    },
+    {
+      "value": "transactional",
+      "text": "IM1 Transactional"
+    },
+    {
+      "value": "patient",
+      "text": "IM1 Patient Facing"
+    }
+  ]
+}) }}
+
+<br>
+
+{{ checkboxes({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "GP Connect integrations",
+      "classes": "nhsuk-fieldset__legend--m",
+      isPageHeading: false
+    }
+  },
+  "hint": {
+    "text": "Select all options that are relevant to you."
+  },
+  "items": [
+    {
+      "value": "html",
+      "text": "GP Connect - HTML View"
+    },
+    {
+      "value": "appointment",
+      "text": "GP Connect - Appointment Booking"
+    },
+    {
+      "value": "record",
+      "text": "GP Connect - Structured Record"
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"non-price-hub-interop-added"
+}) }}
+</form>
+
+<p><a href="non-price-elements">Cancel</a></p>
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

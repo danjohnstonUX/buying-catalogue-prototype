@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Associated Services to your order</h1>
+
+      {% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+
+{% call fieldset({
+  legend: {
+    "text": "Which organisation are you looking for?",
+    "classes": "nhsuk-fieldset__legend--l",
+    "isPageHeading": true
+  }
+  }) %}
+  {{ hint({
+    "text": "Select the organisation you want to act on behalf of."
+  }) }}
+  {{ radios({
+    "idPrefix": "example-hints",
+    "name": "example-hints",
+    "items": [
+  {
+    "value": "yes",
+    "text": "My CCG organisation location"
+  },
+  {
+    "value": "no",
+    "text": "CCG Leeds"
+  },
+  {
+    "value": "not sure",
+    "text": "CCG Hull"
+  },
+  {
+    "value": "not sure",
+    "text": "CCG York"
+  },
+  {
+    "value": "not sure",
+    "text": "CCG Bradford"
+  },
+  {
+    "value": "not sure",
+    "text": "CCG Wakefield"
+  }
+]
+}) }}
+{% endcall %}
+
+
+<form action="order-4-summary">
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

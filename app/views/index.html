@@ -4,86 +4,871 @@
 
 <!-- Extends the layout from /views/layout.html -->
 {% extends 'layout.html' %}
-<!-- 
-  In /views/layout.html you can:
-    - change the header and footer 
-    - add custom CSS and JavaScript
--->
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
 
-<!-- Set the page title -->
+<!-- Set the page title inside the pageTitle block -->
 {% block pageTitle %}
-  NHS.UK prototype kit
+  Buying Catalogue prototypes
 {% endblock %}
 
-<!-- For adding a breadcrumb -->
-<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
-{% block beforeContent %}
-{% endblock %}
+{% block header %}
+  {% include "includes/header-nonav.html" %}
+  {% endblock%}
 
-<!-- For adding a back link -->
-<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
-{% block outerContent %}
-{% endblock %}
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
 
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
-{% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+  {% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
 
-      <!-- Change the page title here -->
-      <h1>
-        NHS.UK prototype kit
-        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version {{version}}</span>
-      </h1>
-
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
-
-      <p class="nhsuk-lede-text">
-        This kit lets you rapidly create HTML prototypes of NHS services.
-      </p>
-
-      <hr>
-
-      <h2>
-        About this page
-      </h2>
-
-      <p>
-        Use this page as the index for your project.
-      </p>
-      
-      <p>
-        You'll find the code for this page at <strong>/app/views/index.html</strong>.
-      </p>
-
-      <p>
-        There is also an <a href="/page-example">example page</a>, which contains a selection of NHS.UK frontend styles and components.
-      </p>
-
-      <hr>
-
-      <h2>
-        Get started
-      </h2>
-
-      <p>Get started by using the:</p>
-
-      <ul>
-        <li>
-          <a href="/docs/how-tos">how to guides</a>
-        </li>
-        <li>
-          <a href="/docs/page-templates">page templates</a>
-        </li>
-        <li>
-          code snippets for styles and components from the <a href="https://service-manual.nhs.uk/design-system">NHS digital service manual</a>
-        </li>
-      </ul>
-
-      <!-- End of content -->
-
+        <h1>Buying Catalogue Prototypes</h1>
+      </div>
     </div>
-  </div>
-{% endblock %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <!-- FULL PROTOTYPE JOURNEYS -->
+
+        <div class="nhsuk-u-margin-bottom-9">
+
+          <h2>Full user journeys</h2>
+
+          <h3><a href="order-v3-homepage">Order v3 prototype</a></h3>
+
+          <h3><a href="admin/home">Admin homepage</a></h3>
+
+        </div>
+
+        <hr>
+
+        <!-- PROTOTYPES FOR TESTING -->
+
+        <div class="nhsuk-u-margin-bottom-9">
+
+          
+           <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Recently updated features/journeys</h3>
+                <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
+
+                  {# <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      Service Recipients removed from Associated Services
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Associated Services without the addition of Service Recipients.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/associated-services-no-srs" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div> #}
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      Updated funding types <!-- Aug 2023 -->
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      New funding types available for the buyer to choose when purchasing
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="order-v3/funding-source/2-solution-edit" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>     
+                  
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      Global service recipients
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Dynamic proto for user testing
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/global-service-reciepients-dynamic" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>        
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      Remove Service Recipients <!-- July 2023 -->
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Buyers are able to remove Service Recipients as part of an amended order.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="amend-order/current/tasklists/tasklist-start" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view amend tasklist</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      Reviews marketing page <!-- July 2023-->
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Buyers are able to submit reviews for Catalogue Solutions they have purchased. These reviews are surfaced on the marketing pages.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="reviews/marketing/reviews" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view reviews</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong>
+                      <strong class="nhsuk-tag nhsuk-tag--aqua-green">
+                        Admin
+                      </strong>
+                      NHS App Intergration
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Admin users are now given the ability to indicate which NHS App intergrations are available for solutions, accessible via interoperability.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/admin-solutions/admin-solution" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      {# <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong> #}
+                      Select capabilities
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Select capabilities during supplier defined epics, including expired capabilties.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/admin-solutions/admin-solution-capabilities-new" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      {# <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong> #}
+                      Select Epics
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Select capabilities during supplier defined epics, including expired capabilities.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/admin-supplier-defined-epics/which-capabilities" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      {# <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong> #}
+                      Global service recipients
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      SR's now have their own step on the task list page.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/global-service-reciepients" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view sr's</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+      
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key custom-key-length">
+                      {# <strong class="nhsuk-tag nhsuk-tag--blue">
+                        New
+                      </strong> #}
+                      Marketing pages redesign
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Marketing pages redesign and restructure.
+                    </dd>
+                
+                    <dd class="nhsuk-summary-list__actions">
+                
+                      <a href="/marketing-v2/solution-page" class="nhsuk-link--no-visited-state">
+                        View<span class="nhsuk-u-visually-hidden"> view marketing pages</span>
+                      </a>
+                
+                    </dd>
+                
+                  </div>
+      
+                </dl>
+            </div>
+           </div>
+
+        <!-- OLDER PROTOTYPES -->
+
+        <div class="nhsuk-u-margin-bottom-9">
+
+          <h2>Older prototypes</h2>
+
+          <!-- CANCELLING A CONTRACT -->
+
+          <h3>Cancelling a contract
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                June 2023
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="cancel-contract/order-recap">
+                Order recap
+              </a>
+            </li>
+            <li>
+              <a href="cancel-contract/confirm-cancel-contract">
+                Cancel confirmation page
+              </a>
+            </li>
+          </ul>
+
+          <!--- PRACTICE LEVEL BUYING -->
+
+          <h3>Practice Level Buying
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                March 2023
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="order-v3/practice-level-buying/PLB-homepage">
+                PLB homepage
+              </a>
+            </li>
+            <li>
+              <a href="order-v3/practice-level-buying/funding-sources">
+                PLB funding screen
+              </a>
+            </li>
+          </ul>
+
+          <!--- FILTERING -->
+
+          <h3>Filtering
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                February 2023
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="filtering/current/">
+                Browse Catalogue Solutions
+              </a>
+            </li>
+            <li>
+              <a href="filtering/current/filtered-list">
+                Additional filters page
+              </a>
+            </li>
+            <li>
+              <a href="filtering/current/filtered-list-no-results">
+                Additional filters page with 0 results
+              </a>
+            </li>
+          </ul>
+
+          <!--- FURTHER COMPETITION -->
+
+          <h3>Further Competition
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                February 2023
+            </span>
+          </h3>
+
+          </p>
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="further-competition/current/buyer-dashboard">
+                Buyer dashboard page
+              </a>
+            </li>
+            <li>
+              <a href="further-competition/current/competition-tasklist">
+                Competition tasklist
+              </a>
+            </li>
+          </ul>
+
+          <!--- ICB LEVEL BUYING -->
+
+          <h3>ICB level buying
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                January 2023
+            </span>
+          </h3>
+          <p>ICB level buying research: <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12048040105/Stakeholder+feedback">Interview with ICB buyer (ST38) (opens in new tab)</a>, <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12048040105/Stakeholder+feedback">Stakeholder feedback (ST37) (opens in new tab)</a>
+
+          </p>
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="/icb-buying/current/select-service-recipients">
+                Select recipients
+              </a>
+            </li>
+          </ul>
+
+          <!--- ADVANCED TELEPHONY -->
+
+          <h3>Advanced Telephony
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                January 2023
+            </span>
+          </h3>
+
+          </p>
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="order-v3-homepage">
+                Homepage with AT card
+              </a>
+            </li>
+            <li>
+              <a href="advanced-telephony/advanced-telephony-info">
+                Information page
+              </a>
+            </li>
+                    </ul>
+
+          <!--- COMPARE SOLUTIONS -->
+
+          <h3>Compare solutions
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                December 2022
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="compare/">
+                Search page
+              </a>
+            </li>
+            <li>
+              <a href="compare/compare-list-price">
+                Comparison pages
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="https://codesandbox.io/s/unruffled-feather-r4c0g2?file=/index.html">
+                Tabs example (Opens in new tab)
+              </a>
+            </li>
+            <li>
+              <a href="compare/ideation/catalogue-solutions-compare">
+                Initial ideas with 3 solutions per page
+              </a>
+            </li>
+          </ul>
+
+          <!--- AMEND AN ORDER -->
+
+          <h3>Amend an order</a>
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                December 2022
+            </span>
+          </h3>
+
+          <p>Amend order research: <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12127043705">Usability testing with buyers (opens in new tab)</a>, 
+          <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12075597890/S1+Implementation+plan+Finance+Amend+contracts">Interviews with buyers (opens in new tab)</a>, 
+          <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12048040105/Stakeholder+feedback">Interviews with stakeholders (ST30) (opens in new tab)</a></p>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="amend-order/v1/order-dashboard">
+                Journey start
+              </a>
+            </li>
+            <li>
+              <a href="amend-order/v1/tasklists/tasklist-start">
+                Order tasklist
+              </a>
+            </li>
+            <li>
+              <a href="amend-order/v1/edit-dashboard">
+                Edit solutions and services
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+          <!-- FULL V2 PROTOTYPE -->
+
+          <h3>Full user journey v2</a>
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                January 2023
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="order-v2-homepage">Order v2 prototype</a>
+            </li>
+          </ul>
+
+
+          <!-- PASSWORD PAGES -->
+
+          <h3>Password pages</a>
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                December 2022
+            </span>
+          </h3>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="password/account-locked">
+                Account locked
+              </a>
+            </li>
+            <li>
+              <a href="password/update-password">
+                Update password
+              </a>
+            </li>
+          </ul>
+
+          <!-- SCHEDULE 2.3 -->
+
+          <h3>Schedule 2.3</a>
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                October 2022
+            </span>
+          </h3>
+
+          <p>Schedule 2.3/Contract research: <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632170">Usability testing with buyers (opens in new tab)</a>, <a target="_blank" href="">Stakeholder interviews (ST1, ST3, ST4, ST5, ST6, ST8) (opens in new tab)</a>,  <a target="_blank" href="">Interview with supplier (ST9) (opens in new tab)</a>
+
+          </p>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+            <li>
+              <a href="schedule-2-3-mvp/order-4-summary-completed">
+                MVP task list
+              </a>
+            </li>
+            <li>
+              <a href="amend-order/contract/implementation-plan/implementation-plan-holding">
+                Updated implementation plan holding page
+              </a>
+            </li>
+            <li>
+              <a href="amend-order/contract/data-processing/data-processing-holding">
+                Updated data processing holding page
+              </a>
+            </li>
+            <li>
+              <a href="schedule-2-3/implementation-plan/implementation-plan-1">
+                Implementation plan initial ideas
+              </a>
+            </li>
+            <li>
+              <a href="schedule-2-3/associated-services/associated-service-billing">
+                Associated Services initial ideas
+              </a>
+            </li>
+            <li>
+              <a href="schedule-2-3/data-processing/data-processing-info">
+                Data processing initial ideas
+              </a>
+            </li>
+          </ul>
+
+          <!-- IMPORT SERVICE RECIPIENTS -->
+
+          <h3>Importing Service Recipients</a>
+            <span class="nhsuk-caption-m nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+                September 2022
+            </span>
+          </h3>
+
+          <p>Import SRs research: <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12148080658">Usability testing with buyers (opens in new tab)</a>, <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12048040105/Stakeholder+feedback">Stakeholder interviews (ST11, ST12, ST13, ST15, ST17, ST28, ST30, ST31 ) (opens in new tab)</a>
+
+          </p>
+
+          <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="order-v2/import-service-recipients-happy/0-select-service-recipients">
+              Happy path
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/import-service-recipients-unhappy/0-select-service-recipients">
+              Unhappy path
+            </a>
+          </li>
+          <li>
+            <a href="import-service-recipients/scenario-1/0-select-service-recipients">
+              Testing scenario 1
+            </a>
+          </li>
+          <li>
+            <a href="import-service-recipients/scenario-2/0-select-service-recipients">
+              Testing scenario 2
+            </a>
+          </li>
+          <li>
+            <a href="import-service-recipients/scenario-3/0-select-service-recipients">
+              Testing scenario 3
+            </a>
+          </li>
+          <li>
+            <a href="import-service-recipients/scenario-4/0-select-service-recipients">
+              Testing scenario 4
+            </a>
+          </li>
+        </ul>
+
+        <!-- DELETING AN ORDER (ADMIN) -->
+
+        <h3>Deleting an order (admin)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              September 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="admin-all-orders/view-order">
+              Order overview including delete link
+            </a>
+          </li>
+          <li>
+            <a href="admin-all-orders/confirm-delete-order">
+              Confirm order deletion
+            </a>
+          </li>
+        </ul>
+
+        <!-- TECH INNOVATION FRAMEWORK -->
+
+        <h3>Tech Innovation Framework (TIF)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              September 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="marketing-page/marketing-page-tif">
+              Marketing page
+            </a>
+          </li>
+          <li>
+            <a href="admin-solutions/admin-add-solution">
+              Adding a framework (admin)
+            </a>
+          </li>
+          <li>
+            <a href="catalogue-solution/index">
+              Catalogue solutions page with updated framework filter
+            </a>
+          </li>
+          <li>
+            <a href="index-tif">
+              Homepage with "What's new" section
+            </a>
+          </li>
+          <li>
+            <a href="tif/tif-info">
+              TIF information page
+            </a>
+          </li>
+        </ul>
+
+        <!-- PLANNED DELIVERY DATES -->
+
+        <h3>Planned delivery dates</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              September 2022
+          </span>
+        </h3>
+
+        <p>Planned deliver date research: <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12087623695">Usability testing with buyers (opens in new tab)</a>, <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12075597890/S1+Implementation+plan+Finance+Amend+contracts">Buyer interviews (Opens in new tab)</a>, <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12048040105/Stakeholder+feedback">Stakeholder interviews (ST7, ST10, ST19) (opens in new tab)</a>
+
+
+
+</p>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-1/order-4-summary-funding-completed">
+              Scenarios 1, 2 and 3
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-4/order-4-summary-funding-completed">
+              Scenario 4
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-5/order-4-summary-funding-completed">
+              Scenario 5
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6a/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br>ordered alphabetically)
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6b/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br>ordered chronologically)
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6c/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br>ordered by table)
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6d/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br>ordered alphabetically)
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6e/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br>ordered chronologically)
+            </a>
+          </li>
+          <li>
+            <a href="contracts-testing/planned-delivery-date-ut-scenario-6f/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br>ordered by table)
+            </a>
+          </li>
+        </ul>
+
+        <!-- SELECT A FRAMEWORK -->
+
+        <h3>Select a framework</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              August 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="order-v2/order-5-7-choose-framework">
+              Choose framework
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/order-5-7-confirm-framework">
+              Confirm framework change
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/order-5-7-funding-framework">
+              Funding source page with framework info
+            </a>
+          </li>
+        </ul>
+
+        <!-- SEARCH FILTER -->
+
+        <h3>Search filter</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              July 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="order-v2/filter/v5/catalogue-solutions-start">
+              Filter Catalogue Solutions
+            </a>
+          </li>
+        </ul>
+
+        <!-- TIERED PRICING -->
+
+        <h3>Tiered pricing</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              April 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+            <a href="admin-solutions/list-price/list-price-select-type">
+              Add a list price
+            </a>
+          </li>
+          <li>
+            <a href="admin-solutions/list-price/list-price-edit-price-tiered">
+              Editing an unpublished tiered list price
+            </a>
+          </li>
+          <li>
+            <a href="admin-solutions/list-price/list-price-edit-published-price-tiered">
+              Editing a published tiered list price
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/tiered-pricing/catalogue-solution-price-tiered">
+              Select tiered list price
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/tiered-pricing/additional-service-1-price-tiered">
+              Select tiered additional service price
+            </a>
+          </li>
+          <li>
+            <a href="order-v2/tiered-pricing/order-5-4-2-select-associated-confirm-price-tiered">
+              Select tiered associated service price
+            </a>
+          </li>
+          <li>
+            <a href="admin-solutions/list-price/list-price-add-price-tiered-bands-max-5">
+              Tier capping - add price
+            </a>
+          </li>
+          <li>
+            <a href="admin-solutions/list-price/list-price-edit-price-tiered-max">
+              Tier capping - edit price
+            </a>
+          </li>
+        </ul>
+
+        <!-- EMAIL DOMAINS -->
+
+        <h3>Email domain allow list</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              April 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+              <a href="admin-all-users/email-domains-allow-list">Allowed email domains table</a>
+          </li>
+          <li>
+            <a href="admin-all-users/add-email-domain">Add a new domain to the allow list</a>
+          </li>
+          <li>
+            <a href="admin-all-users/delete-email-domain">Confirm deletion</a>
+          </li>
+        </ul>
+
+        <!-- V1 PROTOTYPE -->
+
+        <h3>Order v1 Prototypes</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+              January 2022
+          </span>
+        </h3>
+
+        <ul class="nhsuk-u-margin-bottom-5">
+          <li>
+              <a href="order-v1/orders">Order v1 full user journey</a>
+          </li>
+        </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <br/><br/>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

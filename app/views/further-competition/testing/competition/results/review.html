@@ -1,0 +1,175 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../competition-tasklist",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Competition results</h1>
+
+    <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">
+          Winning Solution
+        </h2>
+        <br>
+        <h3>Online and Video Consult<span class="nhsuk-caption-m nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Health
+        </span></h3>
+        <br>
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Price score",
+          tableClasses: "nhsuk-u-margin-bottom-5",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Price"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Price",
+                text: "£50,123"
+              },
+              {
+                header: "Score",
+                text: "5"
+              }
+            ]
+          ]
+        }) }}
+
+          <br>
+
+          {{ actionLink({
+            "text": "Order this solution",
+            "href": "#",
+            "classes": "nhsuk-u-margin-bottom-2"
+          }) }}
+
+      </div>
+    </div>
+
+    <h2>Other shortlisted solutions</h2>
+
+    <br>
+
+    <h3>Q Doctor<span class="nhsuk-caption-m nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      MyMed Ltd 
+    </span></h3>
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Price score",
+      tableClasses: "nhsuk-u-margin-bottom-5",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price"
+        },
+        {
+          text: "Score"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price",
+            text: "£62,567"
+          },
+          {
+            header: "Score",
+            text: "4"
+          }
+        ]
+      ]
+    }) }}
+
+
+    <br>
+    
+    <h3>healthya Online and Video Consultation<span class="nhsuk-caption-m nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      ADDVantage Technologies 
+    </span></h3>
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Price score",
+      tableClasses: "nhsuk-u-margin-bottom-5",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price"
+        },
+        {
+          text: "Score"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price",
+            text: "£65,589"
+          },
+          {
+            header: "Score",
+            text: "3"
+          }
+        ]
+      ]
+    }) }}
+
+    <br>
+
+    <form>
+      {{ button({
+      "text": "Download results",
+      "href":"#"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Prices for [Call-off ID]</h1>
+      <p class="nhsuk-lede-text">Provide information on how much you’re paying for the selected items.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+        "HTML": "<p>Enter the price you've agreed with the supplier. We've included the list price, but this can be changed if required.</p>"
+      }) }}
+<!-- Find the solution or service, or supplier
+
+List of favourite solutions from the marketing pages
+
+OR
+
+Radio
+Catalogue Solution
+Additional Service
+Associated Service
+
+
+After add a solution, show additional services and associated Services
+
+
+
+ -->
+
+<!--
+      Online and Video Consult information for C010089-01
+       -->
+
+       <h2>Catalogue Solution: Genesys Web GP</h2>
+
+
+
+       <div class="nhsuk-form-group">
+         <label class="nhsuk-label" for="cost-per-item">
+               What price have you agreed, in pounds?
+         </label>
+         <div class="nhsuk-hint" id="example-with-hint-text-hint">
+           You can change the list price if you’ve agreed a different rate with the supplier.
+         </div>
+         <div class="govuk-input__wrapper">
+           <div class="govuk-input__prefix" aria-hidden="true">£</div>
+           <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+           <div class="govuk-input__suffix" aria-hidden="true">per patient per year</div>
+         </div>
+       </div>
+
+       <br/><br/>
+
+       <h2>Additional Service: T-800 Dispensing</h2>
+
+
+
+       <div class="nhsuk-form-group">
+         <label class="nhsuk-label" for="cost-per-item">
+               What price have you agreed, in pounds?
+         </label>
+         <div class="nhsuk-hint" id="example-with-hint-text-hint">
+           You can change the list price if you’ve agreed a different rate with the supplier.
+         </div>
+         <div class="govuk-input__wrapper">
+           <div class="govuk-input__prefix" aria-hidden="true">£</div>
+           <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+           <div class="govuk-input__suffix" aria-hidden="true">per patient per year</div>
+         </div>
+       </div>
+
+<!--
+      What price have you agreed? (£)
+      0.15 -->
+
+
+
+<!--
+
+What list size should I enter?
+Enter the amount you wish to order. This is usually based on each Service Recipient's practice list size to help calculate an estimated price, but the figure can be changed if required.
+
+As you’re ordering per patient, we've included each practice list size if we have it. If it's not included, you'll need to add it yourself. -->
+<!--
+
+
+{{ input({
+  "label": {
+  "text": "5 character width"
+  },
+  "id": "input-width-5",
+  "name": "test-width-5",
+  "classes": "nhsuk-input--width-5"
+}) }}
+
+
+HEADER
+Recipient name (ODS code)
+Practice list size
+Planned delivery date
+For example 14 01 2020
+
+
+TABLE
+BRANSHOLME MIU (Y00427)
+
+Day
+20
+
+Month
+10
+
+Year
+2041 -->
+
+
+<br />
+
+<form action="order-5-4-2-add-solution-service-recipient">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

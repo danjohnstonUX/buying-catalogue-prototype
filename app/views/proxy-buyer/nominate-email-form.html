@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Request Buying Catalogue form
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+{% block beforeContent %}
+
+<div class="nhsuk-global-alert" id="nhsuk-global-alert" role="complementary">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-global-alert__content">
+          <div class="nhsuk-global-alert__message"><h2>Coronavirus (COVID-19)</h2>
+            <p>View Catalogue Solutions that help <a data-test-id="vaccinations" href="/catalogue-solution/">organise coronavirus vaccinations</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        {% from 'back-link/macro.njk' import backLink %}
+
+        {{ backLink({
+        "href": "nominate-email",
+        "text": "Go back"
+        }) }}
+
+        <h1>Nominate an organisation</h1>
+        <p class="nhsuk-lede-text">Provide the following details and the Buying Catalogue Team will respond to your request within 5 working days.</p>
+
+
+        {{ input({
+        "label": {
+            "text": "Name of organisation you're nominating"
+        },
+        hint: {
+    text: "We currently only support buyers from Clinical Commissioning Groups (CCGs) and Commissioning Support Units (CSUs)."
+  },
+        "id": "example",
+        "name": "example"
+        }) }}
+
+
+        {{ input({
+  "label": {
+  "text": "ODS code for organisation you're nominating (optional)"
+},
+hint: {
+text: "Provide the ODS code for the organisation you're nominating if you know it."
+  },
+  "id": "input-width-5",
+  "name": "test-width-5",
+  "classes": "nhsuk-input--width-5"
+}) }}
+
+    
+        <br/>
+        <form>
+          {{ checkboxes({
+            "idPrefix": "example",
+            "name": "example",
+            "fieldset": {
+              "legend": {
+                "text": "Privacy policy agreement",
+                "classes": "nhsuk-fieldset__legend--l",
+                isPageHeading: true
+              }
+            },
+            "hint": {
+              "html": "You must confirm you have read and understood our <a href='/cookies-policy'>privacy policy (opens in a new tab)</a> before sending."
+            },
+            "items": [
+              {
+                "value": "email",
+                "text": "I have read and understood the privacy policy"
+              }
+            ]
+          }) }}
+        </form>
+
+
+        <br/>
+        <form action="nomination-confirmation">
+        {% from 'button/macro.njk' import button %}
+
+        {{ button({
+        "text": "Submit nomination request"
+        }) }}
+    </div>
+</div>
+<br/>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

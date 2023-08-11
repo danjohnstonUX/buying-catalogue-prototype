@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-2-1-triage",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        You’re not ready to start an order
+      </h1>
+
+      <p>You need to know the approximate value of your contract so you can follow the correct procurement procedure.</p>
+
+
+      <h2>For orders worth under £40k (excluding VAT)</h2>
+
+      <p>You can browse the Buying Catalogue and select any solution you want to order.</p>
+      <p>Your contract value should include everything you intend to spend. </p>
+<p>It would not, for example, be acceptable to execute a number of Direct Awards to the same supplier to avoid carrying out a competition.
+</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1846870055/Direct+Award">More information about executing a Direct Award procedure</a> (opens in a new tab).</p>
+      <h2>For orders between £40k and £250k (excluding VAT)</h2>
+
+      <p>You must carry out a competition of similar solutions using information available on the Buying Catalogue. Score solutions based on how they perform against certain criteria, for example, price, implementation timescales or service levels.</p>
+      <p>When executing a competition, you cannot create requirements that result in a shortlist of one Catalogue Solution.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1846968344/Further+Competition+-+On+Catalogue">More information about executing an On-Catalogue Competition procedure</a> (opens in a new tab).</p>
+      <h2>For orders over £250k</h2>
+
+      <p>You must invite shortlisted suppliers to provide written tenders. You can select the solution you want to order based on this information. </p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1846902822/Further+Competition+-+Off+Catalogue">More information about executing an Off-Catalogue Competition procedure</a> (opens in a new tab).</p>
+      <p>Once you have carried out one of these procurement processes and identified the most appropriate solution, you’ll be ready to place your order.</p>
+
+      <form action="https://buying-catalogue.herokuapp.com/">
+      {{ button({
+        "text": "Return to orders dashboard"
+      }) }}
+      </form>
+
+      <h2>Need help?</h2>
+      <p>We’ve developed a <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1931116641/Executing+a+procurement+a+step+by+step+guide">step-by-step guide to the procurement process</a> (opens in a new tab).</p>
+      <p>For help using the Buying Catalogue, contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+
+
+
+
+
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

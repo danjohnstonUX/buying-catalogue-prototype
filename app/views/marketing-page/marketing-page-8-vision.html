@@ -1,0 +1,491 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "#",
+    text: "Home"
+  },
+  {
+    href: "#",
+    text: "Catalogue Solutions"
+}],
+  href: "#",
+  text: "Vision"
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+      <h1>
+        <span role="text">Development plans
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Vision
+          </span>
+        </span>
+      </h1>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "#",
+            text: "Description"
+          },
+          {
+            href: "#",
+            text: "Features"
+          },
+          {
+            href: "#",
+            text: "Capabilities and epics"
+          },
+          {
+            href: "marketing-page-10-vision",
+            text: "Standards"
+          },
+          {
+            href: "#",
+            text: "List price"
+          },
+          {
+            href: "#",
+            text: "Additional Services"
+          },
+          {
+            href: "#",
+            text: "Associated Services"
+          },
+          {
+            href: "#",
+            text: "Interoperability"
+          },
+          {
+            href: "#",
+            text: "Implementation timescales"
+          },
+          {
+            href: "#",
+            text: "Client application type"
+          },
+          {
+            href: "#",
+            text: "Hosting type"
+          },
+          {
+            href: "#",
+            text: "Service Level Agreement"
+          },
+          {
+            href: "marketing-page-8-vision",
+            text: "Development plans",
+            current: "true"
+          },
+          {
+            href: "#",
+            text: "Supplier details"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <p><b>These are the supplier’s development plans for this Catalogue Solution:</b></p>
+
+      <h2>Roadmap</h2>
+
+      <p><a href="#">View roadmap</a></p>
+
+      <br />
+<!--img src="images/Caltech_roadmap.jpg" alt="" /-->
+<!--
+
+Our roadmap details all GP IT Futures managed capacity items. Caltech Health is committed to delivering against the effective date. The roadmap provides visibility on which items have been completed, are scheduled and are in the pipeline to be scheduled.
+
+
+-->
+      <h2>Work-off Plans</h2>
+
+      <p>This Catalogue Solution is subject to a Compliance Work-off Plan. It means the supplier has agreed to complete any outstanding work to meet a Standard within an agreed timeframe.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134310/Introduction+to+Capabilities+and+Standards">More information about these requirements</a> (opens in a new tab)</p>
+      <!--<p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134407/Data+Standards">More information about these requirements</a></p>-->
+
+      <hr>
+
+      <h3 id="appointments">Appointments Management - GP</h3>
+
+      <p><b>Description:</b> Supports the administration, scheduling, resourcing and reporting of appointments.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134382/Appointments+Management+-+GP+-+Standard">More information about this Standard</a> (opens in a new tab)</p>
+      <p>The supplier is working towards full compliance with this Standard and has the following Work-off Plan items:</p>
+
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Details"
+          },
+          {
+            html: "Agreed&nbsp;completion&nbsp;date"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Work-Off Plan for GP-06.2-05 requirement."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ],
+          [
+            {
+              text: "Work-Off Plan for GP-06.2-10A requirement."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ],
+          [
+            {
+              text: "Work-Off Plan for GP-06.2-10A requirement."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ],
+          [
+            {
+              text: "Work-Off Plan for GP-APMAN-01."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ],
+          [
+            {
+              text: "Work-Off Plan for requirement GP-AP-PR-06."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ],
+          [
+            {
+              text: "GP Appointment National Standard for Categorisation – Remainder requirement has a Work-Off Plan item."
+            },
+            {
+              text: "31/12/2021"
+            }
+          ]
+        ]
+    }) }}
+
+      <h3 id="gpconnectmessaging">GP Connect Messaging</h3>
+      <p><b>Description:</b> Supports sharing of data held within GP IT solutions across health and social care organisations.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133650/GP+Connect">More information about this Standard</a> (opens in a new tab)</p>
+      <p>The supplier is working towards full compliance with this Standard and has the following Work-off Plan items:</p>
+
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Details"
+          },
+          {
+            text: "Agreed completion date"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "GP Connect Messaging - Send Document Standard has a Work-off Plan item."
+            },
+            {
+              text: "31/12/2021"
+            }
+          ]
+        ]
+    }) }}
+
+      <h3 id="gp2gp">GP2GP</h3>
+
+      <p><b>Description:</b> Supports the electronic transfer of a Patient Record when a patient moves from one GP practice to another.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134336/GP2GP">More information about this Standard</a> (opens in a new tab)</p>
+      <p>The supplier is working towards full compliance with this Standard and has the following Work-off Plan items:</p>
+
+
+
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Details"
+          },
+          {
+            text: "Agreed completion date"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "GP2GP 2.2a (Remainder) has a Work-off Plan item."
+            },
+            {
+              text: "31/12/2021"
+            }
+          ],
+          [
+            {
+              text: "GP2GP 2.2b Standard has a Work-off Plan item."
+            },
+            {
+              text: "31/12/2021"
+            }
+          ]
+        ]
+    }) }}
+
+      <h3 id="pim">Patient Information Maintainance</h3>
+      <p><b>Description:</b> Supports the registration of patients and the maintenance of all their personal information. Enables the organisation and presentation of a comprehensive Patient Record.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134401/Patient+Information+Maintenance+-+Standard">More information about this Standard</a> (opens in a new tab)</p>
+      <p>The supplier is working towards full compliance with this Standard and has the following Work-off Plan items:</p>
+
+
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Details"
+          },
+          {
+            text: "Agreed completion date"
+          }
+        ],
+        rows: [
+         [
+          {
+            text: "Work-off Plan for PIM13 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.2-01 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.2-03A requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.2-07 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.3-08A requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-03 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-12 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-07 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan bfor GP-PPFS-3.4-08 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-6.1-02 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-5.1-01 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-07 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-07A requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-09 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-3.4-10 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-6.3-03 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+          {
+            text: "Work-off Plan for GP-PPFS-6.3-04 requirement."
+          },
+          {
+            text: "31/12/2021"
+          }
+        ],
+        [
+            {
+              text: "Patient Management- Combined View Standard has a Work-Off Plan for requirement GP-AP-4.7-01."
+            },
+            {
+              text: "30/09/2021"
+            }
+          ]
+        ]
+    }) }}
+
+      <h3 id="servicemanagement">Service Management</h3>
+
+      <p><b>Description:</b> Supports suppliers in the delivery and management of services that enable their solutions to continue working.</p>
+      <p><a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391133802/Service+Management">More information about this Standard</a> (opens in a new tab)</p>
+      <p>The supplier is working towards full compliance with this Standard and has the following Work-off Plan items:</p>
+
+
+
+
+      {{ table({
+        panel: false,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Details"
+          },
+          {
+            text: "Agreed completion date"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Work-Off Plan for GP-O-SMO-1.2 requirement."
+            },
+            {
+              text: "31/07/2021"
+            }
+          ]
+        ]
+    }) }}
+
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "#",
+    "previousPage": "Service Level Agreement",
+    "nextUrl": "#",
+    "nextPage": "Supplier details"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

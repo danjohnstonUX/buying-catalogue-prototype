@@ -1,0 +1,155 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "new-competition",
+      "text": "Go back"
+    }) }}
+
+
+    <h1>Review your filter<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      AM & VC desktop apps
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the details for this filter.
+    </p>
+
+    
+
+    <h2 class="nhsuk-heading-s">Name and description</h2>
+
+    {{ summaryList({
+      classes: "nhsuk-u-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "AM & VC desktop apps"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+          }
+        }
+      ]
+    }) }}
+
+
+    {{ table({
+      responsive: true,
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      panel: false,
+      caption: "Capabilities and Epics",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Capability"
+        },
+        {
+          text: "Epic"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Capability",
+            text: "Appointments Management - Citizen"
+          },
+          {
+            header: "Epic",
+            html: "<ul><li>Manage Appointments</li></ul>"
+          }
+        ],
+        [
+          {
+            header: "Capability",
+            text: "Video Consultation"
+          },
+          {
+            header: "Epic",
+            html: "<ul><li>Conduct video consultation</li><li>Conduct video consultation with a proxy</li><li>Direct messaging during a video consultation</li><li>End video consultation with a patient or service user</li><li>Waiting room</li></ul>"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2 class="nhsuk-heading-s">Additional filters</h2>
+
+    {{ summaryList({
+      classes: "nhsuk-u-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Client application type"
+          },
+          value: {
+            text: "Desktop application"
+          }
+        },
+        {
+          key: {
+            text: "Framework"
+          },
+          value: {
+            text: "GP IT Futures"
+          }
+        },
+        {
+          key: {
+            text: "Hosting type"
+          },
+          value: {
+            text: "On premise"
+          }
+        }
+      ]
+    }) }}
+
+    <a href="competition-name" class="nhsuk-button">Continue</a>
+
+    <p><a href="choose-filter">Cancel</a></p>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

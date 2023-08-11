@@ -1,0 +1,273 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "orders-proxy",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row" data-test-id="general-description">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>DFOCVC framework - results</h1>
+        <p class="nhsuk-lede-text">These are the online and video consultation Catalogue Solutions available on the DFOCVC framework.</p>
+        <p>For more information on procuring from this framework, <a href="buyers-guide">access the Buyer's Guide</a> or email <a href="mailto:commercial.procurementhub@nhs.net">National Commercial and Procurement Hub</a>.</p>
+
+    </div>
+  </div>
+
+
+
+
+    <div data-test-id="solution-cards" class="nhsuk-u-margin-bottom-7 nhsuk-u-margin-top-7">
+
+<hr style="margin: 0.5em;"/>
+
+  <div class="nhsuk-u-padding-bottom-5 nhsuk-u-padding-top-7 bc-t-border-top--blue" data-test-id="solution-card">
+    <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-size-32" data-test-id="solution-card-name">
+        <a href="/solutions/dfocvc001/10042-001">
+          Engage Consult
+        </a>
+      </h3>
+
+      <h4 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-u-font-size-22" data-test-id="solution-card-supplier">
+        Engage Health Systems Limited
+      </h4>
+
+      <p data-test-id="solution-card-summary" class="nhsuk-u-font-size-16">
+        Engage Consult allows patients to communicate securely and safely online with their practice about non-emergency medical conditions or admin questions. The solution offers 24/7 access to self-help information, other local NHS and self-care services.
+      </p>
+
+      <div>
+        <a href="/solutions/dfocvc001/10042-001">View this solution<span class="nhsuk-u-visually-hidden"> for Engage Consult</span></a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third" data-test-id="solution-card-capability-list">
+
+  <div data-test-id="capability-list">
+    <h5 class="nhsuk-u-font-size-22">Capabilities met</h5>
+    <ul>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          e-Consultations (Professional to Professional)
+        </li>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Online Consultation
+        </li>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Video Consultation
+        </li>
+
+    </ul>
+  </div>
+
+    </div>
+    </div>
+  </div>
+
+
+
+<hr style="margin: 0.5em;"/>
+
+
+  <div class="nhsuk-u-padding-bottom-5 nhsuk-u-padding-top-7 bc-t-border-top--blue" data-test-id="solution-card">
+    <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-size-32" data-test-id="solution-card-name">
+        <a href="/solutions/dfocvc001/10042-005">
+          Engage CRS
+        </a>
+      </h3>
+
+      <h4 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-u-font-size-22" data-test-id="solution-card-supplier">
+        Engage Health Systems Limited
+      </h4>
+
+      <p data-test-id="solution-card-summary" class="nhsuk-u-font-size-16">
+        Engage CRS allows patients to communicate securely and safely online with their referral service about non-emergency medical conditions or admin questions. The solution offers 24/7 access to self-help information and other local NHS and self-care services.
+      </p>
+
+      <div>
+        <a href="/solutions/dfocvc001/10042-005">View this solution<span class="nhsuk-u-visually-hidden"> for Engage CRS</span></a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third" data-test-id="solution-card-capability-list">
+
+  <div data-test-id="capability-list">
+    <h5 class="nhsuk-u-font-size-22">Capabilities met</h5>
+    <ul>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Online Consultation
+        </li>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Video Consultation
+        </li>
+
+    </ul>
+  </div>
+
+    </div>
+    </div>
+  </div>
+
+
+<hr style="margin: 0.5em;"/>
+
+
+
+  <div class="nhsuk-u-padding-bottom-5 nhsuk-u-padding-top-7 bc-t-border-top--blue" data-test-id="solution-card">
+    <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-size-32" data-test-id="solution-card-name">
+        <a href="/solutions/dfocvc001/10074-001">
+          Virtually Primary Care
+        </a>
+      </h3>
+
+      <h4 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-u-font-size-22" data-test-id="solution-card-supplier">
+        Virtually Healthcare (Archway)
+      </h4>
+
+      <p data-test-id="solution-card-summary" class="nhsuk-u-font-size-16">
+        Web and mobile application for online and video consultation for general medical practice, urgent care, community pharmacy and community services. Other modules:
+
+a) Care homes
+
+b) GP-supervised community pharmacy consultation service
+
+c) HelpDesk (virtual reception)
+
+d) SMS
+
+e) Personal Health Organiser
+      </p>
+
+      <div>
+        <a href="/solutions/dfocvc001/10074-001">View this solution<span class="nhsuk-u-visually-hidden"> for Virtually Primary Care</span></a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third" data-test-id="solution-card-capability-list">
+
+  <div data-test-id="capability-list">
+    <h5 class="nhsuk-u-font-size-22">Capabilities met</h5>
+    <ul>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Online Consultation
+        </li>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Video Consultation
+        </li>
+
+    </ul>
+  </div>
+
+    </div>
+    </div>
+  </div>
+
+
+<hr style="margin: 0.5em;"/>
+
+
+
+  <div class="nhsuk-u-padding-bottom-5 nhsuk-u-padding-top-7 bc-t-border-top--blue" data-test-id="solution-card">
+    <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-size-32" data-test-id="solution-card-name">
+        <a href="/solutions/dfocvc001/10075-001">
+          Visiba Care
+        </a>
+      </h3>
+
+      <h4 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-u-font-size-22" data-test-id="solution-card-supplier">
+        Visiba UK
+      </h4>
+
+      <p data-test-id="solution-card-summary" class="nhsuk-u-font-size-16">
+        Visiba Care is a white-label virtual clinic platform, enabling healthcare providers to meet patients online via their branded virtual clinic, with one or several receptions. Clinicians and patients can communicate via asynchronous messaging, video consultations with up to 10 participants and forms.
+      </p>
+
+      <div>
+        <a href="/solutions/dfocvc001/10075-001">View this solution<span class="nhsuk-u-visually-hidden"> for Visiba Care</span></a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third" data-test-id="solution-card-capability-list">
+
+  <div data-test-id="capability-list">
+    <h5 class="nhsuk-u-font-size-22">Capabilities met</h5>
+    <ul>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Online Consultation
+        </li>
+
+        <li data-test-id="capability-list-item" class="nhsuk-u-font-size-16">
+          Video Consultation
+        </li>
+
+    </ul>
+  </div>
+
+    </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

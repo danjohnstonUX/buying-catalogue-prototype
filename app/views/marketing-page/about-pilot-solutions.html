@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "marketing-page-pilot",
+      "text": "Go back"
+    }) }}
+
+      <h1>Pilot Catalogue Solutions</h1>
+
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+    <p>Pilot Catalogue Solutions are clinical IT systems yet to be deployed in a live, patient facing environment. Therefore, the supplier can only sell it to one buyer organisation and this will be considered a pilot deployment.</p>
+
+    <p>The buyer organisation must agree to complete their obligations under NHS Digital’s <a href="https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems">Clinical Risk Management Standard DCB0160</a> and risk assess the solution in the knowledge that it has not yet been tested in live.</p>
+
+    <p>Once both the buyer and supplier are satisfied that the pilot has been successful, the supplier may present the evidence to NHS Digital who’ll mark the Work-off Plan item complete if satisfied. A Work-off Plan means the supplier has agreed to complete any outstanding work to meet the standard within a certain timeframe.</p>
+
+    <p>Prior to deploying the supplier should agree their exit criteria for a successful pilot with both the buyer organisation and NHS Digital. This will form the basis of the caveated CATR (clinical authority to release) to support the supplier with this initial deployment. The supplier must not deploy to any more than one buyer organisation without first seeking approval from NHS Digital.</p>
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Pilot information last reviewed: 31 March 2020
+      </p>
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

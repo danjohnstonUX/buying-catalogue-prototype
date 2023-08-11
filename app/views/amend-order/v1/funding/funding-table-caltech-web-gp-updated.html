@@ -1,0 +1,145 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+<style>
+  .bc-summary-totals .nhsuk-summary-list__row {
+    text-align: right;
+  }
+  .bc-summary-totals .nhsuk-summary-list__key,
+  .bc-summary-totals .nhsuk-summary-list__value,
+  .bc-summary-totals .nhsuk-summary-list__actions {
+    display: inline-block;
+    width: auto;
+  }
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../tasklists/tasklist-solutions-completed",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Select funding sources<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C00001-02
+      </span></h1>
+      <p class="nhsuk-lede-text">Provide information on how you’ll be paying for this order.</p>
+
+      {{ details({
+  "text": "What is central, local and mixed funding?",
+  "HTML": "
+  <p><b>Central funding</b></p>
+  <p>Central funding means you’re using your centrally held allocation to pay for the order. Any solutions or services you order will be paid for by either NHS England or NHS Digital. The supplier will invoice the relevant organisation directly.<p/>
+  <p>You should make sure you have enough of your central allocation available to pay for your order before placing it.</p>
+  <p><b>Local funding</b></p>
+  <p>Local funding means your organisation will be paying for the order. The supplier will invoice you directly.</p>
+  <p><b>Mixed funding</b></p>
+  <p>Mixed funding means your organisation will start paying with central funding, and when your allocation runs out, will move over to local funding.</p>
+  "
+}) }}
+
+    <table class="nhsuk-table bc-detail">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row" class="small-text">
+            <th role="columnheader" class="" scope="col">
+              Solution or service
+            </th>
+            <th role="columnheader" class="bc-align-right" scope="col">
+              Total cost
+            </th>
+            <th role="columnheader" class="" scope="col">Funding type</th>
+            <th role="columnheader" class="" scope="col">Status</th>
+            <th role="columnheader" class="" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell">Caltech Web GP</td>
+            <td class="nhsuk-table__cell bc-align-right">£25,061.40</td>
+            <td class="nhsuk-table__cell bc-align-right">Local funding</td>
+            <td class="nhsuk-table__cell">{{ tag({
+              html: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}</td>
+            <td class="nhsuk-table__cell "><a href="#">Edit</a></td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Caltech Mobile</td>
+            <td class="nhsuk-table__cell bc-align-right">£1,392.30</td>
+            <td class="nhsuk-table__cell bc-align-right">None specified</td>
+            <td class="nhsuk-table__cell">{{ tag({
+              html: "Not started",
+              classes: "nhsuk-tag--grey"
+            })}}</td>
+            <td class="nhsuk-table__cell "><a href="edit-funding-caltech-mobile">Edit</a></td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Automated Arrivals</td>
+            <td class="nhsuk-table__cell bc-align-right">£15,000.00</td>
+            <td class="nhsuk-table__cell bc-align-right">Local funding</td>
+            <td class="nhsuk-table__cell">{{ tag({
+              html: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}</td>
+            <td class="nhsuk-table__cell ">N/A</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Document Management</td>
+            <td class="nhsuk-table__cell bc-align-right">£28,224.00</td>
+            <td class="nhsuk-table__cell bc-align-right">Mixed funding</td>
+            <td class="nhsuk-table__cell">{{ tag({
+              html: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}</td>
+            <td class="nhsuk-table__cell ">N/A</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text bc-last-row">
+            <td role="cell" class="nhsuk-table__cell"><b>Total<b></td>
+            <td role="cell" class="nhsuk-table__cell bc-align-right">£15,014.00</td>
+            <td class="nhsuk-table__cell "></td>
+            <td class="nhsuk-table__cell "></td>
+        </tbody>
+      </table>
+
+
+
+      <br />
+
+      <div>
+          <div style="display:inline-block;">
+            <form method="post" action="../tasklists/tasklist-funding-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Continue"
+              }) }}
+            </form>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

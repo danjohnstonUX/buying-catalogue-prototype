@@ -1,0 +1,115 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Failed imports
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "gateway":
+           document.location.href = "4-discrepancies";
+           break;
+        case "verify":
+           document.location.href = "1-upload-csv";
+            break;
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "1-upload-csv",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Failed imports</h1>
+      <p class="nhsuk-lede-text">We have been unable import a Service Recipient from the file that you have uploaded.</p>
+
+
+
+
+      {% from 'tables/macro.njk' import table %}
+
+
+{{ table({
+  panel: false,
+  caption: "Failed imports",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Service Recipient"
+    },
+    {
+      text: "ODS code"
+    }
+  ],
+  rows: [
+  [   {
+        text: "ASSURA ER LLP HULL DERMATOLOGY"
+      },
+      {
+        text: "Y03507"
+      }
+    ]
+  ]
+}) }}
+
+
+      <h2>Failed imports</h2>
+      <p>We have no record of the Service recipient in our records. This may be because [reason].</p>
+
+
+
+      <br /><br />
+      <div>
+      {% from 'button/macro.njk' import button %}
+
+      <form action="4-discrepancies">
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+      </form>
+      <p><a href="0-select-service-recipients" style="color: red;">Cancel</a></p>
+
+
+
+    </div>
+
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

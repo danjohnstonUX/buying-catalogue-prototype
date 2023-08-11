@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../tasklists/tasklist-start",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Supplier contact details
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select an existing contact for Caltech Web GP or add a different one.</p>
+
+
+        {{ radios({
+          "idPrefix": "contact",
+          "name": "contact",
+          "fieldset": {
+            "legend": {
+              "text": "Who is your contact for this order?",
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": "false"
+            }
+          },
+          "hint": {
+            "text": "Select one option."
+          },
+          "items": [
+            {
+              "value": "jim",
+              "text" : "Mr Jim Jones (Marketing)"
+            },
+            {
+              "value": "jan",
+              "text" : "Ms Jan Smith (Sales)"
+            }
+          ]
+        }) }}
+        <br/>
+
+        {{ actionLink({
+          "text": "Add a new contact",
+          "href": "3-supplier-add-contact"
+        }) }}
+
+        <p>If your contact for this supplier is not listed, you can add their details using the link. The information will only appear on this order.</p>
+
+        <!-- {{ table({ panel: false, caption: "Contacts added for this order", firstCellIsHeader: false, head: [ { text: "Name" }, { text: "Department" } ], rows: [ [ { text: "Mr Jack Symmonds" }, { text: "Purchasing" }, { html: "<a
+        href='order-5-10-2-supplier-add-contact'>Edit</a>" } ] ] }) }} -->
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="../tasklists/tasklist-supplier-contact-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                    "text": "Save and continue"
+                  }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br/><br/>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

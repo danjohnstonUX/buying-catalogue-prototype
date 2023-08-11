@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-bespoke-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Acceptance criteria
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">You must add at least 1 acceptance criteria for this milestone.</p>
+
+      <h2>Milestone 1: Go Live</h2>
+
+      {{ actionLink({
+        "text": "Add acceptance criteria",
+        "href": "implementation-plan-add-ac"
+      }) }}
+
+      <p>You’ve not added any acceptance criteria for this milestone yet.</p>
+
+      <br />
+
+      {{ button({
+        "text": "Continue",
+        "href": "implementation-hub-milestone-1-ac-added"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

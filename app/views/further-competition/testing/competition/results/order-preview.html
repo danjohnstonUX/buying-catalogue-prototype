@@ -1,0 +1,275 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<!--{{ backLink({
+"href": "../competition-tasklist",
+"text": "Go back"
+}) }}-->
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Ordering information<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Your competition
+    </span></h1>
+
+    <p class="nhsuk-lede-text">This is what you’ll need to order and who you’ll need to order for based on this competition.</p>
+
+    {{ insetText({
+      "HTML": "<p>There are <strong>105 Service Recipients</strong> you will need to order for.</p><p>You can view them by downloading the Service Recipient list CSV file, which you can then upload when placing your order.</p>"
+    }) }}
+
+    <h2>Catalogue Solution</h2>
+
+    <br>
+
+    <h3>Online and Video Consult<span class="nhsuk-caption-m nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Caltech Health
+    </span></h3>
+
+    </div>
+
+    <div class="nhsuk-grid-column-full">
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Pricing",
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price per unit"
+        },
+        {
+          text: "Quantity"
+        },
+        {
+          text: "Subtotal"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price per unit",
+            text: "£1.26 per patient per year"
+          },
+          {
+            header: "Quantity",
+            text: "5,186"
+          },
+          {
+            header: "Subtotal",
+            text: "£19,603.08"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2>Additional Services</h2>
+
+    <br>
+
+    <h3>Document Management</h3>
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Pricing",
+      tableClasses: "nhsuk-u-margin-bottom-5",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price per unit"
+        },
+        {
+          text: "Quantity"
+        },
+        {
+          text: "Subtotal"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price per unit",
+            text: "£61.64 per month"
+          },
+          {
+            header: "Quantity",
+            text: "5,186"
+          },
+          {
+            header: "Subtotal",
+            text: "£2,219.04"
+          }
+        ]
+      ]
+    }) }}
+
+    <br>
+
+    <h3>Caltech Mobile</h3>
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Pricing",
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price per unit"
+        },
+        {
+          text: "Quantity"
+        },
+        {
+          text: "Subtotal"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price per unit",
+            text: "£35.94 per month"
+          },
+          {
+            header: "Quantity",
+            text: "5,186"
+          },
+          {
+            header: "Subtotal",
+            text: "£1,294.44"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2>Associated Services</h2>
+
+    <br>
+
+    <h3>Migration</h3>
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Pricing",
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Price per unit"
+        },
+        {
+          text: "Quantity"
+        },
+        {
+          text: "Subtotal"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Price per unit",
+            text: "£2,000 per implementation"
+          },
+          {
+            header: "Quantity",
+            text: "2"
+          },
+          {
+            header: "Subtotal",
+            text: "£4,000.00"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2>Total indicative costs</h2>
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Total one-off cost"
+          },
+          value: {
+            text: "£4,000"
+          }
+        },
+        {
+          key: {
+            text: "Total monthly cost"
+          },
+          value: {
+            text: "£6,631.96"
+          }
+        },
+        {
+          key: {
+            text: "Total cost for one year"
+          },
+          value: {
+            text: "£79,583.52"
+          }
+        },
+        {
+          key: {
+            text: "Contract length"
+          },
+          value: {
+            text: '36 months'
+          }
+        },
+        {
+          key: {
+            text: "Total cost of contract"
+          },
+          value: {
+            text: '£242,750.56'
+          }
+        }
+      ]
+    }) }}
+    <br />
+    <form>
+      {{ button({
+      "classes": "nhsuk-button--secondary nhsuk-u-margin-right-3",
+      "text": "Download Service Recipient list (CSV)",
+      "href":"/files/service_recipients_fc.csv"
+      }) }}
+
+      {{ button({
+        "classes": "nhsuk-button--secondary",
+        "text": "Download ordering information (PDF)",
+        "href":"/files/fc_order_information_pdf.pdf"
+        }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

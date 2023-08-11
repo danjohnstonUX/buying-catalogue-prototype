@@ -1,0 +1,127 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Group dashboard
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../index",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full width">
+
+      <h1>Groups dashboard</h1>
+      <p class="nhsuk-lede-text">View, edit, delete or upload your Service Recipients groups.</p>
+
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Upload CSV file",
+        "href": "1-name-your-group"
+      }) }}
+
+    {% from 'tables/macro.njk' import table %}
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Name"
+        },
+        {
+          text: "Description"
+        },
+        {
+          text: "Number of Service Recipients"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+          [
+            {
+              header: "Name",
+              html: 'Group 1'
+            },
+            {
+              header: "Description",
+              html: 'This is a description. A very bad one.'
+            },
+            {
+              header: "Number of Service Recipients",
+              html: '5 Service Recipients'
+            },
+            {
+              header: "Action",
+              html: '<a href="10-view-service-recipients-group" style="white-space: nowrap;">View</a>'
+            }
+          ],
+          [
+            {
+              header: "Name",
+              html: 'Group 2'
+            },
+            {
+              header: "Description",
+              html: 'None'
+            },
+            {
+              header: "Number of Service Recipients",
+              html: '10 Service Recipients'
+            },
+            {
+              header: "Action",
+              html: '<a href="order-6-complete" style="white-space: nowrap;">View</a>'
+            }
+          ]
+        ]
+      }) }}
+      
+      <br /><br />
+
+      <form action="../index">
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

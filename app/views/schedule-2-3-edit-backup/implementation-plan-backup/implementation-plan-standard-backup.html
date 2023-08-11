@@ -1,0 +1,313 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("accept-milestone-1").checked ? document.getElementById("accept-milestone-1").value : "";
+    var opt2 = document.getElementById("accept-milestone-2").checked ? document.getElementById("accept-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "../order-4-summary-implementation-completed";
+    }
+    else if(opt2=="no") {
+        document.location.href = "implementation-add-bespoke-milestone";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Review standard implementation milestones
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Ensure you’re happy with the implementation milestones and acceptance criteria.</p>
+
+      <h2>Milestones and Milestone Achievement Criteria</h2>
+      <p>The Milestones set out below will apply to all Service Instances.</p>
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Milestones",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone ID and title"
+          },
+          {
+            text: "Milestone Payments scope"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "M1 (Go Live Milestone)"
+            },
+            {
+              text: "No payment."
+            }
+          ],
+          [
+            {
+              text: "M2 (Service Stable Milestone)"
+            },
+            {
+              text: "The Periodic Service Charges commence on Achievement of Milestone M1, but are withheld from payment until Milestone M2 is Achieved."
+            }
+          ]
+        ]
+      }) }}
+
+
+      <h2>Milestone Achievement Criteria</h2>
+      <p>Call Off Ordering Parties may amend the table below for a particular Service Instance where appropriate and reasonable to do so. Where more than one set of Milestone Achievement Criteria are specified then the mapping of each set of Milestone Achievement Criteria to the Service Instances listed in the Order Summary must be clearly stated.</p>
+
+      {{ actionLink({
+        "text": "Add acceptance criteria to Milestone 1: Go Live",
+        "href": "implementation-add-bullet"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Milestone 1: Go Live",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Acceptance Criteria"
+          },
+          {
+            text: "Action"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Detailed Implementation Plan includes all Deliverables and all Supplier, Call Off Ordering Party and Service Recipient responsibilities with appropriate time allocated to the execution of each."
+            },
+            {
+              html: "<a href='implementation-edit-standard-milestone'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s satisfaction that the Catalogue Solution has been configured, as necessary, to meet the Service Recipient’s operational requirements."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s satisfaction that the Supplier’s obligations under the Training Standard have been met."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Where the Supplier is responsible for training, the Supplier evidences to the Service Recipient’s satisfaction that its End Users are trained to the extent that they can use the Catalogue Solution to fulfil their relevant business functions."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s satisfaction that the national and other interfaces applicable to the Catalogue Solution can be connected to and accessed."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s satisfaction that any Associated Services ordered with the Service Instance that are applicable to implementation have been effectively provided."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s satisfaction that the requirements of the Data Migration Standard and Catalogue Solution Migration Process applicable to the Supplier for go live have been met and that the relevant data has migrated to the extent necessary for the Service Recipient to conduct their relevant business functions effectively."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient and Call Off Ordering Party’s satisfaction that the Supplier will meet their Call Off Ordering Party related obligations set out within the Service Management Standard."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Supplier has appropriate invoicing arrangements in place."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Any commercial issues identified to date are visible to both Parties and an agreement on how they are to be handled has been reached between the Parties."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Approval by the Call Off Ordering Party that all Milestone M1 activities have been successfully completed."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+
+      {{ actionLink({
+        "text": "Add acceptance criteria to Milestone 2: Service Stability",
+        "href": "#"
+      }) }}
+
+      {{ table({
+        panel: false,
+        caption: "Milestone M2: Service Stability",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Acceptance Criteria"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "The Service Recipient confirms that the Catalogue Solution is functioning in accordance with the Supplier’s specification and that its End Users can use the Catalogue Solution effectively."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "The Supplier evidences to the Service Recipient’s and Call Off Ordering Party’s satisfaction that all of the requirements of the Data Migration Standard and Catalogue Solution Migration Process applicable to the Supplier have been met and that all of the relevant data has migrated to the Catalogue Solution."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: 'The Supplier evidences to the Service Recipient and Call Off Ordering Party’s satisfaction that the Supplier is meeting its Call Off Ordering Party service management obligations set out on the "Call Off Ordering Party" tab of appendix 2 of the Service Management Standard, to the extent that the same can be reasonably demonstrated within 10 Working Days of Achievement of Milestone M1.'
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "In relation to Type 2 Catalogue Solutions only, the Supplier evidences to the Service Recipient’s and Call Off Ordering Party’s satisfaction that the Catalogue Solution is meeting the applicable Service Levels."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Any commercial issues identified to date are visible to both Parties and an agreement on how they are to be handled has been reached between the Parties."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Approval by the Call Off Ordering Party that all Milestone M1 and M2 activities have been successfully completed."
+            },
+            {
+              html: "<a href='implementation-edit-bullet'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "accept-milestone",
+        "name": "accept-milestones",
+        "fieldset": {
+          "legend": {
+            "text": "Are you happy with these Milestones?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, I would like to use these Milestones"
+          },
+          {
+            "value": "no",
+            "text": "No, I would like to create a bespoke set of milestones"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,417 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [{
+
+  }],
+  href: "/",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Orders for [org name]</h1>
+      <p class="nhsuk-lede-text">Manage orders currently in progress and view orders that have been submitted for this organisation.</p>
+
+      <form action="organisation-selector">
+
+        {% from 'fieldset/macro.njk' import fieldset %}
+        {% from "input/macro.njk" import input %}
+
+        {% call fieldset({
+          legend: {
+            "text": "Current organisation",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        }) %}
+
+        {{ hint({
+          "text": "You are currently acting on behalf of:",
+          "classes": "nhsuk-u-margin-bottom-2"
+        }) }}
+
+        <p class="nhsuk-u-margin-bottom-7">[CCG name]&nbsp;&nbsp;&nbsp;&nbsp;<a href="organisation-selector">Change organisation</a></p>
+
+{% endcall %}
+    </form>
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Create new order",
+      "href": "create-organisation-selector"
+    }) }}
+
+    {% from 'tables/macro.njk' import table %}
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Orders pending approval",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Call-off Agreement ID"
+        },
+        {
+          text: "Order description"
+        },
+        {
+          text: "Last updated by"
+        },
+        {
+          text: "Last updated"
+        },
+        {
+          text: ""
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Call-off Agreement ID",
+            html: '<a href="order-preview">C000012-01</a>'
+          },
+          {
+            header: "Order description",
+            text: "Order for training from Access Point supplier"
+          },
+          {
+            header: "Created by",
+            text: "Jane Doe"
+          },
+          {
+            header: "Date created",
+            text: "20/02/2020"
+          },
+          {
+            header: "Action",
+            html: '<a href="order-preview-proxy" style="white-space: nowrap;">Approve or reject</a>'
+          }
+        ]
+      ]
+    }) }}
+    <br /><br />
+
+      {{ table({
+        responsive: true,
+        panel: false,
+        caption: "Incomplete orders",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Call-off Agreement ID"
+          },
+          {
+            text: "Order description"
+          },
+          {
+            text: "Last updated by"
+          },
+          {
+            text: "Last updated"
+          },
+          {
+            text: "Date created"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ]
+        ]
+      }) }}
+
+      <br /><br />
+
+      {{ table({
+        responsive: true,
+        panel: false,
+        caption: "Completed orders",
+        firstCellIsHeader: false,
+        "classes": "nhsuk-u-margin-bottom-2",
+        head: [
+          {
+            text: "Call-off Agreement ID"
+          },
+          {
+            text: "Order description"
+          },
+          {
+            text: "Last updated by"
+          },
+          {
+            text: "Last updated"
+          },
+          {
+            text: "Date created"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ],
+          [
+            {
+              header: "Call-off Agreement ID",
+              html: '<a href="order-summary">C000012-01</a>'
+            },
+            {
+              header: "Order description",
+              text: "Order for training from Access Point supplier"
+            },
+            {
+              header: "Last updated by",
+              text: "Jane Doe"
+            },
+            {
+              header: "Last updated",
+              text: "04/03/2020"
+            },
+            {
+              header: "Date created",
+              text: "20/02/2020"
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+      <br />
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <!-- End of content -->
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

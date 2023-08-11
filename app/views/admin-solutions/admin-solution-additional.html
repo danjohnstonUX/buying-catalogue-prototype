@@ -1,0 +1,166 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>
+      <span role="text">Additional Services
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Select any services that provide additional functionality to your Catalogue Solution.</p>
+
+    <!--h2>NHS assured integrations</h2>
+    <p>Lorem ipsum.</p>
+
+    <h3>IM1 integrations</h3-->
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Add an Additional Service",
+      "href": "admin-solution-additional-add-summary-new"
+    }) }}
+
+    <p>Use the link to add information on each of the Additional Services available with your Catalogue Solution.</p>
+
+    {% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "Additional Services available",
+    firstCellIsHeader: false,
+    head: [
+      {
+      text: "Additional Service"
+      },
+      {
+      text: "Description"
+      },
+      {
+        text: ""
+      }
+    ],
+    rows: [
+      [
+      {
+        text: "Enterprise Search and Reports"
+      },
+      {
+        text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+      },
+      {
+        html: '<a href="admin-solution-additional-add-summary">Edit</a>'
+      }
+      ],
+      [
+      {
+        text: "Enterprise Search and Reports"
+      },
+      {
+        text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+      },
+      {
+        html: '<a href="admin-solution-additional-add-summary">Edit</a>'
+      }
+      ],
+      [
+      {
+        text: "Enterprise Search and Reports"
+      },
+      {
+        text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+      },
+      {
+        html: '<a href="admin-solution-additional-add-summary">Edit</a>'
+      }
+      ],
+      [
+      {
+        text: "Enterprise Search and Reports"
+      },
+      {
+        text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+      },
+      {
+        html: '<a href="admin-solution-additional-add-summary">Edit</a>'
+      }
+      ],
+      [
+      {
+        text: "Enterprise Search and Reports"
+      },
+      {
+        text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+      },
+      {
+        html: '<a href="admin-solution-additional-add-summary">Edit</a>'
+      }
+      ]
+
+    ]
+    }) }}
+
+    <br /><br />
+
+
+    <form action="admin-sollution">
+    {{ button({
+      "text": "Save and continue",
+      "href": "admin-solution"
+    }) }}
+    </form>
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

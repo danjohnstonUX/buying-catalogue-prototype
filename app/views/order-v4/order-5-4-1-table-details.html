@@ -1,0 +1,85 @@
+<style>
+  .nhsuk-table-responsive th,
+  tr.small-text th {
+    font-size: 0.842em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td,
+  tr.small-text td {
+    font-size: 0.842em;
+  }
+  .bc-detail {
+    /*padding-left: 3em;*/
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .bc-last-row td {
+    border: 0;
+  }
+  .bc-align-right {
+    text-align: right;
+  }
+  .bc-detail tr td:first-child,
+  .bc-detail tr th:first-child {
+    padding-left: 1em;
+  }
+  .bc-detail tr td:last-child,
+  .bc-detail tr th:last-child {
+    padding-right: 1em;
+  }
+</style>
+
+<table class="nhsuk-table bc-detail">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row" class="small-text">
+      <th role="columnheader" class="" scope="col">
+        Item ID
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Item
+      </th>
+      <!-- <th role="columnheader" class="" scope="col">
+        Type
+      </th> -->
+      <th role="columnheader" class="" scope="col">
+        Price unit
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Quantity/period
+      </th>
+      <th role="columnheader" class="bc-align-right" scope="col">
+        Item total
+      </th>
+      <!-- <th></th> -->
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row small-text">
+      <td class="nhsuk-table__cell">C010029-01-Y03508-77<br /><a href="">Edit solution</a></td>
+      <td class="nhsuk-table__cell ">Emis Web GP</td>
+      <!-- <td class="nhsuk-table__cell ">Catalogue Solution</td> &nbsp;&nbsp;&nbsp;&nbsp;<a href="">Remove</a> -->
+      <td class="nhsuk-table__cell">£1.26 per patient per year</td>
+      <td class="nhsuk-table__cell">2,000 per month</td>
+      <td class="nhsuk-table__cell bc-align-right">£37,432.50</td>
+      <!-- <td class="nhsuk-table__cell "><a href="">Edit</a></td> -->
+    </tr>
+    {#<tr role="row" class="nhsuk-table__row small-text">
+      <td class="nhsuk-table__cell">C010029-01-Y03508-77<br /><a href="">Edit service</a></td>
+      <td class="nhsuk-table__cell ">Automated Arrivals</td>
+      <!-- <td class="nhsuk-table__cell ">Additional Service</td> -->
+      <td class="nhsuk-table__cell">£0.07 per patient per year</td>
+      <td class="nhsuk-table__cell">1,000 per month</td>
+      <td class="nhsuk-table__cell bc-align-right">£700.50</td>
+      <!-- <td class="nhsuk-table__cell "><a href="">Edit</a></td> -->
+    </tr>#}
+    <tr role="row" class="nhsuk-table__row small-text bc-last-row">
+      <td class="nhsuk-table__cell">C010029-01-Y03508-77<br /><a href="">Edit service</a></td>
+      <td class="nhsuk-table__cell ">Document Management</td>
+      <!-- <td class="nhsuk-table__cell ">Additional Service</td> -->
+      <td class="nhsuk-table__cell">£0.15 per patient per year</td>
+      <td class="nhsuk-table__cell">1,000 per month</td>
+      <td class="nhsuk-table__cell bc-align-right">£1,230.50</td>
+      <!-- <td class="nhsuk-table__cell "><a href="">Edit</a></td> -->
+    </tr>
+  </tbody>
+</table>

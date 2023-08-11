@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients Emis Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-1-supplier-selected",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 10 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Burnbrae Medical Practice</li>
+      <li>CHP Ltd - Bransholme</li>
+      <li>CHP Ltd - Field View</li>
+      <li>City Health Practice Ltd</li>
+      <li>Clifton House Medical Centre</li>
+      <li>Delta Healthcare</li>
+      <li>Dr GT Hendow's Practice</li>
+      <li>Dr JAD Weir & Partners</li>
+      <li>Drs Raut and Thoufeeq</li>
+      <li>East Hull Family Practice</li>
+    </ol>
+  <br/>
+
+  <p>You can <a href="serv-rec-test-1">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+      <br />
+
+           
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="order-5-4-2-add-solution-multiple-price">
+                  {% from 'button/macro.njk' import button %}
+          
+                  {{ button({
+                    "text": "Continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,247 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("default-payment-schedule-1").checked ? document.getElementById("default-payment-schedule-1").value : "";
+      var opt2 = document.getElementById("default-payment-schedule-2").checked ? document.getElementById("default-payment-schedule-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "#";
+      }
+      else if(opt2=="no") {
+          document.location.href = "associated-service-billing-1";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Implementation
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+        {{ details({
+          "text": "View the milestone descriptions",
+          "HTML": '
+          <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Milestone M1: Go Live</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Milestone ID
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Milestone description
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 1
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 2
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 3
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 4
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br />
+
+        <table role="table" class="nhsuk-table-responsive">
+        <caption class="nhsuk-table__caption">Milestone M2: Service Stability</caption>
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Milestone ID
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Milestone description
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 1
+            </td>
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone description</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 2
+            </td>
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone description</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 3
+            </td>
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone description</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 4
+            </td>
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Milestone description</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </td>
+          </tr>
+        </tbody>
+        </table>
+        '
+        }) }}
+
+        {{ table({
+          panel: false,
+          caption: "Overview of billing on milestones",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Milestone ID"
+            },
+            {
+              text: "Units assigned"
+            },
+            {
+              text: "Action"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Milestone 1"
+              },
+              {
+                text: "5"
+              },
+              {
+                header: "Action",
+                html: "<a href='#'>Edit</a>"
+              }
+            ],
+            [
+              {
+                text: "Milestone 2"
+              },
+              {
+                text: "0 "
+              },
+              {
+                header: "Action",
+                html: "<a href='#'>Edit</a>"
+              }
+            ],
+            [
+              {
+                text: "Milestone 3"
+              },
+              {
+                text: "0 "
+              },
+              {
+                header: "Action",
+                html: "<a href='#'>Edit</a>"
+              }
+            ],
+            [
+              {
+                text: "Units to be paid on billing"
+              },
+              {
+                text: "5 "
+              },
+              {
+                header: "Action",
+                html: "<a href='#'>Edit</a>"
+              }
+            ],
+            [
+              {
+                html: "<strong>Total</strong>"
+              },
+              {
+                html: "<strong>10</strong>"
+              },
+              {
+                header: "Action",
+                text: ""
+              }
+            ]
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"associated-service-billing-implementation-edited"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

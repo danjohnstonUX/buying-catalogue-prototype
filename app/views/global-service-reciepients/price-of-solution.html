@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+"href": "edit-solutions-and-services",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Price of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Health
+      </span></h1>
+
+    <p class="nhsuk-lede-text">Confirm the price you'll be paying. We've included the list price, but this can be
+      changed if you’ve agreed a different rate with the supplier.</p>
+
+    <div class="nhsuk-u-margin-bottom-6">
+      <div class="nhsuk-form-group"><label aria-description="Tiers_0__AgreedPrice-suffix" class="nhsuk-label"
+          for="Tiers_0__AgreedPrice">What price have you agreed, in pounds per licence per month?</label>
+        <div class="nhsuk-hint" id="Tiers_0__AgreedPrice-hint">You can change the list price if you’ve agreed a
+          different rate with the supplier.</div>
+        <div class="govuk-input__wrapper">
+          <div aria-hidden="true" class="govuk-input__prefix" id="Tiers_0__AgreedPrice-prefix">£</div><input
+            aria-describedby="Tiers_0__AgreedPrice-hint" class="nhsuk-input nhsuk-input--width-5"
+            id="Tiers_0__AgreedPrice" maxlength="10" name="Tiers[0].AgreedPrice" spellcheck="false" type="text"
+            value="10,101.65">
+          <div aria-hidden="true" class="govuk-input__suffix" id="Tiers_0__AgreedPrice-suffix">per licence per month
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nhsuk-u-margin-bottom-9" data-test-id="price-details">
+
+      <p>The total price for this Catalogue Solution will be calculated as a flat single fixed price (excluding VAT).
+      </p>
+      <details class="nhsuk-details ">
+        <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">What is a flat single fixed
+            price?&nbsp;&nbsp;</span></summary>
+        <div class="nhsuk-details__text">
+          <p>For flat single fixed pricing, the quantity is not used as part of the price calculation. The price will
+            remain the same no matter how many items you order.</p>
+
+          <h2 class="nhsuk-heading-m">Example</h2>
+
+          <p>If the list price is £1000 and you buy 1 item, 100 items or 1 million items, the cost will always be the
+            list price, in this case £1000.</p>
+
+        </div>
+      </details>
+
+    </div>
+
+    <a href="edit-solutions-and-services-pt2" class="nhsuk-button">
+      Save and continue
+    </a>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

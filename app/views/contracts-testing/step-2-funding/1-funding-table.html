@@ -1,0 +1,143 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+<style>
+  .bc-summary-totals .nhsuk-summary-list__row {
+    text-align: right;
+  }
+  .bc-summary-totals .nhsuk-summary-list__key,
+  .bc-summary-totals .nhsuk-summary-list__value,
+  .bc-summary-totals .nhsuk-summary-list__actions {
+    display: inline-block;
+    width: auto;
+  }
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../order-4-summary-solutions-completed",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Select funding sources<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C01001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Provide information on how you’ll be paying for this order.</p>
+
+      {{ details({
+        "text": "What is central, local and mixed funding?",
+        "HTML": "
+        <p><b>Central funding</b></p>
+        <p>Central funding means you’re using your centrally held allocation to pay for the order. Any solutions or services you order will be paid for by either NHS England or NHS Digital. The supplier will invoice the relevant organisation directly.<p/>
+        <p>You should make sure you have enough of your central allocation available to pay for your order before placing it.</p>
+        <p><b>Local funding</b></p>
+        <p>Local funding means your organisation will be paying for the order. The supplier will invoice you directly.</p>
+        <p><b>Mixed funding</b></p>
+        <p>Mixed funding means your organisation will start paying with central funding, and when your allocation runs out, will move over to local funding.</p>
+        "
+      }) }}
+
+    <table class="nhsuk-table bc-detail">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row" class="small-text">
+            <th role="columnheader" class="" scope="col">
+              Solution or service
+            </th>
+            <th role="columnheader" class="bc-align-right" scope="col">
+              Total cost
+            </th>
+            <th role="columnheader" class="" scope="col">Funding type</th>
+            <th role="columnheader" class="" scope="col">Status</th>
+            <th role="columnheader" class="" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell">Emis Web GP</td>
+            <td class="nhsuk-table__cell bc-align-right">£13,566.42</td>
+            <td class="nhsuk-table__cell">None specified</td>
+            <td>
+              {{ tag({
+                html: "Not completed",
+                classes: "nhsuk-tag--grey"
+              })}}
+            </td>
+            <td class="nhsuk-table__cell"><a href="2-solution-edit">Edit</a></td></td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Enterprise Search and Report</td>
+            <td class="nhsuk-table__cell bc-align-right">£40,699.26</td>
+            <td class="nhsuk-table__cell">None specified</td>
+            <td>
+              {{ tag({
+                html: "Not completed",
+                classes: "nhsuk-tag--grey"
+              })}}
+            </td>
+            <td class="nhsuk-table__cell "><a href="2-services-edit">Edit</a></td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text">
+            <td class="nhsuk-table__cell ">Training Day at Practice</td>
+            <td class="nhsuk-table__cell bc-align-right">£58,500.00 </td>
+            <td class="nhsuk-table__cell">None specified</td>
+            <td>
+              {{ tag({
+                html: "Not completed",
+                classes: "nhsuk-tag--grey"
+              })}}
+            </td>
+            <td class="nhsuk-table__cell "><a href="2-assc-services-edit">Edit</a></td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row small-text bc-last-row">
+            <td role="cell" class="nhsuk-table__cell"><b>Total<b></td>
+            <td role="cell" class="nhsuk-table__cell bc-align-right">£73,250.79</td>
+            <td class="nhsuk-table__cell "></td>
+            <td class="nhsuk-table__cell "></td>
+            <td class="nhsuk-table__cell "></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <br />
+
+      <div>
+          <div style="display:inline-block;">
+            <form method="post" action="../order-4-summary-funding-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

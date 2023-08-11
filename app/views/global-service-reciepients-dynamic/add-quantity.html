@@ -1,0 +1,324 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/global-service-reciepients/price-of-solution",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form method="post" action="edit-solutions-and-services">
+      <h1>Quantity of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Health
+      </span></h1>
+      <p class="nhsuk-lede-text">We’ve included the latest practice list sizes published by NHS Digital.</p>
+
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+"HTML": "<p>The latest practice list sizes are published on <a href=\"https://digital.nhs.uk/data-and-information/publications/statistical/patients-registered-at-a-gp-practice/\" title=\"External website\">the NHS Digital website (opens in a new tab)</a>.</p>"
+}) }}
+
+{% for sr in data['srJsonData'] %}
+
+          <details class="nhsuk-details nhsuk-expander" open >
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                {{sr.categoryName}}
+              </span>
+              <span class="expander-count"><b class="expander-count-text">{{sr.organisations.length}}</b> recipients added</span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <table class="nhsuk-table-responsive" role="table">
+                <caption class="nhsuk-table__caption"></caption>
+                <thead class="nhsuk-table__head" role="rowgroup">
+                  <tr role="row">
+                    <th role="columnheader" scope="col">
+                      Organisation                      
+                    </th>
+                    <th role="columnheader" scope="col">ODS code</th>
+                    <th role="columnheader" scope="col">Practice list size</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+                  {% for org in sr.organisations %}
+                  <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      {{org.name}}
+                    </td>
+
+                    <td role="cell" class="nhsuk-table__cell">
+                      {{org.code}}
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <input class="nhsuk-input nhsuk-input--width-5" id="input-width-5" name="quants1" type="text" value="{{0 | randomNumber}}">
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+    {% endfor %}
+
+  <br />
+  <div>
+    <div style="display:inline-block;">
+        <input type="hidden" name="quantsAdded" value="answered" />
+
+        <button type="submit" class="nhsuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+
+
+<!-- Old nunjucks code -->
+
+
+{#
+  {% set quantityHtml %}
+  {{ input({
+    id: "quantity",
+    name: "quantity",
+    classes: "nhsuk-u-width-two-thirds",
+    value: "875",
+    label: {
+
+    }
+  }) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }} #}
+
+{#
+
+{% set quantityHtml %}
+{{ input({
+id: "quantity",
+name: "quantity",
+classes: "nhsuk-u-width-two-thirds",
+value: "875",
+label: {
+
+}
+}) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+text: 620
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Burnbrae Medical Practice (B81085)"
+},
+{
+text: 285
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dermatology Clinic GPSI (Y00894)"
+},
+{
+text: 440
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dr Jad Weir & Partners (B81040)"
+},
+{
+text: 325
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Haxby Group Hull (Y02747)"
+},
+{
+text: 598
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Hull CCG Vocarenhs111 OOH (Y06959)"
+},
+{
+text: 525
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "James Alexander Family Practice (B81112)"
+},
+{
+text: 610
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Laurbel Surgery (B81635)"
+},
+{
+text: 425
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Pain Management GPSI (Y01218)"
+},
+{
+text: 348
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "St Andrews Surgery (YB81027)"
+},
+{
+text: 400
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Sydenham Group Practice (B81027)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }}
+
+#}

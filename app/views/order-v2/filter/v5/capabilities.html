@@ -1,0 +1,380 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Filter by Capabilties
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/order-v2/filter/v5/catalogue-solutions-start",
+    text: "Catalogue Solutions"
+  }
+  ],
+  href: "/order-v2/filter/v5/capabilities",
+  text: "Capabilities"
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<style>
+  .nhsuk-expander-index{
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary{
+    padding-top:40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text{
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter{
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color:#212b32;
+    display: block;
+  }
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){
+  updateGlobalCount();
+  updateAllSubgroupCounters();
+  document.getElementById('selection-counter').removeAttribute('style');
+
+  const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+  for (var i = 0; i < allCheckboxes.length; i++){
+    allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+  }
+}
+
+function updateSubGroupCount(selectedCheckbox){
+  var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+  updateSubGroupCountWorker(subgroup);
+  updateGlobalCount();
+}
+
+function updateSubGroupCountWorker(subgroup){
+  const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+  const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+  if(count > 0){
+    counter.innerText = ` - ${count} selected`;
+  }
+  else{
+    counter.innerText = '';
+  }
+}
+
+function updateAllSubgroupCounters(){
+  const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+  const allSubgroups = [];
+  allSelectedCheckboxes.forEach(function(cv, ci, lo)
+  {
+  allSubgroups.push(cv.getAttribute('subgroup'));
+  });
+  const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+  uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+}
+
+function updateGlobalCount(){
+  const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+  const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+  const globalCounter = document.getElementById('selection-counter');
+  globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+  }
+</script>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Filter by Capabilities for <br />Catalogue Solutions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+
+      </h1>
+      <p class="nhsuk-lede-text">Capabilities describe business needs. Select the ones you want a Catalogue Solution to address.</p>
+
+     {#
+      {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+      #}
+
+      <hr />
+
+      <h2>10 Capabilities have been found:</h2>
+
+      <!-- <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            View your search criteria
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><b>Frameworks selected:</b></p>
+        <ul style="margin-top:1px;">
+          <li>All</li>
+        </ul>
+       
+        </div>
+      </details> -->
+
+
+
+      
+
+      <hr />
+
+      <h2>Select Capabilities</h2>
+
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Clear filters",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+      <p id="selection-counter" style="display:none;"></p>
+      <br/>
+      <br />
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Foundation Solutions <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 result<span class="counter-class" subgroup="A"></span>
+            </span>
+          </span>
+
+        </summary>
+        <div style="margin-left: 25px; margin-right: 25px;"><p>Find solutions that meet the 6 Foundation Capabilities which are the minimum requirement to enable a GP practice to operate.</p></div>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Capability name"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    header: "Organisation",
+                    html: '
+
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Foundation Capabilities
+                      </label>
+                    </div>'
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <br />
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Appointments <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 results<span class="counter-class" subgroup="B"></span>
+            </span>
+          </span>
+        </summary>
+        <div style="margin-left: 25px; margin-right: 25px;"><p>Find solutions that enable patients and staff to efficiently manage time and resources.</p></div>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Capability name"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-2" name="example" type="checkbox" value="email" subgroup="B">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-2">
+                        Appointments Management – GP
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-3" name="example" type="checkbox" value="email" subgroup="B">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-3">
+                       Appointments Management – COVID-19 Vaccinations
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-4" name="example" type="checkbox" value="email" subgroup="B">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-4">
+                        Appointments Management – Citizen
+                      </label>
+                    </div>'
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <br />
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Consultations <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              6 results<span class="counter-class" subgroup="C"></span>
+            </span>
+          </span>
+        </summary>
+        <div style="margin-left: 25px; margin-right: 25px;"><p>Find solutions that support the delivery of remote consultations and digital care.</p></div>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Capability name"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-5" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-5">
+                        Clinical Decision Support
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-6" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-6">
+                        Recording Consultations
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-7" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-7">
+                        Online Consultation
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-8" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-8">
+                        Video Consultation
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-9" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-9">
+                        e-Consultations (Professional to Professional)
+                      </label>
+                    </div>'
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-10" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-10">
+                        Vaccination and Adverse Reaction Recording
+                      </label>
+                    </div>'
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <p>0 out of 10 selected</p>
+
+      <br /><br />
+      <form action="epics-solution-option">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Suppliers found
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <!-- "text": "Suppliers found",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": false
+
+    Code to be placed below legend if required-->
+
+
+      {% call fieldset({
+        legend: {
+
+        }
+        }) %}
+        {{ hint({
+          "text": "Select the supplier you want to order from."
+        }) }}
+        {{ radios({
+          "idPrefix": "example-hints",
+          "name": "example-hints",
+          "items": [
+        {
+          "value": "yes",
+          "text": "EMIS Health"
+        },
+        {
+          "value": "no",
+          "text": "Initech Systems"
+        },
+        {
+          "value": "not sure",
+          "text": "Caltech Solutions"
+        },
+        {
+          "value": "not sure",
+          "text": "Ingen Ltd"
+        },
+        {
+          "value": "not sure",
+          "text": "E Corp Corporation"
+        },
+        {
+          "value": "not sure",
+          "text": "OCP Solutions"
+        }
+      ]
+      }) }}
+      {% endcall %}
+
+<br />
+
+      <form action="order-5-10-1-supplier-selected">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

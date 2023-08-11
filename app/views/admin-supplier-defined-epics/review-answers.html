@@ -1,0 +1,150 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Review supplier defined Epic
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/admin-supplier-defined-epics/epics-further-details",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Supplier defined Epic information<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  SDE number 1
+</span>
+</span></h1>
+
+<p class="nhsuk-lede-text">Review the information for this supplier defined Epic or edit the details already added.</p>
+
+
+<br/>
+
+<h2 class="nhsuk-heading-m">Supplier defined Epic</h2>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Capabilities
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {% for cap in data['capabilities'] %}
+        {{cap}},
+      {% endfor %}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="which-capabilities">
+        Edit<span class="nhsuk-u-visually-hidden"> capabilities</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+     {{data['epic-name']}}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="epics-further-details">
+        Edit<span class="nhsuk-u-visually-hidden"> epic name</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Description
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{data['epic-description']}}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="epics-further-details">
+        Edit<span class="nhsuk-u-visually-hidden"> description</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Status
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {% if data['epic-status'] == 'yes' %}
+      <strong class="nhsuk-tag nhsuk-tag--green">
+        Active
+      </strong>
+      {% else %}
+      <strong class="nhsuk-tag nhsuk-tag--grey">
+        Inactive
+      </strong>
+      {% endif %}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="epics-further-details">
+        Edit<span class="nhsuk-u-visually-hidden"> epic status</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+</dl>
+
+
+<br>
+
+
+<form>
+{{ button({
+  "text": "Continue",
+  "href":"/admin-supplier-defined-epics"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

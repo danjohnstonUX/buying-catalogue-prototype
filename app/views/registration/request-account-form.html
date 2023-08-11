@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Request Buying Catalogue form
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        {% from 'back-link/macro.njk' import backLink %}
+
+        {{ backLink({
+        "href": "request-account",
+        "text": "Go back"
+        }) }}
+
+        <h1>Request an account</h1>
+        <p class="nhsuk-lede-text">Provide the following details and the Buying Catalogue Team will respond to your request within 5 working days.</p>
+
+        {% from 'input/macro.njk' import input %}
+
+        {{ input({
+        "label": {
+            "text": "Full name"
+        },
+        hint: {
+    text: "We'll use the name you provide in any replies to your message. We'll not use it for any other purpose."
+  },
+        "id": "example",
+        "name": "example"
+        }) }}
+
+        {{ input({
+        "label": {
+            "text": "Telephone number"
+        },
+        hint: {
+    text: "We’ll use your telephone number if we need to speak with you to resolve the issue you are contacting us about. We'll not use it for any other purpose."
+  },
+        "id": "example",
+        "name": "example"
+        }) }}
+
+        {{ input({
+        "label": {
+            "text": "Email address"
+        },
+        hint: {
+    text: "We'll use your email address to resolve the issue you are contacting us about and reply to you. We'll not use it for any other purpose."
+  },
+        "id": "example",
+        "name": "example"
+        }) }}
+
+
+        {{ input({
+        "label": {
+            "text": "Your organisation's name"
+        },
+        hint: {
+    text: "We currently only support buyers from Clinical Commissioning Groups (CCGs) and Commissioning Support Units (CSUs)."
+  },
+        "id": "example",
+        "name": "example"
+        }) }}
+
+
+
+
+
+        {{ input({
+  "label": {
+  "text": "Your organisation's ODS code (optional)"
+},
+hint: {
+text: "Provide the ODS code for your organisation if you know it."
+  },
+  "id": "input-width-5",
+  "name": "test-width-5",
+  "classes": "nhsuk-input--width-5"
+}) }}
+
+        <br/>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "example",
+            "name": "example",
+            "fieldset": {
+              "legend": {
+                "text": "Privacy policy agreement",
+                "classes": "nhsuk-fieldset__legend--l",
+                isPageHeading: true
+              }
+            },
+            "hint": {
+              "html": "You must confirm you have read and understood our <a href='/cookies-policy'>privacy policy (opens in a new tab)</a> before sending."
+            },
+            "items": [
+              {
+                "value": "email",
+                "text": "I have read and understood the privacy policy"
+              },
+      {
+        "value": "text message",
+        "text": "I am happy to be contacted about taking part in user research"
+      }
+            ]
+          }) }}
+        </form>
+
+        <br/>
+        {% from 'button/macro.njk' import button %}
+<form action="registration-confirmation">
+        {{ button({
+        "text": "Submit request"
+        }) }}
+    </div>
+</div>
+<br/>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

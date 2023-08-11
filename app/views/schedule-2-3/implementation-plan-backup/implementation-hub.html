@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("add-milestone-1").checked ? document.getElementById("add-milestone-1").value : "";
+    var opt2 = document.getElementById("add-milestone-2").checked ? document.getElementById("add-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "implementation-plan-bespoke-1";
+    }
+    else if(opt2=="no") {
+        document.location.href = "../order-4-summary-implementation-completed";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-bespoke-3",
+  "text": "Go back"
+}) }}
+
+{% set acHtml %}
+
+{{ textarea({
+"idPrefix": "ac-description",
+"name": "acceptance-criteria",
+"label": {
+  text: "What is the acceptance criteria for this milestone?"
+}
+}) }}
+
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Add implementation milestones and acceptance criteria
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Make sure you’ve included all the implementation milestones and acceptance criteria you require for this order.</p>
+
+      {{ actionLink({
+        "text": "Add a milestone and acceptance criteria",
+        "href": "implementation-plan-bespoke-1"
+      }) }}
+
+      <form>
+        {{ checkboxes({
+          "idPrefix": "confirm-milestones",
+          "name": "confirm-milestones",
+          "fieldset": {
+            "legend": {
+              "text": "Confirm you've finished",
+              "classes": "nhsuk-fieldset__legend--m",
+              isPageHeading: false
+            }
+  },
+  "hint": {
+    "text": "Check the box when you've finished adding milestones and acceptance criteria. You must add at least one."
+  },
+          "items": [
+            {
+              "value": "surplus",
+              "text": "I've finished adding milestones and acceptance criteria"
+            }
+          ]
+        }) }}
+      </form>
+
+      <br />
+
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,242 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-plan-select-solution",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+              <h1>
+              <span role="text">Work-off plan item information
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+
+
+            <p class="nhsuk-lede-text">Provide the following information about a Work-off Plan item for your Catalogue Solution or any of its Additional Services.</p>
+
+            <form action="admin-solution-plans" method="post">
+
+                {% set standardsSelectList %}
+
+                {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                    "text": "Select Standard"
+                },
+                "items": [
+                    {
+                    "value": 1,
+                    "text": "Business Continuity and Disaster Recovery"
+                    },
+                    {
+                    "value": 2,
+                    "text": "Clinical Safety"
+                    },
+                    {
+                    "value": 3,
+                    "text": "Commercial"
+                    },
+                    {
+                    "value": 4,
+                    "text": "Data Migration"
+                    },
+                    {
+                    "value": 5,
+                    "text": "Data Standards"
+                    },
+                    {
+                    "value": 6,
+                    "text": "Hosting & Infrastructure"
+                    },
+                    {
+                    "value": 7,
+                    "text": "Information Governance"
+                    },
+                    {
+                    "value": 8,
+                    "text": "Non-Functional Questions"
+                    },
+                    {
+                    "value": 9,
+                    "text": "Service Management"
+                    },
+                    {
+                    "value": 10,
+                    "text": "Testing"
+                    },
+                    {
+                    "value": 11,
+                    "text": "Training"
+                    }
+                ]
+                }) }}
+                {% endset -%}
+
+                {% set capabilitiesSelectList %}
+
+                {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                    "text": "Select Capabiltiy"
+                },
+                "items": [
+                    {
+                    "value": 1,
+                    "text": "Appointments Management – Citizen"
+                    },
+                    {
+                    "value": 2,
+                    "text": "Appointments Management – GP"
+                    },
+                    {
+                    "value": 3,
+                    "text": "Clinical Decision Support"
+                    },
+                    {
+                    "value": 4,
+                    "text": "Recording Consultations"
+                    }
+                ]
+                }) }}
+                {% endset -%}
+
+                {{ radios({
+                "idPrefix": "select-1",
+                "name": "select-1",
+                "fieldset": {
+                    "legend": {
+                    "text": "Type of Work-off Plan",
+                    "classes": "nhsuk-fieldset__legend--l",
+                    "isPageHeading": "false"
+                    }
+                },
+                "hint": {
+                    "text": ""
+                },
+                "items": [
+                    {
+                      "value": "1",
+                      "text": "Standard",
+                      "conditional" : {
+                        "html" : standardsSelectList
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "text": "Capability",
+                      "conditional": {
+                          "html": capabilitiesSelectList
+                      }
+                    }
+                ]
+                }) }}
+
+              {{ textarea({
+                id: "reject",
+                name: "reject",
+                label: {
+                  text: "Work-off Plan item details"
+                },
+                "rows": "10",
+                "hint": {
+                  "text": "For example, which part of a Standard or Capability still requires work to meet compliance?"
+                }
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1000 characters remaining</p>
+
+              {{ dateInput({
+                "id": "example",
+                "namePrefix": "example",
+                "fieldset": {
+                  "legend": {
+                    "text": "Agreed completion date",
+                    "classes": "nhsuk-label--l",
+                    "isPageHeading": true
+                  }
+                },
+                "hint": {
+                  "text": "For example, 15 3 1984"
+                },
+                "items": [
+                  {
+                    "name": "day",
+                    "classes": "nhsuk-input--width-2"
+                  },
+                  {
+                    "name": "month",
+                    "classes": "nhsuk-input--width-2"
+                  },
+                  {
+                    "name": "year",
+                    "classes": "nhsuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+            <p><a href="#" style="color: red;">Delete Work-off Plan item</a></p>
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

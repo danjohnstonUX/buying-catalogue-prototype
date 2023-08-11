@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Quantity of Write on Time for C010002-01</h1>
+      <p class="nhsuk-lede-text">
+        Enter the quantity you think you&#39;ll need and over what period.
+      </p>
+
+<!--
+      {% from 'input/macro.njk' import input %}
+
+      {{ input({
+        "label": {
+          "text": "How many do you think you&#39;ll need?"
+        },
+          "hint": {
+          "text": "Enter the estimated quantity you think you'll need either per month or per year."
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+-->
+
+
+
+      {% from 'radios/macro.njk' import radios %}
+      {% from 'input/macro.njk' import input %}
+
+      {% set monthHtml %}
+        {{ input({
+          "label": {
+            "text": "How many do you think you'll need?"
+          },
+            "hint": {
+            "text": "Enter the estimated quantity you think you'll need either per month."
+          },
+          id: "example-with-hint-text",
+          name: "example-with-hint-text",
+          classes: "nhsuk-input--width-10",
+          inputmode: "numeric"
+        }) }}
+      {% endset -%}
+
+      {% set yearHtml %}
+        {{ input({
+          "label": {
+            "text": "How many do you think you'll need?"
+          },
+            "hint": {
+            "text": "Enter the estimated quantity you think you'll need either per year."
+          },
+          id: "example-with-hint-text",
+          name: "example-with-hint-text",
+          classes: "nhsuk-input--width-10",
+          inputmode: "numeric"
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        "idPrefix": "contact",
+        "name": "contact",
+        "fieldset": {
+          "legend": {
+            "text": "Over what period did you estimate the quantity?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": "true"
+          }
+        },
+        "hint": {
+          "text": "This should be based on how you estimated the quantity you want to order."
+        },
+        "items": [
+          {
+            "value": "month",
+            "text": "Per month",
+            "conditional": {
+              "html": monthHtml
+            }
+          },
+          {
+            "value": "year",
+            "text": "Per year",
+            "conditional": {
+              "html": yearHtml
+            }
+          }
+        ]
+      }) }}
+
+
+<form action="order-add-catalogue-solutions">
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

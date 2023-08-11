@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/filtering/current/saved-filter",
+  "text": "Go back"
+}) }}
+
+<form action="admin-organisation-manage-related-orgs">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-u-margin-bottom-7">
+        <h1 class="nhsuk-u-margin-bottom-0">Filter cannot be saved</h1>
+      </div>
+
+      <p class="nhsuk-lede-text">You already have 10 filters saved which is the maximum allowed. You’ll need to delete an existing filter.</p>
+
+      {{ button({
+        "text": "Go to saved filters"
+      }) }}
+
+      <br />
+
+      <p class="nhsuk-body"><a href="#">Cancel</a></p>
+
+    </div>
+  </div>
+</form>
+
+<br />
+<br />
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

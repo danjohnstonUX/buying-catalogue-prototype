@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var radioYes = document.getElementById("contact-1").checked ? document.getElementById("contact-1").value : "";
+    var radioNo = document.getElementById("contact-2").checked ? document.getElementById("contact-2").value : "";
+
+    if(radioNo=="no") {
+        document.location.href = "order-2-3-triage-no-2";
+    }
+    else if(radioYes=="yes") {
+        document.location.href = "order-4-summary-before";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-2-1-triage",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+<form name="triage" id="triage">
+  {% from 'radios/macro.njk' import radios %}
+  {% from 'input/macro.njk' import input %}
+
+  <h1>Have you carried out a competition using the Buying Catalogue?
+  </h1>
+  <p class="nhsuk-lede-text">As your order is between £40k and £250k, you should have executed an On-Catalogue Competition to identify the Catalogue Solution that best meets your needs.</p>
+
+  {{ insetText({
+    "HTML": "<p>When executing a competition, you cannot create requirements that result in a shortlist of one Catalogue Solution.</p>"
+  }) }}
+
+  {{ radios({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "Have you identified what you want to order?",
+        "classes": "nhsuk-fieldset__legend--m"
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+    
+</form>
+
+
+{{ button({
+  "text": "Continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

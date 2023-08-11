@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "../order-4-summary-completed",
+  "text": "Go back"
+}) }}
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Personal data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select if you want to make any changes to the default data processing information.</p>
+
+        {{ actionLink({
+          "text": "Edit personal data processing information",
+          "href": "data-processing-info"
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Changes to default data processing information?"
+              },
+              value: {
+                text: "Yes"
+              }
+            }
+          ]
+        }) }}
+
+        {{ insetText({
+          "HTML": "<p>Requirements are documented in Appendix 3.</p>"
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"../order-4-summary-data-processing-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

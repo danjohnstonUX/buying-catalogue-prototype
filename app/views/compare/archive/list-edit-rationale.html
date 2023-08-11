@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Shortlist rationale
+
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "solution-qdoctor",
+      text: "Q Doctor"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-name",
+      text: "Shortlist name"
+    },
+    {
+      href: "list-existing-3",
+      text: "New shortlist"
+    },
+    {
+      href: "list-your-shortlists-2",
+      text: "Your shortlists"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-rationale",
+      text: "Add rationale"
+  }]
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Review your shortlist</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">Your chosen Catalogue Solution has been added to the shortlist below. Review and continue. You may choose to add a rationale for your chosen Catalogue Solution if you so wish to.</p>
+
+<table class="nhsuk-table">
+  <caption class="nhsuk-table__caption">Existing shortlist 3</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Catalogue Solution
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Date added
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Rationale
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Action
+      </th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Q Doctor</td>
+      <td class="nhsuk-table__cell ">22 June 2022</td>
+      <td class="nhsuk-table__cell "><a href="list-rationale">Edit rationale</a></td>
+      <td class="nhsuk-table__cell "><a href="list-confirm-delete">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="example" style="font-weight: bold; font-size: x-large;" >
+    Add a rationale (optional)
+  </label>
+  <div class="nhsuk-hint" id="example-hint">
+    Please enter a reasons for adding this Catalogue Solutions to this shortlist.
+  </div>
+  <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
+</div>
+<p>You have 1500 characters remaining</p> -->
+
+
+    <br />
+
+    <form action="list-your-shortlists-2">
+      {{ button({
+        "text": "Continue"
+      }) }}
+    </form>
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

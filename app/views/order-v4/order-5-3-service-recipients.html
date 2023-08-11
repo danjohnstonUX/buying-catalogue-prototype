@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+// function delay() {
+//   var delayInMilliseconds = 1; //1 second
+//
+//   setTimeout(function() {
+//   //your code to be executed after 1 second
+//   $("#conditional-contact-1").removeClass("nhsuk-radios__conditional--hidden");
+// }, delayInMilliseconds);
+// }
+
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+      <h1>Service Recipients<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Genysys Web
+      </span></h1>
+      <p class="nhsuk-lede-text">Create Service Recipient groups or add individual organisations for this order.</p>
+
+
+<br />
+        {% from 'tables/macro.njk' import table %}
+
+        {{ table({
+        responsive: true,
+        panel: false,
+        caption: "Saved service recipient groups",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Group name"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Group name",
+              html: '<div class="nhsuk-radios" style="display: inline-block;">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="group-1" name="group" type="radio" value="yes" onchange="javascript: delay();" />
+                  <label class="nhsuk-label nhsuk-radios__label" for="group-1"></label>
+                </div>
+              </div> All GPs'
+
+            },
+            {
+              html: '<a href="order-5-3-service-recipients-create-group">Edit</a>'
+            }
+          ],
+          [
+            {
+              header: "Group name",
+              html: '<div class="nhsuk-radios" style="display: inline-block;">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="group-2" name="group" type="radio" value="yes" onchange="javascript: delay();" />
+                  <label class="nhsuk-label nhsuk-radios__label" for="group-2"></label>
+                </div>
+              </div> South Leeds GPs'
+            },
+            {
+              html: '<a href="order-5-3-service-recipients-create-group">Edit</a>'
+            }
+          ]
+        ]
+        }) }}
+      </div></div>
+      <br/>
+
+
+
+
+      <br />
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-action-link" style="margin-bottom: 0.5em; margin-top: 0.5em;">
+          <a class="nhsuk-action-link__link" href="order-5-3-service-recipients-create-group">
+            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+            </svg>
+            <span class="nhsuk-action-link__text">Create new group</span>
+          </a>
+        </div>
+<br />
+        <p><a href="order-5-3-service-recipients-manual">Select individual Service Recipients</a></p>
+        <br/>
+
+
+
+
+
+      <form action="order-5-3-service-recipients-list">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+<script>
+  // var old_element = document.getElementById("group-1");
+  // var new_element = old_element.cloneNode(true);
+  // old_element.parentNode.replaceChild(new_element, old_element);
+</script>
+{% endblock %}

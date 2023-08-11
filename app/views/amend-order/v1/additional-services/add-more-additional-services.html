@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../edit-dashboard",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Additional Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Caltech Web GP
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Select the Additional Services that you want to add to your order.</p>
+
+        <!-- <p><a href="#">Add or remove service recipients</a></p> -->
+
+        {% from 'checkboxes/macro.njk' import checkboxes %}
+
+        {% from 'tables/macro.njk' import table %}
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "contact",
+            "name": "contact",
+            "fieldset": {
+              "legend": {
+                "text": "Add Additional Services",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'>These are optional add-ons to the main solution that provide extra functionality.</p>
+              <p>We are only showing Additional Services which weren't added to the original order.</p>"
+            },
+            "items": [
+              {
+                "value": "Caltech mobile",
+                "text": "Caltech Mobile"
+              },
+              {
+                "value": "Caltech web dispensing",
+                "text": "Caltech Web Dispensing",
+                "checked": true,
+                id: "contact"
+              },
+              {
+                "value": "enterprise search and reports",
+                "text": "Enterprise Search and Reports"
+              },
+              {
+                "value": "extract services",
+                "text": "Extract Services",
+                id: "contact"
+              },
+              {
+                "value": "long term conditions manager",
+                "text": "Long Term Conditions Manager"
+              },
+              {
+                "value": "risk stratification",
+                "text": "Risk Stratification"
+              }
+            ]
+          }) }}
+        </form>
+
+        <br/>
+
+        <h4>Previously added Additional Services</h4>
+
+        <ul>
+          <li>
+            Automated Arrivals
+          </li>
+          <li>
+            Document Management
+          </li>
+        </ul>
+
+        <br />
+
+        <form action="add-service-recipients">
+          {{ button({
+        "text": "Save and continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}
+
+  <!-- Old code <h2>Selected Additional Services</h2> <p>These Additional Services have already been added to your order:</p> <ul class="nhsuk-list nhsuk-list--bullet"> <li>Automated Services</li> <li>Document Management</li> </ul> <hr /> -->

@@ -1,0 +1,91 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{{ breadcrumb({
+
+href: "#",
+text: "Home"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Buyer dashboard<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      GREATER MANCHESTER ICB
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      Create and manage orders, competitions, filters and user accounts for your organisation.
+    </p>
+
+    <h2>Orders</h2>
+
+    <p><a href="/order-v3/order-0-1-list">
+        <strong>Create or manage orders</strong>
+      </a>
+      <br>
+      <span class="nhsuk-hint">Manage orders currently in progress or view and amend orders that have been submitted for your organisation.</span>
+    </p>
+
+    <h2>Competitions</h2>
+
+    <p><a href="competitions-hub">
+        <strong>Create or manage competitions</strong>
+      </a>
+      <br>
+      <span class="nhsuk-hint">Create new procurement competitions or view and edit existing ones.</span>
+    </p>
+
+    <h2>Filters</h2>
+
+    <p><a href="/filtering/current/filters-hub">
+        <strong>Create or manage filters</strong>
+      </a>
+      <br>
+      <span class="nhsuk-hint">Create new filters or view existing ones that you can use to produce a competition shortlist.</span>
+    </p>
+
+    <h2>Your organisation</h2>
+
+    <p>
+      <a href="/proxy-buyer-v2/manage-organisations">
+        <strong>Manage organisation</strong>
+      </a>
+      <br>
+      <span class="nhsuk-hint">Add new users or edit the details for existing ones and nominate other organisations to act on your behalf.</span>
+    </p>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

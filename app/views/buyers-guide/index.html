@@ -1,0 +1,133 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Buyer's guide</h1>
+
+
+
+      <!--
+      <p class="nhsuk-lede-text">
+        Find out what clinical information solutions are available from procurement frameworks on the Buying Catalogue.
+      </p>
+
+      <hr>
+
+      <h2>About the Buying Catalogue</h2>
+
+      <p>
+        The NHS Digital Buying Catalogue is an online marketplace where you can purchase clinical information systems that meet the digital needs of primary care.
+      </p>
+
+      <p>
+        All the listed products – known as Catalogue Solutions – have been assessed against a set of Capabilities defined by the NHS and a set of Standards defined by NHS Digital.
+      </p>
+
+      <p>
+        The functionality of the Buying Catalogue will be enhanced and the number of Catalogue Solutions available will increase over time.
+      </p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "More about: Buyer's guide",
+        "href": "buyers-guide"
+      }) }}
+
+      <hr>
+
+      <h2>Catalogue Solutions</h2>
+
+      <ul>
+        <li>
+          <a href="/docs"><strong>Coronavirus vaccinations</strong></a>
+          <br/>
+          Find Catalogue Solutions that help organise coronavirus vaccinations
+        </li>
+        <li>
+          <a href="/docs"><strong>Reduce GP visits</strong></a>
+          <br/>
+          Find Catalogue Solutions that can help prevent the spread of coronavirus
+        </li>
+        <li>
+          <a href="/docs"><strong>GP IT Futures framework</strong></a>
+          <br/>
+          Find and compare Catalogue solutions available on the GP IT Futures framework
+        </li>
+        <li>
+          <a href="/docs"><strong>DFOCVC Solutions framework</strong></a>
+          <br/>
+          Find DFOCVC Solutions that help organise coronavirus vaccinations
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>
+        Create or manage orders
+      </h2>
+
+      <ul>
+        <li>
+          <a href="/docs"><strong>Manage orders</strong></a>
+          <br/>
+          Complete an order you've already started (log in required)
+        </li>
+        <li>
+          <a href="/docs"><strong>Create a new order</strong></a>
+          <br/>
+          Place a new order (log in required)
+        </li>
+        <li>
+          <a href="/docs"><strong>Request an account</strong></a>
+          <br/>
+          Find Catalogue Solutions that help organise coronavirus vaccinations
+        </li>
+      </ul>
+
+      <!-- End of content -->
+
+    </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

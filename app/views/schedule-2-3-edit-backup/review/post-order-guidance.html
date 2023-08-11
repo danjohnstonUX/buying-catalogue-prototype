@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../order-4-summary-review-completed",
+  "text": "Go back to orders dashboard"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Order summary completed
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C000001-01
+    </span>
+  </h1>
+      <p class="nhsuk-lede-text">You’ve successfully submitted your order summary. Make sure you complete the listed tasks where relevant to finalise your procurement.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>A copy of these tasks will be emailed to the address you’ve provided.</p>"
+}) }}
+
+      <ul>
+        <li>download a copy of your order summary using the button on this page</li>
+        <li>return a signed copy of your order summary to gpitf.commercial1 @nhs.net and gpitfutures.finance@nhs.net</li>
+        <li>if you’ve paid for any part of your order using your central allocation, we’ll process the payments for you</li>
+        <li>if you’ve paid for any part of your order using local funding, you’ll need to contact the supplier to arrange payment</li>
+        <li>if you’ve ordered a migration, you can <a href="https://digital.nhs.uk/services/gp-it-futures-systems/clinical-system-migration-guide">find more information on preparing and planning (opens in a new tab)</a></li>
+        <li>once solutions and services are in use, enter the activation dates on the order tracker so we can start paying for centrally funded orders</li>
+        <li>once Associated Services, such as training, migration or practice mergers and splits have been provided, inform gpitfutures.finance@nhs.net so we can start paying the supplier</li>
+      </ul>
+
+      <br />
+
+      <h2 class="nhsuk-heading-l">Supporting documents</h2>
+
+      <p>You’ve referenced the following documents in your order. They must be included when you send your order summary to the supplier for signature.</p>
+
+      <ul>
+        <li>supporting-document-1</li>
+        <li>supporting-document-2</li>
+        <li>supporting-document-3</li>
+      </ul>
+
+      <br />
+
+      {{ button({
+        "text": "Download order summary PDF",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+      <br/>
+      {{ button({
+        "text": "Return to orders dashboard",
+        "href": "../order-4-summary-review-completed"
+      }) }}
+
+      <h2>Need help?</h2>
+      <p>If you need any help or have any queries, you can contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

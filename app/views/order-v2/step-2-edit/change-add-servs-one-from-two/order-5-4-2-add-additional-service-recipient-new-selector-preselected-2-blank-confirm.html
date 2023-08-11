@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Automated Arrivals Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-additional-service-recipient-new-selector-preselected-2-blank",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Risk Stratification
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Additional Service.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 10 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Assura ER LLP Hull Dermatology</li>
+      <li>Bevan Ltd</li>
+      <li>Burnbrae Medical Practice</li>
+      <li>Cook BF</li>
+      <li>Dermatology Clinic GPSI</li>
+      <li>East Park Practice</li>
+      <li>Kingston Health (Hull)</li>
+      <li>Princes Medical Centre</li>
+      <li>St Andrew's Surgery</li>
+      <li>Wilberforce Surgery</li>
+    </ol>
+  <br/>
+
+  <p>You can <a href="order-5-4-2-add-additional-service-recipient-new-selector-preselected-2-blank">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+            <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="order-5-4-2-add-additional-service-RS-multiple-price">
+                  {% from 'button/macro.njk' import button %}
+            
+                  {{ button({
+                    "text": "Save and continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+
+            
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

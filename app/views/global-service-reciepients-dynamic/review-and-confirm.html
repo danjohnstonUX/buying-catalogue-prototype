@@ -1,0 +1,700 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+
+  {# <style>
+  .nhsuk-expander .nhsuk-details__summary > span,
+  .nhsuk-expander .nhsuk-details__summary-text{
+    color:black;
+    text-decoration:none;
+  }
+
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+   background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander{
+   background: none;
+  }
+  </style> #}
+
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "/global-service-reciepients-dynamic",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Review and complete order
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Review the items you’ve added to your order before completing it. Once the order is completed, you'll be unable to make changes.</p>
+      </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+
+
+        
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Order details
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Order ID"
+                  },
+                  value: {
+                    text: "C00001-02"
+                  }
+                },
+                {
+                  key: {
+                    text: "Description"
+                  },
+                  value: {
+                    text: "Test order for 7 recipients for East Hull CCG - 14 November 2022"
+                  }
+                },
+                {
+                  key: {
+                    text: "Date created"
+                  },
+                  value: {
+                    text: "11 November 2022"
+                  }
+                },
+                {
+                  key: {
+                    text: "Call-off Ordering Party"
+                  },
+                  value: {
+                    html: '<p>William Shakespeare</p><p>NHS HUMBER AND NORTH YORKSHIRE ICB - 03F (03F)</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p><p>01482 123456</p><p>email@ccg.nhs.uk</p>'
+                  }
+                },
+                {
+                  key: {
+                    text: "Supplier"
+                  },
+                  value: {
+                    html: '<p>Anne Hathaway</p><p>Caltech Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p><p>0113 123456</p><p>email@caltech.com</p>'
+                  }
+                },
+                {
+                  key: {
+                    text: "Commencement date"
+                  },
+                  value: {
+                    html: '01 June 2022'
+                  }
+                },
+                {
+                  key: {
+                    text: "Initial period"
+                  },
+                  value: {
+                    html: '3 months'
+                  }
+                },
+                {
+                  key: {
+                    text: "Maximum term"
+                  },
+                  value: {
+                    html: '36 months'
+                  }
+                },
+                {
+                  key: {
+                    text: "End date"
+                  },
+                  value: {
+                    html: '31 May 2025'
+                  }
+                }
+              ]
+            }) }}
+          </div>
+        </details>
+        {% from "summary-list/macro.njk" import summaryList %}
+
+       
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h2 class="nhsuk-heading-l">Service Recipients and planned delivery dates </h2>
+        
+        <details class="nhsuk-details nhsuk-expander" open="">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              <b>Majority planned delivery date: </b>29 September 2022
+            </span>
+            {# <span style="float:right;">
+              <a href="planned-delivery-date" class="nhsuk-link">Edit majority date</a>
+            <span> #}
+          </span></span></summary>
+          <div class="nhsuk-details__text">
+            
+      <br>
+      
+      
+          
+        <table role="table" class="nhsuk-table-responsive">
+          <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Planned delivery date
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Service Recipient
+              </th>
+              <th role="columnheader" class="" scope="col">
+                ODS code
+              </th>
+          </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>ASSURA ER LLP HULL DERMATOLOGY
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y03508
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>BEVAN LIMITED
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y03507
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>DERMATOLOGY CLINIC GPSI
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y00894
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>HAXBY GROUP HULL
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y02747
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>HULL CCG VOCARENHS111 OOH
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y06959
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>JAMES ALEXANDER FAMILY PRACTICE
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81112
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>LAURBEL SURGERY
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81635
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>PAIN MANAGEMENT GPSI
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>Y01218
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>ST ANDREWS SURGERY
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81027
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>SYDENHAM GROUP PRACTICE
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81058
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>THE AVENUES MEDICAL CENTRE
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81035
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>THE BRIDGE GROUP PRACTICE
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81046
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>THE SUTTON MANOR SURGERY
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81020
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>WILBERFORCE SURGERY
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81032
+                  </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>29 September 2022
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>WOLSELEY MEDICAL CENTRE
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>B81047
+                  </td>
+            </tr>
+          </tbody>
+        </table>
+      
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              <b>Other planned delivery dates</b>
+            </span>
+            {# <span style="float:right;">
+              <a href="planned-delivery-dates-emis" class="nhsuk-link">Edit dates</a>
+            <span> #}
+          </span></span></summary>
+          <div class="nhsuk-details__text">
+            <table role="table" class="nhsuk-table-responsive">
+              <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Planned delivery date
+                </th>
+                  <th role="columnheader" class="" scope="col">
+                    Service Recipient
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    ODS code
+                  </th>
+              </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>ASSURA ER LLP HULL DERMATOLOGY
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y03508
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>BEVAN LIMITED
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y03507
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>DERMATOLOGY CLINIC GPSI
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y00894
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>HAXBY GROUP HULL
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y02747
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>HULL CCG VOCARENHS111 OOH
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y06959
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>JAMES ALEXANDER FAMILY PRACTICE
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>B81112
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>LAURBEL SURGERY
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>B81635
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>PAIN MANAGEMENT GPSI
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>Y01218
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>ST ANDREWS SURGERY
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>B81027
+                      </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+                  </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>WOLSELEY MEDICAL CENTRE
+                      </td>
+                      <td role="cell" class="nhsuk-table__cell">
+                        <span class="nhsuk-table-responsive__heading"> </span>B81047
+                      </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+
+
+          <br />  
+
+          <h3 class="nhsuk-heading-l">Solution and services</h3>
+          
+          <details class="nhsuk-details nhsuk-expander" open>
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Pricing and quantities
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+
+              <b class="nhsuk-heading-m">EMIS Web GP</b>
+
+              <table class="nhsuk-table bc-detail">
+                <caption class="nhsuk-table__caption">Pricing and quantities</caption>
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row" class="small-text">
+                    <th role="columnheader" class="" scope="col">
+                      Price per unit
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Quantity
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Total cost
+                    </th>
+                  </tr>
+                </thead>
+              <tbody class="nhsuk-table__body">
+                <tr>
+                  <td class="nhsuk-table__cell" style="width: 40%">£1.26 per patient per year</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">3,920</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">£8,353.80</td>
+                </tr>
+              </tbody>
+
+            </table>
+{# 
+            <p><strong>This Associated Service is being paid for using central funding.</strong></p> #}
+
+            {# <hr> #}
+
+            {# <b class="nhsuk-heading-m">Caltech Mobile</b> #}
+
+            {# <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing and total quantities</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Total cost
+                  </th>
+               
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr>
+                <td class="nhsuk-table__cell" style="width:40%">£0.0700 per patient per year</td>
+                <td class="nhsuk-table__cell" style="width: 15%">6,630</td>
+                <td class="nhsuk-table__cell" style="width: 15%">£464.10</td>
+              </tr>
+            </tbody>
+
+          </table> #}
+
+          {# <p><strong>This Associated Service is being paid for using local funding.</strong></p>
+
+          <hr> #}
+
+
+
+              {{ table({
+                responsive: true,
+                panel: false,
+                caption: "Total indicative costs (excluding VAT)",
+                firstCellIsHeader: false,
+                tableClasses: "nhsuk-u-margin-bottom-5",
+                head: [
+                  {
+                    text: ""
+                  },
+                  {
+                    text: ""
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      header: "Cost type",
+                      text: "Total one-off cost: "
+                    },
+                    {
+                      header: "Cost",
+                      text: "£15,000"
+                    }
+                  ],
+                  [
+                    {
+                      header: "Cost type",
+                      text: "Total monthly cost: "
+                    },
+                    {
+                      header: "Cost",
+                      text: "£1,518.81"
+                    }
+                  ],
+                  [
+                    {
+                      header: "Cost type",
+                      text: "Total annual cost: "
+                    },
+                    {
+                      header: "Cost",
+                      text: "14,347.20"
+                    }
+                  ],
+                  [
+                    {
+                      header: "Cost type",
+                      html: "<strong>Total cost of contract (36 months): </strong>"
+                    },
+                    {
+                      header: "Cost",
+                      text: "£69,677.30"
+                    }
+                  ]
+                ]
+                }) }}
+            </div>
+          </details>
+
+          
+
+            <h2 class="nhsuk-heading-m">Data processing information</h2>
+            <div class="nhsuk-inset-text">
+              <span class="nhsuk-u-visually-hidden">Information: </span>
+              <p>Data processing information will be captured in a separate template that must be included with this Call-off Order Form.</p>
+            </div>
+
+
+      </div>
+    </div>
+
+    <br />
+
+    <!-- Download PDF -->
+
+    <h2 class="nhsuk-heading-m">Preview order</h2>
+
+    <p>You can download and review your order before sending it to the supplier for signature.</p>
+
+    <a class="nhsuk-button nhsuk-button--secondary" type="button" href="/files/amend_order_pdf.pdf" download="amend_order_pdf.pdf">
+      Download order (PDF)
+    </a>
+
+    <br/>
+
+    <!--Complete order -->
+
+    <h2 class="nhsuk-heading-m">Complete order</h2>
+
+    <p>After agreeing the contents of your order with the supplier, mark it complete, download your Call-off Order Form and send it to the supplier for signature. Make sure you include the blank templates for the supplier to fill out.</p>
+
+    <p>Once you receive a signed copy of your Call-off Order Form and the completed templates from the supplier, sign it and your Call-off Order will be finalised.</p>
+
+    <br/>
+
+    {{ button({
+      "text": "Complete order",
+      "type": "button",
+      "href": "/global-service-reciepients-dynamic",
+      "classes": "nhsuk-u-margin-right-3"
+    }) }}
+
+    {{ button({
+      "text": "Save for later",
+      "type": "button",
+      "classes": "nhsuk-button--secondary",
+      "href": "#"
+    }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

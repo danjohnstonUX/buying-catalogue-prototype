@@ -1,0 +1,176 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-table-responsive th {
+    font-size: 1em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td {
+    font-size: 1em;
+  }
+</style>
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-0-1-list",
+  "text": "Go back"
+}) }}
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Order C010029-01</h1>
+    <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectutor.</p>
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Order ID"
+          },
+          value: {
+            text: "C010013-01"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Lorem ipsum dolor sit amet"
+          }
+        },
+        {
+          key: {
+            text: "Date order summary created"
+          },
+          value: {
+            text: "9 March 2021"
+          }
+        },
+        {
+          key: {
+            text: "Call-off Ordering Party"
+          },
+          value: {
+            html: '<p>L Evans</p><p>NHS Hull CCG</p><p>03F</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p>'
+          }
+        },
+        {
+          key: {
+            text: "Supplier"
+          },
+          value: {
+            html: '<p>L Ec</p><p>EMIS Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p>'
+          }
+        },
+        {
+          key: {
+            text: "Commencement date of the Call-off Agreement"
+          },
+          value: {
+            html: '5 March 2021'
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+
+    {% include "order-v2/order-5-4-1-table-orders.html" %}
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ button({
+      "text": "Print or download PDF",
+      "classes": "nhsuk-button--secondary"
+    }) }}
+
+
+    {% from 'radios/macro.njk' import radios %}
+    {% from 'input/macro.njk' import input %}
+
+
+
+    {% set rejectHtml %}
+      {{ textarea({
+        id: "reject",
+        name: "reject",
+        classes: "nhsuk-u-width-full",
+        label: {
+          text: ""
+        },
+        "hint": {
+          "text": "Explain why you're rejecting this order and any changes that are needed. It'll remain incomplete and your comments will be emailed to the person who created it."
+        }
+      }) }}
+    {% endset -%}
+
+    {{ radios({
+      "idPrefix": "contact",
+      "name": "contact",
+
+      "fieldset": {
+        "legend": {
+          "text": "What would you like to do with this order?",
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": "true"
+        }
+      },
+      "hint": {
+        "text": "Select one option."
+      },
+      "items": [
+        {
+          "value": "approve",
+          "text": "Approve and complete order"
+        },
+        {
+          "value": "reject",
+          "text": "Reject and do not complete order",
+          "conditional": {
+            "html": rejectHtml
+          }
+        }
+      ]
+    }) }}
+
+    {{ button({
+      "text": "Continue",
+      "href": "order-preview-error"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

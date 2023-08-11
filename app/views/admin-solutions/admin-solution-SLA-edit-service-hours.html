@@ -1,0 +1,144 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-SLA",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1>
+              <span role="text">Service availability times
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+
+            <p class="nhsuk-lede-text">Provide information on when your support services are available under this Service Level Agreement.</p>
+
+            <form action="admin-solution-SLA" method="post">
+
+                {{ input({
+                "label": {
+                    "text": "Support type"
+                },
+                "hint": {
+                    "text": "The name of the type of support offered, for example, support hours."
+                },
+                "id": "category",
+                "name": "category"
+                }) }}
+
+
+<style>
+
+  .nhsuk-time-input__item{
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 24px;
+  }
+
+  .nhsuk-time-input__input{
+    margin-bottom: 0;
+  }
+
+  .nhsuk-time-input__label{
+    display: block;
+  }
+
+  .nhsuk-time-input{
+    font-size: 0;
+  }
+
+</style>
+
+<div class="nhsuk-form-group">
+  <fieldset aria-describedby="time-periods-hint" class="nhsuk-fieldset" id="time-periods">
+    <legend class="nhsuk-label--s nhsuk-fieldset__legend">
+      <h2 class="nhsuk-fieldset__heading">Times when the support is available</h2>
+    </legend>
+    <div class="nhsuk-hint" id="time-periods-hint">Enter times in the 24 hour format. <br/> For 9am use 09:00 and for midday use 12:00 </div>
+    <div id="commencement-date" class="nhsuk-time-input">
+      <div class="nhsuk-time-input__item">
+        <label class="nhsuk-label nhsuk-time-input__label" for="from">From</label>
+        <input class="nhsuk-input nhsuk-time-input__input nhsuk-input--width-5" data-val-length-max="5" id="from" inputmode="numeric" maxlength="5" name="from" type="text" value="">
+      </div>
+      <div class="nhsuk-time-input__item">
+        <label class="nhsuk-label nhsuk-time-input__label" for="too">Until</label>
+        <input class="nhsuk-input nhsuk-time-input__input nhsuk-input--width-5" data-val-length-max="5" id="too" inputmode="numeric" maxlength="5" name="too" type="text" value="">
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+        {{ input({
+        "label": {
+            "text": "Applicable days"
+        },
+        "hint": {
+            "text": "The days this support type is available during the times entered."
+        },
+        "id": "days",
+        "name": "days"
+        }) }}
+    <br />
+
+    {% from 'button/macro.njk' import button %}
+
+    {{ button({
+      "text": "Save and continue"
+    }) }}
+
+    <!--br /><br />
+    <a href="admin-solution-interoperability">Return</a-->
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

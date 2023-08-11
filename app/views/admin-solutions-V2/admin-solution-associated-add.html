@@ -1,0 +1,194 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-associated",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+            <h1>
+              <span role="text">Associated Service details
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1> 
+
+            <p class="nhsuk-lede-text">Provide the following details for the Associated Service.</p>
+
+            <form action="admin-solution-associated-add-summary" method="post">
+
+
+              {% from 'inset-text/macro.njk' import insetText %}
+
+              {{ insetText({
+                "HTML": "<p>Any changes to these details will be visible to anyone ordering this Associated Service in future.</p>"
+              }) }}
+
+
+              {% from 'input/macro.njk' import input %}
+
+              {{ input({
+                "label": {
+                  "text": "Associated Service name"
+                },
+                "id": "solution-name",
+                "name": "solution-name"
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 100 characters remaining</p>
+
+              {{ textarea({
+                id: "reject",
+                name: "reject",
+                label: {
+                  text: "Associated Service description"
+                },
+                "rows": "5",
+                "hint": {
+                  "text": "Describe how this Associated Service helps implement or optimise the live operation of your Catalogue Solution."
+                }
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+              {{ textarea({
+                id: "reject",
+                name: "reject",
+                label: {
+                  text: "Order guidance"
+                },
+                "rows": "5",
+                "hint": {
+                  "text": "Help buyers understand how they should order the Associated Services buy providing typical order volumes and implementation timescales."
+                }
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+              <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <label class="nhsuk-label">
+                      Other service or reorganisation?
+                    </label>
+                  </legend>
+              
+                  {# <div class="nhsuk-hint" id="contact-hint">
+                    Select one option
+                  </div> #}
+              
+                  <div class="nhsuk-radios nhsuk-radios--conditional">
+              
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="contact-1" name="merge-or-split-ass" type="radio" value="other-service" >
+                      <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                        Other service
+                      </label>
+                    </div>
+              
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="contact-2" name="merge-or-split-ass" type="radio" value="reord" aria-controls="conditional-merge-split-2" aria-expanded="false">
+                      <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                        Reorganisation
+                      </label>
+                    </div>
+              
+                    <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-merge-split-2">
+              
+                      <div class="nhsuk-form-group">
+                        {{ radios({
+                          "idPrefix": "merge-or-split-options",
+                          "name": "merge-or-split-ass-options",
+                          "fieldset": {
+                            "legend": {
+                              "text": "What type of reorgansation?",
+                              "classes": "nhsuk-label nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4",
+                              "isPageHeading": "true"
+                            }
+                          },
+                          "items": [
+                            {
+                              "value": "merge",
+                              "text": "Merger"
+                            },
+                            {
+                              "value": "split",
+                              "text": "Split"
+                            },
+                            {
+                              "value": "both",
+                              "text": "Both a Merger and Split",
+                              hint: {
+                                text: "Also know as a Practice reorganisation"
+                              }
+                        
+                            }
+                          ]
+                        }) }}
+                      </div>
+              
+                    </div>
+              
+                  </div>
+                </fieldset>
+              
+              </div>
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "../order-4-summary-completed",
+  "text": "Go back"
+}) }}
+
+    <!--{% set securityHtml %}
+
+    {{ textarea({
+    "idPrefix": "security-measures-required",
+    "name": "security-measures-required",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to add any Additional Services?",
+        "classes": "nhsuk-fieldset__legend--s"
+      }
+    },
+    "hint": {
+      "text": "What are the special security measures you require?"
+    }
+  }) }}
+
+    {% endset -%}-->
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Bespoke security measures
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Document the special security measures you require.</p>
+
+        <p>As you require special security measures, you need to document your requirements. You can do this by downloading and completing <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1933575165/GP+IT+Futures+Contracts" target="_blank">Section B of Schedule 2.3 (opens in a new tab)</a>.</p>
+        <p>This document must be included when you send your order to the supplier. You can download it now or after you’ve completed your order.</p>
+        <br />
+
+        {{ button({
+          "text": "Continue",
+          "href":"../order-4-summary-security-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

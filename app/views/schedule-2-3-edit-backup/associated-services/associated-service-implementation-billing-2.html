@@ -1,0 +1,167 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  {% set quantityHtml %}
+    {{ input({
+      "label": {
+        "text": "How many units do you want to bill against this selection?"
+      },
+      "id": "number-units",
+      "name": "number-of-units",
+        "classes": "nhsuk-input--width-5"
+    }) }}
+  {% endset -%}
+
+    {{ backLink({
+      "href": "associated-service-billing-1",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Assign milestone to Associated Service
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <h2>Implementation</h2>
+
+        <p class="nhsuk-lede-text">Select the Associated Services you want to be billed for on milestone achievement.</p>
+        {{ insetText({
+          "HTML": "<p>You have <strong>50 total units</strong> in your order. Select the milestone and the number of units you want to be billed against it.</p>"
+        }) }}
+
+        {{ details({
+          "text": "View milestone information",
+          "HTML": '
+          <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Milestones</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Milestone ID
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Milestone description
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 1
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 2
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 3
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone ID </span>Milestone 4
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Milestone description</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        '
+        }) }}
+
+        {{ radios({
+          "idPrefix": "contact",
+          "name": "contact",
+          "fieldset": {
+            "legend": {
+              "text": "What would you like to bill this Associated Service against?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": "false"
+            }
+          },
+          "hint": {
+            "text": "Select one option"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Milestone 1",
+              "conditional": {
+                "html": quantityHtml
+              }
+            },
+            {
+              "value": "2",
+              "text": "Milestone 2",
+              "conditional": {
+                "html": quantityHtml
+              }
+            },
+            {
+              "value": "3",
+              "text": "Milestone 3",
+              "conditional": {
+                "html": quantityHtml
+              }
+            },
+            {
+              "divider": "or"
+            },
+            {
+              "value": "invoice",
+              "text": "Bill on invoice",
+              "conditional": {
+                "html": quantityHtml
+              }
+            }
+          ]
+        }) }}
+
+        <br />
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"associated-service-billing-hub-implementation-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

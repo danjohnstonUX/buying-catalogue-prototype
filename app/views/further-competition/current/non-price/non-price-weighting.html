@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How would you like to weight your criteria?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../competition-tasklist",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>How would you like to weight your non-price elements for this competition?<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Your competition
+        </span></h1>
+
+        <p class="nhsuk-lede-text">Give your chosen non-price elements weightings based on how important they are to you.</p>
+
+        <label class="nhsuk-label" for="cost-per-item">
+          Implementation weighting as a percentage
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          Enter a percentage in multiples of 5. The total weightings must add up to 100%.
+        </div>
+        <div class="govuk-input__wrapper">
+          <input class="nhsuk-input nhsuk-input--width-3 nhsuk-u-margin-bottom-5" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div>
+        <label class="nhsuk-label" for="cost-per-item">
+          Interoperability weighting as a percentage
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          Enter a percentage in multiples of 5. The total weightings must add up to 100%.
+        </div>
+        <div class="govuk-input__wrapper">
+          <input class="nhsuk-input nhsuk-input--width-3" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div><br/>
+        <label class="nhsuk-label" for="cost-per-item">
+          Service level weighting as a percentage
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          Enter a percentage in multiples of 5. The total weightings must add up to 100%.
+        </div>
+        <div class="govuk-input__wrapper">
+          <input class="nhsuk-input nhsuk-input--width-3" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div>
+  
+  
+  
+  
+    
+
+       </div>
+
+        <br/>
+
+        
+
+      </div>
+      <br/>
+      <form>
+        {{ button({
+          "text": "Save and continue",
+          "href":"../competition-tasklist"
+        }) }}
+      </form>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

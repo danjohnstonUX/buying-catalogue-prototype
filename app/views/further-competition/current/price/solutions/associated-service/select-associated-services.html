@@ -1,0 +1,158 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Associated Services
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../solution-hub",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <h1>Associated Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Online and Video Consult
+      </span></h1>
+      <p class="nhsuk-lede-text">Select any Associated Services you need to add as part of this competition.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      <form>
+        {{ checkboxes({
+          "idPrefix": "example",
+          "name": "example",
+          "fieldset": {
+            "legend": {
+              "text": "Select Associated Services",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: true
+            }
+          },
+          "hint": {
+            "text": "These are products that support the implementation of a solution and can be bought independently. For example, training, engineering or data migration."
+          },
+          "items": [
+            {
+              "value": "anywhere consult",
+              "text": "Anywhere Consult - Integrated device"
+            },
+            {
+              "value": "automated arrivals",
+              "text": "Automated Arrivals - Engineering half day"
+            },
+            {
+              "value": "automated arrivals",
+              "text": "Automated Arrivals - Installation of wall mounted kiosk, excludes cabling"
+            },
+            {
+              "value": "automated arrivals",
+              "text": "Automated Arrivals - Specialist cabling"
+            },
+            {
+              "value": "automated arrivals",
+              "text": "Automated Arrivals - Wall mount bracket"
+            },
+            {
+              "value": "document management",
+              "text": "Document Management Migration"
+            },
+            {
+              "value": "engineering",
+              "text": "Engineering"
+            },
+            {
+              "value": "enterprise search and reports",
+              "text": "Enterprise Search and Reports - Installation"
+            },
+            {
+              "value": "implementation",
+              "text": "Implementation"
+            },
+            {
+              "value": "installation",
+              "text": "Installation"
+            },
+            {
+              "value": "Installation excluding cabling",
+              "text": "Installation of wall mounted kiosk (excludes cabling)"
+            },
+            {
+              "value": "lloyd george digitisation",
+              "text": "Lloyd George Digitisation"
+            },
+            {
+              "value": "lloyd george digitisation",
+              "text": "Lloyd George Digitisation (upload only)"
+            },
+            {
+              "value": "migration",
+              "text": "Migration"
+            },
+            {
+              "value": "online and video consult",
+              "text": "Online and Video Consult - Implementation"
+            },
+            {
+              "value": "practice reorganisation",
+              "text": "Practice Reorganisation"
+            },
+            {
+              "value": "project management",
+              "text": "Project Management"
+            },
+            {
+              "value": "training day at practice",
+              "text": "Training Day at Practice"
+            },
+            {
+              "value": "video consult, online and video consult - ",
+              "text": "Video Consult, Online and Video Consult - Additional minute package (3000 minutes)"
+            }
+          ]
+        }) }}
+      </form>
+
+<br />
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="select-recipients">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+
+      
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

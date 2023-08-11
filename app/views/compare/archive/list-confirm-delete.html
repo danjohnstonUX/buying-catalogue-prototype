@@ -1,0 +1,150 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select shortlist
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "solution-qdoctor",
+      text: "Q Doctor"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-name",
+      text: "Shortlist name"
+    },
+    {
+      href: "list-existing-3",
+      text: "New shortlist"
+    },
+    {
+      href: "list-your-shortlists-2",
+      text: "Your shortlists"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+  }]
+  }) }}
+
+{% endblock %}
+
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "solution-qdoctor";
+           break;
+        case "no":
+           document.location.href = "list-add-rationale";
+            break;
+    }
+  }
+</script>
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to delete this Catalogue Solution?</h1>
+
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+"HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+"heading": "Deleting a solution",
+"HTML": "<p>You’re about to delete the following Catalogue Solution. Once you have deleted this Catalogue Solution, you won't be able to undo it.</p>"
+}) }}
+
+  <p><b>You are deleting:</b></p>
+  <ol class="nhsuk-list nhsuk-list--bullet">
+    <li>Q Doctor</li>
+  </ol>
+
+<hr/>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+"idPrefix": "example-hints",
+"name": "example-hints",
+"fieldset": {
+  "legend": {
+    "classes": "nhsuk-fieldset__legend--l",
+    "text": "Do you want delete this Catalogue Solution?",
+    "isPageHeading": true
+  }
+},
+"items": [
+  {
+    "value": "yes",
+    "text": "Yes, I want to delete this Catalogue Solution",
+    "hint": {
+      "text": ""
+    }
+  },
+  {
+    "value": "no",
+    "text": "No, I do not want to delete this Catalogue Solution",
+    "hint": {
+      "text": ""
+    }
+  }
+]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+"text": "Continue",
+"href":"javascript: sendForm();"
+}) }}
+</form>
+
+  </div>
+</div>
+
+<br /><br />
+
+        {% endblock %}
+        
+        {% block footer %}
+        {% include "includes/footer.html" %}
+        {% endblock %}
+        

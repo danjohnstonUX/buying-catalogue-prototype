@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "associated-service-billing",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services to be billed on milestone
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select the Associated Services you want to be billed for on milestone achievement.</p>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "example",
+            "name": "example",
+            "fieldset": {
+              "legend": {
+                "text": "Which Associated Services do you want to bill on milestone achievement?",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "text": "Select all that apply."
+            },
+            "items": [
+              {
+                "value": "implementation",
+                "text": "Implementation"
+              },
+              {
+                "value": "training",
+                "text": "Training"
+              },
+              {
+                "value": "engineering",
+                "text": "Engineering"
+              },
+              {
+                "value": "project-management",
+                "text": "Project management"
+              },
+              {
+                "value": "digitisation",
+                "text": "Digitisation"
+              }
+            ]
+          }) }}
+        </form>
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"associated-service-billing-hub"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

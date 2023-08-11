@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Your shortlist
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var radioYes = document.getElementById("contact-1").checked ? document.getElementById("contact-1").value : "";
+    var radioNo = document.getElementById("contact-2").checked ? document.getElementById("contact-2").value : "";
+
+    if(radioNo=="no") {
+        document.location.href = "../../order-4-edit-solutions-and-services";
+    }
+    else if(radioYes=="yes") {
+        document.location.href = "order-5-4-2-update-confirm-service-recipients";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-2-1-triage",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+<form name="triage" id="triage">
+  {% from 'radios/macro.njk' import radios %}
+  {% from 'input/macro.njk' import input %}
+
+  <h1>Solution and services shortlist</h1>
+
+  <p class="nhsuk-lede-text">Review the solutions that you want to take to further competition</p>
+
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption">Your shortlist</caption>
+    <thead role="rowgroup" class="nhsuk-table__head">
+      <tr role="row">
+        <th role="columnheader" class="" scope="col">
+          Solution or service
+        </th>
+        <th role="columnheader" class="" scope="col">
+          Date added
+        </th>
+        <th role="columnheader" class="" scope="col">
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">accuRx Patient Triage</td>
+        <td class="nhsuk-table__cell ">9 June 2022</td>
+        <td class="nhsuk-table__cell "><a href="hhh">Delete</a></td>
+      </tr>
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Q Doctor</td>
+        <td class="nhsuk-table__cell ">10 June 2022</td>
+        <td class="nhsuk-table__cell "><a href="hhh">Delete</a></td>
+      </tr>
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">healthya Online and Video Consult</td>
+        <td class="nhsuk-table__cell ">11 June 2022</td>
+        <td class="nhsuk-table__cell "><a href="hhh">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="nhsuk-button nhsuk-button--secondary" type="submit">
+    Back to comparisons
+  </button>
+  
+
+  
+
+
+</form>
+
+<br />
+
+<div style="display:inline-block;">
+  <form method="post" action="order-5-4-2-add-additional-service-DM-multiple-price">
+    {% from 'button/macro.njk' import button %}
+
+    {{ button({
+      "text": "Save and continue"
+    }) }}
+  </form>
+</div>
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,133 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Upload CSV
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+
+    <script>
+      function fileValidation() {
+        var fileInput = document.getElementById('csv-import');
+
+        var filePath = fileInput.value;
+
+        // Allowing file type
+        var allowedExtensions = /(\.csv)$/i;
+
+        if (filePath != '') {
+
+          if (!allowedExtensions.exec(filePath)) {
+            document.getElementById('csv-error-summary').style.display = '';
+            document.getElementById('csv-error').style.display = '';
+            document.getElementById('import-form-group').classList.add("nhsuk-form-group--error");
+
+            fileInput.value = '';
+            return false;
+          } else {
+
+            // Image preview
+            if (fileInput.files && fileInput.files[0]) {
+              document.location.href = "recipients-a-imported";
+            }
+          }
+
+        } else {
+          document.location.href = "recipients-a-imported";
+        }
+
+      }
+    </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "0-select-service-recipients",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div id="csv-error-summary" class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" style="display: none">
+          <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="nhsuk-error-summary__body">
+            <ul class="nhsuk-list nhsuk-error-summary__list">
+              <li>
+                <a href="#csv-import">The selected file must be a CSV</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h1>Upload Service Recipients
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Caltech Web GP
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Create a CSV with your Service Recipients in the first column and their ODS codes in the second column.</p>
+
+        <div>
+
+          {{ button({
+            "text": "Download template (CSV)",
+            "classes": "nhsuk-button nhsuk-button--secondary",
+            "href": "/files/import-csv-template.csv"
+          }) }}
+
+          <p>Add your Service Recipients to a template and import them into your order. You’ll be able to edit them later. If you import Service Recipients more than once, they’ll be overwritten each time.
+          </p>
+
+          <br/><br/>
+
+          <div id="import-form-group" class="nhsuk-form-group">
+            <label class="nhsuk-label nhsuk-label--l" for="file-upload-1">
+              Upload a file
+            </label>
+            <span class="nhsuk-error-message" id="csv-error" style="display: none">
+              <span class="nhsuk-u-visually-hidden">Error:</span>
+              The selected file must be a CSV
+            </span>
+            <input class="nhsuk-file-upload" id="csv-import" name="csv-import" type="file">
+          </div>
+
+        </div>
+
+        <br/>
+        <div>
+
+          <button onclick="return fileValidation()" class="nhsuk-button" type="submit">
+            Continue
+          </button>
+
+          <!--<form action="2-selected-service-recipients"> {{ button({ "text": "Continue", "classes": "nhsuk-button", "name": "import-btn" }) }} </form>-->
+
+        </div>
+
+        <br/>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

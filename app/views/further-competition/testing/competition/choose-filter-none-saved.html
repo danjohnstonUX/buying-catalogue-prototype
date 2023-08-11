@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "before-you-start",
+      "text": "Go back"
+    }) }}
+
+    <h1>Select a saved filter<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      NHS WEST YORKSHIRE INTEGRATED CARE BOARD
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      The results produced by your selected filter can be taken into your competition.
+    </p>
+
+        <p>No filters have been created for your organisation yet. You must <a href='#'>create a filter</a> before you can start a competition.</p>
+   <!-- {{ select({
+      "id": "select-1",
+      "name": "select-1",
+      "classes": "nhsuk-u-margin-bottom-7",
+      "label": {
+        "text": "Which of your saved filters do you want to use for this competition?"
+      },
+      "hint": {
+        "html": "Choose a filter from the list. If you need to, you can <a href='#'>create a new filter</a>."
+      },
+      "items": [
+        {
+          "value": 0,
+          "text": "Select a filter",
+          "selected": true,
+          "disabled": true
+        },
+        {
+          "value": 1,
+          "text": "Saved filter name 1"
+        },
+        {
+          "value": 2,
+          "text": "Saved filter name 2"
+        },
+        {
+          "value": 3,
+          "text": "Saved filter name 3"
+        },
+        {
+          "value": 4,
+          "text": "Saved filter name 4"
+        }
+      ]
+    }) }}
+
+    <a href="filter-review" class="nhsuk-button">Save and continue</a>
+
+  </div>-->
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

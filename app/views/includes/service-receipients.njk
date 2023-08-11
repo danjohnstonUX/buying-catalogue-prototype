@@ -1,0 +1,1180 @@
+{% set serviceRecipients = [
+    {
+      "display-name" : 'NHS WEST YORKSHIRE ICB | 02T',
+      "category-name": "NHS-WEST-YORKSHIRE-CB-02T",
+      "organisations": [
+        {
+          "name": "BANKFIELD SURGERY",
+          "code": "B84016"
+        },
+        {
+          "name": "BEECHWOOD MEDICAL CENTRE",
+          "code": "B84613"
+        },
+        {
+          "name": "BRIG ROYD SURGERY",
+          "code": "B84007"
+        },
+        {
+          "name": "CALDER COMMUNITY PRACTICE",
+          "code": "Y02572"
+        },
+        {
+          "name": "CALDERDALE COMMUNITY DERMATOLOGY SERVICE",
+          "code": "Y03655"
+        },
+        {
+          "name": "CALDERDALE COMMUNITY SERVICES",
+          "code": "Y03418"
+        },
+        {
+          "name": "CALDERDALE RECOVERY STEPS",
+          "code": "Y04885"
+        },
+        {
+          "name": "CALDERDALE SAFE HAVEN SERVICE",
+          "code": "Y02645"
+        },
+        {
+          "name": "CALDERDALE, KIRKLEES AND WAKEFIELD BOWEL CANCER SCREENING CENTRE",
+          "code": "A99930"
+        },
+        {
+          "name": "CARITAS GROUP PRACTICE",
+          "code": "B84618"
+        },
+        {
+          "name": "CHURCH LANE SURGERY",
+          "code": "B84011"
+        },
+        {
+          "name": "DR CHIN AND PARTNERS",
+          "code": "B84008"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y01882"
+        },
+        {
+          "name": "HEBDEN BRIDGE GROUP PRACTICE",
+          "code": "B84004"
+        },
+        {
+          "name": "KEIGHLEY ROAD SURGERY",
+          "code": "B84010"
+        },
+        {
+          "name": "KING CROSS PRACTICE",
+          "code": "B84021"
+        },
+        {
+          "name": "LIFELINE YOUNG PEOPLES SERVICE",
+          "code": "Y05740"
+        },
+        {
+          "name": "LIFELINE YP",
+          "code": "Y00262"
+        },
+        {
+          "name": "LISTER LANE SURGERY",
+          "code": "B84612"
+        },
+        {
+          "name": "LONGROYDE SURGERY",
+          "code": "B84623"
+        },
+        {
+          "name": "OVERGATE PRESCRIBING",
+          "code": "Y06896"
+        },
+        {
+          "name": "PGPA CALDER AND RYBURN PCN",
+          "code": "Y06492"
+        },
+        {
+          "name": "PGPA CALDERDALE OOH",
+          "code": "Y06493"
+        },
+        {
+          "name": "PGPA IMPROVED ACCESS CENTRAL",
+          "code": "Y05620"
+        },
+        {
+          "name": "PGPA IMPROVED ACCESS LOWER VALLEY",
+          "code": "Y06490"
+        },
+        {
+          "name": "PGPA IMPROVED ACCESS NORTH",
+          "code": "Y06491"
+        },
+        {
+          "name": "PLANE TREES GROUP PRACTICE",
+          "code": "B84013"
+        },
+        {
+          "name": "RASTRICK HEALTH CENTRE",
+          "code": "B84014"
+        },
+        {
+          "name": "ROSEGARTH SURGERY",
+          "code": "B84005"
+        },
+        {
+          "name": "RYDINGS HALL SURGERY",
+          "code": "B84003"
+        },
+        {
+          "name": "SPRING HALL GROUP PRACTICE",
+          "code": "B84012"
+        },
+        {
+          "name": "STAINLAND ROAD MEDICAL CENTRE",
+          "code": "B84009"
+        },
+        {
+          "name": "STATION ROAD SURGERY",
+          "code": "B84001"
+        },
+        {
+          "name": "THE BOULEVARD MEDICAL PRACTICE",
+          "code": "B84019"
+        },
+        {
+          "name": "TODMORDEN GROUP PRACTICE",
+          "code": "B84006"
+        },
+        {
+          "name": "WEST YORKSHIRE NHS DIRECT",
+          "code": "Y02655"
+        }
+        
+      ]
+    },
+    {
+      "display-name" : 'NHS WEST YORKSHIRE ICB | 03R',
+      "category-name": "NHS-WEST-YORKSHIRE-ICB-03R",
+      "organisations": [
+        {
+          "name": "ALVERTHORPE",
+          "code": "B87044"
+        },
+        {
+          "name": "ANGEL LODGE",
+          "code": "Y01953"
+        },
+        {
+          "name": "ASH GROVE",
+          "code": "B87021"
+        },
+        {
+          "name": "CASTLEFORD MEDICAL PRACTICE",
+          "code": "B87025"
+        },
+        {
+          "name": "CHAPELTHORPE",
+          "code": "B87020"
+        },
+        {
+          "name": "COLLEGE LANE SURGERY",
+          "code": "B87003"
+        },
+        {
+          "name": "COMMUNITY DERMATOLOGY SERVICE",
+          "code": "Y05305"
+        },
+        {
+          "name": "COMMUNITY NON-MEDICAL PRESCRIBERS",
+          "code": "Y04113"
+        },
+        {
+          "name": "CROFTON AND SHARLSTON MED PRAC",
+          "code": "B87028"
+        },
+        {
+          "name": "DMC COMMUNITY DERMATOLOGY WAKEFIELD CCG",
+          "code": "Y05306"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y01069"
+        },
+        {
+          "name": "EASTMOOR HEALTH CENTRE",
+          "code": "B87604"
+        },
+        {
+          "name": "FRIARWOOD SURGERY",
+          "code": "B87011"
+        },
+        {
+          "name": "GP CARE WAKEFIELD OOH",
+          "code": "Y05819"
+        },
+        {
+          "name": "HEALTH CARE FIRST PARTNERSHIP",
+          "code": "B87030"
+        },
+        {
+          "name": "HENRY MOORE CLINIC",
+          "code": "B87018"
+        },
+        {
+          "name": "HOMESTEAD",
+          "code": "B87022"
+        },
+        {
+          "name": "INSPIRING RECOVERY - CASTLEFORD",
+          "code": "Y06625"
+        },
+        {
+          "name": "INSPIRING RECOVERY - WAKEFIELD",
+          "code": "Y06624"
+        },
+        {
+          "name": "KING'S MEDICAL PRACTICE",
+          "code": "B87039"
+        },
+        {
+          "name": "LANGTHWAITE SURGERY",
+          "code": "B87036"
+        },
+        {
+          "name": "LCD WAKEFIELD WIC",
+          "code": "Y02509"
+        },
+        {
+          "name": "LUPSET HEALTH CENTRE",
+          "code": "B87008"
+        },
+        {
+          "name": "MAYBUSH MEDICAL CENTRE",
+          "code": "B87012"
+        },
+        {
+          "name": "MIDDLESTOWN",
+          "code": "B87001"
+        },
+        {
+          "name": "MUSCULO SKELETAL SERVICE",
+          "code": "B87616"
+        },
+        {
+          "name": "MUSCULOSKELETAL SERVICE",
+          "code": "Y00084"
+        },
+        {
+          "name": "NEW SOUTHGATE SURGERY",
+          "code": "B87027"
+        },
+        {
+          "name": "NEWLAND SURGERY",
+          "code": "B87033"
+        },
+        {
+          "name": "NEWMEDICA WAKEFIELD",
+          "code": "Y06946"
+        },
+        {
+          "name": "NORTHGATE",
+          "code": "B87007"
+        },
+        {
+          "name": "ORCHARD CROFT",
+          "code": "B87002"
+        },
+        {
+          "name": "OSSETT SURGERY",
+          "code": "B87031"
+        },
+        {
+          "name": "OUTWOOD PARK MEDICAL CENTRE",
+          "code": "B87013"
+        },
+        {
+          "name": "PARK GREEN SURGERY",
+          "code": "B87006"
+        },
+        {
+          "name": "PARK VIEW SURGERY",
+          "code": "B87041"
+        },
+        {
+          "name": "PATIENCE LANE SURGERY",
+          "code": "B87602"
+        },
+        {
+          "name": "PHOENIX HEALTH SOLUTIONS LTD",
+          "code": "Y05959"
+        },
+        {
+          "name": "QUEEN STREET SURGERY",
+          "code": "B87600"
+        },
+        {
+          "name": "RIVERSIDE MEDICAL CENTRE",
+          "code": "B87005"
+        },
+        {
+          "name": "SPECTRUM COMMUNITY HEALTH",
+          "code": "Y04083"
+        },
+        {
+          "name": "ST THOMAS ROAD SURGERY",
+          "code": "B87009"
+        },
+        {
+          "name": "STANLEY",
+          "code": "B87019"
+        },
+        {
+          "name": "STATION LANE",
+          "code": "B87032"
+        },
+        {
+          "name": "STUART ROAD",
+          "code": "B87015"
+        },
+        {
+          "name": "THE GRANGE - SECONDARY CARE",
+          "code": "Y07122"
+        },
+        {
+          "name": "THE GRANGE MEDICAL CENTRE",
+          "code": "B87026"
+        },
+        {
+          "name": "THE PRACTICE OPHTHALMOLOGY",
+          "code": "Y03604"
+        },
+        {
+          "name": "TIEVE TARA",
+          "code": "B87042"
+        },
+        {
+          "name": "TRINITY MEDICAL CENTRE",
+          "code": "B87017"
+        },
+        {
+          "name": "WAKEFIELD 0-19 HV SERVICE",
+          "code": "Y05737"
+        },
+        {
+          "name": "WAKEFIELD COVID 19 ASSESSMENT UNITS",
+          "code": "Y06716"
+        },
+        {
+          "name": "WAKEFIELD SEXUAL HEALTH SERVICE",
+          "code": "Y05409"
+        },
+        {
+          "name": "WARRENGATE MEDICAL CENTRE",
+          "code": "B87004"
+        },
+        {
+          "name": "WEST YORKSHIRE URGENT CARE SERVICES",
+          "code": "Y02731"
+        },
+        {
+          "name": "WHITE ROSE SURGERY",
+          "code": "B87016"
+        },
+        {
+          "name": "YAS IUC OOH",
+          "code": "Y06477"
+        }
+      ]
+    },
+    {
+      "display-name" : 'NHS WEST YORKSHIRE ICB | 15F',
+      "category-name": "NHS-WEST-YORKSHIRE-ICB-15F",
+      "organisations": [
+        {
+          "name": "ABBEY GRANGE MEDICAL PRACTICE",
+          "code": "B86068"
+        },
+        {
+          "name": "AIRE VALLEY SURGERY",
+          "code": "B86051"
+        },
+        {
+          "name": "AIREBOROUGH COMMUNITY CARE",
+          "code": "Y05993"
+        },
+        {
+          "name": "AIREBOROUGH FAMILY PRACTICE",
+          "code": "B86070"
+        },
+        {
+          "name": "ALLERTON MEDICAL CENTRE",
+          "code": "B86039"
+        },
+        {
+          "name": "ALWOODLEY MEDICAL CENTRE",
+          "code": "B86008"
+        },
+        {
+          "name": "AMP HEALTHCARE OPHTHALMOLOGY",
+          "code": "Y05221"
+        },
+        {
+          "name": "ARTHINGTON MEDICAL CENTRE",
+          "code": "B86096"
+        },
+        {
+          "name": "ASHFIELD MEDICAL CENTRE",
+          "code": "B86055"
+        },
+        {
+          "name": "ASHTON VIEW MEDICAL CTR",
+          "code": "B86623"
+        },
+        {
+          "name": "BEECH TREE MEDICAL CENTRE",
+          "code": "B86655"
+        },
+        {
+          "name": "BEESTON VILLAGE SURGERY",
+          "code": "B86667"
+        },
+        {
+          "name": "BELLBROOKE SURGERY",
+          "code": "B86081"
+        },
+        {
+          "name": "BRAMHAM MEDICAL CENTRE",
+          "code": "B86673"
+        },
+        {
+          "name": "BRAMHOPE DERMATOLOGY COMMUNITY CLINIC",
+          "code": "Y05027"
+        },
+        {
+          "name": "BRAMLEY COMMUNITY CARE BEDS",
+          "code": "Y06504"
+        },
+        {
+          "name": "BRAMLEY VILLAGE HEALTH & WELLBEING CTR",
+          "code": "B86104"
+        },
+        {
+          "name": "BURLEY PARK MEDICAL CENTRE",
+          "code": "B86069"
+        },
+        {
+          "name": "BURTON CROFT SURGERY",
+          "code": "B86030"
+        },
+        {
+          "name": "CHAPELTOWN FAMILY SURGERY",
+          "code": "B86108"
+        },
+        {
+          "name": "CHEVIN MEDICAL CONSULTANCY ENT SERVICE",
+          "code": "Y03561"
+        },
+        {
+          "name": "CHEVIN MEDICAL PRACTICE",
+          "code": "B86032"
+        },
+        {
+          "name": "CITY VIEW MEDICAL PRACTICE",
+          "code": "B86002"
+        },
+        {
+          "name": "CO-FORMATION (VILLA AND CO)",
+          "code": "Y07123"
+        },
+        {
+          "name": "COLLINGHAM CHURCH VIEW SURGERY",
+          "code": "B86010"
+        },
+        {
+          "name": "COLTON COMMUNITY CARE",
+          "code": "Y06110"
+        },
+        {
+          "name": "COMMUNITY CHILDREN'S NURSING SERVICE",
+          "code": "Y04482"
+        },
+        {
+          "name": "COMMUNITY GERIATRICIAN SERVICE",
+          "code": "Y01141"
+        },
+        {
+          "name": "COMMUNITY GYNAE SERVICE",
+          "code": "Y00556"
+        },
+        {
+          "name": "COMMUNITY GYNAECOLOGY SERVICE",
+          "code": "Y00693"
+        },
+        {
+          "name": "COMMUNITY IV SERVICE",
+          "code": "Y05623"
+        },
+        {
+          "name": "COMMUNITY REHABILITATION UNIT",
+          "code": "Y04706"
+        },
+        {
+          "name": "COMMUNITY RESPIRATORY SERVICE",
+          "code": "Y04377"
+        },
+        {
+          "name": "COMMUNITY UROLOGY SERVICE",
+          "code": "Y00554"
+        },
+        {
+          "name": "CONWAY MEDICAL CENTRE",
+          "code": "B86103"
+        },
+        {
+          "name": "CRAVEN ROAD MEDICAL PRACTICE",
+          "code": "B86017"
+        },
+        {
+          "name": "DMC COMMUNITY DERMATOLOGY SERVICE",
+          "code": "Y05777"
+        },
+        {
+          "name": "DONISTHORPE HALL NURSING HOME",
+          "code": "B86685"
+        },
+        {
+          "name": "DR F GUPTA'S PRACTICE",
+          "code": "B86678"
+        },
+        {
+          "name": "DR G LEES & PARTNERS",
+          "code": "B86003"
+        },
+        {
+          "name": "DR JJ MCPEAKES PRACTICE",
+          "code": "B86028"
+        },
+        {
+          "name": "DR KW MCGECHAEN & PARTNER",
+          "code": "B86058"
+        },
+        {
+          "name": "DR L FREEMAN & PARTNERS",
+          "code": "B86006"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y01231"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y04205"
+        },
+        {
+          "name": "DR N DUMPHY & PARTNERS",
+          "code": "B86005"
+        },
+        {
+          "name": "DR N SADDIQ'S PRACTICE",
+          "code": "B86001"
+        },
+        {
+          "name": "DR S HUSSAIN",
+          "code": "B86642"
+        },
+        {
+          "name": "DR S M CHEN & PARTNER",
+          "code": "B86094"
+        },
+        {
+          "name": "DR ST GEORGES MIU/OOH",
+          "code": "Y04204"
+        },
+        {
+          "name": "DR T P FOX & PARTNERS",
+          "code": "B86075"
+        },
+        {
+          "name": "DR WHARFEDALE MIU/OOH",
+          "code": "Y04203"
+        },
+        {
+          "name": "EAST PARK MEDICAL CENTRE",
+          "code": "B86043"
+        },
+        {
+          "name": "FAMILY DOCTORS",
+          "code": "B86648"
+        },
+        {
+          "name": "FORWARD LEEDS",
+          "code": "Y05018"
+        },
+        {
+          "name": "FOUNDRY LANE SURGERY",
+          "code": "B86106"
+        },
+        {
+          "name": "GARFORTH MEDICAL CENTRE",
+          "code": "B86048"
+        },
+        {
+          "name": "GIBSON LANE PRACTICE",
+          "code": "B86036"
+        },
+        {
+          "name": "GILDERSOME HEALTH CENTRE",
+          "code": "B86101"
+        },
+        {
+          "name": "GPWSI SEXUAL HEALTH SCREENING SERVICE",
+          "code": "Y02288"
+        },
+        {
+          "name": "GUISELEY AND YEADON MEDICAL PRACTICE",
+          "code": "B86038"
+        },
+        {
+          "name": "HAREHILLS CORNER SURGERY",
+          "code": "B86061"
+        },
+        {
+          "name": "HAWTHORN SURGERY",
+          "code": "B86672"
+        },
+        {
+          "name": "HIGHFIELD SURGERY",
+          "code": "B86004"
+        },
+        {
+          "name": "HILLFOOT SURGERY",
+          "code": "B86011"
+        },
+        {
+          "name": "HYDE PARK SURGERY",
+          "code": "B86025"
+        },
+        {
+          "name": "IRELAND WOOD EYE CLINIC",
+          "code": "Y07789"
+        },
+        {
+          "name": "IRELAND WOOD SURGERY",
+          "code": "B86044"
+        },
+        {
+          "name": "KIPPAX HALL SURGERY",
+          "code": "B86092"
+        },
+        {
+          "name": "KIRKSTALL LANE COMMUNITY CARE",
+          "code": "Y06109"
+        },
+        {
+          "name": "KIRKSTALL LANE MEDICAL CENTRE",
+          "code": "B86109"
+        },
+        {
+          "name": "LAUREL BANK SURGERY",
+          "code": "B86086"
+        },
+        {
+          "name": "LCH CITY-WIDE SERVICES",
+          "code": "Y03892"
+        },
+        {
+          "name": "LCH NEIGHBOURHOOD TEAMS",
+          "code": "Y03889"
+        },
+        {
+          "name": "LCH POLICE CUSTODY SUITES SERVICES",
+          "code": "Y04567"
+        },
+        {
+          "name": "LEEDS AQP OPHTHALMOLOGY",
+          "code": "Y04166"
+        },
+        {
+          "name": "LEEDS CIRCUMCISION SERVICE",
+          "code": "Y01616"
+        },
+        {
+          "name": "LEEDS CITY MEDICAL PRACTICE",
+          "code": "B86012"
+        },
+        {
+          "name": "LEEDS COMMUNITY CARDIAC SERVICE",
+          "code": "Y00840"
+        },
+        {
+          "name": "LEEDS COMMUNITY DERMATOLOGY SERVICE",
+          "code": "Y07718"
+        },
+        {
+          "name": "LEEDS COMMUNITY DIABETES SERVICE",
+          "code": "Y05793"
+        },
+        {
+          "name": "LEEDS COMMUNITY PODIATRY SERVICE",
+          "code": "Y07470"
+        }
+      ]
+    },
+    {
+      "display-name" : 'NHS WEST YORKSHIRE ICB | 36J',
+      "category-name": "NHS-WEST-YORKSHIRE-ICB-36J",
+      "organisations": [
+        {
+          "name": "AACT 1",
+          "code": "Y04346"
+        },
+        {
+          "name": "ACCT 2",
+          "code": "Y04347"
+        },
+        {
+          "name": "ACMH-INTENSIVE HOME TREATMENT TEAM",
+          "code": "Y05799"
+        },
+        {
+          "name": "ACUTE LIAISON PSYCHIATRY SERVICE (ALPS)",
+          "code": "Y07199"
+        },
+        {
+          "name": "ADDINGHAM SURGERY",
+          "code": "B83620"
+        },
+        {
+          "name": "AIREDALE AND CRAVEN EIP",
+          "code": "Y06862"
+        },
+        {
+          "name": "AIREDALE CENTRE FOR MENTAL HEALTH",
+          "code": "Y05798"
+        },
+        {
+          "name": "AIREDALE CENTRE FOR MENTAL HEALTH BOWEL CANCER SCREENING CENTRE",
+          "code": "A99905"
+        },
+        {
+          "name": "ASHCROFT SURGERY",
+          "code": "B83062"
+        },
+        {
+          "name": "ASHWELL MEDICAL CENTRE",
+          "code": "B83641"
+        },
+        {
+          "name": "BAILDON MEDICAL PRACTICE",
+          "code": "B83022"
+        },
+        {
+          "name": "BCDAT-SP PRESCRIBER",
+          "code": "Y05398"
+        },
+        {
+          "name": "BEVAN HEALTHCARE CIC",
+          "code": "B83657"
+        },
+        {
+          "name": "BILTON MEDICAL CENTRE",
+          "code": "B83660"
+        },
+        {
+          "name": "BINGLEY DERMATOLOGY CLINIC",
+          "code": "Y00631"
+        },
+        {
+          "name": "BINGLEY MEDICAL PRACTICE",
+          "code": "B83014"
+        },
+        {
+          "name": "BOWLING HALL MED PRACTICE",
+          "code": "B83041"
+        },
+        {
+          "name": "BRADFORD AND AIREDALE BOWEL CANCER SCREENING CENTRE",
+          "code": "A99973"
+        },
+        {
+          "name": "BRADFORD CARE HOME LIAISON",
+          "code": "Y06722"
+        },
+        {
+          "name": "BRADFORD DERMATOLOGY SERVICE",
+          "code": "Y00100"
+        },
+        {
+          "name": "BRADFORD DISTRICT CARE TRUST",
+          "code": "Y04099"
+        },
+        {
+          "name": "BRADFORD EXTENDED ACCESS",
+          "code": "Y05776"
+        },
+        {
+          "name": "BRADFORD GPWSI EPILEPSY SERV",
+          "code": "Y03391"
+        },
+        {
+          "name": "BRADFORD GPWSI MSK SERVICE",
+          "code": "B83666"
+        },
+        {
+          "name": "BRADFORD GPWSI NEUROLOGY SERVICE",
+          "code": "B83667"
+        },
+        {
+          "name": "BRADFORD MOOR PRACTICE",
+          "code": "B83032"
+        },
+        {
+          "name": "BRADFORD NEW DIRECTIONS",
+          "code": "Y05875"
+        },
+        {
+          "name": "BRADFORD SAFE HAVEN SERVICE",
+          "code": "Y05180"
+        },
+        {
+          "name": "BRADFORD STUDENT HEALTH SERVICE",
+          "code": "B83051"
+        },
+        {
+          "name": "BTH NHS FOUNDATION TRUST",
+          "code": "Y04100"
+        },
+        {
+          "name": "C V W SKIPTON TEAM BENTHAM",
+          "code": "Y04391"
+        },
+        {
+          "name": "C.V.W. BENTHAM",
+          "code": "Y04378"
+        },
+        {
+          "name": "C.V.W. CASTLEBERG 1",
+          "code": "Y04352"
+        },
+        {
+          "name": "C.V.W.1",
+          "code": "Y04349"
+        },
+        {
+          "name": "CCCT 2",
+          "code": "Y04348"
+        },
+        {
+          "name": "CCCT BENTHAM",
+          "code": "Y04394"
+        },
+        {
+          "name": "CITY-EARLY INTERVENTION IN PSYCHOSIS",
+          "code": "Y06992"
+        },
+        {
+          "name": "CLARENDON MEDICAL CENTRE",
+          "code": "B83628"
+        },
+        {
+          "name": "CMHT ASSESSMENT TEAM",
+          "code": "Y06429"
+        },
+        {
+          "name": "COMMUNITY MIDWIFE SERVICES",
+          "code": "Y02738"
+        },
+        {
+          "name": "COMMUNITY PALLIATIVE SERVICES",
+          "code": "Y04899"
+        },
+        {
+          "name": "CRAVEN CENTRE - CRAVEN CMHT",
+          "code": "Y05803"
+        },
+        {
+          "name": "CULTURE FUSION - EIP",
+          "code": "Y05801"
+        },
+        {
+          "name": "DERMATOLOGY CLINIC",
+          "code": "Y00167"
+        },
+        {
+          "name": "DISTRICT EARLY INTERVENTION IN PSYCHOSIS",
+          "code": "Y07306"
+        },
+        {
+          "name": "DR A AZAM & PARTNERS",
+          "code": "B83621"
+        },
+        {
+          "name": "DR GILKAR",
+          "code": "B83653"
+        },
+        {
+          "name": "DR IA GILKAR & PARTNERS",
+          "code": "B83622"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y04174"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y01126"
+        },
+        {
+          "name": "DR U AKBAR",
+          "code": "B83617"
+        },
+        {
+          "name": "DYNELEY HOUSE SURGERY",
+          "code": "B82053"
+        },
+        {
+          "name": "ECCLESHILL VILLAGE SURGERY",
+          "code": "Y01118"
+        },
+        {
+          "name": "EPCS WOMENS HEALTH - WESTBOURNE GREEN",
+          "code": "B83699"
+        },
+        {
+          "name": "FARROW MEDICAL CENTRE",
+          "code": "B83016"
+        }
+      ]
+    },
+    {
+      "display-name" : 'NHS WEST YORKSHIRE ICB | X2C4Y',
+      "category-name": "NHS-WEST-YORKSHIRE-ICB-X2C4Y",
+      "organisations": [
+        {
+          "name": "BATLEY HEALTH CENTRE SURGERY",
+          "code": "B85008"
+        },
+        {
+          "name": "BIRKBY HEALTH CENTRE",
+          "code": "B85634"
+        },
+        {
+          "name": "BIRSTALL DERMATOLOGY GPSI",
+          "code": "Y03267"
+        },
+        {
+          "name": "BLACKBURN RD.MEDICAL CTR.",
+          "code": "B85025"
+        },
+        {
+          "name": "BMI THE HUDDERSFIELD HOSPITAL",
+          "code": "Y06362"
+        },
+        {
+          "name": "BROOKROYD HOUSE",
+          "code": "B85014"
+        },
+        {
+          "name": "BROUGHTON HOUSE GP SURGERY",
+          "code": "Y07275"
+        },
+        {
+          "name": "BROUGHTON HOUSE SURGERY",
+          "code": "B85622"
+        },
+        {
+          "name": "CALDER VIEW SURGERY",
+          "code": "B85004"
+        },
+        {
+          "name": "CALDERDALE HEALTH VISITORS",
+          "code": "Y05974"
+        },
+        {
+          "name": "CGL KIRKLEES",
+          "code": "B85658"
+        },
+        {
+          "name": "CGL KIRKLEES",
+          "code": "Y07460"
+        },
+        {
+          "name": "CHERRY TREE SURGERY",
+          "code": "B85655"
+        },
+        {
+          "name": "CLECKHEATON DERMATOLOGY GPSI",
+          "code": "Y03268"
+        },
+        {
+          "name": "CLECKHEATON GROUP PRACTICE",
+          "code": "B85021"
+        },
+        {
+          "name": "COLNE VALLEY GROUP PRACTICE",
+          "code": "B85054"
+        },
+        {
+          "name": "COMMUNITY DIABETES SPECIALIST NURSES",
+          "code": "Y05001"
+        },
+        {
+          "name": "COOK LANE SURGERY",
+          "code": "B85619"
+        },
+        {
+          "name": "CROFT MEDICAL CENTRE",
+          "code": "B85614"
+        },
+        {
+          "name": "CROSLAND MOOR SURGERY",
+          "code": "Y04266"
+        },
+        {
+          "name": "DALTON SURGERY",
+          "code": "B85010"
+        },
+        {
+          "name": "DEARNE VALLEY HEALTH CENTRE",
+          "code": "B85002"
+        },
+        {
+          "name": "DR HANDA & PARTNER",
+          "code": "B85611"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y01952"
+        },
+        {
+          "name": "DR LOCAL CARE DIRECT OOH",
+          "code": "Y03709"
+        },
+        {
+          "name": "DR MAHMOOD & PARTNERS",
+          "code": "B85650"
+        },
+        {
+          "name": "EIGHTLANDS SURGERY",
+          "code": "B85020"
+        },
+        {
+          "name": "ELMWOOD FAMILY DOCTORS",
+          "code": "B85006"
+        },
+        {
+          "name": "EXTENDED HOURS (CURO) HUB",
+          "code": "Y06506"
+        },
+        {
+          "name": "FIELDHEAD SURGERY",
+          "code": "B85051"
+        },
+        {
+          "name": "FORGET ME NOT CHILDREN'S HOSPICE",
+          "code": "Y04714"
+        },
+        {
+          "name": "GH LOCALA COMMUNITY SERVICES",
+          "code": "Y03777"
+        },
+        {
+          "name": "GPWSI COLPOSCOPY",
+          "code": "Y01775"
+        },
+        {
+          "name": "GREENHEAD FAMILY DOCTORS",
+          "code": "B85060"
+        },
+        {
+          "name": "GREENWOOD PCN HUB",
+          "code": "Y07207"
+        },
+        {
+          "name": "GROVE HOUSE SURGERY",
+          "code": "B85018"
+        },
+        {
+          "name": "HEALDS ROAD SURGERY",
+          "code": "B85055"
+        },
+        {
+          "name": "HONLEY SURGERY",
+          "code": "B85022"
+        },
+        {
+          "name": "HUDDERSFIELD ANTICOAGULATION SERVICE",
+          "code": "Y04918"
+        },
+        {
+          "name": "HUDDERSFIELD COVID19 REFERRAL UNIT",
+          "code": "Y06801"
+        },
+        {
+          "name": "KIRKBURTON HEALTH CENTRE",
+          "code": "B85026"
+        },
+        {
+          "name": "KIRKGATE SURGERY",
+          "code": "B85640"
+        },
+        {
+          "name": "KIRKWOOD HOSPICE",
+          "code": "Y06483"
+        },
+        {
+          "name": "LEPTON AND KIRKHEATON SURGERIES",
+          "code": "B85031"
+        },
+        {
+          "name": "LIFELINE KIRKLEES",
+          "code": "B85657"
+        },
+        {
+          "name": "LIVERSEDGE MEDICAL CENTRE",
+          "code": "B85612"
+        },
+        {
+          "name": "LOCALA KIRKLEES SEXUAL HEALTH SERVICE",
+          "code": "Y05371"
+        },
+        {
+          "name": "LOCKWOOD SURGERY",
+          "code": "B85641"
+        },
+        {
+          "name": "MARSH SURGERY",
+          "code": "B85623"
+        },
+        {
+          "name": "MELTHAM GROUP PRACTICE",
+          "code": "B85032"
+        },
+        {
+          "name": "MELTHAM ROAD SURGERY",
+          "code": "B85016"
+        },
+        {
+          "name": "MIRFIELD HEALTH CENTRE",
+          "code": "B85019"
+        },
+        {
+          "name": "MOUNT PLEASANT MED CENTRE",
+          "code": "B85041"
+        },
+        {
+          "name": "NEW STREET & NETHERTON GROUP PRACTICE",
+          "code": "B85036"
+        },
+        {
+          "name": "NEWSOME SURGERY",
+          "code": "B85037"
+        },
+        {
+          "name": "NOOK SURGERY",
+          "code": "Y06659"
+        }
+      ]
+    }
+    
+  ]
+
+%}

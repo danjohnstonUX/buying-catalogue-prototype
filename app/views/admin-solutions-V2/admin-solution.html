@@ -1,0 +1,457 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+    items: [{
+      href: "/admin/home",
+      text: "Home"
+    }],
+    href: "/admin-solutions/",
+    text: "Manage Catalogue Solutions"
+    })
+  }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<!-- {{ backLink({
+  "href": "admin",
+  "text": "Go back"
+}) }} -->
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span role="text">Caltech Web GP
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech
+        </span>
+      </span>
+    </h1>
+    <p class="nhsuk-lede-text">Explain what your Catalogue Solution is for and how it works. This information will be published on the Buying Catalogue to help buyers understand if it meets their needs.</p>
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Last updated by"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Last updated"
+          },
+          value: {
+            text: "15 March 2021"
+          }
+        },
+        {
+          key: {
+            text: "Published on"
+          },
+          value: {
+            text: "15 March 2021"
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ button({
+      "text": "Preview",
+      "classes": "nhsuk-button--secondary",
+      "href": "/marketing-page/"
+    }) }}
+
+
+    <h2>Sections</h2>
+    <p>Provide as much information as possible for buyers. You can save your progress at any point, but a Catalogue Solution Listing page cannot be published until all mandatory fields have been completed.</p>
+
+    {% from 'tables/macro.njk' import table %}
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Section"
+        },
+        {
+          text: "Mandatory"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: ""
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Section",
+            text: "Details"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-edit-solution">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Description"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-description">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Features"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In progress</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-features">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Interoperability"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-interoperability">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Implementation"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-timescales">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Application type"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-cta">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Hosting type"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-hosting">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Data processing information"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="/dpi-kickoff">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "List price"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="list-price/">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Capabilities and Epics"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-capabilities">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Additional Services"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-additional">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Associated Services"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-associated">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Development plans"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-plans">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Supplier details"
+          },
+          {
+            header: "Mandatory",
+            text: "No"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-supplier">Edit</a>'
+          }
+        ],
+        [
+          {
+            header: "Section",
+            text: "Service Level Agreement"
+          },
+          {
+            header: "Mandatory",
+            text: "Yes"
+          },
+          {
+            header: "Status",
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong>'
+          },
+          {
+            header: "Action",
+            html: '<a href="admin-solution-SLA">Edit</a>'
+          }
+        ]
+      ]
+    }) }}
+
+<br /><br />
+
+{{ radios({
+  "idPrefix": "contact",
+  "name": "contact",
+
+  "fieldset": {
+    "legend": {
+      "text": "What would you like to do with this Catalogue Solution?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": "Select one option."
+  },
+  "items": [
+    {
+      "value": "approve",
+      "text": "Publish"
+    },
+    {
+      "value": "reject",
+      "text": "Unpublish"
+    },
+    {
+      "value": "reject",
+      "text": "Suspend"
+    },
+    {
+      "value": "reject",
+      "text": "Remove"
+    }
+  ]
+}) }}
+
+<!--
+    {{ button({
+      "text": "Publish Catalogue Solution",
+      "href": "admin-solutions"
+    }) }}
+-->
+    {{ button({
+      "text": "Continue",
+      "href": "/admin-solutions/"
+    }) }}
+
+<!--a href="#" style="color: red;">Delete Catalogue Solution</a-->
+
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

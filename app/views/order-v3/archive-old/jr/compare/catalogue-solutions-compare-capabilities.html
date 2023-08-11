@@ -1,0 +1,187 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Compare Capabitlities
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/catalogue-solution/",
+    text: "Catalogue Solutions"
+}],
+  href: "/marketing-page/",
+  text: "Caltech Web GP"
+}) }}
+
+{% endblock %}
+
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<style>
+  .column-right-margin {
+    border-right: #666 solid 1px;
+  }
+</style>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+      <h1>
+        <span role="text">Compare Capabilities
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        </span>
+      </h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+
+      {{ contentsList({
+        items: [
+          {
+            href: "catalogue-solutions-compare-features",
+            text: "Features"
+          },
+          {
+            href: "catalogue-solutions-compare-capabilities",
+            text: "Capabilities",
+            current: "true"
+          },
+          {
+            href: "catalogue-solutions-compare-epics",
+            text: "Epics"
+          },
+          {
+            href: "catalogue-solutions-compare-standards",
+            text: "Standards"
+          },
+          {
+            href: "catalogue-solutions-compare-price",
+            text: "List price"
+          },
+          {
+            href: "marketing-page-additional",
+            text: "Additional Services"
+          },
+          {
+            href: "marketing-page-associated",
+            text: "Associated Services"
+          },
+          {
+            href: "marketing-page-4",
+            text: "Interoperability"
+          },
+          {
+            href: "catalogue-solutions-compare-implementation",
+            text: "Implementation timescales"
+          },
+          {
+            href: "marketing-page-6",
+            text: "Client application type"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full-width">
+
+      
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+
+      <h2>Capabilities</h2>
+      
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <h2 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m" data-test-id="solution-card-supplier">
+            accuRx Patient Triage
+          </h2>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m">
+            Q Doctor
+          </h3>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m" data-test-id="solution-card-supplier">
+            healthya Online and Video Consult
+          </h3>
+          
+        </div>
+      </div>
+  
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third column-right-margin">
+          {% include "compare/includes-capabilities/catalogue-solutions-capabilities-epics-static1.html" %}
+        </div>
+        <div class="nhsuk-grid-column-one-third column-right-margin">
+          {% include "compare/includes-capabilities/catalogue-solutions-capabilities-epics-static2.html" %}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {% include "compare/includes-capabilities/catalogue-solutions-capabilities-epics-static3.html" %}
+        </div>
+      </div>
+      <br />
+   
+      <!-- <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+        </div>
+      </div>
+      <br /> -->
+    </div>
+</div>
+
+<hr />
+<div style="display:inline-block;">
+  <form method="post" action="Save and continue">
+    {% from 'button/macro.njk' import button %}
+
+    {{ button({
+      "text": "Continue"
+    }) }}
+  </form>
+</div>
+
+  </div>    
+ 
+  </div>
+</div>
+</article>
+
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

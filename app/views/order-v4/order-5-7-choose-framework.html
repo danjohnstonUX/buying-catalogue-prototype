@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Select a framework<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C01001-01
+    </span></h1>
+    <p class="nhsuk-lede-text">Your Catalogue Solution is available from more than one procurement framework. You must choose the framework you want to order from before you can select your funding sources.</p>
+
+
+    <!-- Removing until we have further info to provide
+
+    {{ details({
+        "text": "What are the different frameworks?",
+        "HTML": "
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        "
+      }) }}
+
+    -->
+
+      <br/>
+
+      <form action="order-5-7-funding-framework">
+      {{ radios({
+        "idPrefix": "framework",
+        "name": "choose-framework",
+        "fieldset": {
+          "legend": {
+            "text": "Which framework do you want to order from?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "hint": {
+          "text": ""
+        },
+        "items": [
+          {
+            "value": "dfocvc",
+            "text": "DFOCVC framework"
+          },
+          {
+            "value": "gpitf",
+            "text": "GP IT Futures framework"
+          }
+        ]
+      }) }}
+
+      <br/>
+
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Planned delivery date
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var yes = document.getElementById("same-pcd-1").checked ? document.getElementById("same-pcd-1").value : "";
+    var no = document.getElementById("same-pcd-2").checked ? document.getElementById("same-pcd-2").value : "";
+
+
+    if(yes=="yes") {
+        document.location.href = "confirm-pcd";
+    }
+    else if(no=="no") {
+        document.location.href = "edit-pcd";
+    }
+  }
+</script>
+
+{{ backLink({
+  "href": "2-timescales-period",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Planned cease date
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-02
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Enter the date you expect the Service Recipients you’ve removed to stop using the solutions and services in this order.</p>
+
+      {{ insetText({
+      "HTML": "<p>If you have more than one planned cease date, you should enter the date the <b>majority of Service Recipients</b> you’ve removed will stop using the solutions and services.</p>
+              <p>This date will initially be applied to all recipients, but you’ll be able to change it for any recipients with a different planned cease date.</p>"
+    }) }}
+
+      {% from 'date-input/macro.njk' import dateInput %}
+
+      {{ dateInput({
+        "id": "example",
+        "namePrefix": "example",
+        "fieldset": {
+          "legend": {
+            "text": "What is the planned cease date?",
+            "classes": "nhsuk-label--xs",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This is the date the Service Recipients you’ve removed will stop using the solutions and services."
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      }) }}
+
+
+      <!-- <br/>
+
+      <p>Alternatively, you can provide the <a href="">planned delivery date for specific Service Recipients</a>.</p>
+       -->
+      <br />
+
+      <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-7">
+        <legend class="nhsuk-fieldset__legend ">
+          <h2 class="nhsuk-fieldset__heading">
+           Do you want to use the same delivery date for all recipients?
+          </h2>
+        </legend>
+    
+        <div class="nhsuk-radios nhsuk-radios--inline">
+    
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="same-pcd-1" name="same-pcd" type="radio" value="yes">
+            <label class="nhsuk-label nhsuk-radios__label" for="example-inline-1">
+              Yes
+            </label>
+          </div>
+    
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="same-pcd-2" name="same-pcd" type="radio" value="no">
+            <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
+              No
+            </label>
+          </div>
+    
+        </div>
+      </fieldset>
+
+
+      <!-- <form action="order-4-summary">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form> -->
+      <!-- <form action="order-4-summary">
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+        </form> -->
+
+        <div>
+          <div style="display:inline-block;">
+            <form action="javascript:sendForm();">
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+            </form>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

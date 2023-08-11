@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "add-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the new organisations you’ve selected to receive this Catalogue Solution.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 2 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>BURNBRAE MEDICAL PRACTICE (B81085)</li>
+      <li>CAMPUS HEALTH CENTRE (B81104)</li>
+    </ol>
+    <br/>
+
+    <p>You can <a href="add-service-recipients">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+    <br />
+
+    {{ details({
+  "text": "View Service Recipients from the original order",
+  "HTML": "<p>The original order had 5 Service Recipients:</p>
+    <ol class='nhsuk-list nhsuk-list--bullet'>
+      <li>CHP LTD - BRANSHOLME (B81002)</li>
+      <li>CITY HEALTH PRACTICE LTD (B81074)</li>
+      <li>CLIFTON HOUSE MEDICAL CENTRE (B81054)</li>
+      <li>DELTA HEALTHCARE (B81097)</li>
+      <li>DR GT HENDOW'S PRACTICE (B81616)</li>
+    </ol>"
+  }) }}
+
+
+    <br />
+
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="edit-dashboard-sr-added">
+                  {% from 'button/macro.njk' import button %}
+
+                  {{ button({
+                    "text": "Continue"
+                  }) }}
+                </form>
+              </div>
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-additional-services-edit",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Edit Additional Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Automated Arrivals
+      </span></h1>
+      <p class="nhsuk-lede-text">Add any Catalogue Solutions and services you want to be part of this order.</p>
+
+      
+<!-- <p>Use the link to add Catalogue Solutions and/or services and assign them to service recipients.</p> -->
+    </div>
+</div>
+
+<h2>Automated Arrivals</h2>
+
+{% from "summary-list/macro.njk" import summaryList %}
+
+{{ summaryList({
+
+  rows: [
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Assura ER LLP Hull Dermatology"
+      }
+    },
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        html: "£1.26"
+      }
+    },
+    {
+      key: {
+        text: "Quantity"
+      },
+      value: {
+        html: '875'
+      }
+    }
+  ]
+}) }}
+
+<br />
+
+{% from 'action-link/macro.njk' import actionLink %}
+
+  {{ actionLink({
+    "text": "Edit Service Recipients and quantities",
+    "href": "order-5-4-2-edit-service-recipient-automated-arrivals"
+  }) }}
+  {% from 'action-link/macro.njk' import actionLink %}
+
+  {{ actionLink({
+    "text": "Edit price",
+    "href": "order-5-4-2-edit-price-automated-arrivals"
+  }) }}
+
+<br />
+
+
+
+
+<form action="order-5-4-1-solutions2">
+{{ button({
+  "text": "Continue"
+}) }}
+
+
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

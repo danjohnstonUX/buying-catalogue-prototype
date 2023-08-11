@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "data-processing-default",
+  "text": "Go back"
+}) }}
+
+    <!--{% set securityHtml %}
+
+    {{ textarea({
+    "idPrefix": "security-measures-required",
+    "name": "security-measures-required",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to add any Additional Services?",
+        "classes": "nhsuk-fieldset__legend--s"
+      }
+    },
+    "hint": {
+      "text": "What are the special security measures you require?"
+    }
+  }) }}
+
+    {% endset -%}-->
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Bespoke personal data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Document the variations you want to make to the default data processing information.</p>
+
+
+
+
+        <p>As you’ve agreed variations to the default data processing information with the supplier, you need to document your requirements. You can do this by downloading and completing <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12074975272/Order+form+template+Appendix+3+Data+processing+information">Appendix 3: Data processing information (opens in a new tab)</a>.</p>
+
+    <!--    {{ button({
+          "text": "Download Appendix 3 (Word doc, 878KB)",
+          "classes": "nhsuk-button--secondary",
+          "href": "https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632097/Order+form+templates"
+        }) }} -->
+
+        <p>This document must be included when you send your order to the supplier. You can download it now or after you’ve completed your order.</p>
+        <br />
+
+        {{ button({
+          "text": "Continue",
+          "href":"../order-4-summary-data-processing-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

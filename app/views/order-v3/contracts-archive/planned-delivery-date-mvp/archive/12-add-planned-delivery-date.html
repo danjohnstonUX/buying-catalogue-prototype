@@ -1,0 +1,175 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Service Recipients for EMIS Web GP
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "10-planned-delivery-date-hub",
+  "text": "Go back"
+}) }}
+
+    <style>
+      .nhsuk-expander-index {
+        margin-bottom: 40px;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary {
+        padding-top: 40px;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text {
+        text-decoration: none;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter {
+        background-color: #005eb8;
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.25;
+        position: absolute;
+        margin-bottom: 0;
+        top: -32px;
+        left: 0;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+        color: #212b32;
+        display: block;
+      }
+    </style>
+
+    <script type="text/javascript">
+
+      window.onload = function () {
+        updateGlobalCount();
+        updateAllSubgroupCounters();
+        document.getElementById('selection-counter').removeAttribute('style');
+
+        const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+        for (var i = 0; i < allCheckboxes.length; i++) {
+          allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+        }
+      }
+
+      function updateSubGroupCount(selectedCheckbox) {
+        var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+        updateSubGroupCountWorker(subgroup);
+        updateGlobalCount();
+      }
+
+      function updateSubGroupCountWorker(subgroup) {
+        const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+        const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+        if (count > 0) {
+          counter.innerText = ` - ${count} selected`;
+        } else {
+          counter.innerText = '';
+        }
+      }
+
+      function updateAllSubgroupCounters() {
+        const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+        const allSubgroups = [];
+        allSelectedCheckboxes.forEach(function (cv, ci, lo) {
+          allSubgroups.push(cv.getAttribute('subgroup'));
+        });
+        const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+        uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+      }
+
+      function updateGlobalCount() {
+        const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+        const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+        const globalCounter = document.getElementById('selection-counter');
+        globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+      }
+    </script>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Service Recipients for Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Training Day at Practice
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Apply Service recipients to the your planned delivery date.</p>
+        
+        {% from 'date-input/macro.njk' import dateInput %}
+
+{{ dateInput({
+  "id": "example",
+  "namePrefix": "example",
+  "fieldset": {
+    "legend": {
+      "text": "What is your planned delivery date?",
+      "classes": "nhsuk-label--m",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    "text": "This field has been prepopulated with the contract start date."
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+
+      <br />
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="12-assign-service-recipients">
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

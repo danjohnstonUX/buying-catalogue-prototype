@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+  }],
+    href: "/catalogue-solution/",
+    text: "Catalogue Solutions"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>Caltech Web GP</h1>
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Solution name"
+            },
+            value: {
+              text: "Caltech Web GP"
+            }
+          },
+          {
+            key: {
+              text: "Supplier name"
+            },
+            value: {
+              text: "Caltech Health"
+            }
+          },
+          {
+            key: {
+              text: "Solution ID"
+            },
+            value: {
+              html: "10000-001"
+            }
+          }
+        ]
+      }) }}
+
+    <p>This Catalogue Solution has been suspended from the Buying Catalogue and is not available at this time.</p>
+    <p>The supplier did not satisfy an agreed remedial plan to meet outstanding compliance with required standards.</p>
+
+    <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+      Solution information last reviewed: 31 March 2020
+    </p>
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,250 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+      "href": "competitions-hub",
+      "text": "Go back to competitions"
+    }) }}
+
+    <h1>Catalogue Solutions found<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      OC/VC competition
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the results from your chosen filter. You must provide a reason if any of the solutions listed are not taken through to your competition shortlist.
+    </p>
+
+    {{ insetText({
+      "HTML": "<p>You must add between 2 and 8 solutions to your shortlist for this competition. If there is only 1 solution, you do not have to carry out a competition and can execute a direct award.</p>"
+    }) }}
+
+    <h2>4 Catalogue Solutions found for your chosen filter:</h2>
+
+    <div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="select-1">
+        Sort by:
+      </label>
+      <select class="nhsuk-select" id="select-1" name="select-1">
+        <option value="1" selected>A to Z</option>
+        <option value="2">Z to A</option>
+        <option value="3">Framework</option>
+        <option value="4">Last published</option>
+      </select>
+    </div>
+
+    <hr>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Online and Video Consult</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+
+        <p>Our online triaging system allows patients to easily access self-help advice, and fill
+          out forms containing their requests and queries that go into their practice's workflow. Helping to improve
+          access to services, Online Consult is configurable, and integrates with all leading GP Clinical Systems.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Required Additional Services:</h4>
+
+        <p><a href="#">Document Management</a>, <a href="#">Caltech Mobile</a></p>
+
+        <br>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "sol1",
+            "name": "sol1",
+            "fieldset": {
+              "legend": {
+                "text": "Add to competition shortlist?",
+                "classes": "nhsuk-fieldset__legend--s",
+                "isPageHeading": "false"
+              }
+            },
+            "items": [
+              {
+                "value": "email",
+                "text": "Add Online and Video Consult"
+              }
+            ]
+          }) }}
+        </form>
+
+
+        <hr />
+
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Q Doctor</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            MyMed Ltd
+          </span>
+        </h3>
+
+        <p>Q health is a secure video consultation platform and appointment booking platform used
+          around the NHS, enabling digital appointment booking (including COVID-19 vaccination appointment management)
+          and remote consultations between clinicians and patients. </p>
+
+          <br>
+
+          <form>
+            {{ checkboxes({
+              "idPrefix": "sol2",
+              "name": "sol2",
+              "fieldset": {
+                "legend": {
+                  "text": "Add to competition shortlist?",
+                  "classes": "nhsuk-fieldset__legend--s",
+                  "isPageHeading": "false"
+                }
+              },
+              "items": [
+                {
+                  "value": "email",
+                  "text": "Add Online and Video Consult"
+                }
+              ]
+            }) }}
+          </form>
+
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">healthya Online and Video Consultation</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            ADDVantage Technologies
+          </span>
+        </h3>
+
+        <p>Healthya provides a seamless and flexible secure online video consultation platform to
+          supplement NHS Systems. Patients connect to the NHS Health / Care Professional using the user friendly
+          healthya app. The intuitive app is free for NHS patients and integrates with NHS provider services. </p>
+
+          <br>
+
+          <form>
+            {{ checkboxes({
+              "idPrefix": "sol3",
+              "name": "sol3",
+              "fieldset": {
+                "legend": {
+                  "text": "Add to competition shortlist?",
+                  "classes": "nhsuk-fieldset__legend--s",
+                  "isPageHeading": "false"
+                }
+              },
+              "items": [
+                {
+                  "value": "email",
+                  "text": "Add Online and Video Consult"
+                }
+              ]
+            }) }}
+          </form>
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Engage Consult</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Engage Health Systems Limited
+          </span>
+        </h3>
+
+        <p>Engage Consult allows patients to communicate securely and safely online with their
+          practice about non-emergency medical conditions or admin questions. The solution offers 24/7 access to
+          self-help information, other local NHS and self-care services. </p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Required Additional Services:</h4>
+
+        <p><a href="#">Document Management</a>, <a href="#">Engage Mobile</a></p>
+
+        <br>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "sol4",
+            "name": "sol4",
+            "fieldset": {
+              "legend": {
+                "text": "Add to competition shortlist?",
+                "classes": "nhsuk-fieldset__legend--s",
+                "isPageHeading": "false"
+              }
+            },
+            "items": [
+              {
+                "value": "email",
+                "text": "Add Online and Video Consult"
+              }
+            ]
+          }) }}
+        </form>
+
+
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <a href="unselected-justification" class="nhsuk-button">Save and continue</a>
+
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

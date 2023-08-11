@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Existing shortlist 2
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "your-account",
+    text: "Your account"
+  },
+  {
+    href: "shortlist-your-shortlist",
+    text: "Your shortlists"
+  },
+  {
+    href: "shortlist-existing-2",
+    text: "Existing shortlist 2"
+  }
+]
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Shortlist 2</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">Shortlisted of Catalogue Solutions relevant to your search.</p>
+
+
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <!-- <p><b>This shortlist is been based of the following search criteria:</b></p>
+
+<p>Capabilities: Online Consultation, Video Consultation,
+Recording Consultation</p>
+<p>Epics: Online Consultation, Video Consultation,
+  Recording Consultation</p>
+
+<hr /> -->
+
+
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Shortlist of Catalogue Solutions</a></caption> 
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Catalogue Solution
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Date added
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell"><a href="">Q Doctor</a></td>
+          <td class="nhsuk-table__cell ">20 July 2022</td>
+        </tr>
+      </tbody>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell"><a href="">Docman 7</a></td>
+          <td class="nhsuk-table__cell ">20 July 2022</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Capabilities used in this search:</h4>
+    <ul>
+      <li>Clinical Decision Support</li>
+      <li>Appointments Management – Citizen</li>
+    </ul>
+    <h4>Epics used in this search:</h4>
+    <ul>
+      <li>Cancel booked COVID-19 vaccination appointments for Patients.</li>
+    </ul>
+
+    <br /><br />
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Start a new search",
+      "href": "list-select-shortlist"
+    }) }}
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-select-shortlist"
+    }) }}
+
+    <br /><br />
+ 
+    
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

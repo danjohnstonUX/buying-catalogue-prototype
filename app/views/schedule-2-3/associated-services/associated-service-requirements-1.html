@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "associated-service-requirements",
+      "text": "Go back"
+    }) }}
+
+    {% set implementationHtml %}
+
+    {{ input({
+      "idPrefix": "document-name",
+      "name": "document-name",
+      "value": "Bespoke Implementation Plan",
+      "hint": {
+        "html": "<p>This field is autopopulated with the name of the bespoke implementation plan that has been created</p>
+        <p>If this is incorrect, you can amend it's name</p>"
+      },
+      label: {
+        text: "What was this implementation plan called?"
+      }
+    }) }}
+
+    {% endset -%}
+
+    {% set documentHtml %}
+
+    {{ textarea({
+      "idPrefix": "document-name",
+      "name": "document-name",
+      "hint": {
+        "text": "You'll need to attach this document when you submit your order."
+      },
+      label: {
+        text: "What is this document called?"
+      }
+    }) }}
+
+    {% endset -%}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services requirements documentation
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select where your Associated Services requirements are documented.</p>
+
+        {{ radios({
+          "idPrefix": "milestone-billing",
+          "name": "milestone-billing-radios",
+          "fieldset": {
+            "legend": {
+              "text": "Are these requirements documented in your bespoke implementation plan?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No, the requirements are detailed in another document",
+            "conditional": {
+              "html": documentHtml
+            }
+          }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"../order-4-summary-assc-services-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "../order-4-summary-implementation-completed",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Service billing and requirements
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select how you’d like to be billed for your Associated Services.</p>
+
+        <h2>Associated Service billing</h2>
+
+        {{ actionLink({
+          "text": "Edit associated service billing",
+          "href": "associated-service-billing"
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Associated Services to be billed once a milestone achieved?"
+              },
+              value: {
+                text: "Yes"
+              }
+            }
+          ]
+        }) }}
+
+        {{ insetText({
+          "HTML": "<p>Requirements are documented in section 1 of Appendix 2.</p>"
+        }) }}
+
+        <br />
+
+        <h2>Associated Service requirements</h2>
+
+        {{ actionLink({
+          "text": "Edit associated service requirements",
+          "href": "associated-service-requirements"
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Specific requirements required?"
+              },
+              value: {
+                text: "Yes"
+              }
+            }
+          ]
+        }) }}
+
+        {{ insetText({
+          "HTML": "<p>Requirements are documented in section 2 of Appendix 2.</p>"
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"../order-4-summary-assc-services-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

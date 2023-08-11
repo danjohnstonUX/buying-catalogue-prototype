@@ -1,0 +1,130 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Buying Catalogue admin</h1>
+        <p class="nhsuk-lede-text">
+          Manage solutions, organisations, users and orders on the Buying Catalogue.
+        </p>
+        <hr>
+      </div>
+    </div>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h2>Manage solutions</h2>
+
+        <ul>
+
+          <li>
+            <a href="/admin-solutions/">
+              <strong>Manage Catalogue Solutions</strong>
+            </a>
+            <br>
+            Add new solutions and edit ones that are already published.
+          </li>
+
+          <li>
+            <a href="/admin-frameworks/">
+              <strong>Manage frameworks</strong>
+            </a>
+            <br>
+            Add new frameworks or mark existing ones as expired.
+          </li>
+
+          <li>
+            <a href="/admin-supplier-defined-epics/">
+              <strong>Manage supplier defined Epics</strong>
+            </a>
+            <br>
+            Add new supplier defined Epics and edit ones that are already published.
+          </li>
+
+        </ul>
+
+
+        <h2>Manage organisations</h2>
+
+        <ul>
+
+          <li>
+            <a href="/admin-buyers/">
+              <strong>Manage buyer organisations</strong>
+            </a>
+            <br>
+            Add users to buyer organisations and edit accounts that have already been created.
+          </li>
+
+          <li>
+            <a href="/admin-suppliers/">
+              <strong>Manage supplier organisations</strong>
+            </a>
+            <br>
+            Add a new supplier organisation or edit the details for one that's already been created.
+          </li>
+
+        </ul>
+
+
+        <h2>Manage users</h2>
+
+        <ul>
+          <li>
+            <a href="/admin-all-users/">
+              <strong>Manage all users</strong>
+            </a>
+            <br>
+            Add a new user or edit the details for one that's already been created.
+          </li>
+
+          <li>
+            <a href="/admin-all-users/email-domains-allow-list">
+              <strong>Manage allowed email domains</strong>
+            </a>
+            <br>
+             Add or delete allowed email domains that a user can register with.
+          </li>
+
+        </ul>
+
+        <h2>Manage orders</h2>
+
+        <ul>
+
+          <li>
+            <a href="/admin-all-orders/">
+              <strong>Manage all orders</strong>
+            </a>
+            <br>
+            View all orders that have been created on the Buying Catalogue.
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

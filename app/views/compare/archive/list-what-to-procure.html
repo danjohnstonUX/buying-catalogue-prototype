@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  What to procure
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<!--
+Radio 1: order-2-2-triage-under40
+Radio 2: order-2-2-triage-40-250
+Radio 3: order-2-2-triage-over250
+Radio 4: order-2-4-triage-instructions
+-->
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("price-1").checked ? document.getElementById("price-1").value : "";
+    var opt2 = document.getElementById("price-2").checked ? document.getElementById("price-2").value : "";
+
+    if(opt1=="opt1") {
+        document.location.href = "order-1-guidance";
+    }
+    else if(opt2=="opt2") {
+        document.location.href = "../order-v2/filter/v5/catalogue-solutions-start";
+    }
+  }
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "list-triage",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        <span role="text">What to procure
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+          </span>
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text"></p>
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+
+{% call fieldset({
+  legend: {
+    "text": "Do you know what you want to procure?",
+    "classes": "nhsuk-fieldset__legend--m",
+    "isPageHeading": true
+  }
+  }) %}
+  {{ hint({
+    "text": ""
+  }) }}
+  {{ radios({
+    "idPrefix": "price",
+    "name": "price",
+    "items": [
+  {
+    "value": "opt1",
+    "text": "Yes"
+  },
+  {
+    "value": "opt2",
+    "text": "No"
+  }
+]
+}) }}
+{% endcall %}
+
+<br />
+{{ button({
+  "text": "Continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

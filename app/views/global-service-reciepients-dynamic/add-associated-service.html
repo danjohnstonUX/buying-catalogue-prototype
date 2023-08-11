@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Add Associated Services
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+
+{{ backLink({
+  "href": "add-solution-service",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+{% if data['error'] %}
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="nhsuk-error-summary__body">
+    {# <p>
+      Describe the errors and how to correct them
+    </p> #}
+    <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+      <li>
+        <a href="#error-focus-id">Please make a selection</a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+<h1>Do you want to add any Associated Services to your order?</h1>
+
+<p class="nhsuk-lede-text">These are products that support the implementation of a solution and can be bought independently. For example, training, engineering or data migration.</p>
+{% from 'radios/macro.njk' import radios %}
+<form action="/add-associated-service-choice-route" method="post" id="error-focus-id">
+
+
+
+
+
+
+  
+
+  
+  <div class="nhsuk-form-group {% if data['error'] %} nhsuk-form-group--error {% endif %}">
+  
+    <fieldset class="nhsuk-fieldset">
+
+      {% if data['error'] %}
+
+      <span class="nhsuk-error-message" id="example-error-error">
+        <span class="nhsuk-u-visually-hidden">Error:</span> Please make a selection
+      </span>
+
+      {% endif %}
+  
+    <div class="nhsuk-radios">
+      
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="add-assoc-choice-1" name="add-assoc-choice" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="add-assoc-choice-1">
+          Yes
+        </label>
+      </div>
+      
+      
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="add-assoc-choice-2" name="add-assoc-choice" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="add-assoc-choice-2">
+          No
+        </label>
+      </div>
+      
+    </div>
+    </fieldset>
+  
+  </div>
+  
+  
+  <br>
+  
+  
+  
+  <button type="submit" class="nhsuk-button">Save and continue</button>
+  
+  
+  </form>
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

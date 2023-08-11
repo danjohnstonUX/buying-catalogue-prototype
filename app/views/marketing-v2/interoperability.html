@@ -1,0 +1,387 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Interoperability
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'tables/macro.njk' import table %}
+<a id="maincontent"></a>
+
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Interoperability
+        <span class="nhsuk-caption-xl">Caltech Web GP</span>  
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+    <h2>Interoperability</h2>
+      <p>View information about the systems this Catalogue Solution integrates with to exchange data:</p>
+
+      <h3>NHS assured integrations</h3>
+      <p>There are three types of integrations specified and assured by the NHS. Use the links to find out more about these integrations.</p>
+      <ul>
+      <li><p><b>IM1:</b> <a href="https://digital.nhs.uk/services/gp-systems-of-choice/pairing-integration" target="blank">https://digital.nhs.uk/services/gp-systems-of-choice/pairing-integration (opens in new tab)</a></p></li>
+      <li><p><b>GP Connect:</b> <a href="https://digital.nhs.uk/services/gp-connect" target="blank">https://digital.nhs.uk/services/gp-connect (opens in new tab)</a></p></li>
+      <li><p><b>NHS App:</b> <a href="https://digital.nhs.uk/services/nhs-app" target="blank">https://digital.nhs.uk/services/nhs-app (opens in new tab)</a></p></li>
+     </ul>
+     <hr />
+
+      <h4 class="nhsuk-heading-s">IM1 integrations</h4>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            IM1 Bulk
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <table role="table" class="nhsuk-table-responsive">
+            {# <caption class="nhsuk-table__caption"></caption> #}
+            <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Provider or <br>Consumer
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Integrates with <br>system
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Description
+                </th>
+            </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Audit+
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>Audit+ utilises a bulk extraction of full clinical records (including confidential and deceased patients) from EMIS Web to provide General Practices with a crossplatform clinical decision support and management tool; supporting QOF performance management, improvement and NHS Health Checks.
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Informatics Platform
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>A Risk Stratification tool
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Censura
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>Storm is a sophisticated management information reporting interface that presents EMIS Web, allowing users to display their data in the most impactful and effective format; selecting from a range of arrangements and graphical forms.
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            IM1 Transactional
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <table role="table" class="nhsuk-table-responsive">
+            {# <caption class="nhsuk-table__caption">IM1 Transactional</caption> #}
+            <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Provider or <br>Consumer
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Integrates with <br>system
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Description
+                </th>
+            </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Audit+
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>Audit+ utilises a bulk extraction of full clinical records (including confidential and deceased patients) from EMIS Web to provide General Practices with a crossplatform clinical decision support and management tool; supporting QOF performance management, improvement and NHS Health Checks.
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Informatics Platform
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>A Risk Stratification tool
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Integrates with system </span>Censura
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Description </span>Storm is a sophisticated management information reporting interface that presents EMIS Web, allowing users to display their data in the most impactful and effective format; selecting from a range of arrangements and graphical forms.
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>  
+
+      <hr />
+
+      <h3 class="nhsuk-heading-s">GP Connect integrations</h3>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            GP Connect - HTML View
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <table role="table" class="nhsuk-table-responsive">
+            {# <caption class="nhsuk-table__caption"></caption> #}
+            <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Provider or <br>Consumer
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Additional information about the integration
+                </th>
+            </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Additional information about the integration </span>EMIS Web received Full Roll Out Approval from NHS Digital for GP Connect HTML View Provision on 20/06/19
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Consumer
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Additional information about the integration </span>EMIS Web is accredited to consume GP Connect HTML views
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            GP Connect - Appointment Booking
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <table role="table" class="nhsuk-table-responsive">
+            <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Provider or <br>Consumer
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Additional information about the integration
+                </th>
+            </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Provider
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Additional information about the integration </span>EMIS Web received Full Roll Out Approval from NHS Digital for GP Connect HTML View Provision on 20/06/19
+                    </td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Provider or Consumer </span>Consumer
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      <span class="nhsuk-table-responsive__heading">Additional information about the integration </span>EMIS Web is accredited to consume GP Connect HTML views
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>  
+
+      <hr  />
+
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">NHS App integrations</h3>
+
+                <ul class="nhsuk-list">
+                  <li>Online Consultation Services</li>
+                  <li>Secondary Care Notifications &amp; Messaging</li>
+                  <li>Personal Health Records (PHR)</li>
+                </ul>
+
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>Supplier asserted integrations</h2>
+      <p>Supplier asserted integrations are interoperability interfaces prepared by a supplier and are not specified or assured by the NHS.</p>
+      <p>
+        <a href="https://www.caltechhealth.com/products/partner-products/" target="_blank">
+          View the Supplier Asserted Integrations for this Catalogue Solution (opens in a new tab)
+        </a>
+      </p>
+
+      <hr />
+
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "supplier-details",
+    "previousPage": "Supplier details",
+    "nextUrl": "data-processing",
+    "nextPage": "Data processing information"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+});
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

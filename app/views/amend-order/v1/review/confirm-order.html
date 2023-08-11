@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+    <style>
+      .nhsuk-expander .nhsuk-details__summary > span,
+      .nhsuk-expander .nhsuk-details__summary-text {
+        color: black;
+        text-decoration: none;
+      }
+
+      .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+        background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+      }
+
+      .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before {
+        background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+      }
+
+      .nhsuk-expander {
+        background: none;
+      }
+    </style>
+
+  {% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "contract-order-overview",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Complete order
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+
+        <!-- Error summary -->
+
+        <div class="nhsuk-error-summary" id="confirmation-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" style="display:none">
+          <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="nhsuk-error-summary__body">
+            <p>
+              You must correct the following errors
+            </p>
+            <ul class="nhsuk-list nhsuk-error-summary__list">
+              <li class="nhsuk-u-margin-bottom-3">
+                <a id="error-summary-confirmation" href="#form-group-confirmation" style="display:none">You must confirm that you are ready to complete your order</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lede text -->
+
+        <p class="nhsuk-lede-text">After you mark this amended order as complete you'll be unable to make changes to it.</p>
+
+        <form id="review-contract-form" action="post-order-guidance">
+
+          <div class="nhsuk-form-group" id="form-group-confirmation">
+
+            <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                <h2 class="nhsuk-fieldset__heading">
+                  Confirm you're ready to complete your order
+                </h2>
+              </legend>
+
+              <div class="nhsuk-hint" id="contact-hint">
+                Once you’ve received a signed copy of your Call-off Order Form and the completed templates from the supplier, you’ll be ready to complete your order.
+              </div>
+
+              <span id="confirmation-error" class="nhsuk-error-message" style="display: none">
+                You must confirm that you're ready to complete your order'
+              </span>
+
+              <div class="nhsuk-checkboxes">
+
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="contact" name="confirmation-checkbox" type="checkbox" value="email">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">
+                    I’m ready to complete my order
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+          <br/>
+
+          <!--<hr /> <h2 class="nhsuk-heading-m">Complete order</h2> <p>If you’re happy with your order, you can mark it complete. Once you’ve done this, you'll be unable to make changes.</p> <br />-->
+
+          {{ button({
+          "text": "Complete order",
+          "type": "submit"
+        }) }}
+
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+
+    <script>
+
+      $("form").submit(function (e) {
+
+        if (!$('input[name=confirmation-checkbox]').is(':checked')) {
+          $('#confirmation-error').show();
+          $('#form-group-confirmation').addClass('nhsuk-form-group--error');
+          $('#error-summary-confirmation').show();
+        } else {
+          $('#confirmation-error').hide();
+          $('#form-group-confirmation').removeClass('nhsuk-form-group--error');
+          $('#error-summary-confirmation').hide();
+        }
+
+        if (!$('input[name=confirmation-checkbox]').is(':checked')) {
+          $('#confirmation-error-summary').show();
+          e.preventDefault();
+        } else {
+          return true;
+        }
+
+      });
+    </script>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

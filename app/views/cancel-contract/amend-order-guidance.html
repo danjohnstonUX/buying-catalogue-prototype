@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Start page
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-recap",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        Amending a contract
+      </h1>
+      <p class="nhsuk-lede-text">Before amending a contract, familiarise yourself with what you can and cannot change.</p>
+
+
+
+      {{ list({
+  "title": "You can",
+  "type": "tick",
+  "items": [
+    {
+      "item": "update your order description and change your primary contact details and those for the supplier"
+    },
+    {
+      "item": "add Service Recipients to your Catalogue Solution and any Additional Services"
+    },
+    {
+      "item": "add new Additional Services"
+    },
+    {
+      "item": "assign funding sources to cover the increased cost"
+    }
+  ]
+}) }}
+
+{{ list({
+  "title": "You cannot",
+"hidePrefix": true,
+  "type": "cross",
+  "items": [
+    {
+      "item": "add a new Catalogue Solution"
+    },
+    {
+      "item": "change the supplier"
+    },
+    {
+      "item": "change the timescales for this Call-off Agreement"
+    },
+    {
+      "item": "remove Service Recipients"
+    },
+    {
+      "item": "change the price of any items previously included"
+    },
+
+    {
+      "item": "change the quantity of items previously included"
+    },
+    {
+      "item": "make any changes to an Associated Service – to do this you’ll need to create a new order"
+    }
+  ]
+}) }}
+
+    <!--  <ul>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Consectetur adipisicing elit</li>
+        <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. U</li>
+        <li>Ut enim ad minim veniam</li>
+        <li>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+        <li>Excepteur sint occaecat cupidatat non proident</li>
+        <li>Sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+      </ul>
+
+  <!--    {% from 'card/macro.njk' import card %}
+
+{{ card({
+  "heading": "Ordering practice mergers and splits",
+  "headingLevel": "3",
+  "descriptionHtml": "<p class=\"nhsuk-card__description\">Practice mergers and splits are Associated Services which can be ordered on their own. Go to the Associated Services section and add what you require to your order.</p>"
+}) }} -->
+
+      <br />
+
+      <form action="#">
+      {{ button({
+        "text": "Amend contract"
+      }) }}
+      </form>
+
+      <p><a href="order-recap">Cancel</a></p>
+
+      <br />
+
+      <h2>Terminate contract</h2>
+      <p>Alternatively, you can <a href="confirm-cancel-contract">terminate this contract</a> altogether.</p>
+
+      <br>
+
+      <h2>Need help?</h2>
+      <p>For help using the Buying Catalogue, contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

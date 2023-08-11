@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Start page
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../index-tif",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+      Advanced Telephony Better Purchasing framework
+      </h1>
+      <p class="nhsuk-lede-text">A new way of supporting the commissioning of advanced, cloud-hosted GP telephony systems.</p>
+
+      <p class="nhsuk-text">The Advanced Telephony Better Purchasing framework provides a complete service, run by the National Commercial and Procurement Hub. It helps commissioners with requirements identification, procurement support, exit and migration support, supplier management and the publication of the Better Purchasing Framework List which consists of assessed products.</p>
+
+      <p class="nhsuk-text">Later this year, the Better Purchasing Framework List will be replaced by the Digital Care Services Cloud Telephony framework which will set the strategic technical and commercial direction for future services, setting the standard for unified communications and telephony services in general practice and primary care. </p>
+
+      <p class="nhsuk-text">The framework will support practices, Primary Care Networks and their Integrated Care Boards in commissioning advanced GP telephony systems built around cloud-hosted Voice over IP (VoIP) systems which include clinical system integration, remote access and peak demand management capabilities.</p>
+
+      <p class="nhsuk-text">The framework will be built around the following Capabilities:</p>
+
+      <ul>
+        <li>Auto-Attendant and Interactive Voice Response (IVR)</li>
+        <li>Call History</li>
+        <li>Office Telephony</li>
+        <li>Rule-based Call Routing</li>
+        <li>Video Consultation</li>
+      </ul>
+
+      <p class="nhsuk-text">It is being planned for implementation before the end of the first quarter of financial year 2023 to 2024.</p>
+
+      <p class="nhsuk-text">As a precursor to the establishment of the full framework, the Advanced Telephony Better Purchasing Framework List will be available from the end of January 2023. This will be a list of suppliers whose telephony solutions already meet a national specification, and it will enable practices with urgent telephony solution requirements, such as those whose contracts are coming to an end, to move forward with procurements.</p>
+
+      <p class="nhsuk-text">Suppliers that are on the Advanced Telephony Better Purchasing Framework List will have pre-committed to the terms of the new Digital Care Services Cloud Telephony framework, prior to its launch. Buying organisations can therefore procure services from any of the suppliers with confidence in the capability of the advanced telephony solutions offered and the suppliers operating them.</p>
+
+      <p class="nhsuk-text">These are the suppliers that will be available from the list. You can use the links to download more information about the suppliers and solutions on the list: </p>
+
+      <ul>
+        <li><a href="#">Southern Communications Corporate Solutions Ltd (acquired X-On) PDF</a></li>
+        <li><a href="#">Daisy Corporate Services Trading Limited (acquired Premier Choice Ltd) PDF</a></li>
+        <li><a href="#">Focus Group (acquired Ethos Voice & Data (EVAD) & SW Comms Group) PDF</a></li>
+        <li><a href="#">Wavenet Ltd PDF</a></li>
+        <li><a href="#">Redcentric Solutions Ltd PDF</a></li>
+        <li><a href="#">Babble Ltd PDF</a></li>
+        <li><a href="#">Gamma Telecom Ltd PDF</a></li>
+      </ul>
+
+      <p>More details about the Better Purchasing framework can be found in a brochure produced by the National Commercial and Procurement Hub.</p>
+
+      {{ button({
+  "text": "Download brochure (PDF)",
+  "classes": "nhsuk-button--secondary"
+}) }}
+
+
+      <p>For more information on the Better Purchasing Framework and the suppliers and solutions currently involved, contact the National Commercial and Procurement Hub.</p>
+
+      {{ actionLink({
+  "text": "Contact Procurement Hub",
+  "href": "#"
+}) }}
+      
+      <br />
+
+  
+
+      {{ button({
+  "text": "Back to homepage",
+  "href": "http://localhost:3000/index-tif"
+}) }}
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

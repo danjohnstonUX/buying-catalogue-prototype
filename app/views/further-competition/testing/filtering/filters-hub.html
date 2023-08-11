@@ -1,0 +1,133 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{{ breadcrumb({
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "../buyer-dashboard",
+  text: "Buyer Dashboard"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Manage saved filters<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      NHS WEST YORKSHIRE INTEGRATED CARE BOARD
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      Create new filters or view existing ones. 
+    </p>
+
+    {{ insetText({
+      "HTML": "<p>You can save a maximum of 10 filters for use by your organisation. To delete a filter, use the relevant view link in the table.</p>"
+    }) }}
+
+    </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        {{ actionLink({
+          "text": "Create a new filter",
+          "href": "capabilities"
+        }) }}
+
+  {{ table({
+    responsive: true,
+    panel: false,
+    caption: "2 saved search filters",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Name"
+      },
+      {
+        text: "Description"
+      },
+      {
+        text: "Last updated"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          header: "Filter name",
+          text: "AM & VC desktop apps"
+        },
+        {
+          header: "Filter description",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+        },
+        {
+          header: "Last updated",
+          text: "15 Feb 2023"
+        },
+        {
+          header: "Action",
+          html: "<a href='saved-filter'>View</a>"
+        }
+      ],
+      [
+        {
+          header: "Filter name",
+          text: "AM & VC web apps"
+        },
+        {
+          header: "Filter description",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+        },
+        {
+          header: "Last updated",
+          text: "20 May 2023"
+        },
+        {
+          header: "Action",
+          html: "<a href='saved-filter-with-warning'>View</a>"
+        }
+      ]
+    ]
+  }) }}
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

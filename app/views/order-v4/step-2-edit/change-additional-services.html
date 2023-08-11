@@ -1,0 +1,104 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Index pages
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-nonav.html" %}
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+
+  {{ backLink({
+    "href": "../order-4-restart",
+    "text": "Go back"
+  }) }}
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Change Additional Services scenarios</h1>
+      </div>
+    </div>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        
+
+        <h2>Start where you left off</h2>
+        
+
+        <h3>Scenario 1</h3>
+        <ol>
+          <li>Buyer removes Automated Arrivals and Document Management</li>
+          <li>Buyer adds Extract Services and Risk Stratification</li>
+          <li>Buyer updates Extract services with Catalogue Solution Service Recipients</li>
+        </ol>
+        
+        {% from 'action-link/macro.njk' import actionLink %}
+
+        {{ actionLink({
+          "text": "Start journey",
+          "href": "change-add-servs-one-from-two/order-5-4-2-edit-additional-service-2"
+        }) }}
+
+        <hr />
+
+        <h3>Scenario 2</h3>
+        <ol>
+          <li>Buyer removes Automated Arrivals and Document Management</li>
+          <li>Buyer adds Extract Services</li>
+          <li>Buyer updates Extract services with Catalogue Solution Service Recipients</li>
+        </ol>
+        
+        {% from 'action-link/macro.njk' import actionLink %}
+
+        {{ actionLink({
+          "text": "Start journey",
+          "href": "change-add-servs/order-5-4-2-edit-additional-service-2"
+        }) }}
+
+        <hr />
+
+        <h3>Scenario 3</h3>
+        <ol>
+          <li>Buyer removes Document Management</li>
+          <li>Buyer adds Extract Services</li>
+          <li>Document Management is defaulted as it has been updated previously, Extract services is not updated</li>
+        </ol>
+        
+          {% from 'action-link/macro.njk' import actionLink %}
+
+          {{ actionLink({
+            "text": "Start journey",
+            "href": "change-add-servs-replace/order-5-4-2-edit-additional-service-2"
+          }) }}
+
+        <br />
+
+
+
+
+
+        
+      </div>
+    </div>
+    <br/><br/>
+
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,253 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../competition-tasklist",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Are you ready to view the results for this competition?<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Your competition 
+    </span></h1>
+
+    <p class="nhsuk-lede-text">Review the information you’ve added for this competition. If you’re happy, you can view your results and see your winning solution.</p>
+
+    {{ warningCallout({
+      "heading": "Viewing your results",
+      "HTML": "<p>Viewing your results means you’ll no longer be able to make any changes to the information you’ve provided and this competition will be complete.</p><p>You can then order your winning solution.</p>"
+    }) }}
+
+    <h2>Review your non-price scoring</h2>
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">Online and video consult
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+
+        {{ table({
+          panel: false,
+          caption: "Non-price element scoring",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Non-price element"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Implementation"
+              },
+              {
+                text: "5"
+              }
+            ],
+            [
+              {
+                text: "Interoperability"
+              },
+              {
+                text: "4"
+              }
+            ],
+            [
+              {
+                text: "Service level"
+              },
+              {
+                text: "4"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Price"
+              },
+              value: {
+                text: "£65,589"
+              }
+            }
+          ]
+        }) }}
+
+      </div>
+    </div>
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">Q Doctor
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            MyMed Ltd
+          </span>
+        </h3>
+
+        {{ table({
+          panel: false,
+          caption: "Non-price element scoring",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Non-price element"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Implementation"
+              },
+              {
+                text: "3"
+              }
+            ],
+            [
+              {
+                text: "Interoperability"
+              },
+              {
+                text: "2"
+              }
+            ],
+            [
+              {
+                text: "Service level"
+              },
+              {
+                text: "4"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Price"
+              },
+              value: {
+                text: "£50,123"
+              }
+            }
+          ]
+        }) }}
+
+      </div>
+    </div>
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">Engage consult
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            ADDVantage Technologies
+          </span>
+        </h3>
+
+        {{ table({
+          panel: false,
+          caption: "Non-price element scoring",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Non-price element"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Implementation"
+              },
+              {
+                text: "4"
+              }
+            ],
+            [
+              {
+                text: "Interoperability"
+              },
+              {
+                text: "2"
+              }
+            ],
+            [
+              {
+                text: "Service level"
+              },
+              {
+                text: "3"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Price"
+              },
+              value: {
+                text: "£62,567"
+              }
+            }
+          ]
+        }) }}
+
+      </div>
+    </div>
+
+    <p>You can <a href="../competition-tasklist">return to your competition tasklist</a> if you need to make any changes to the information you’ve provided. By continuing you’ll no longer be able to make any changes.</p>
+
+    <br>
+
+    <form>
+      {{ button({
+      "text": "View results",
+      "href":"price-non-price"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

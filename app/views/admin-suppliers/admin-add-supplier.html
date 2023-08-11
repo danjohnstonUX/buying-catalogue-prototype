@@ -1,0 +1,266 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-suppliers",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>Add a supplier</h1>
+            <p class="nhsuk-lede-text">Provide information so buyers can learn more about your organisation and get in contact with you.</p>
+
+            <h2>Supplier details</h2>
+
+
+            <form action="admin-supplier" method="post">
+
+            {% from 'input/macro.njk' import input %}
+
+            {{ input({
+              "label": {
+                "text": "Supplier name"
+              },
+              "rows": "10",
+              "hint": {
+                "text": "This is the supplier name as you would like it to appear on the Buying Catalogue."
+              }
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 350 characters remaining</p>
+
+            {{ input({
+              "label": {
+                "text": "Supplier legal name"
+              },
+              "rows": "10",
+              "hint": {
+                "text": "This is the full supplier name that was submitted in the tender response to the GP IT Futures Framework 1 competition."
+              }
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 350 characters remaining</p>
+
+            {{ textarea({
+              id: "reject",
+              name: "reject",
+              label: {
+                text: "About supplier (optional)"
+              },
+              "rows": "10",
+              "hint": {
+                "text": "Provide information about your organisation, for example its ethos, experience and plans for the future."
+              }
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            {{ input({
+              "label": {
+                "text": "Supplier website (optional)"
+              },
+              "rows": "10",
+              "hint": {
+                "text": "Provide a link to your organisation's website."
+              }
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            <h2>Supplier registered address</h2>
+            <p>Provide the registered address that was submitted in the tender response to the GP IT Futures Framework 1 competition.</p>
+
+            {{ input({
+              "label": {
+                "text": "Building and street"
+              },
+              "id": "supplier",
+              "name": "supplier"
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            {{ input({
+              "label": {
+              "text": "Town or city"
+              },
+              "id": "id",
+              "name": "id",
+              "classes": "nhsuk-input--width-10"
+            }) }}
+
+            {{ input({
+              "label": {
+                "text": "County"
+              },
+              "id": "supplier",
+              "name": "supplier"
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            {{ input({
+              "label": {
+                "text": "Postcode"
+              },
+              "id": "supplier",
+              "name": "supplier"
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            {{ input({
+              "label": {
+                "text": "Country"
+              },
+              "id": "supplier",
+              "name": "supplier"
+            }) }}
+            <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            <h2>Supplier contacts</h2>
+
+            <p>Provide the contact details for individuals at your organisation.</p>
+            {{ actionLink({
+              "text": "Add a contact",
+              "href": "admin-add-supplier-contact"
+            }) }}
+
+            {% from 'tables/macro.njk' import table %}
+
+            {{ table({
+              responsive: true,
+              panel: false,
+              caption: "",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Name"
+                },
+                {
+                  text: "Telephone number"
+                },
+                {
+                  text: "Email address"
+                },
+                {
+                  text: ""
+                }
+              ],
+              rows: [
+                [
+                  {
+                    header: "Name",
+                    text: "Mr Test Test"
+                  },
+                  {
+                    header: "Telephone number",
+                    text: "0987654678"
+                  },
+                  {
+                    header: "Email address",
+                    text: "test@test.com"
+                  },
+                  {
+                    header: "Action",
+                    html: '<a href="admin-user">Edit</a>'
+                  }
+                ],
+                [
+                  {
+                    header: "Name",
+                    text: "Mr Test Test2"
+                  },
+                  {
+                    header: "Telephone number",
+                    text: "0987654678"
+                  },
+                  {
+                    header: "Email address",
+                    text: "test2@test.com"
+                  },
+                  {
+                    header: "Action",
+                    html: '<a href="admin-user">Edit</a>'
+                  }
+                ]
+              ]
+            }) }}
+
+            <br />
+            {{ radios({
+              "idPrefix": "contact",
+              "name": "contact",
+
+              "fieldset": {
+                "legend": {
+                  "text": "Supplier status",
+                  "classes": "nhsuk-fieldset__legend--l",
+                  "isPageHeading": "true"
+                }
+              },
+              "hint": {
+                "text": "Select one option."
+              },
+              "items": [
+                {
+                  "value": "approve",
+                  "text": "Active"
+                },
+                {
+                  "value": "reject",
+                  "text": "Inactive"
+                }
+              ]
+            }) }}
+<br />
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

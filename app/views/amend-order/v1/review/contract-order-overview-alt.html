@@ -1,0 +1,865 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+
+  <style>
+  .nhsuk-expander .nhsuk-details__summary > span,
+  .nhsuk-expander .nhsuk-details__summary-text{
+    color:black;
+    text-decoration:none;
+  }
+
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+   background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander{
+   background: none;
+  }
+  </style>
+
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../tasklists/tasklist-start",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Review order summary
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the items you’ve added to your order before completing it. Once the order is completed, you'll be unable to make changes.</p>
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Order ID"
+              },
+              value: {
+                text: "C01001-01"
+              }
+            },
+            {
+              key: {
+                text: "Description"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              }
+            },
+            {
+              key: {
+                text: "Date created"
+              },
+              value: {
+                text: "21 Aug 2022"
+              }
+            },
+            {
+              key: {
+                text: "Call-off Ordering Party"
+              },
+              value: {
+                html: '<p>L Evans</p><p>NHS Hull CCG</p><p>03F</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p>'
+              }
+            },
+            {
+              key: {
+                text: "Supplier"
+              },
+              value: {
+                html: '<p>L Ec</p><p>Caltech Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p>'
+              }
+            },
+            {
+              key: {
+                text: "Approximate start date"
+              },
+              value: {
+                html: '1 Sept 2022'
+              }
+            },
+            {
+              key: {
+                text: "Initial period"
+              },
+              value: {
+                html: '6 months'
+              }
+            },
+            {
+              key: {
+                text: "Maximum term"
+              },
+              value: {
+                html: '36 months'
+              }
+            },
+            {
+              key: {
+                text: "End date"
+              },
+              value: {
+                html: '31 Jul 2025'
+              }
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Catalogue Solution</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary" >
+            <span class="nhsuk-details__summary-text">
+              <b>Caltech Web GP</b>
+            </span>
+            <span style="float:right;">
+              <b>Subtotal:</b> £3,578.40
+            <span>
+          </summary>
+          <div class="nhsuk-details__text">
+
+            <br />
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Service Recipients</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+                  <th role="columnheader" class="" scope="col">
+                    Status
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Service Recipient (ODS code)
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Item ID
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Planned delivery date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New quantity
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >{{ tag({
+                    text: "Amended",
+                    classes: "nhsuk-tag--orange"
+                  })}}</td>
+                  <td class="nhsuk-table__cell">Assura ER LLP Hull Dermatology (Y03508)</td>
+                  <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-1</td>
+                  <td class="nhsuk-table__cell" >01 January 2023</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">670</td>
+
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >{{ tag({
+                    text: "Amended",
+                    classes: "nhsuk-tag--orange"
+                  })}}</td>
+                  <td class="nhsuk-table__cell">Bevan Limited (Y03508)</td>
+                  <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-2</td>
+                  <td class="nhsuk-table__cell" >01 January 2023</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">800</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >{{ tag({
+                    text: "Added",
+                    classes: "nhsuk-tag--blue"
+                  })}}</td>
+                  <td class="nhsuk-table__cell">CHP Ltd - Bransholme (B81002)</td>
+                  <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-3</td>
+                  <td class="nhsuk-table__cell" >01 January 2023</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >{{ tag({
+                    text: "Added",
+                    classes: "nhsuk-tag--blue"
+                  })}}</td>
+                  <td class="nhsuk-table__cell">City Health practice (B81074)</td>
+                  <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-4</td>
+                  <td class="nhsuk-table__cell" >01 January 2023</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                  <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" colspan="4" style="text-align: right"><strong>Total</strong></td>
+                  <td class="nhsuk-table__cell">1,370</td>
+                  <td class="nhsuk-table__cell">2,840</td>
+                </tr>
+
+              </tbody>
+              </table>
+
+
+              <table class="nhsuk-table bc-detail">
+                <caption class="nhsuk-table__caption">Pricing</caption>
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row" class="small-text">
+
+                    <th role="columnheader" class="" scope="col">
+                      Price per unit
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Old quantity
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      New quantity
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Old price
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      New price
+                    </th>
+                  </tr>
+                </thead>
+              <tbody class="nhsuk-table__body">
+                <tr>
+                  <td class="nhsuk-table__cell" style="width: 40%">£1.26 per patient per year</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">1,370</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">2,840</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">£1,726.20</td>
+                  <td class="nhsuk-table__cell" style="width: 15%">£3,578.40</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </details>
+
+        <h2>Additional Services</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+           <summary class="nhsuk-details__summary" >
+             <span class="nhsuk-details__summary-text">
+               <b>{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}Caltech Mobile</b>
+             </span>
+             <span style="float:right;">
+               <b>Subtotal:</b> £191.80
+             <span>
+           </summary>
+           <div class="nhsuk-details__text">
+
+             <br />
+             <table class="nhsuk-table bc-detail">
+               <caption class="nhsuk-table__caption">Service Recipients</caption>
+               <thead role="rowgroup" class="nhsuk-table__head">
+                 <tr role="row" class="small-text">
+                   <th role="columnheader" class="" scope="col">
+                     Status
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Service Recipient (ODS code)
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Item ID
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Planned delivery date
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Old quantity
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     New quantity
+                   </th>
+                 </tr>
+               </thead>
+               <tbody class="nhsuk-table__body">
+                 <tr role="row" class="nhsuk-table__row small-text">
+                   <td class="nhsuk-table__cell" >{{ tag({
+                     text: "Added",
+                     classes: "nhsuk-tag--blue"
+                   })}}</td>
+                   <td class="nhsuk-table__cell" >Assura ER LLP Hull Dermatology (Y03508)</td>
+                   <td class="nhsuk-table__cell" >C010009-01-Y07021-1</td>
+                   <td class="nhsuk-table__cell" >01 January 2023</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                 </tr>
+                 <tr role="row" class="nhsuk-table__row small-text">
+                   <td class="nhsuk-table__cell" >{{ tag({
+                     text: "Added",
+                     classes: "nhsuk-tag--blue"
+                   })}}</td>
+                   <td class="nhsuk-table__cell" >Bevan Limited (Y03508)</td>
+                   <td class="nhsuk-table__cell" >C010009-01-Y07021-2</td>
+                   <td class="nhsuk-table__cell" >01 January 2023</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                 </tr>
+                 <tr role="row" class="nhsuk-table__row small-text">
+                   <td class="nhsuk-table__cell" >{{ tag({
+                     text: "Added",
+                     classes: "nhsuk-tag--blue"
+                   })}}</td>
+                   <td class="nhsuk-table__cell" >CHP Ltd - Bransholme (B81002)</td>
+                   <td class="nhsuk-table__cell" >C010009-01-Y07021-3</td>
+                   <td class="nhsuk-table__cell" >01 January 2023</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                 </tr>
+                 <tr role="row" class="nhsuk-table__row small-text">
+                   <td class="nhsuk-table__cell" >{{ tag({
+                     text: "Added",
+                     classes: "nhsuk-tag--blue"
+                   })}}</td>
+                   <td class="nhsuk-table__cell" >City Health practice (B81074)</td>
+                   <td class="nhsuk-table__cell" >C010009-01-Y07021-4</td>
+                   <td class="nhsuk-table__cell" >01 January 2023</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                 </tr>
+                 <tr role="row" class="nhsuk-table__row small-text">
+                   <td class="nhsuk-table__cell" colspan="4" style="text-align: right"><strong>Total</strong></td>
+                   <td class="nhsuk-table__cell">N/A</td>
+                   <td class="nhsuk-table__cell">2,740</td>
+                 </tr>
+               </tbody>
+               </table>
+
+
+               <table class="nhsuk-table bc-detail">
+                 <caption class="nhsuk-table__caption">Pricing</caption>
+                 <thead role="rowgroup" class="nhsuk-table__head">
+                   <tr role="row" class="small-text">
+
+                     <th role="columnheader" class="" scope="col">
+                       Price per unit
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Old quantity
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       New quantity
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Old price
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       New price
+                     </th>
+                   </tr>
+                 </thead>
+               <tbody class="nhsuk-table__body">
+                 <tr>
+                   <td class="nhsuk-table__cell" style="width:40%">£0.0700 per patient per year</td>
+                   <td class="nhsuk-table__cell" style="width: 15%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 15%">2,740</td>
+                   <td class="nhsuk-table__cell" style="width: 15%">N/A</td>
+                   <td class="nhsuk-table__cell" style="width: 15%">£191.80</td>
+                 </tr>
+               </tbody>
+
+             </table>
+           </div>
+         </details>
+
+         <details class="nhsuk-details nhsuk-expander" open>
+            <summary class="nhsuk-details__summary" >
+              <span class="nhsuk-details__summary-text">
+                <b>Automated Arrivals</b>
+              </span>
+              <span style="float:right;">
+                <b>Subtotal:</b> £12,000
+              <span>
+            </summary>
+            <div class="nhsuk-details__text">
+
+              <br />
+              <table class="nhsuk-table bc-detail">
+                <caption class="nhsuk-table__caption">Service Recipients</caption>
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row" class="small-text">
+                    <th role="columnheader" class="" scope="col">
+                      Status
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Service Recipient (ODS code)
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Item ID
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Planned delivery date
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Quantity
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+                  <tr role="row" class="nhsuk-table__row small-text">
+                    <td class="nhsuk-table__cell" ></td>
+                    <td class="nhsuk-table__cell " >Assura ER LLP Hull Dermatology (Y03508)</td>
+                    <td class="nhsuk-table__cell" >C010009-01-Y07021-1</td>
+                    <td class="nhsuk-table__cell" >01 January 2023</td>
+                    <td class="nhsuk-table__cell" >N/A</td>
+                  </tr>
+                  <tr role="row" class="nhsuk-table__row small-text">
+                    <td class="nhsuk-table__cell" ></td>
+                    <td class="nhsuk-table__cell" >Bevan Limited (Y03508)</td>
+                    <td class="nhsuk-table__cell" >C010009-01-Y07021-2</td>
+                    <td class="nhsuk-table__cell" >01 January 2023</td>
+                    <td class="nhsuk-table__cell" >N/A</td>
+                  </tr>
+                  <tr role="row" class="nhsuk-table__row small-text">
+                    <td class="nhsuk-table__cell" >{{ tag({
+                      text: "Added",
+                      classes: "nhsuk-tag--blue"
+                    })}}</td>
+                    <td class="nhsuk-table__cell" >CHP Ltd - Bransholme (B81002)</td>
+                    <td class="nhsuk-table__cell" >C010009-01-Y07021-3</td>
+                    <td class="nhsuk-table__cell" >01 January 2023</td>
+                    <td class="nhsuk-table__cell" >N/A</td>
+                  </tr>
+                  <tr role="row" class="nhsuk-table__row small-text">
+                    <td class="nhsuk-table__cell" >{{ tag({
+                      text: "Added",
+                      classes: "nhsuk-tag--blue"
+                    })}}</td>
+                    <td class="nhsuk-table__cell" >City Health practice (B81074)</td>
+                    <td class="nhsuk-table__cell" >C010009-01-Y07021-4</td>
+                    <td class="nhsuk-table__cell" >01 January 2023</td>
+                    <td class="nhsuk-table__cell" >N/A</td>
+                  </tr>
+
+                </tbody>
+                </table>
+
+
+                <table class="nhsuk-table bc-detail">
+                  <caption class="nhsuk-table__caption">Pricing</caption>
+                  <thead role="rowgroup" class="nhsuk-table__head">
+                    <tr role="row" class="small-text">
+
+                      <th role="columnheader" class="" scope="col">
+                        Price per unit
+                      </th>
+                      <th role="columnheader" class="" scope="col">
+                        Old quantity
+                      </th>
+                      <th role="columnheader" class="" scope="col">
+                        New quantity
+                      </th>
+                      <th role="columnheader" class="" scope="col">
+                        Old price
+                      </th>
+                      <th role="columnheader" class="" scope="col">
+                        New price
+                      </th>
+                    </tr>
+                  </thead>
+                <tbody class="nhsuk-table__body">
+                  <tr>
+                    <td class="nhsuk-table__cell" style="width: 40%">£3,000 per item</td>
+                    <td class="nhsuk-table__cell" style="width: 15%">2</td>
+                    <td class="nhsuk-table__cell" style="width: 15%">4</td>
+                    <td class="nhsuk-table__cell" style="width: 15%">£6,000</td>
+                    <td class="nhsuk-table__cell" style="width: 15%">£12,000</td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander" open>
+             <summary class="nhsuk-details__summary" >
+               <span class="nhsuk-details__summary-text">
+                 <b>Document Management</b>
+               </span>
+               <span style="float:right;">
+                 <b>Subtotal:</b> £6,576.00
+               <span>
+             </summary>
+             <div class="nhsuk-details__text">
+
+               <br />
+               <table class="nhsuk-table bc-detail">
+                 <caption class="nhsuk-table__caption">Service Recipients</caption>
+                 <thead role="rowgroup" class="nhsuk-table__head">
+                   <tr role="row" class="small-text">
+                     <th role="columnheader" class="" scope="col">
+                       Status
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Service Recipient (ODS code)
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Item ID
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Planned delivery date
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       Old quantity
+                     </th>
+                     <th role="columnheader" class="" scope="col">
+                       New quantity
+                     </th>
+                   </tr>
+                 </thead>
+                 <tbody class="nhsuk-table__body">
+                   <tr role="row" class="nhsuk-table__row small-text">
+                     <td class="nhsuk-table__cell" ></td>
+                     <td class="nhsuk-table__cell">Assura ER LLP Hull Dermatology (Y03508)</td>
+                     <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-1</td>
+                     <td class="nhsuk-table__cell" >01 January 2023</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">620</td>
+
+                   </tr>
+                   <tr role="row" class="nhsuk-table__row small-text">
+                     <td class="nhsuk-table__cell" ></td>
+                     <td class="nhsuk-table__cell">Bevan Limited (Y03508)</td>
+                     <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-2</td>
+                     <td class="nhsuk-table__cell" >01 January 2023</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                   </tr>
+                   <tr role="row" class="nhsuk-table__row small-text">
+                     <td class="nhsuk-table__cell" >{{ tag({
+                       text: "Added",
+                       classes: "nhsuk-tag--blue"
+                     })}}</td>
+                     <td class="nhsuk-table__cell">CHP Ltd - Bransholme (B81002)</td>
+                     <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-3</td>
+                     <td class="nhsuk-table__cell" >01 January 2023</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">620</td>
+                   </tr>
+                   <tr role="row" class="nhsuk-table__row small-text">
+                     <td class="nhsuk-table__cell" >{{ tag({
+                       text: "Added",
+                       classes: "nhsuk-tag--blue"
+                     })}}</td>
+                     <td class="nhsuk-table__cell">City Health practice (B81074)</td>
+                     <td class="nhsuk-table__cell" style="width: 10%">C010009-01-Y07021-4</td>
+                     <td class="nhsuk-table__cell" >01 January 2023</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">N/A</td>
+                     <td class="nhsuk-table__cell" style="width: 5%">750</td>
+                   </tr>
+                   <tr role="row" class="nhsuk-table__row small-text">
+                     <td class="nhsuk-table__cell" colspan="4" style="text-align: right"><strong>Total</strong></td>
+                     <td class="nhsuk-table__cell">1,370</td>
+                     <td class="nhsuk-table__cell">2,740</td>
+                   </tr>
+
+                 </tbody>
+                 </table>
+
+
+                 <table class="nhsuk-table bc-detail">
+                   <caption class="nhsuk-table__caption">Pricing</caption>
+                   <thead role="rowgroup" class="nhsuk-table__head">
+                     <tr role="row" class="small-text">
+
+                       <th role="columnheader" class="" scope="col">
+                         Price per unit
+                       </th>
+                       <th role="columnheader" class="" scope="col">
+                         Old quantity
+                       </th>
+                       <th role="columnheader" class="" scope="col">
+                         New quantity
+                       </th>
+                       <th role="columnheader" class="" scope="col">
+                         Old price
+                       </th>
+                       <th role="columnheader" class="" scope="col">
+                         New price
+                       </th>
+
+                     </tr>
+                   </thead>
+                 <tbody class="nhsuk-table__body">
+                   <tr>
+                     <td class="nhsuk-table__cell" style="width:40%">£2.40 per patient per year</td>
+                     <td class="nhsuk-table__cell" style="width:15%">1,370</td>
+                     <td class="nhsuk-table__cell" style="width:15%">2,740</td>
+                     <td class="nhsuk-table__cell" style="width:15%">£3,288</td>
+                     <td class="nhsuk-table__cell" style="width:15%">£6,576</td>
+                   </tr>
+                 </tbody>
+
+               </table>
+             </div>
+           </details>
+
+           <!--{{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Previous one-off cost:"
+                 },
+                 value: {
+                   text: "£6,000.00"
+                 },
+                 actions: {
+                   items: [
+
+                   ]
+                 }
+               },
+               {
+                 key: {
+                   text: "Added one-off cost:"
+                 },
+                 value: {
+                   text: "£6,000.00"
+                 },
+                 actions: {
+                   items: [
+
+                   ]
+                 }
+               },
+               {
+                 key: {
+                   text: "Total one-off cost:"
+                 },
+                 value: {
+                   text: "£12,000.00"
+                 },
+                 actions: {
+                   items: [
+
+                   ]
+                 }
+               },
+               {
+                 key: {
+                   text: "Added one-off cost payable:"
+                 },
+                 value: {
+                   text: "£6,000.00"
+                 },
+                 actions: {
+                   items: [
+
+                   ]
+                 }
+               }
+             ]
+           }) }}
+
+           {{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Previous monthly cost:"
+                 },
+                 value: {
+                   text: "£417.85"
+                 },
+                 actions: {
+                   items: [
+                   ]
+                 }
+               },
+               {
+                 key: {
+                   text: "Added monthly cost:"
+                 },
+                 value: {
+                   text: "£851.69"
+                 },
+                 actions: {
+                   items: [
+                   ]
+                 }
+               }
+             ]
+           }) }}
+
+           {{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Previous cost per year:"
+                 },
+                 value: {
+                   text: "£5,014.20"
+                 },
+                 actions: {
+                   items: [
+                   ]
+                 }
+               },
+               {
+                 key: {
+                   text: "Added cost per year:"
+                 },
+                 value: {
+                   text: "£10,220.20"
+                 },
+                 actions: {
+                   items: [
+                   ]
+                 }
+               }
+             ]
+           }) }}
+
+           {{ summaryList({
+             rows: [
+
+               {
+                 key: {
+                   text: "Added total cost of contract (36 months):"
+                 },
+                 value: {
+                   text: "£42,660.60"
+                 },
+                 actions: {
+                   items: [
+
+                   ]
+                 }
+               }
+             ]
+          }) }}-->
+
+          <br />
+
+          {{ table({
+            responsive: true,
+            panel: false,
+            caption: "Indicative costs",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Cost type"
+              },
+              {
+                text: "Old cost"
+              },
+              {
+                text: "New cost"
+              }
+            ],
+            rows: [
+              [
+                {
+                  header: "Cost type",
+                  text: "One-off"
+                },
+                {
+                  header: "Old cost",
+                  text: "£6,000"
+                },
+                {
+                  header: "New cost",
+                  text: "£12,000"
+                }
+              ],
+              [
+                {
+                  header: "Cost type",
+                  text: "Monthly"
+                },
+                {
+                  header: "Old cost",
+                  text: "£417.85"
+                },
+                {
+                  header: "New cost",
+                  text: "£851.69"
+                }
+              ],
+              [
+                {
+                  header: "Cost type",
+                  text: "Yearly"
+                },
+                {
+                  header: "Old cost",
+                  text: "£5,014.20"
+                },
+                {
+                  header: "New cost",
+                  text: "£10,220.20"
+                }
+              ],
+              [
+                {
+                  header: "Cost type",
+                  html: "<strong>Total</strong>"
+                },
+                {
+                  header: "Old cost",
+                  text: "£21,042.60"
+                },
+                {
+                  header: "New cost",
+                  text: "£41,809.15"
+                }
+              ]
+            ]
+            }) }}
+
+      </div>
+    </div>
+
+    <br />
+
+        {{ button({
+          "text": "Continue",
+          "href":"contract-overview"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

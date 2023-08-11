@@ -1,0 +1,491 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+    <style>
+      .nhsuk-expander .nhsuk-details__summary > span,
+      .nhsuk-expander .nhsuk-details__summary-text {
+        color: black;
+        text-decoration: none;
+      }
+
+      .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+        background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+      }
+
+      .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before {
+        background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+      }
+
+      .nhsuk-expander {
+        background: none;
+      }
+    </style>
+
+  {% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "contract-order-overview",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Contract overview
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the contract information you’ve added to your order before completing it. Once the order summary is completed, you'll be unable to make changes.</p>
+
+        <details class="nhsuk-details nhsuk-expander" open="open">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Security measures</h2>
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <br/>
+            {{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Security measures required?"
+                 },
+                 value: {
+                   text: "Yes"
+                 }
+               },
+               {
+                 key: {
+                   text: "Security measures description"
+                 },
+                 value: {
+                   text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                 }
+               }
+             ]
+           }) }}
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open="open">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Implementation plan</h2>
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <br/>
+            {{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Bespoke implementation plan?"
+                 },
+                 value: {
+                   text: "Yes"
+                 }
+               }
+             ]
+           }) }}
+           <br />
+           {{ table({
+             panel: false,
+             caption: "Milestone payment triggers",
+             firstCellIsHeader: false,
+             head: [
+               {
+                 text: "Milestone name"
+               },
+               {
+                 text: "Milestone payments trigger"
+               }
+             ],
+             rows: [
+               [
+                 {
+                   text: "Milestone 1: Go Live"
+                 },
+                 {
+                   text: "No payment."
+                 }
+               ],
+               [
+                 {
+                   text: "Milestone 2: Service Stability"
+                 },
+                 {
+                   text: "Charges commence on achievement of Milestone 1, but payments will not be made until Milestone 2 is achieved."
+                 }
+               ]
+             ]
+            }) }}
+            <br />
+            {{ table({
+              panel: false,
+              caption: "Milestone 1: Go Live",
+              firstCellIsHeader: false,
+              head: [
+
+                {
+                  text: "Acceptance criteria"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  }
+                ],
+                [
+                  {
+                    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+                  }
+                ],
+                [
+                  {
+                    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+                  }
+                ],
+                [
+                  {
+                    text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                  }
+                ]
+              ]
+            }) }}
+
+            <hr />
+
+            {{ table({
+            panel: false,
+            caption: "Milestone 2: Service Stability",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Acceptance criteria"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                }
+              ],
+              [
+                {
+                  text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+                }
+              ],
+              [
+                {
+                  text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+                }
+              ],
+              [
+                {
+                  text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                }
+              ]
+            ]
+          }) }}
+
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+         <summary class="nhsuk-details__summary" >
+           <span class="nhsuk-details__summary-text">
+             <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Associated Services billing and requirements</h2>
+           </span>
+         </summary>
+         <div class="nhsuk-details__text">
+           <br />
+           {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Associated Services to be billed once a milestone achieved?"
+                  },
+                  value: {
+                    text: "Yes"
+                  }
+                }
+              ]
+            }) }}
+            <br />
+            <h3>Associated Services billing</h3>
+
+           {{ table({
+             panel: false,
+             caption: "Implementation",
+             firstCellIsHeader: false,
+             head: [
+               {
+                 text: "Milestone"
+               },
+               {
+                 text: "Units"
+               }
+             ],
+             rows: [
+               [
+                 {
+                   text: "Milestone 1"
+                 },
+                 {
+                   text: "50 of 100"
+                 }
+               ],
+               [
+                 {
+                   text: "Milestone 2"
+                 },
+                 {
+                   text: "25 of 100"
+                 }
+               ],
+               [
+                 {
+                   text: "Billing on invoice"
+                 },
+                 {
+                   text: "25 of 100"
+                 }
+               ]
+             ]
+           }) }}
+
+           {{ table({
+             panel: false,
+             caption: "Training",
+             firstCellIsHeader: false,
+             head: [
+               {
+                 text: "Milestone"
+               },
+               {
+                 text: "Units"
+               }
+             ],
+             rows: [
+               [
+                 {
+                   text: "Milestone 1"
+                 },
+                 {
+                   text: "50 of 100"
+                 }
+               ],
+               [
+                 {
+                   text: "Billing on invoice"
+                 },
+                 {
+                   text: "50 of 100"
+                 }
+               ]
+             ]
+           }) }}
+
+           <h3>Associated Services requirements</h3>
+
+           {{ summaryList({
+             rows: [
+               {
+                 key: {
+                   text: "Specific requirements required?"
+                 },
+                 value: {
+                   text: "Yes"
+                 }
+               },
+               {
+                 key: {
+                   text: "Requirements detailed in implementation plan?"
+                 },
+                 value: {
+                   text: "No"
+                 }
+               },
+               {
+                 key: {
+                   text: "Name of document where requirements are detailed"
+                 },
+                 value: {
+                   text: "'supporting-document-1'"
+                 }
+               }
+             ]
+           }) }}
+
+         </div>
+       </details>
+
+        <details class="nhsuk-details nhsuk-expander" open="open">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Data processing information</h2>
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <br/>
+            {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Changes to default data processing information?"
+                  },
+                  value: {
+                    text: "Yes"
+                  }
+                }
+              ]
+            }) }}
+
+            {{ table({
+              panel: false,
+              caption: "Default Catalogue Solution Personal Data Processing Information",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Description"
+                },
+                {
+                  text: "Details"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Catalogue Solution Name"
+                  },
+                  {
+                    text: "Caltech Web GP"
+                  }
+                ],
+                [
+                  {
+                    text: "Subject matter of the processing"
+                  },
+                  {
+                    text: "Health & Social Care data to support the online video consultation platform with integrated healthcare specific workflows."
+                  }
+                ],
+                [
+                  {
+                    text: "Duration of the processing"
+                  },
+                  {
+                    text: "A Patients name and contact details, along with all recorded consultations and associated data and communications relating to consultations are kept on the Caltech platform for audit and reference for 12 months as standard, more on agreement."
+                  }
+                ],
+                [
+                  {
+                    text: "Nature and purposes of the processing"
+                  },
+                  {
+                    text: "Provides citizen with a secure place to store some of their Personal Health Data and share with Health Care professionals for analysis and consultation. Additionally, to provide online video conferencing facilities for Health Care consultations."
+                  }
+                ],
+                [
+                  {
+                    text: "Type of Personal Data"
+                  },
+                  {
+                    html: "<p><strong>Personal Data (GDPR Category 6): </strong>The Caltech Web GP Platform utilises the following Category 6 data items - Email address, User password, First name, Last name, Company name (optional to provide), Mobile / Company phone number (optional to provide),Profile picture (optional to provide)</p>
+                    <br />
+                    <p><strong>Special Data (GDPR Category 9): </strong>freeform notes taken by the clinician may include racial or ethnic origin, health data, data concerning a person’s sex life and data concerning a person’s sexual orientation.</p>"
+                  }
+                ],
+                [
+                  {
+                    text: "Categories of Data Subjects"
+                  },
+                  {
+                    text: "Private Citizens"
+                  }
+                ],
+                [
+                  {
+                    text: "Plan for return and destruction of the data once the Processing is complete"
+                  },
+                  {
+                    text: "The Caltech Web GP Platform is built and hosted on Amazon Web Services (AWS), all data at rest is stored in an encrypted form using a minimum 128-bit AES encryption keys. When processing is complete Caltech utilises AWS services for the deletion of encrypted consultation archives using the AWS Management Console. AWS is GDPR compliant."
+                  }
+                ]
+              ]
+            }) }}
+
+            {{ table({
+              panel: false,
+              caption: "Variations added",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Variation description"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+        </details>
+
+        <hr />
+
+        <h2 class="nhsuk-heading-m">Preview order summary</h2>
+
+        <p>You can download and review your order summary with colleagues before marking it complete.</p>
+
+        {{ button({
+          "text": "Download contract preview PDF",
+          "classes": "nhsuk-button--secondary",
+          "href":"javascript: sendForm();"
+        }) }}
+
+        <br />
+
+        <h2 class="nhsuk-heading-m">Complete order summary</h2>
+
+        <p>If you’re happy with your order summary, you can mark it complete. Once you’ve done this, you'll be unable to make changes.</p>
+
+        <br />
+
+        {{ button({
+          "text": "Complete order summary",
+          "href":"post-order-guidance"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,396 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-full-width.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .app-width-container--full {
+    margin: 0;
+    max-width: none
+  }
+
+  .app-homepage .nhsuk-section:nth-of-type(even) {
+    background: #fff
+  }
+
+  .section-content {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+</style>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        {{ backLink({
+        "href": "index",
+        "text": "Go back"
+        }) }}
+
+        <h1>Compare Client application type</h1>
+        <p class="nhsuk-lede-text">
+          Lorem ipsum dolor sit amet consectutor.
+        </p>
+
+        <h2>
+          Your criteria
+        </h2>
+
+        <h3>Desktop application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Windows 8.1 Professional & above (32/64 bit)
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Connectivity
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              2Mbps
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <h3>Mobile or tablet application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Apple iOS<br>Android
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>Online and Video Consult</h2>
+
+        <h3>Desktop application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Windows 8.1 Professional & above (32/64 bit)
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Connectivity
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              2Mbps
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <h3>Mobile or tablet application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Apple iOS<br>Android
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>Q Doctor</h2>
+
+        <h3>Desktop application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Windows 8.1 Professional & above (32/64 bit)
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Connectivity
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              2Mbps
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <h3>Mobile or tablet application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Apple iOS<br>Android
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>Engage Consult</h2>
+
+        <h3>Desktop application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Windows 8.1 Professional & above (32/64 bit)
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Connectivity
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              2Mbps
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <h3>Mobile or tablet application</h3>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Operating system
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Apple iOS<br>Android
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Memory size
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>256MB</p>
+            </dd>
+
+          </div>
+
+        </dl>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+
+        <br>
+
+        <a class="nhsuk-button" href="compare-dashboard">Save and continue</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

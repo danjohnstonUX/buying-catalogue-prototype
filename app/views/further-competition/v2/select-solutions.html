@@ -1,0 +1,302 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [
+],
+href: "/",
+text: "Home"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Select your Catalogue Solutions</h1>
+    <p class="nhsuk-lede-text">
+      Choose the Catalogue Solutions you would like to proceed with as part of the Further Competition process
+    </p>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>
+          <a href="#">Online and Video Consult</a>
+        </h2>
+
+        <h3>Caltech Health</h3>
+
+        <p>Our online triaging system allows patients to easily access self-help advice, and fill out forms containing
+          their requests and queries that go into their practice's workflow. Helping to improve access to services,
+          Online Consult is configurable, and integrates with all leading GP Clinical Systems.</p>
+
+        <h4>Framework</h4>
+
+        <p>GP IT Futures</p>
+
+        {{ checkboxes({
+          "idPrefix": "compare",
+          "name": "compare-1",
+          "fieldset": {
+            "legend": {
+              "text": "Compete this Catalogue Solution",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: false
+            }
+          },
+          "items": [
+            {
+              "value": "compare-1",
+              "text": "Select this Catalogue Solution to take to Further Competition",
+              id: "compare-1"
+            }
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="category-list">
+          <h3>Capabilities</h3>
+          <ul>
+
+            <li>e-Consultations (Patient/Service User to Professional)</li>
+
+            <li>Appointments Management – COVID-19 Vaccinations</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>
+          <a href="#">Q Doctor</a>
+        </h2>
+
+        <h3>MyMed Ltd</h3>
+
+        <p>Q health is a secure video consultation platform and appointment booking platform used around the NHS,
+          enabling digital appointment booking (including COVID-19 vaccination appointment management) and remote
+          consultations between clinicians and patients. </p>
+
+        <h4>Framework</h4>
+
+        <p>GP IT Futures</p>
+
+        {{ checkboxes({
+          "idPrefix": "compare",
+          "name": "compare-1",
+          "fieldset": {
+            "legend": {
+              "text": "Compete this Catalogue Solution",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: false
+            }
+          },
+          "items": [
+            {
+              "value": "compare-1",
+              "text": "Select this Catalogue Solution to take to Further Competition",
+              id: "compare-1"
+            }
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="category-list">
+          <h3>Capabilities</h3>
+          <ul>
+
+            <li>e-Consultations (Patient/Service User to Professional)</li>
+
+            <li>Appointments Management – COVID-19 Vaccinations</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>
+          <a href="#">healthya Online and Video Consultation</a>
+        </h2>
+
+        <h3> ADDVantage Technologies </h3>
+
+        <p>Healthya provides a seamless and flexible secure online video consultation platform to supplement NHS
+          Systems. Patients connect to the NHS Health / Care Professional using the user friendly healthya app. The
+          intuitive app is free for NHS patients and integrates with NHS provider services. </p>
+
+        <h4>Framework</h4>
+
+        <p>GP IT Futures</p>
+
+        {{ checkboxes({
+          "idPrefix": "compare",
+          "name": "compare-1",
+          "fieldset": {
+            "legend": {
+              "text": "Compete this Catalogue Solution",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: false
+            }
+          },
+          "items": [
+            {
+              "value": "compare-1",
+              "text": "Select this Catalogue Solution to take to Further Competition",
+              id: "compare-1"
+            }
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="category-list">
+          <h3>Capabilities</h3>
+          <ul>
+
+            <li>e-Consultations (Patient/Service User to Professional)</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2>
+          <a href="#">Engage Consult</a>
+        </h2>
+
+        <h3> Engage Health Systems Limited </h3>
+
+        <p>Engage Consult allows patients to communicate securely and safely online with their practice about
+          non-emergency medical conditions or admin questions. The solution offers 24/7 access to self-help information,
+          other local NHS and self-care services. </p>
+
+        <h4>Framework</h4>
+
+        <p>GP IT Futures</p>
+
+        {{ checkboxes({
+          "idPrefix": "compare",
+          "name": "compare-1",
+          "fieldset": {
+            "legend": {
+              "text": "Compete this Catalogue Solution",
+              "classes": "nhsuk-fieldset__legend--s",
+              isPageHeading: false
+            }
+          },
+          "items": [
+            {
+              "value": "compare-1",
+              "text": "Select this Catalogue Solution to take to Further Competition",
+              id: "compare-1"
+            }
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-third">
+        <div class="category-list">
+          <h3>Capabilities</h3>
+          <ul>
+
+            <li>e-Consultations (Patient/Service User to Professional)</li>
+
+            <li>Appointments Management – COVID-19 Vaccinations</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="select-criteria">
+          {% from 'button/macro.njk' import button %}
+          {{ button({
+          "text": "Continue",
+          "classes": "nhsuk-button"
+          }) }}
+        </form>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

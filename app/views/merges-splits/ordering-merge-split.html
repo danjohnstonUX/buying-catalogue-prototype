@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<script>
+  function sendForm() {
+    var merge = document.getElementById("merge-split-1").checked ? document.getElementById("merge-split-1").value : "";
+    var split = document.getElementById("merge-split-2").checked ? document.getElementById("merge-split-2").value : "";
+
+    if (merge == "yes-merge") {
+      document.location.href = "merge/select-recipients";
+    }
+    else if (split == "yes-split") {
+      document.location.href = "split/select-recipients";
+    }
+  }
+</script>
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+"href": "../order-4-summary-assoc",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>What type of Associated Service do you want to order?
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C00001-01
+      </span>
+    </h1>
+    <p class="nhsuk-lede-text">Select if you want to order a practice merger or split or something else.</p>
+
+    <form action="javascript: sendForm()">
+
+      <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="merge-split-hint">
+          {# <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h1 class="nhsuk-fieldset__heading">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, excepturi.
+            </h1>
+          </legend> #}
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="merge-split-1" name="merge-split" type="radio" value="yes-merge"
+                aria-describedby="merge-split-1-item-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="merge-split-1">
+                <strong>Merger</strong>
+              </label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="merge-split-1-item-hint">
+                This is where 2 or more practices join to become a single practice with a combined practice list size.
+                
+              </div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="merge-split-2" name="merge-split" type="radio" value="yes-split"
+                aria-describedby="merge-split-2-item-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="merge-split-2">
+                <strong>Split</strong>
+              </label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="merge-split-2-item-hint">
+                This is where 1 practice becomes 2 or more practices and the original practice list is shared between each party.
+                
+                
+              </div>
+            </div>
+
+
+            <div class="nhsuk-radios__item">
+
+              <input class="nhsuk-radios__input" id="merge-split-3" name="merge-split" type="radio" value="no">
+
+              <label class="nhsuk-label nhsuk-radios__label" for="merge-split-3">
+
+                <strong>Something else</strong>
+
+              </label>
+
+<div class="nhsuk-hint nhsuk-radios__hint" id="hint-for-merge">
+  This is for ordering any other type of Associated Service.
+</div>
+
+
+            </div>
+
+          </div>
+        </fieldset>
+
+      </div>
+
+      <br>
+
+      <button class="nhsuk-button" type="submit">
+        Save and continue
+      </button>
+
+
+
+
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

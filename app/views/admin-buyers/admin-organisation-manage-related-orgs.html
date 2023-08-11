@@ -1,0 +1,131 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+
+  {{ backLink({
+    "href": "admin-organisation",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-u-margin-bottom-7">
+          <h1 class="nhsuk-u-margin-bottom-0">Related organisations</h1>
+          <p id="page-heading-org-name" class="nhsuk-caption-xl">Cheshire and Merseyside Commissioning Hub</p>
+        </div>
+
+        <p class="nhsuk-lede-text">View and remove organisations that Cheshire and Merseyside Commissioning Hub can act on behalf of.</p>
+
+      </div>
+
+      <div class="nhsuk-grid-column-full">
+
+        {% from 'tables/macro.njk' import table %}
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Related organisations",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Organisation name"
+            },
+            {
+              text: "ODS code"
+            },
+            {
+              text: ""
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Organisation name",
+                html: 'NHS Bexley CCG'
+              },
+              {
+                header: "ODS code",
+                text: "07N"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag">Approved</strong>'
+              },
+              {
+                html: '<a href="remove-related-org-confirmation">Remove</a>'
+              }
+            ],
+            [
+              {
+                header: "Organisation name",
+                html: 'NHS Berkshire West CCG'
+              },
+              {
+                header: "ODS code",
+                text: "15A"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag nhsuk-tag--grey">Rejected</strong>'
+              },
+              {
+                html: '<a href="remove-related-org-confirmation">Remove</a>'
+              }
+            ],
+            [
+              {
+                header: "Organisation name",
+                html: 'NHS Bedfordshire CCG'
+              },
+              {
+                header: "ODS code",
+                text: "06F"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">Pending</strong>'
+              },
+              {
+                html: '<a href="remove-related-org-confirmation">Remove</a>'
+              }
+            ]
+          ]
+        }) }}
+
+        <br />
+
+        <form action="admin-organisation">
+          {{ button({
+            "text": "Continue"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

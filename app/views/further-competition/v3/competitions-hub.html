@@ -1,0 +1,145 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{{ breadcrumb({
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "buyer-dashboard",
+  text: "Buyer dashboard"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Manage competitions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      GREATER MANCHESTER ICB
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      Create new competitions or view and edit existing ones.
+    </p>
+
+    {{ insetText({
+      "HTML": "<p>In progress competitions will be deleted if no updates are made for 45 days.</p>"
+    }) }}
+
+    {{ actionLink({
+      "text": "Create a new competition",
+      "href": "before-you-start"
+    }) }}
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+
+  {{ table({
+    responsive: true,
+    panel: false,
+    caption: "Competitions for ICB ORGANISATION NAME",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Name"
+      },
+      {
+        text: "Description"
+      },
+      {
+        text: "Last updated"
+      },
+      {
+        text: "Status"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          header: "Filter name",
+          text: "VC procurement Feb 2023"
+        },
+        {
+          header: "Filter description",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+        },
+        {
+          header: "Last updated",
+          text: "15 Feb 2023"
+        },
+        {
+          header: "Status",
+          html: '<nobr><strong class="nhsuk-tag nhsuk-tag--yellow">In progress</strong></nobr>'
+        },
+        {
+          header: "Action",
+          html: "<a href='competition-tasklist'>Edit</a>"
+        }
+      ],
+      [
+        {
+          header: "Filter name",
+          text: "CS procurement Jun 2019"
+        },
+        {
+          header: "Filter description",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+        },
+        {
+          header: "Last updated",
+          text: "15 Feb 2023"
+        },
+        {
+          header: "Status",
+          html: '<nobr><strong class="nhsuk-tag nhsuk-tag--green">Completed</strong></nobr>'
+        },
+        {
+          header: "Action",
+          html: "<a href='#'>View</a>"
+        }
+      ]
+    ]
+  }) }}
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

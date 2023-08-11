@@ -1,0 +1,856 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-full-width.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .app-width-container--full {
+    margin: 0;
+    max-width: none
+  }
+
+  .app-homepage .nhsuk-section:nth-of-type(even) {
+    background: #fff
+  }
+
+  .section-content {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+</style>
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+        "href": "../competition-tasklist",
+        "text": "Go back"
+        }) }}
+
+        <h1>Compare Price</h1>
+        <p class="nhsuk-lede-text">
+          Lorem ipsum dolor sit amet consectutor.
+        </p>
+
+        <h2>
+          Online and Video Consult
+          <span class="nhsuk-caption-l nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h2>
+
+        <h3>List price</h3>
+
+        {{ summaryList({
+        rows: [
+        {
+        key: {
+        text: "List price"
+        },
+        value: {
+        text: "£1.26 per patient per year"
+        }
+        },
+        {
+        key: {
+        text: "Number of Service Recipients"
+        },
+        value: {
+        text: "21,347"
+        }
+        },
+        {
+        key: {
+          text: "Total List Price cost"
+        },
+        value: {
+        html: "£26,897.22"
+        }
+        }
+        ]
+        }) }}
+
+        <br>
+
+        <h3>Additional Services</h3>
+
+        <p>You require the following Additional Services to fulfil your Capabilities and Epics:</p>
+
+        {{ table({
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Additional Services"
+            },
+            {
+              text: "Price per unit"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#'>Document Management</a>"
+              },
+              {
+                text: "£0.1200 per patient per year "
+              }
+            ],
+            [
+              {
+                html: "<a href='#'>Caltech Mobile</a>"
+              },
+              {
+                text: " £0.0700 per patient per year "
+              }
+            ]
+          ]
+        }) }}
+
+        <br>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
+          <caption class="nhsuk-table__caption">Associated Services</caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Associated Service</th>
+              <th role="columnheader" scope="col">Price per unit</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-002">Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,000.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-003">Training Day at Practice</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £650.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-004">Automated Arrivals – Engineering Half Day</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £252.5000 per half day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-005">Enterprise Search and Reports – Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,500.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-006">Automated Arrivals – Installation of wall mounted kiosk, excludes
+                  cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,048.8800 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-007">Automated Arrivals – Specialist Cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £435.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-008">Automated Arrivals – Wall Mount Bracket</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £75.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-036">Engineering</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £595.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-037">Lloyd George digitisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £4.3500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-038">Lloyd George Digitisation (upload only)</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1.2500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-039">Migration</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £3,000.0000 per implementation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-040">Practice Reorganisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 per practice merge/split </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-041">Project Management</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £510.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-182">Document Management Migration </a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 Per migration </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>Q Doctor
+          <span class="nhsuk-caption-l nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            MyMed Ltd
+          </span>
+        </h2>
+
+        <h3>List price</h3>
+
+        {{ summaryList({
+        rows: [
+        {
+        key: {
+        text: "List price"
+        },
+        value: {
+        text: "£1.26 per patient per year"
+        }
+        },
+        {
+        key: {
+        text: "Number of Service Recipients"
+        },
+        value: {
+        text: "21,347"
+        }
+        },
+        {
+        key: {
+        text: "Total List Price cost"
+        },
+        value: {
+        html: "£26,897.22"
+        }
+        }
+        ]
+        }) }}
+
+        <br>
+
+        <h3>Additional Services</h3>
+
+        <p>You do not require any Additional Services from this provider.</p>
+
+        <br>
+
+        <h3>Associated Services</h3>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
+          <caption class="nhsuk-table__caption">Associated Services</caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Associated Service</th>
+              <th role="columnheader" scope="col">Price per unit</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-002">Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,000.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-003">Training Day at Practice</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £650.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-004">Automated Arrivals – Engineering Half Day</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £252.5000 per half day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-005">Enterprise Search and Reports – Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,500.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-006">Automated Arrivals – Installation of wall mounted kiosk, excludes
+                  cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,048.8800 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-007">Automated Arrivals – Specialist Cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £435.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-008">Automated Arrivals – Wall Mount Bracket</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £75.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-036">Engineering</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £595.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-037">Lloyd George digitisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £4.3500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-038">Lloyd George Digitisation (upload only)</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1.2500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-039">Migration</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £3,000.0000 per implementation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-040">Practice Reorganisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 per practice merge/split </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-041">Project Management</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £510.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-182">Document Management Migration </a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 Per migration </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>healthya Online and Video Consultation
+          <span class="nhsuk-caption-l nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            ADDVantage Technologies 
+          </span>
+        </h2>
+
+        <h3>List price</h3>
+
+        {{ summaryList({
+        rows: [
+        {
+        key: {
+        text: "List price"
+        },
+        value: {
+        text: "£1.26 per patient per year"
+        }
+        },
+        {
+        key: {
+        text: "Number of Service Recipients"
+        },
+        value: {
+        text: "21,347"
+        }
+        },
+        {
+        key: {
+        text: "Total List Price cost"
+        },
+        value: {
+        html: "£26,897.22"
+        }
+        }
+        ]
+        }) }}
+
+        <br>
+
+        <h3>Additional Services</h3>
+
+        <p>You do not require any Additional Services from this provider.</p>
+
+        <br>
+
+        <h3>Associated Services</h3>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
+          <caption class="nhsuk-table__caption">Associated Services</caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Associated Service</th>
+              <th role="columnheader" scope="col">Price per unit</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-002">Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,000.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-003">Training Day at Practice</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £650.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-004">Automated Arrivals – Engineering Half Day</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £252.5000 per half day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-005">Enterprise Search and Reports – Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,500.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-006">Automated Arrivals – Installation of wall mounted kiosk, excludes
+                  cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,048.8800 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-007">Automated Arrivals – Specialist Cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £435.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-008">Automated Arrivals – Wall Mount Bracket</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £75.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-036">Engineering</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £595.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-037">Lloyd George digitisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £4.3500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-038">Lloyd George Digitisation (upload only)</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1.2500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-039">Migration</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £3,000.0000 per implementation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-040">Practice Reorganisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 per practice merge/split </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-041">Project Management</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £510.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-182">Document Management Migration </a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 Per migration </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds section-content">
+
+        <h2>
+          Engage Consult
+          <span class="nhsuk-caption-l nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Engage Health Systems Limited 
+          </span>
+        </h2>
+
+        <h3>List price</h3>
+
+        {{ summaryList({
+        rows: [
+        {
+        key: {
+        text: "List price"
+        },
+        value: {
+        text: "£1.26 per patient per year"
+        }
+        },
+        {
+        key: {
+        text: "Number of Service Recipients"
+        },
+        value: {
+        text: "21,347"
+        }
+        },
+        {
+        key: {
+          text: "Total List Price cost"
+        },
+        value: {
+        html: "£26,897.22"
+        }
+        }
+        ]
+        }) }}
+
+        <br>
+
+        <h3>Additional Services</h3>
+
+        <p>You require the following Additional Services to fulfil your Capabilities and Epics:</p>
+
+        {{ table({
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Additional Services"
+            },
+            {
+              text: "Price per unit"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#'>Document Management</a>"
+              },
+              {
+                text: "£0.1200 per patient per year "
+              }
+            ],
+            [
+              {
+                html: "<a href='#'>Engage Mobile</a>"
+              },
+              {
+                text: " £0.0700 per patient per year "
+              }
+            ]
+          ]
+        }) }}
+
+        <br>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-7" role="table">
+          <caption class="nhsuk-table__caption">Associated Services</caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Associated Service</th>
+              <th role="columnheader" scope="col">Price per unit</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-002">Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,000.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-003">Training Day at Practice</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £650.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-004">Automated Arrivals – Engineering Half Day</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £252.5000 per half day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-005">Enterprise Search and Reports – Installation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,500.0000 per installation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-006">Automated Arrivals – Installation of wall mounted kiosk, excludes
+                  cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £2,048.8800 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-007">Automated Arrivals – Specialist Cabling</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £435.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-008">Automated Arrivals – Wall Mount Bracket</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £75.0000 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-036">Engineering</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £595.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-037">Lloyd George digitisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £4.3500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-038">Lloyd George Digitisation (upload only)</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1.2500 per item </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-039">Migration</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £3,000.0000 per implementation </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-040">Practice Reorganisation</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 per practice merge/split </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-041">Project Management</a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £510.0000 per day </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Associated
+                  Service</span><a href="#10000-S-182">Document Management Migration </a></td>
+              <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Price per
+                  unit</span>
+                £1,500.0000 Per migration </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--m" for="input-width-3">
+            What score would you give this Catalogue Solution?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iusto.
+          </div>
+          <input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">
+        </div>
+
+
+      </div>
+    </div>
+
+    <a href="../competition-tasklist" class="nhsuk-button">Save and continue</a>
+
+  </div>
+</section>
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,152 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-full-width.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+
+.section-content {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+</style>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+{{ backLink({
+  "href": "index",
+  "text": "Go back"
+}) }}
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full section-content">
+        <h1>Compare Implementation</h1>
+        <p class="nhsuk-lede-text">
+          Lorem ipsum dolor sit amet consectutor.
+        </p>
+
+        {{ contentsList({
+        items: [
+          {
+            href: "compare-list-price",
+            text: "List price"
+          },
+          {
+            href: "compare-additional-services",
+            text: "Additional Services"
+          },
+          {
+            href: "compare-associated-services",
+            text: "Associated Services"
+          },
+          {
+            href: "compare-capabilities-epics",
+            text: "Capabilties and Epics"
+          },
+          {
+            href: "compare-interoperability",
+            text: "Interoperability"
+          },
+          {
+            href: "compare-implementation",
+            text: "Implementation",
+            current: "true"
+          },
+          {
+            href: "compare-client-application-type",
+            text: "Client application type"
+          },
+          {
+            href: "compare-hosting-type",
+            text: "Hosting type"
+          }
+          ]
+        }) }}
+
+        <div class="nhsuk-grid-column-two-thirds">
+
+          <h2>Online and Video Consult</h2>
+          <p><strong>These are the typical processes and timescales to implement this Catalogue Solution:</strong>
+          </p>
+          <p style="white-space: pre-line">The typical timescales for the implementation of Online and Video Consult are around 12 weeks depending on the patient list size. 
+
+          An implementation plan is provided and agreed at the beginning of the process outlining all key dates and activities. Where required these dates are negotiable to fit the needs of the customer.
+
+          Key activities:
+
+          </p>
+
+          <ul>
+            <li>Customer supplied with high level implementation plan and welcome pack</li>
+            <li>Engineer visit to perform install of client software and check connectivity</li>
+            <li>Customer supplied test data loaded into a test system and made available</li>
+            <li>Learning needs analysis performed &amp; agreed training plan for go-live</li>
+            <li>On site visit to train the customer how to check and cleanse their data</li>
+            <li>Any defects and corrections completed on migrated data</li>
+            <li>Practice sign-off of test data</li>
+            <li>Agreed training provide pre and post go-live in line with results from LNA</li>
+            <li>Go-live day, trainers and engineer onsite to support a smooth transition</li>
+          </ul>
+
+          <h2>Q Doctor</h2>
+          <p>The typical timescales for the implementation of Q Doctor is 6 weeks depending on the patient list size.</p>
+
+          <h2>Engage Consult</h2>
+          <p><strong>These are the typical processes and timescales to implement this Catalogue Solution:</strong>
+          </p>
+          <p style="white-space: pre-line">The typical timescales for the implementation of Engage Consult are around 12 weeks depending on the patient list size. 
+
+          An implementation plan is provided and agreed at the beginning of the process outlining all key dates and activities. Where required these dates are negotiable to fit the needs of the customer.
+
+          Key activities:
+
+          </p>
+
+          <ul>
+            <li>Customer supplied with high level implementation plan and welcome pack</li>
+            <li>Engineer visit to perform install of client software and check connectivity</li>
+            <li>Customer supplied test data loaded into a test system and made available</li>
+            <li>Learning needs analysis performed &amp; agreed training plan for go-live</li>
+            <li>On site visit to train the customer how to check and cleanse their data</li>
+            <li>Any defects and corrections completed on migrated data</li>
+            <li>Practice sign-off of test data</li>
+            <li>Agreed training provide pre and post go-live in line with results from LNA</li>
+            <li>Go-live day, trainers and engineer onsite to support a smooth transition</li>
+          </ul>
+        
+      </div>
+      </div>   
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

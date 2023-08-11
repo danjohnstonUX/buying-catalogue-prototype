@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../order-4-summary-data-processing-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Solutions and services overview
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review your order summary before completing it. Once the order summary is completed, you'll be unable to make changes.</p>
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Order ID"
+              },
+              value: {
+                text: "C01001-01"
+              }
+            },
+            {
+              key: {
+                text: "Description"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              }
+            },
+            {
+              key: {
+                text: "Date created"
+              },
+              value: {
+                text: "24 March 2022"
+              }
+            },
+            {
+              key: {
+                text: "Call-off Ordering Party"
+              },
+              value: {
+                html: '<p>L Evans</p><p>NHS Hull CCG</p><p>03F</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p>'
+              }
+            },
+            {
+              key: {
+                text: "Supplier"
+              },
+              value: {
+                html: '<p>L Ec</p><p>EMIS Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p>'
+              }
+            },
+            {
+              key: {
+                text: "Approximate start date"
+              },
+              value: {
+                html: '1 July 2022'
+              }
+            },
+            {
+              key: {
+                text: "Initial period"
+              },
+              value: {
+                html: '6 months'
+              }
+            },
+            {
+              key: {
+                text: "Maximum term"
+              },
+              value: {
+                html: '36 months'
+              }
+            },
+            {
+              key: {
+                text: "End date"
+              },
+              value: {
+                html: '30 June 2025'
+              }
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+
+        {% include "order-v2/step-3/table-structure.html" %}
+
+      </div>
+    </div>
+
+        {{ button({
+          "text": "Continue",
+          "href":"contract-overview"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

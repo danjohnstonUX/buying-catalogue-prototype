@@ -1,0 +1,104 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "view-solutions",
+      "text": "Go back"
+    }) }}
+
+    <h1>Solutions not included in your shortlist<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      OC/VC competition
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      Provide a justification for why these solutions were not included in your shortlist.
+    </p>
+
+        <h3 class="nhsuk-heading-m">
+          Online and Video Consult
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+
+        {{ textarea({
+          "name": "example",
+          "id": "example",
+          "label": {
+            "text": "Why has this solution not been included in your shortlist?"
+          },
+          "hint": {
+            "text": "For example, it may not adequately meet your requirements or take too long to implement."
+          }
+        }) }}
+
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          Engage Consult
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Engage Health Systems Limited
+          </span>
+        </h3>
+
+        {{ textarea({
+          "name": "example",
+          "id": "example",
+          "label": {
+            "text": "Why has this solution not been included in your shortlist?"
+          },
+          "hint": {
+            "text": "For example, it may not adequately meet your requirements or take too long to implement."
+          }
+        }) }}
+
+
+      </div>
+
+    </div>
+
+
+    <a href="competition-tasklist" class="nhsuk-button">Save and continue</a>
+
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

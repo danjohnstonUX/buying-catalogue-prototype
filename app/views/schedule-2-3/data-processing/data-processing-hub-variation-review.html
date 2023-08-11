@@ -1,0 +1,191 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("accept-amended-dpi-1").checked ? document.getElementById("accept-amended-dpi-1").value : "";
+      var opt2 = document.getElementById("accept-amended-dpi-2").checked ? document.getElementById("accept-amended-dpi-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "../order-4-summary-data-processing-completed";
+      }
+      else if(opt2=="no") {
+          document.location.href = "data-processing-hub-variation-added-2";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "data-processing-hub-variation-added-2",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Review variations to default data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide information on the changes to the default data processing information.</p>
+
+        <h2>Default personal data processing information</h2>
+
+        {{ table({
+          panel: false,
+          caption: "Catalogue Solution Personal Data Processing Information",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Description"
+            },
+            {
+              text: "Details"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Catalogue Solution Name"
+              },
+              {
+                text: "Caltech Web GP"
+              }
+            ],
+            [
+              {
+                text: "Subject matter of the processing"
+              },
+              {
+                text: "Health & Social Care data to support the online video consultation platform with integrated healthcare specific workflows."
+              }
+            ],
+            [
+              {
+                text: "Duration of the processing"
+              },
+              {
+                text: "A Patients name and contact details, along with all recorded consultations and associated data and communications relating to consultations are kept on the Caltech platform for audit and reference for 12 months as standard, more on agreement."
+              }
+            ],
+            [
+              {
+                text: "Nature and purposes of the processing"
+              },
+              {
+                text: "Provides citizen with a secure place to store some of their Personal Health Data and share with Health Care professionals for analysis and consultation. Additionally, to provide online video conferencing facilities for Health Care consultations."
+              }
+            ],
+            [
+              {
+                text: "Type of Personal Data"
+              },
+              {
+                html: "<p><strong>Personal Data (GDPR Category 6): </strong>The Caltech Web GP Platform utilises the following Category 6 data items - Email address, User password, First name, Last name, Company name (optional to provide), Mobile / Company phone number (optional to provide),Profile picture (optional to provide)</p>
+                <br />
+                <p><strong>Special Data (GDPR Category 9): </strong>freeform notes taken by the clinician may include racial or ethnic origin, health data, data concerning a person’s sex life and data concerning a person’s sexual orientation.</p>"
+              }
+            ],
+            [
+              {
+                text: "Categories of Data Subjects"
+              },
+              {
+                text: "Private Citizens"
+              }
+            ],
+            [
+              {
+                text: "Plan for return and destruction of the data once the Processing is complete"
+              },
+              {
+                text: "The Caltech Web GP Platform is built and hosted on Amazon Web Services (AWS), all data at rest is stored in an encrypted form using a minimum 128-bit AES encryption keys. When processing is complete Caltech utilises AWS services for the deletion of encrypted consultation archives using the AWS Management Console. AWS is GDPR compliant."
+              }
+            ]
+          ]
+        }) }}
+
+        <br />
+
+        <h2>Variations you have made</h2>
+
+        {{ table({
+          panel: false,
+          caption: "Variations to the default personal data processing information",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Variation description"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              }
+            ],
+            [
+              {
+                text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            ]
+          ]
+        }) }}
+
+        {{ radios({
+          "idPrefix": "accept-amended-dpi",
+          "name": "accept-amended-dpi",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to proceed using the amended data processing information?",
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I want to make more changes to the data processing information"
+            }
+          ]
+        }) }}
+
+        <br />
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"javascript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

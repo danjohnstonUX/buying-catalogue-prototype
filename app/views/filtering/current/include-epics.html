@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Filter in more details
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="select-criteria"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "epics";
+           break;
+        case "no":
+           document.location.href = "filtered-list";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Filter in more detail</h1>
+
+<p class="nhsuk-lede-text">Select Epics to filter by or view results of Catalogue Solutions with the Capabilities you previously selected.</p>
+
+{{ insetText({
+  "HTML": "<h2 class='nhsuk-heading-s'> What is an Epic? </h2>
+          <p> Each Capability has a set of requirements that are defined using short descriptions called Epics. The more functionality a Catalogue Solution has, the more Epics it will be able to meet for a particular Capability. </p>
+          <p> They can be defined by the NHS or the supplier of a Catalogue Solution. </p>"
+}) }}
+
+{{ radios({
+  "idPrefix": "select-criteria",
+  "name": "select-criteria",
+  "fieldset": {
+    "legend": {
+      "text": "Do you want to filter by Epics?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Filter by Epics"
+    },
+    {
+      "value": "no",
+      "text": "Go to results"
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

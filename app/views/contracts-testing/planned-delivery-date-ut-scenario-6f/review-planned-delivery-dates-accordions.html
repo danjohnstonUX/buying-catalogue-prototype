@@ -1,0 +1,248 @@
+<style>
+.nhsuk-expander .nhsuk-details__summary > span,
+.nhsuk-expander .nhsuk-details__summary-text{
+  color:black;
+  text-decoration:none;
+}
+
+.nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+ background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander{
+ background: none;
+}
+</style>
+
+<style>
+  /* this ccs is for the table-details{number}b files
+  .nhsuk-table-responsive th,
+  tr.small-text th {
+    font-size: 0.842em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td,
+  tr.small-text td {
+    font-size: 0.842em;
+  }
+  .bc-detail {
+    //padding-left: 3em;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .bc-last-row td {
+    border: 0;
+  }
+  .bc-align-right {
+    text-align: right;
+  }
+
+  .bc-detail tr td:last-child,
+  .bc-detail tr th:last-child {
+    padding-right: 1em;
+  } */
+</style>
+
+<h2>Catalogue Solution</h2>
+
+<br />
+  
+  {% from 'action-link/macro.njk' import actionLink %}
+
+{{ actionLink({
+  "text": "Edit planned delivery dates",
+  "href": "12a-edit-planned-delivery-date-emis"
+}) }}
+
+<details class="nhsuk-details nhsuk-expander" open>
+  <summary class="nhsuk-details__summary" >
+    <span class="nhsuk-details__summary-text">
+      <b>Emis Web GP</b>
+    </span>
+    <span style="float:right;">
+      <b>Planned delivery date:</b> 1 September 2022
+    <span>
+  </summary>
+  <br />
+  <div class="nhsuk-details__text">
+    <table class="nhsuk-table">
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Service Recipients
+          </th>
+          <th role="columnheader" class="" scope="col">
+            ODS code
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">EALING GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03985</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">LINCOLN GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03652</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">GILLINGHAM GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03300</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">STREATHAM GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y09167</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">ACTON GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03508</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">MIDDLESBOROUGH GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03992</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">GATESHEAD GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03284</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">HAXBY GROUP HULL</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y02747</td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell" style="width: 75%">CHESTER GP PRACTICE</td>
+          <td class="nhsuk-table__cell" style="width: 25%">Y03128</td>
+        </tr>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">GUILDFORD GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03921</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">EGHAM GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03389</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">SYDENHAM GROUP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">B81058</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+  <br />
+
+  <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Emis Web GP</b>
+      </span>
+      <span style="float:right;">
+        <b>Planned delivery date:</b> 1 October 2022
+      <span>
+    </summary>
+    <br />
+    <div class="nhsuk-details__text">
+      <table class="nhsuk-table">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Service Recipients
+            </th>
+            <th role="columnheader" class="" scope="col">
+              ODS code
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">BROMPTON GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03623</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">LEWES GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03559</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">HILLINGDON GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03018</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">MANCHESTER GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03922</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">DERMATOLOGY CLINIC GPSI</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y00894</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">FARNHAM GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03017</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <br />
+
+  <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Emis Web GP</b>
+      </span>
+      <span style="float:right;">
+        <b>Planned delivery date:</b> 1 November 2022
+      <span>
+    </summary>
+    <br />
+    <div class="nhsuk-details__text">
+      <table class="nhsuk-table">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Service Recipients
+            </th>
+            <th role="columnheader" class="" scope="col">
+              ODS code
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">HALESOWEN GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03762</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">ST ANDREWS SURGERY</td>
+            <td class="nhsuk-table__cell" style="width: 25%">B81027</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">BEVAN LIMITED</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03507</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">GRIMSBY GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">Y03117</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 60%">CRAWLEY GP PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 40%">Y03915</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell" style="width: 75%">JAMES ALEXANDER FAMILY PRACTICE</td>
+            <td class="nhsuk-table__cell" style="width: 25%">B81112</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <br />
+
+  

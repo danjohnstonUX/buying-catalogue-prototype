@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Hosting type
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+
+{{ backLink({
+  "href": "implementation",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Hosting type</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+<form>
+  {{ checkboxes({
+    "idPrefix": "hosting-type",
+    "name": "hosting-type",
+    "fieldset": {
+      "legend": {
+        "text": "Select the hosting types you require",
+        "classes": "nhsuk-fieldset__legend--m",
+        isPageHeading: false
+      }
+    },
+    "hint": {
+      "html": "<p class='nhsuk-u-margin-bottom-2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, nulla.</p>"
+    },
+    "items": [
+      {
+        "value": "public-cloud",
+        "text": "Public cloud"
+      },
+      {
+        "value": "private-cloud",
+        "text": "Private cloud"
+      },
+      {
+        "value": "hybrid",
+        "text": "Hybrid"
+      },
+      {
+        "value": "on-premise",
+        "text": "On premise"
+      }
+    ]
+  }) }}
+</form>
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"sla"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

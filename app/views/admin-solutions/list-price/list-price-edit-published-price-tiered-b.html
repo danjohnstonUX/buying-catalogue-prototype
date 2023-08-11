@@ -1,0 +1,288 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %} {{ breadcrumb({ items: [ ], href: "/", text: "Home" }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+    "href": "./",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>
+          <span role="text">Edit tiered price for per patient for 2-5 care plans
+            <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden">
+                -
+              </span>
+              Caltech Web GP
+            </span>
+          </span>
+        </h1>
+
+        {% set unitofTimeHtml %}
+        {{ select({
+              "id": "select-1",
+              "name": "select-1",
+              "label": {
+                "text": "Billing period (optional)"
+              },
+              "hint": {
+                "text": "Select if it’s a recurring payment either per month or per year."
+              },
+              "items": [
+                {
+                  "value": 1,
+                  "text": "None"
+                },
+
+                {
+                  "value": 3,
+                  "text": "Per month"
+                },
+                {
+                  "value": 4,
+                  "text": "Per year"
+                }
+              ]
+            }) }}
+        {% endset -%}
+
+        {% set unitofTimeCombinedHtml %}
+        {{ radios({
+          "idPrefix": "example",
+          "name": "example",
+          "fieldset": {
+            "legend": {
+              "text": "How are quantities for your solution or service calculated?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "solution",
+              "text": "Per solution or service"
+            },
+            {
+              "value": "service recipient",
+              "text": "Per Service Recipient"
+            }
+          ]
+        }) }}
+
+        {{ select({
+              "id": "select-1",
+              "name": "select-1",
+              "label": {
+                "text": "Billing period (optional)"
+              },
+              "hint": {
+                "text": "Select if it’s a recurring payment either per month or per year."
+              },
+              "items": [
+                {
+                  "value": 1,
+                  "text": "None"
+                },
+            
+                {
+                  "value": 3,
+                  "text": "Per month"
+                },
+                {
+                  "value": 4,
+                  "text": "Per year"
+                }
+              ]
+            }) }}
+        {% endset -%}
+
+
+        {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "Provisioning type",
+            "classes": "nhsuk-fieldset__legend--l"
+          }
+        },
+        "items": [
+          {
+            "value": "1",
+            "text": "Per patient per year",
+            "checked": true
+          },
+          {
+            "value": "4",
+            "text": "Per Service Recipient",
+            "conditional" :{
+              "html": unitofTimeHtml
+            }
+          },
+          {
+            "value": "2",
+            "text": "Declarative",
+            "conditional" :{
+              "html": unitofTimeCombinedHtml
+            }
+          },
+          {
+            "value": "3",
+            "text": "On demand",
+            "conditional" :{
+              "html": unitofTimeCombinedHtml
+            }
+          }
+        ]
+        }) }}
+
+        {{ input({
+          "label": {
+            "text": "Unit"
+          },
+          "hint": {
+            "text": "For example, per consultation, per practice, per licence."
+          },
+          "id": "example",
+          "name": "example"
+        }) }}
+
+        {{ textarea({
+          "name": "example",
+          "id": "example",
+          "label": {
+            "text": "Unit definition (optional)"
+          },
+          "hint": {
+            "text": "For example, if the unit is per day, between what hours?"
+          }
+        }) }}
+
+        {{ insetText({
+          "HTML": "<p>This is a published list price, which means you can only update the price for each tier.</p>
+
+          <p>To edit tier ranges, add further pricing tiers or to delete this price, you must first unpublish this list price.</p>
+
+          <p>You can also <a href='#'>create a new list price</a> populated with the values from this price which you can then edit.</p>
+          <p>The maximum number of tiers you can publish is 5.</p>"
+
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-full">
+
+        <form action="list-price-confirmation" method="get">
+
+          {{ table({
+        responsive: true,
+        panel: false,
+        caption: "Pricing tiers",
+        firstCellIsHeader: false,
+        head: [
+            {
+            text: "Tier"
+            },
+            {
+            text: "Price"
+            },
+            {
+            text: "Range"
+            },
+            {
+            text: "Actions"
+            }
+        ],
+        rows: [
+            [
+                {
+                    text: "Tier 1"
+                },
+                {
+                    text: "£0.1160 per patient per year"
+                },
+                {
+                    text: "1 to 89,999 patients"
+                },
+                {
+                  html: '<a href="list-price-edit-published-pricing-band">Edit</a>'
+                }
+            ],
+            [
+                {
+                    text: "Tier 2"
+                },
+                {
+                    text: "£0.0830 per patient per year"
+                },
+                {
+                    text: "90,000 to 899,999 patients"
+                },
+                {
+                  html: '<a href="list-price-edit-published-pricing-band">Edit</a>'
+                }
+            ],
+            [
+                {
+                    text: "Tier 3"
+                },
+                {
+                    text: "£0.0540  per patient per year"
+                },
+                {
+                    text: "900,000+ patients"
+                },
+                {
+                    html: '<a href="list-price-edit-published-pricing-band">Edit</a>'
+                }
+            ]
+        ]
+        }) }}
+
+          <br/><br/>
+
+          {{ button({
+            "text": "Save and continue"
+          }) }}
+
+          <p>
+            <a href="confirm-unpublish-published-price-tiered" style="color: red;">Unpublish this price</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

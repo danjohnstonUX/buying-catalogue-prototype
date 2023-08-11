@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="order"]:checked').value;
+
+    switch(selectedValue){
+        case "central":
+           document.location.href = "../order-1-guidance";
+           break;
+        case "local":
+           document.location.href = "../order-1-guidance";
+            break;
+    }
+  }
+</script>
+
+{{ backLink({
+  "href": "../order-2-2-triage-under40",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>What funding source are you using to pay for this order?
+          </h1>
+<!-- <p class="nhsuk-lede-text">Select the funding source you’ll be using to pay for this order. If you want to pay using two different sources, you’ll need to create two separate order summaries.</p> -->
+
+
+
+{% call fieldset({
+  legend: {
+  }
+  }) %}
+  {{ hint({
+    "text": "Select the funding source you’ll be using to pay for this order. If you want to pay using two different sources, you’ll need to create two separate order summaries."
+  }) }}
+  {{ radios({
+    "idPrefix": "order",
+    "name": "order",
+    "items": [
+  {
+    "value": "central",
+    "text": "Central funding"
+  },
+  {
+    "value": "local",
+    "text": "Local funding"
+  }
+]
+}) }}
+{% endcall %}
+
+{{ details({
+  "text": "What is central and local funding?",
+  "HTML": "
+  <p><b>Central funding</b></p>
+  <p>Central funding means you’re using your centrally held allocation to pay for the order. Any solutions or services you order will be paid for by either NHS England or NHS Digital. The supplier will invoice the relevant organisation directly.<p/>
+  <p>You should make sure you have enough of your central allocation available to pay for your order before placing it.</p>
+  <p><b>Local funding</b></p>
+  <p>Local funding means your organisation will be paying for the order. The supplier will invoice you directly.</p>
+  "
+}) }}
+
+      <br/>
+      {{ button({
+        "text": "Continue",
+        "href":"javascript: sendForm();"
+      }) }}
+
+      <br />
+      <br />
+
+      <h2>Need help?</h2>
+      <p>We’ve developed a <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1931116641/Executing+a+procurement+a+step+by+step+guide"  target="_blank">step-by-step guide to the procurement process</a> (opens in a new tab).</p>
+      <p>For help using the Buying Catalogue, contact the National and Commercial Procurement Hub:</p>
+
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

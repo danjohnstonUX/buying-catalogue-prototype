@@ -1,0 +1,220 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+  {{ backLink({
+    "href": "./",
+    "text": "Go back"
+  }) }}
+
+    <style>
+        .nhsuk-button--secondary-margin{
+            margin-right:20px;
+        }
+    </style>
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+            <h1>Order summary
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                    <span class="nhsuk-u-visually-hidden"> - </span>
+                    Order C10001-01
+                    </span>
+                </span>
+            </h1>
+            <p class="nhsuk-lede-text">View information about this order.</p>
+            <form method="post" action="index">
+            {{ summaryList({
+                classes: 'nhsuk-summary-list--no-border',
+                rows: [
+                    {
+                    key: {
+                        text: "Organisation"
+                    },
+                    value: {
+                        text: "NHS Hull CCG"
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Order description"
+                    },
+                    value: {
+                        text: "Order for training from Access Point supplier (this user can approve) "
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Last updated by"
+                    },
+                    value: {
+                        text: "Kevin Bacon"
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Supplier"
+                    },
+                    value: {
+                        text: "Emis Health"
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Current status"
+                    },
+                    value: {
+                        html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+                    }
+                    }
+                ]
+                }) }}
+
+                {{ button({
+                "text": "Download order summary PDF",
+                "classes": "nhsuk-button--secondary nhsuk-button--secondary-margin"
+                }) }}
+
+                {{ button({
+                "text": "Download full order CSV",
+                "classes": "nhsuk-button--secondary nhsuk-button--secondary-margin"
+                }) }}
+
+                {{ button({
+                "text": "Download patient only CSV",
+                "classes": "nhsuk-button--secondary nhsuk-button--secondary-margin"
+                }) }}
+
+
+                {{ table({
+                    panel: false,
+                    caption: "Selected solutions and services",
+                    firstCellIsHeader: false,
+                    head: [
+                        {
+                        text: "Solution or service name"
+                        },
+                        {
+                        text: "Type of solution or service"
+                        },
+                        {
+                        text: "Solution framework"
+                        },
+                        {
+                        text: "Funding type"
+                        }
+                    ],
+                    rows: [
+                        [
+                        {
+                            text: "Emis Web GP"
+                        },
+                        {
+                            text: "Catalogue Solution"
+                        },
+                        {
+                            text: "GP IT Futures"
+                        },
+                        {
+                            html: '<strong class="nhsuk-tag nhsuk-tag--green">Central Funding</strong>'
+                        }
+                        ],
+                        [
+                        {
+                            text: "EMIS Mobile"
+                        },
+                        {
+                            text: "Additional Service"
+                        },
+                        {
+                            text: "GP IT Futures"
+                        },
+                        {
+                            html: '<strong class="nhsuk-tag nhsuk-tag--green">Mixed Funding</strong>'
+                        }
+                        ],
+                        [
+                        {
+                            text: "Document Management"
+                        },
+                        {
+                            text: "Additional Service"
+                        },
+                        {
+                            text: "GP IT Futures"
+                        },
+                        {
+                            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">Local Funding</strong>'
+                        }
+                        ],
+                        [
+                        {
+                            text: "Migration"
+                        },
+                        {
+                            text: "Associated Service"
+                        },
+                        {
+                            text: "GP IT Futures"
+                        },
+                        {
+                            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not Started</strong>'
+                        }
+                        ],
+                        [
+                        {
+                            text: "Training"
+                        },
+                        {
+                            text: "Associated Service"
+                        },
+                        {
+                            text: "GP IT Futures"
+                        },
+                        {
+                            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Not Started</strong>'
+                        }
+                        ]
+                    ]
+                    }) }}
+                    {{ button({
+                      "text": "Continue"
+                    }) }}
+
+                    <br />
+
+                    <p><a href="confirm-delete-order" style="color: #d5281b">Delete order</a></p>
+
+          </div>
+        </div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

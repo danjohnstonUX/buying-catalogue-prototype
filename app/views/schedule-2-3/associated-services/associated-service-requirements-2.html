@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("milestone-billing-1").checked ? document.getElementById("milestone-billing-1").value : "";
+      var opt2 = document.getElementById("milestone-billing-2").checked ? document.getElementById("milestone-billing-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "associated-service-billing-1";
+      }
+      else if(opt2=="no") {
+          document.location.href = "order-4-summary-additional-services-completed";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "associated-service-billing-no",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services requirements
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        {{ radios({
+          "idPrefix": "milestone-billing",
+          "name": "milestone-billing-radios",
+          "fieldset": {
+            "legend": {
+              "text": "Are these specific requirements documented in the implementation plan?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+          {
+            "value": "yes",
+            "text": "Yes, the requirements are detailed in the implementation plan"
+          },
+          {
+            "value": "no",
+            "text": "No, the requirements are detailed in another document",
+            "hint": {
+              "text": "Please attach this document to the contract when submitting"
+            }
+          }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"order-4-summary-assc-services-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

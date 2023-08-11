@@ -1,0 +1,150 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-width-container" data-test-id="organisation-page">
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "manage-organisations",
+      "text": "Go back"
+    }) }}
+
+    <h1>User details</h1>
+    <p class="nhsuk-lede-text">These are the details for this user.</p>
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Organisation name"
+          },
+          value: {
+            text: "Cheshire and Merseyside Commissioning Hub"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Mr Test McTestFace"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: "<p>07700 900362</p><p>test.test@example.com</p>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Permissions"
+          },
+          value: {
+            html: '[permissions allowed]'
+          },
+          actions: {
+            items: [
+              {
+                href: "admin-roles",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Status"
+          },
+          value: {
+            html: '<strong class="nhsuk-tag nhsuk-tag--grey">Account disabled</strong>'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+  <div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

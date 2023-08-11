@@ -1,0 +1,98 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span role="text">Implementation
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <!--h2>User accounts</h2-->
+    <p class="nhsuk-lede-text">Describe the typical processes and timescales to implement your Catalogue Solution.</p>
+
+    {% from 'details/macro.njk' import details %}
+
+    {{ details({
+      "text": "How do I describe an implementation?",
+      "HTML": "
+      <p>The following is an example of a good answer:</p>
+      <p>Implementations without transition from another Catalogue Solution typically take 3-5 working days, the average is 4. The extent of your configuration requirements will have the greatest impact on these timescales. Your main responsibility will be configuration planning and approval.</p>
+      <p>Implementations with transition from another Catalogue Solution typically take 6-10 working days, the average is 7. The data structures and format will have the greatest impact on these timescales, as will the extent of local configuration.</p>
+      <p>If we have previously completed a transition from your outgoing supplier for another service recipient, the timescales are more likely to be shorter. We will expect you to cleanse your data before migration and to participate in testing.</p>
+      "
+    }) }}
+
+    {{ textarea({
+      id: "reject",
+      name: "reject",
+      label: {
+        text: "Implementation details (optional)"
+      },
+      "rows": "10",
+      "hint": {
+        "text": "Include the average number of working days, situations that could affect these timescales and any responsibilities expected of a buyer."
+      }
+    }) }}
+    <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+    <form action="admin-solution">
+    {{ button({
+      "text": "Save and continue",
+      "href": "admin-solution"
+    }) }}
+    </form>
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

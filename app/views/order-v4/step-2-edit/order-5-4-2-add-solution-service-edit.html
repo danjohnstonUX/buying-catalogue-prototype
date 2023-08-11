@@ -1,0 +1,165 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-5-4-2-cata-sol-or-assoc-serv",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% set genysysHtml %}
+
+  {{ checkboxes({
+    "idPrefix": "addsols",
+    "name": "addsols",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to add any Additional Services?",
+        "classes": "nhsuk-fieldset__legend--s",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": "These are optional add-ons to the main solution that provide extra functionality."
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "text": "Automated Arrivals",
+        "checked": true
+      },
+      {
+        "value": "document management",
+        "text": "Document Management",
+        "checked": true
+      },
+      {
+        "value": "emis mobile",
+        "text": "EMIS Mobile"
+      },
+      {
+        "value": "emis web dispensing",
+        "text": "EMIS Web Dispensing"
+      },
+      {
+        "value": "enterprise search and reports",
+        "text": "Enterprise Search and Reports"
+      },
+      {
+        "value": "extract services",
+        "text": "Extract Services"
+      },
+      {
+        "value": "long term conditions manager",
+        "text": "Long Term Conditions Manager"
+      },
+      {
+        "value": "risk stratification",
+        "text": "Risk Stratification"
+      }
+    ]
+  }) }}
+
+{% endset -%}
+
+{% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%}
+<form action="confirm-your-edit">
+{{ radios({
+  "idPrefix": "cat_solution",
+  "name": "cat_solution",
+  "fieldset": {
+    "legend": {
+      "text": "Catalogue Solutions",
+      "classes": "nhsuk-fieldset__legend--xl",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": "These are the Catalogue Solutions provided by the supplier you’ve chosen. Select the one you want and any of its Additional Services you want to order."
+  },
+  "items": [
+    {
+      "value": "genysys",
+      "text": "EMIS Web GP",
+      "checked": true,
+      "conditional": {
+        "html": genysysHtml
+      }
+    },
+    {
+      "value": "online and video consult",
+      "text": "Online and Video Consult",
+      "conditional": {
+        "html": phoneHtml
+      }
+    },
+    {
+      "value": "video consult",
+      "text": "Video Consult",
+      "conditional": {
+        "html": mobileHtml
+
+      }
+    },
+    {
+      "value": "anywhere consult",
+      "text": "Anywhere Consult",
+      "conditional": {
+        "html": phoneHtml
+      }
+    }
+  ]
+}) }}
+
+<br/>
+
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

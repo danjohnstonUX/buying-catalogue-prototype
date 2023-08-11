@@ -1,0 +1,232 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "select-recipients",
+  "text": "Go back"
+}) }}
+
+<style>
+  .nhsuk-expander-index{
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary{
+    padding-top:40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text{
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter{
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color:#212b32;
+    display: block;
+  }
+
+  .vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){
+  updateGlobalCount();
+  updateAllSubgroupCounters();
+  document.getElementById('selection-counter').removeAttribute('style');
+
+  const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+  for (var i = 0; i < allCheckboxes.length; i++){
+    allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+  }
+}
+
+function updateSubGroupCount(selectedCheckbox){
+  var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+  updateSubGroupCountWorker(subgroup);
+  updateGlobalCount();
+}
+
+function updateSubGroupCountWorker(subgroup){
+  const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+  const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+  if(count > 0){
+    const endingS = count > 1 ? 's' : '';
+    counter.innerText = ` - ${count} recipient${endingS} selected`;
+  }
+  else{
+    counter.innerText = '';
+  }
+}
+
+function updateAllSubgroupCounters(){
+  const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+  const allSubgroups = [];
+  allSelectedCheckboxes.forEach(function(cv, ci, lo)
+  {
+  allSubgroups.push(cv.getAttribute('subgroup'));
+  });
+  const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+  uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+}
+
+function updateGlobalCount(){
+  const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+  const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+  const globalCounter = document.getElementById('selection-counter');
+  globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+  }
+</script>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Service Recipients to be split<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Practice Split
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Select the Service Recipients that will be losing patients as part of the split.</p>
+
+        <br/>
+
+        <!-- <h2>Select Service Recipients</h2> -->
+        {#
+      <div>
+      {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }} &nbsp;
+      {{ button({
+        "text": "Deselect all",
+        "classes": "nhsuk-button--secondary"
+      }) }} &nbsp;
+      {{ button({
+        "text": "Upload Service Recipients",
+        "classes": "nhsuk-button--secondary",
+        "href": "7-dashboard"
+      }) }}
+      </div>
+      #}
+
+      <!-- {{ actionLink({
+        "text": "Upload Service Recipients",
+        "href": "#"
+      }) }}--> 
+
+        <br/>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-5" role="table">
+          <caption class="nhsuk-table__caption"></caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Organisation</th>
+              <th role="columnheader" scope="col">ODS code</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_3__Selected" name="ServiceRecipients[3].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_3__Selected">BURNBRAE MEDICAL PRACTICE</label><input id="ServiceRecipients_3__Name" name="ServiceRecipients[3].Name" type="hidden" value="BURNBRAE MEDICAL PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81085</div>
+                <input type="hidden" id="ServiceRecipients_3__OdsCode" name="ServiceRecipients[3].OdsCode" value="B81085">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_4__Selected" name="ServiceRecipients[4].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_4__Selected">CAMPUS HEALTH CENTRE</label><input id="ServiceRecipients_4__Name" name="ServiceRecipients[4].Name" type="hidden" value="CAMPUS HEALTH CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81104</div>
+                <input type="hidden" id="ServiceRecipients_4__OdsCode" name="ServiceRecipients[4].OdsCode" value="B81104">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_7__Selected" name="ServiceRecipients[7].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_7__Selected">CHP LTD - BRANSHOLME</label><input id="ServiceRecipients_7__Name" name="ServiceRecipients[7].Name" type="hidden" value="CHP LTD - BRANSHOLME"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81002</div>
+                <input type="hidden" id="ServiceRecipients_7__OdsCode" name="ServiceRecipients[7].OdsCode" value="B81002">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      <br />
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="confirm-recipients">
+            {% from 'button/macro.njk' import button %}
+      
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

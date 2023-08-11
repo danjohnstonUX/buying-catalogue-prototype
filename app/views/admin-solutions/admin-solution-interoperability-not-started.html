@@ -1,0 +1,192 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>
+      Interoperability
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Provide information on the integrations your Catalogue Solution works with.</p>
+
+    <h2>NHS assured integrations (optional)</h2>
+
+    <details class="nhsuk-details "><summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">What are NHS assured integrations?&nbsp;&nbsp;</span></summary><div class="nhsuk-details__text">
+      <p class="nhsuk-body">
+          IM1, GP Connect and the NHS App offer integrations specified and assured by the NHS. They allow clinical information and data to be shared quickly and efficiently between IT systems.
+      </p>
+      <p class="nhsuk-body">
+          If your Catalogue Solution uses any of these integrations, you must provide information on them using the add integrations links.
+      </p>
+      <p class="nhsuk-body">
+          You can find more information about <a href="https://digital.nhs.uk/services/gp-it-futures-systems/im1-pairing-integration">IM1 integrations</a>, <a href="https://digital.nhs.uk/services/gp-connect">GP Connect integrations</a> and <a href="https://digital.nhs.uk/services/nhs-app">NHS App integrations</a> on the NHS Digital website.
+      </p>
+      </div>
+    </details>
+
+    <h3>IM1 integrations</h3>
+
+    <div class="nhsuk-action-link">
+      <a class="nhsuk-action-link__link" href="admin-solution-interop-add">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Add an IM1 integration</span>
+      </a>
+    </div>
+
+    <p class="nhsuk-body">
+      Use the links to add information on each of the IM1 integrations your Catalogue Solution works with.
+    </p>
+
+    <hr>
+
+    <h3>GP Connect integrations</h3>
+
+    <div class="nhsuk-action-link">
+      <a class="nhsuk-action-link__link" href="admin-solution-interop-addGPC">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Add a GP Connect integration</span>
+      </a>
+  </div>
+
+  <p class="nhsuk-body">
+    Use the links to add information on each of the GP Connect integrations your Catalogue Solution works with.
+</p>
+
+<hr>
+
+<h3>NHS App integrations</h3>
+
+    <div class="nhsuk-action-link">
+      <a class="nhsuk-action-link__link" href="admin-solution-interop-nhs-app">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Add NHS App integrations</span>
+      </a>
+  </div>
+
+  <p class="nhsuk-body">
+    Use the links to add all the NHS App integrations your Catalogue Solution works with.
+</p>
+
+<hr>
+
+<h2>Supplier asserted integrations (optional)</h2>
+
+
+
+    {{ input({
+      "label": {
+        "text": "Link to supplier asserted integrations"
+      },
+      "hint": {
+        "text": "Provide a URL to a page that gives information about your own integrations. They may only allow your Catalogue Solution to partially integrate with other systems."
+      },
+      "id": "last-name",
+      "name": "last-name"
+    }) }}
+    <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+    {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>If you are providing a URL, it must link to a page detailing all the supplier asserted integrations for your Catalogue Solution. It’s your responsibility to keep this page up-to-date.</p>"
+}) }}
+
+<br />
+
+
+    <form action="admin-solution">
+    {{ button({
+      "text": "Save and continue",
+      "href": "admin-solution-interoperability"
+    }) }}
+    </form>
+
+
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    
+    jQuery.goup({
+      bottomOffset: 120,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+  
+});
+
+
+</script>
+
+
+{% endblock %}

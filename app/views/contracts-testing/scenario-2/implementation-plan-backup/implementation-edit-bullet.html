@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-edit-standard-milestones",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Edit acceptance criteria for Milestone M1-1
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      {{ textarea({
+      "idPrefix": "ac-description",
+      "name": "acceptance-criteria",
+      "value": "The Supplier evidences to the Call Off Ordering Party’s satisfaction that the Detailed Implementation Plan includes all Deliverables and all Supplier, Call Off Ordering Party and Service Recipient responsibilities with appropriate time allocated to the execution of each.",
+      "label": {
+        text: "Acceptance-criteria"
+      }
+      }) }}
+
+      <br />
+
+
+      {{ button({
+        "text": "Continue",
+        "href": "implementation-plan-standard-edited"
+      }) }}
+
+      <p><a href="#" style="color: red;">Delete acceptance criteria</a></p>
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

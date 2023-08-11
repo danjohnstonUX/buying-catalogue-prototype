@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How do you want to select your Service Recipients?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "full":
+           document.location.href = "../v1/full-icb-list";
+           break;
+        case "sublocations":
+           document.location.href = "select-sublocations";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>How do you want to select your Service Recipients?
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden">
+            -
+        </span>
+        NHS GREATER MANCHESTER INTEGRATED CARE BOARD (QOP)
+    </span>
+</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example-hints",
+  "name": "example-hints",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "full",
+      "text": "View all organisations",
+      "hint": {
+        "text": "View all organisations within your Integrated Care Board"
+      }
+    },
+    {
+      "value": "sublocations",
+      "text": "View organisations via sublocation",
+      "hint": {
+        "text": "Select which the sublocations from which you want to select organisations within your Integrated Care Board"
+      }
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

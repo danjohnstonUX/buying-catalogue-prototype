@@ -1,0 +1,310 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<style>
+  .nhsuk-expander .nhsuk-details__summary > span,
+  .nhsuk-expander .nhsuk-details__summary-text{
+    color:black;
+    text-decoration:none;
+  }
+  
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+  
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+   background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+  
+  .nhsuk-expander{
+   background: none;
+  }
+  </style>
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "confirm-quantity",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Catalogue Solution and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+    <p class="nhsuk-lede-text">Review the Catalogue Solution and any services that you've added to this order.
+      You can edit the items that you've added at any time.</p>
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+    "text": "Edit solution and services",
+    "href": "order-4-edit-solutions-and-services"
+    }) }}
+
+
+    <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+    <hr />
+  </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h2>Catalogue Solution</h2>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>Caltech Web GP</b>
+        </span>
+        <span style="float:right;">
+          <b>Subtotal:</b> £1726.20
+          <span>
+          </span></span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <br>
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00T </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Recipient
+              </th>
+
+              <th role="columnheader" class="" scope="col">
+                Quantity <br>per practice
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 1 (Y00001)</td>
+              <td class="nhsuk-table__cell" style="width:40%">620</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 2 (Y00002)</td>
+              <td class="nhsuk-table__cell" style="width:40%">750</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 3 (Y00003)</td>
+              <td class="nhsuk-table__cell" style="width:40%">900</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00V </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Recipient
+              </th>
+
+              <th role="columnheader" class="" scope="col">
+                Quantity <br>per practice
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 1 (Y00004)</td>
+              <td class="nhsuk-table__cell" style="width:40%">620</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 2 (Y00005)</td>
+              <td class="nhsuk-table__cell" style="width:40%">800</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 3 (Y00006)</td>
+              <td class="nhsuk-table__cell" style="width:40%">900</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00Y </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Recipient
+              </th>
+
+              <th role="columnheader" class="" scope="col">
+                Quantity <br>per practice
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 1 (Y00007)</td>
+              <td class="nhsuk-table__cell" style="width:40%">620</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 2 (Y00008)</td>
+              <td class="nhsuk-table__cell" style="width:40%">800</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell" style="width:60%">ORGANISATION 3 (Y00009)</td>
+              <td class="nhsuk-table__cell" style="width:40%">900</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+
+              <th role="columnheader" class="" scope="col">
+                Quantity
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Total cost (per year)
+              </th>
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr>
+              <td style="width:35%">£1.26 per patient per year</td>
+              <td class="nhsuk-table__cell" style="width:50%">6,910</td>
+              <td class="nhsuk-table__cell">£8,706.60</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+      </div>
+    </details>
+
+    <br>
+
+    <dl class="nhsuk-summary-list">
+  
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Total one-off cost:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          £0.00
+        </dd>
+        
+          <dd class="nhsuk-summary-list__actions">
+            
+              <ul class="nhsuk-summary-list__actions-list">
+                
+              </ul>
+            
+          </dd>
+        
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Total monthly cost:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          £725.55
+        </dd>
+        
+          <dd class="nhsuk-summary-list__actions">
+            
+              <ul class="nhsuk-summary-list__actions-list">
+                
+              </ul>
+            
+          </dd>
+        
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Total cost for one year:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          <p>£8,706.60</p>
+        </dd>
+        
+          <dd class="nhsuk-summary-list__actions">
+            
+              <ul class="nhsuk-summary-list__actions-list">
+                
+              </ul>
+            
+          </dd>
+        
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Total cost of contract (36 months):
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          £26,119.80
+        </dd>
+        
+          <dd class="nhsuk-summary-list__actions">
+            
+              <ul class="nhsuk-summary-list__actions-list">
+                
+              </ul>
+            
+          </dd>
+        
+      </div>
+    
+  </dl>
+
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        <form method="post" action="order-tasklist">
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+          "text": "Save and continue"
+          }) }}
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

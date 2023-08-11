@@ -1,0 +1,158 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-solutions",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Catalogue Solution price</h1>
+      <p class="nhsuk-lede-text">Select the price of Catalogue Solution. If you've agreed a different price with the supplier,
+        the values can be altered later.
+      </p>
+
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+
+
+{% set additionalHtml %}
+  {% call fieldset({
+    legend: {
+      "text": "Additional Services",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+    }) %}
+    {{ hint({
+      "text": "These are the Additional Services that provide extra functionality to this Catalogue Solution. Select any you want to include."
+    }) }}
+    {{ checkboxes({
+      "idPrefix": "example-hints",
+      "name": "example-hints",
+      "items": [
+    {
+      "value": "yes",
+      "text": "T-800 Dispensing"
+    },
+    {
+      "value": "no",
+      "text": "Skynet AI"
+    },
+    {
+      "value": "not sure",
+      "text": "T-1000 Enhanced"
+    }
+  ]
+  }) }}
+  {% endcall %}
+{% endset -%}
+
+{% set assoctHtml %}
+  {% call fieldset({
+    legend: {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+    }) %}
+    {{ hint({
+      "text": "These are the Associated Services that help implement this Catalogue Solution. Select any you want to include."
+    }) }}
+    {{ checkboxes({
+      "idPrefix": "example-hints",
+      "name": "example-hints",
+      "items": [
+    {
+      "value": "yes",
+      "text": "Installation"
+    },
+    {
+      "value": "no",
+      "text": "Migration"
+    },
+    {
+      "value": "not sure",
+      "text": "Reports"
+    }
+  ]
+  }) }}
+  {% endcall %}
+{% endset -%}
+
+{{ radios({
+  "idPrefix": "contact",
+  "name": "contact",
+
+  "fieldset": {
+    "legend": {
+      "text": "Select your list price",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "opt1",
+      "text": "£0.11000 per patient for 1-89,999 patients per year",
+      "conditional": {
+        "html": additionalHtml
+      }
+    },
+    {
+      "value": "opt1",
+      "text": "£0.0800 per patient for 90,000-899,999 patients per year",
+      "conditional": {
+        "html": additionalHtml
+      }
+    },
+    {
+      "value": "opt2",
+      "text": "£0.0520 per patient for 900,000+ patients per year"
+    }
+   
+  ]
+}) }}
+
+<br/>
+
+
+<form action="order-5-4-2-add-solution-service-recipient">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

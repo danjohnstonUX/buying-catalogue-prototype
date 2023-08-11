@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "4a-planned-delivery-dates-emis";
+           break;
+        case "no":
+           document.location.href = "3a-planned-delivery-date";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "3a-planned-delivery-date",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to change your planned delivery date?</h1>
+<p class="nhsuk-lede-text">You’ll lose all the information you’ve previously entered.</p>
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Changing a planned delivery date",
+  "HTML": "<p>Changing the planned delivery date for this order will remove any dates.....</p>"
+}) }}
+<h2>Changes to your planned delivery date</h2>
+<p>You’ve made the following changes:</p>
+    <p><b>Added:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>1 October 2022</li>
+    </ol>
+  <br/>
+  <p><b>Removed:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>1 September 2022</li>
+    </ol>
+  <hr/>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example-hints",
+  "name": "example-hints",
+  "fieldset": {
+    "legend": {
+      "classes": "nhsuk-fieldset__legend--l",
+      "text": "Do you want to confirm your changes?",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes, I want to confirm changes to my planned delivery date",
+      "hint": {
+        "text": ""
+      }
+    },
+    {
+      "value": "no",
+      "text": "No, I do not want to confirm changes to my planned delivery date",
+      "hint": {
+        "text": ""
+      }
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

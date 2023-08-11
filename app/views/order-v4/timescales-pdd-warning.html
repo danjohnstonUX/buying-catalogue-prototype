@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "order-4-summary-completed";
+           break;
+        case "no":
+           document.location.href = "timescales-period-completed";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "timescales-period-completed",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to change your commencement date?</h1>
+<p class="nhsuk-lede-text">Your new commencement date is later than some or all of your planned delivery dates. Those dates will be removed from your order if you proceed and new planned delivery dates must be entered.</p>
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Changing a commencement date",
+  "HTML": "<p>Changing to this later commencement date will affect your planned delivery dates.</p>
+  <p>This is because the new commencement date comes after some or all of your planned delivery dates. If you confirm the changes, you’ll need to re-enter new planned delivery dates so they come on or after your commencement date.</p>"
+}) }}
+<h2>Changes to your commencement date</h2>
+<p>You’ve made the following changes to your order:</p>
+    <p><b>Added:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>01 November 2022</li>
+    </ol>
+  <br/>
+  <p><b>Removed:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>01 October 2022</li>
+    </ol>
+    {{ insetText({
+  "HTML": "<p>This will affect 6 of the 165 planned delivery dates you’ve already entered.</p>"
+}) }}
+  <hr/>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example-hints",
+  "name": "example-hints",
+  "fieldset": {
+    "legend": {
+      "classes": "nhsuk-fieldset__legend--l",
+      "text": "Do you want to confirm your changes?",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes, I want to confirm changes to the commencement date",
+      "hint": {
+        "text": ""
+      }
+    },
+    {
+      "value": "no",
+      "text": "No, I do not want to confirm changes to the commencement date",
+      "hint": {
+        "text": ""
+      }
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+<p><a href="#">Cancel</a></p>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

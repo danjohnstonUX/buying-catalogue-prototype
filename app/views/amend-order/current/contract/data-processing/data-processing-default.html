@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("accept-default-dpi-1").checked ? document.getElementById("accept-default-dpi-1").value : "";
+      var opt2 = document.getElementById("accept-default-dpi-2").checked ? document.getElementById("accept-default-dpi-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "../order-4-summary-data-processing-completed";
+      }
+      else if(opt2=="no") {
+          document.location.href = "data-processing-holding";
+      }
+    }
+  </script>
+
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../order-4-summary-assc-services-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Personal data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <!---{{ radios({
+          "idPrefix": "accept-default-dpi",
+          "name": "accept-default-dpi",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to proceed using the default data processing information?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I’ve agreed variations to the default data processing information with the supplier"
+            }
+          ]
+        }) }}--->
+
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Personal data processing information chosen"
+              },
+              value: {
+                text: "Default"
+              }
+            }
+          ]
+        }) }}
+
+        <br />
+
+        {{ button({
+          "text": "Continue",
+          "href": "../../tasklists/tasklist-dpi-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

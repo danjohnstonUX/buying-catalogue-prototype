@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1>Call-off Ordering Party information for C010089-01</h1>
+        <p class="nhsuk-lede-text">Confirm this is the organisation you want to place an order for.</p>
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Organisation name"
+              },
+              value: {
+                text: "NHS Hull CCG"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "select-organisation",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "ODS code"
+              },
+              value: {
+                text: "03F"
+              },
+              actions: {
+                items: [
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Organisation address"
+              },
+              value: {
+                html: '<p>WILBERFORCE COURT</p>
+                <p>ALFRED GELDER STREET</p>
+                <p>HULL</p>
+                <p>HU1 1UY</p>
+                <p>ENGLAND</p>'
+              },
+              actions: {
+                items: [
+                ]
+              }
+            }
+          ]
+        }) }}
+
+
+      <form action="order-4-summary">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

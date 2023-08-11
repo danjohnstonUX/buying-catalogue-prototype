@@ -1,0 +1,379 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-table-responsive th {
+    font-size: 1em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td {
+    font-size: 1em;
+  }
+</style>
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-summary",
+  "text": "Go back"
+}) }}
+
+<script>
+  function errorMessage() {
+    //alert(1);
+    /*errorMessage = {
+      "text": "Select yes if you have changed your name"
+    };*/
+  }
+</script>
+<!--
+{% from 'error-summary/macro.njk' import errorSummary %}
+
+{{ errorSummary({
+  "titleText": "There is a problem",
+  "errorList": [
+    {
+      "text": "Enter your full name",
+      "href": "#name"
+    }
+  ]
+}) }}
+-->
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Review order summary for C010029-01</h1>
+      <p class="nhsuk-lede-text">Review your order before marking it complete. Once the order is completed, you'll be unable to make changes.</p>
+
+      <h2>Order description</h2>
+      <p>sdzdasdadsasdas</p>
+
+      {% from 'button/macro.njk' import button %}
+<!--
+      {{ button({
+        "text": "Get order summary",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+      <p class="nhsuk-body-s">Using this button will give you the option to print a copy or create a PDF version of your order summary so you can check it's correct.</p>
+-->
+    </div>
+  </div>
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Date order summary created"
+      },
+      value: {
+        text: "9 March 2021"
+      }
+    },
+    {
+      key: {
+        text: "Call-off Ordering Party"
+      },
+      value: {
+        html: '<p>L Evans</p><p>NHS Hull CCG</p><p>03F</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p>'
+      }
+    },
+    {
+      key: {
+        text: "Supplier"
+      },
+      value: {
+        html: '<p>L Ec</p><p>EMIS Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p>'
+      }
+    },
+    {
+      key: {
+        text: "Commencement date of the Call-off Agreement"
+      },
+      value: {
+        html: '5 March 2021'
+      }
+    }
+  ]
+}) }}
+
+    <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+      <div class="nhsuk-grid-column-full">
+        <h2 class="nhsuk-u-margin-bottom-3">Order items (one-off cost)</h2>
+        <p class="nhsuk-u-font-size-19 nhsuk-u-font-weight-normal">The following items carry a one-off cost for the duration of this Call-off Agreement. They're the Associated Services in this order you can use as and when required</p>
+
+        {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Recipient name (ODS code)"
+    },
+    {
+      text: "Item ID"
+    },
+    {
+      text: "Item name"
+    },
+    {
+      text: "Price unit of order (£)"
+    },
+    {
+      text: "Quantity"
+    },
+    {
+      text: "Item cost (£)"
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Recipient name (ODS code)",
+        text: "NHS Hull CCG (03F)"
+      },
+      {
+        header: "Item ID",
+        text: "C010029-01-03F-78"
+      },
+      {
+        header: "Item name",
+        text: "Training Day at Practice"
+      },
+      {
+        header: "Price unit of order (£)",
+        text: "650.00 per day"
+      },
+      {
+        header: "Quantity",
+        text: "50"
+      },
+      {
+        header: "Item cost (£)",
+        text: "32,500.00"
+      }
+    ]
+  ]
+}) }}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Total one-off cost (indicative)"
+      },
+      value: {
+        text: "32,500.00"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="nhsuk-u-margin-bottom-3">Order items (recurring cost)</h2>
+<p class="nhsuk-u-font-size-19 nhsuk-u-font-weight-normal">The following items carry a recurring annual cost for the duration of this Call-off Agreement. They're the Catalogue Solutions, Additional Services and Associated Services in this order that you'll be charged for at a monthly rate.</p>
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Recipient name (ODS code)"
+    },
+    {
+      text: "Item ID/name"
+    },
+    {
+      text: "Service Instance ID"
+    },
+    {
+      text: "Price unit of order (£)"
+    },
+    {
+      text: "Quantity/period"
+    },
+    {
+      text: "Planned delivery date"
+    },
+    {
+      text: "Item cost per year (£)"
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Recipient name (ODS code)",
+        text: "ASSURA ER LLP HULL DERMATOLOGY (Y03508)"
+      },
+      {
+        header: "Item ID",
+        html: "C010029-01-Y03508-77<br/>Online and Video Consult"
+      },
+      {
+        header: "Service Instance ID",
+        text: "SI1-Y03508"
+      },
+      {
+        header: "Price unit of order (£)",
+        text: "0.15 per patient per year"
+      },
+      {
+        header: "Quantity/period",
+        text: "50 per month"
+      },
+      {
+        header: "Planned delivery date",
+        text: "8 March 2021"
+      },
+      {
+        header: "Item cost per year (£)",
+        text: "7.50"
+      }
+    ]
+  ]
+}) }}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Total cost for one year (indicative)"
+      },
+      value: {
+        text: "7.50"
+      }
+    },
+    {
+      key: {
+        text: "Total monthly cost (indicative)"
+      },
+      value: {
+        text: "0.63"
+      }
+    }
+  ]
+}) }}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        html: "Total cost of contract (indicative)"
+      },
+      value: {
+        html: '32,522.50<br/><p class="nhsuk-body-s">This is the total estimated cost for the entire duration of the Call-off Agreement, which is usually 3 years. The figure is made up of the one-off costs and the estimated yearly cost multiplied by 3.</p>'
+      }
+    }
+  ]
+}) }}
+          </div>
+        </div>
+      </div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ button({
+      "text": "Complete order",
+      "href": "order-preview-complete"
+    }) }}
+
+<!--h2>Get order summary</h2>
+<p>Using this button will give you the option to print a copy or create a PDF version of your order summary so you can check it's correct.</p>
+
+  {{ button({
+    "text": "Print or save as PDF",
+    "classes": "nhsuk-button--secondary"
+  }) }}
+
+
+
+          <hr />
+          <!-- "errorMessage": {
+            "text": "Select yes if you have changed your name"
+          },-->
+<!--
+          {% from 'radios/macro.njk' import radios %}
+          {% from 'input/macro.njk' import input %}
+
+
+
+          {% set rejectHtml %}
+            {{ textarea({
+              id: "reject",
+              name: "reject",
+              classes: "nhsuk-u-width-full",
+              label: {
+                text: ""
+              },
+              "hint": {
+                "text": "Explain why you're rejecting this order and any changes that are needed. It'll remain incomplete and your comments will be emailed to the person who created it."
+              }
+            }) }}
+          {% endset -%}
+
+          {{ radios({
+            "idPrefix": "contact",
+            "name": "contact",
+
+            "fieldset": {
+              "legend": {
+                "text": "What would you like to do with this order?",
+                "classes": "nhsuk-fieldset__legend--l",
+                "isPageHeading": "true"
+              }
+            },
+            "hint": {
+              "text": "Select one option."
+            },
+            "items": [
+              {
+                "value": "approve",
+                "text": "Approve and complete order"
+              },
+              {
+                "value": "reject",
+                "text": "Reject and do not complete order",
+                "conditional": {
+                  "html": rejectHtml
+                }
+              }
+            ]
+          }) }}
+
+          {{ button({
+            "text": "Continue",
+            "href": "order-preview-error"
+          }) }}
+
+-->
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

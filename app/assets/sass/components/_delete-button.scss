@@ -1,0 +1,22 @@
+.nhsuk-button--delete {
+    background-color: #da291c;
+    box-shadow: #8a1538;
+}
+
+.nhsuk-button--delete:hover {
+    background-color: #8a1538;
+}
+
+.nhsuk-button--delete:focus {
+    background: #ffeb3b;
+    box-shadow: 0 4px 0 #212b32;
+    color: #212b32;
+    outline: 4px solid transparent;
+}
+
+.nhsuk-button--delete:active {
+    background: #00401e;
+    box-shadow: none;
+    color: #ffffff;
+    top: 4px;
+}

@@ -1,0 +1,132 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Failed imports
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "gateway":
+           document.location.href = "4-discrepancies";
+           break;
+        case "verify":
+           document.location.href = "1-upload-csv";
+            break;
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "1-upload-csv",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>There is a problem with your ODS codes
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          EMIS Web GP
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">We cannot import all the Service Recipients in your CSV file.</p>
+
+      {{ table({
+        panel: false,
+        caption: "Failed imports",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Service Recipient"
+          },
+          {
+            text: "ODS code"
+          }
+        ],
+        rows: [
+        [   {
+              text: "ASSURA ER LLP HULL DERMATOLOGY"
+            },
+            {
+              text: "Y03507"
+            }
+          ]
+        ]
+      }) }}
+
+      <h2>Why have these Service Recipients failed to import?</h2>
+
+      <p>We’ve not been able to match your ODS codes with the ones we have on record. This is because either:</p>
+
+      <ul>
+        <li>
+          the wrong ODS code has been entered in your CSV file
+        </li>
+        <li>
+          there is an ODS code missing from your CSV file
+        </li>
+        <li>
+          the ODS code does not belong to a Service Recipient for your organisation
+        </li>
+        <li>
+          the Service Recipient no longer exists
+        </li>
+        <li>
+          the Service Recipient is new and has not yet been added to our records. You can <a href="https://buyingcatalogue.digital.nhs.uk/contact-us">contact us to find out when it will be added</a>
+        </li>
+      </ul>
+
+      <p>If you continue with your order, any Service Recipients that have failed to import will not be included.</p>
+
+      <br />
+      <div>
+      {% from 'button/macro.njk' import button %}
+
+      <form action="4-discrepancies">
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+      <p><a href="0-select-service-recipients">Cancel</a></p>
+
+
+
+    </div>
+
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

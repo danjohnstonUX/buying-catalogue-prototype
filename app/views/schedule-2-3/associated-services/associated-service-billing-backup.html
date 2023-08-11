@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {{ backLink({
+      "href": "order-4-summary-implementation-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Payment triggers for your selected Associated Services",
+          tableClasses: "nhsuk-u-margin-bottom-7",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Associated Service Name"
+            },
+            {
+              text: "Quantity"
+            },
+            {
+              text: "Payment trigger"
+            },
+            {
+              text: "Action"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Associated Service Name",
+                text: "Implementation"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Payment trigger",
+                text: "Bill on invoice"
+              },
+              {
+                html: "<a href='associated-service-billing-edit-implementation'>Edit</a>"
+              }
+            ],
+            [
+              {
+                header: "Associated Service Name",
+                text: "Training"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Payment trigger",
+                text: "Bill on invoice"
+              },
+              {
+                html: "<a href='#'>Edit</a>"
+              }
+            ],
+            [
+              {
+                header: "Associated Service Name",
+                text: "Digitisation"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Payment",
+                text: "Bill on invoice"
+              },
+              {
+                html: "<a href='#'>Edit</a>"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"#"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

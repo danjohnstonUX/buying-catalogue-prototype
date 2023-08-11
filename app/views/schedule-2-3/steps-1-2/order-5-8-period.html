@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Timescales for Call-off Agreement
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide the approximate start date and the length of the Call-off Agreement and its initial period.</p>
+
+        {% from 'inset-text/macro.njk' import insetText %}
+
+        {{ insetText({
+        "HTML": "<p>The Call-off Agreement will extend automatically up to the maximum of 36 months unless notice to terminate is given 30 working days before the end of the initial period.</p>
+                <p>After the initial period, the Call-off Agreement can be terminated without incurring charges.</p>"
+      }) }}
+
+        {% from 'date-input/macro.njk' import dateInput %}
+
+        {{ dateInput({
+        "id": "example",
+        "namePrefix": "example",
+        "fieldset": {
+          "legend": {
+            "text": "What is the approximate start date for this Call-off Agreement?",
+            "classes": "nhsuk-label--xs",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This is the date the items you’re ordering will start being used."
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      }) }}
+
+        <br/>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-per-item">
+            What is the initial period for this Call-off Agreement (in months)?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            This is the period after which the Call-off Agreement can be terminated without incurring charges. It cannot exceed 6 months.
+          </div>
+          <div class="govuk-input__wrapper">
+            <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">months</div>
+          </div>
+        </div>
+
+        <br/>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-per-item">
+            What is the maximum term for this Call-off Agreement (in months)?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            This is the maximum length the Call-off Agreement can run for, which includes the initial period. It cannot exceed 36 months.
+          </div>
+          <div class="govuk-input__wrapper">
+            <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">months</div>
+          </div>
+        </div>
+
+        <br/><br/>
+
+        <form action="order-4-summary">
+          {{ button({
+              "text": "Save and continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

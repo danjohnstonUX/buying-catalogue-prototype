@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-bespoke-3",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Add implementation milestone
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Bespoke Implementation Plan
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Provide a name for your implementation milestone so it can be referenced later in your order.</p>
+
+      {{ input({
+        "label": {
+          "text": "Milestone 2 name"
+        },
+        "id": "milestone-name",
+        "name": "milestone-name",
+        "classes": "nhsuk-input--width-20"
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "implementation-plan-bespoke-5"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

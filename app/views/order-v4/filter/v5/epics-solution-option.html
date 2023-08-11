@@ -1,0 +1,129 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Epics or Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "/order-v2/filter/v5/catalogue-solutions-start",
+      text: "Catalogue Solutions"
+    },
+    {
+      href: "/order-v2/filter/v5/capabilities",
+      text: "Capabilities"
+    }
+    ],
+    href: "/order-v2/filter/v5/epics-solution-option",
+    text: "Epics or Solutions"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="add-another-additional"]:checked').value;
+
+    switch(selectedValue){
+        case "epics":
+           document.location.href = "epics";
+           break;
+        case "catalogue solutions":
+           document.location.href = "catalogue-solutions-noepic";
+            break;
+    }
+  }
+</script>
+
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Filter in more detail</h1>
+
+
+
+<p class="nhsuk-lede-text">Select Epics to filter by or view results of Catalogue Solutions with the Capabilities you previously selected.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+      "HTML": "<h3>What is an Epic?</h3>
+      <p>Each Capability has a set of requirements that are defined using short descriptions called Epics. The more functionality a Catalogue Solution has, the more Epics it will be able to meet for a particular Capability.</p>
+      <p>They can be defined by the NHS or the supplier of a Catalogue Solution.</p>"
+      }) }}
+
+      <h2>Do you want to filter by Epics?</h2>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "add-another-additional",
+  "name": "add-another-additional",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "epics",
+      "text": "Filter by Epics",
+      "hint": {
+        "text": ""
+      }
+    },
+    {
+      "value": "catalogue solutions",
+      "text": "Go to results",
+      "hint": {
+        "text": ""
+      }
+    }
+  ]
+}) }}
+
+<br/>
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,261 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+
+<style>
+table tr td:nth-child(3) {
+    width: 15%;
+}
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [
+  ],
+  href: "/admin/home",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1>Manage orders</h1>
+    <p class="nhsuk-lede-text">
+      View all orders that have been created on the Buying Catalogue.
+    </p>
+
+    <div class="app-search__contents" style="display:block;">
+        <label class="c-search__label" for="query">Search by Call-off ID, organisation name, supplier or solution</label>
+        <div style="display:flex">
+        <input class="app-search__input ui-autocomplete-input" id="query" autocomplete="off" name="query" type="search" maxlength="50">
+        <button type="submit" class="app-search__submit">
+            <svg class="icon icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                <image class="icon__search icon__search--fallback" src="/apps-library/static/apps_library/images/icon-search-blue.352e1118d687.png" xlink:href="">
+            </image></svg>
+            <span class="visually-hidden">Search</span>
+        </button>
+        </div>
+    </div>
+
+    {{ table({
+      panel: false,
+      caption: "",
+      tableClasses: "orders-table",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Call-off ID"
+        },
+        {
+          text: "Organisation"
+        },
+        {
+          text: "Date created"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "C010067-01"
+          },
+          {
+            text: "NHS Digital"
+          },
+          {
+            text: "15 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010066-01"
+          },
+          {
+            text: "NHS West and South Yorkshire and Bassetlaw Commissioning Support Unit"
+          },
+          {
+            text: "15 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010065-01"
+          },
+          {
+            text: "Hampshire, Isle of Wight and Thames Valley – H&J Commissioning Hub"
+          },
+          {
+            text: "14 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010064-01"
+          },
+          {
+            text: "NHS South East Staffordshire and Seisdon Peninsula CCG"
+          },
+          {
+            text: "12 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010063-01"
+          },
+          {
+            text: "NHS West and South Yorkshire and Bassetlaw Commissioning Support Unit"
+          },
+          {
+            text: "9 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010062-01"
+          },
+          {
+            text: "NHS Bury CCG"
+          },
+          {
+            text: "9 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010061-01"
+          },
+          {
+            text: "NHS Rotherham CCG"
+          },
+          {
+            text: "7 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010060-01"
+          },
+          {
+            text: "NHS North West London Commissioning Support Unit"
+          },
+          {
+            text: "5 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ],
+        [
+          {
+            text: "C010059-01"
+          },
+          {
+            text: "NHS East Leicestershire and Rutland CCG"
+          },
+          {
+            text: "4 Feb 2022"
+          },
+          {
+            html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+          },
+          {
+            html: '<a href="view-order">View</a>'
+          }
+        ]
+      ]
+    }) }}
+
+  {% from 'pagination/macro.njk' import pagination %}
+  {{ pagination({
+    "previousUrl": "#",
+    "previousPage": "1 of 15",
+    "nextUrl": "#",
+    "nextPage": "3 of 15"
+  }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

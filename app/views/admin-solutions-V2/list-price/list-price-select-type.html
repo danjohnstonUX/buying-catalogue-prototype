@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "./",
+  "text": "Go back"
+}) }}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="price-type"]:checked').value;
+
+    switch(selectedValue){
+        case "flat":
+           document.location.href = "list-price-add-price-flat";
+           break;
+        default:
+          document.location.href = "list-price-add-price-tiered"
+          break;
+    }
+  }
+</script>
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span role="text">Select list price type
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Select the type of list price you would like to add, either flat or tiered</p>
+
+    {{ radios({
+    "idPrefix": "price-type",
+    "name": "price-type",
+    "fieldset": {
+    },
+    "items": [
+        {
+        "value": "flat",
+        "text": "Flat price",
+        "hint": {
+            "text": "A flat price is where there is only one price per item regardless of quantity"
+        }
+        },
+        {
+        "value": "tiered",
+        "text": "Tiered price",
+        "hint": {
+            "text": "A tiered price is where the price per item changes depending on the quantity ordered, changing in price depending on bands"
+        }
+        }
+    ]
+    }) }}
+
+    <br />
+    <br/>
+
+    <form>
+    {{ button({
+      "text": "Continue",
+      "href": "javascript: sendForm();"
+    }) }}
+    </form>
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

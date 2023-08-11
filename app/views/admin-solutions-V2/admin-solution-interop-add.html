@@ -1,0 +1,144 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-interoperability",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>Add an IM1 integration</h1>
+            <p class="nhsuk-lede-text">Provide the following information about the NHS assured integrations your Catalogue Solution works with.</p>
+
+            <form action="admin-solution" method="post">
+
+
+              {% from 'select/macro.njk' import select %}
+
+              {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Integration type"
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "IM1 Bulk"
+                  },
+                  {
+                    "value": 2,
+                    "text": "IM1 Transactional"
+                  },
+                  {
+                    "value": 3,
+                    "text": "IM1 Patient Facing"
+                  }
+                ]
+              }) }}
+
+
+              {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Provider or consumer"
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "Provider"
+                  },
+                  {
+                    "value": 2,
+                    "text": "Consumer"
+                  }
+                ]
+              }) }}
+
+
+              {% from 'input/macro.njk' import input %}
+
+              {{ input({
+                "label": {
+                  "text": "System integrating with"
+                },
+                "id": "solution-name",
+                "name": "solution-name"
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 100 characters remaining</p>
+
+              {{ textarea({
+                id: "reject",
+                name: "reject",
+                label: {
+                  text: "Description"
+                },
+                "rows": "10",
+                "hint": {
+                  "text": "Describe how your Catalogue Solution integrates with the other system."
+                }
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

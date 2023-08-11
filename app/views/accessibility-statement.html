@@ -1,0 +1,140 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "cookies-policy",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>
+              <span role="text">Accessibility statement for NHS Buying Catalogue</h1>
+
+<a href="#"></a>
+            <form action="index" method="post">
+            <h2></h2>
+            <p>This accessibility statement applies to: <a href="https://buyingcatalogue.digital.nhs.uk/">https://buyingcatalogue.digital.nhs.uk/</a></p>
+            <p>This website is run by NHS Digital. We want as many people as possible to be able to use this website. For example, that means you should be able to:</p>
+
+            <ul>
+              <li>change colours, contrast levels and fonts</li>
+              <li>zoom in up to 300% without the text spilling off the screen</li>
+              <li>navigate most of the website using just a keyboard</li>
+              <li>navigate most of the website using speech recognition software</li>
+              <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+            </ul>
+
+
+            <p>We’ve also made the website text as simple as possible to understand.</p>
+            <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has advice on making your device easier to use if you have a disability.</p>
+
+
+            <h2>How accessible this website is</h2>
+            <p>We know our website is accessible, but we link to some information pages which are not fully accessible:</p>
+            <ul>
+              <li>pages hosted on the Confluence website are difficult to use for screen reader users</li>
+            </ul>
+
+
+
+            <h2>Feedback and contact information</h2>
+            <p>If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille:</p>
+            <ul>
+              <li>email: <a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a></li>
+              <li>call: 0300 303 5678</li>
+            </ul>
+            <p>We’ll consider your request and get back to you in 3 days.</p>
+
+
+
+            <h2>Reporting accessibility problems with this website</h2>
+            <p>We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, contact: <a href="mailto:buying.catalogue@nhs.net">buying.catalogue@nhs.net</a></p>
+
+
+            <h2>Enforcement procedure</h2>
+            <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, <a href="https://www.equalityadvisoryservice.com/">contact the Equality Advisory and Support Service (EASS)</a>.</p>
+
+
+
+
+
+
+            <h2>Technical information about this website’s accessibility</h2>
+            <p>NHS Digital is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+
+
+
+            <h3>Compliance status</h3>
+            <p>This website is fully compliant with the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a> AA standard.</p>
+
+
+
+            <h2>Preparation of this accessibility statement</h2>
+            <p>This statement was prepared on 1 December 2021. It was last reviewed on 1 December 2021.</p>
+            <p>This website was last tested on 10 August 2021. The test was carried out by <a href="https://www.nomensa.com/">Nomensa</a>, who performed an expert evaluation against all level A and AA success criteria of the Web Content Accessibility Guidelines 2.1 of the following user journeys:</p>
+            <ul>
+              <li>create an order</li>
+              <li>find and view a Catalogue Solution</li>
+              <li>find and view a Catalogue Solution from the DFOVC framework</li>
+              <li>request an account</li>
+            </ul>
+            <p>This website's accessibility will be reviewed on a regular basis. We will update this accessibility statement with any relevant changes.</p>
+          
+
+            <br />
+
+
+
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

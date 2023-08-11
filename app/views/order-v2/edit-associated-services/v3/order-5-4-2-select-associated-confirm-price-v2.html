@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-associated-service-mig-multiple-price",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Price of Associated Service<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Training Day at Practice
+      </span></h1>
+      <p class="nhsuk-lede-text">Confirm the price you'll be paying. We've included the list price, but this can be changed if you’ve agreed a different rate with the supplier.</p>
+
+
+       <div class="nhsuk-form-group">
+         <label class="nhsuk-label" for="cost-per-item">
+               What price have you agreed, in pounds per implementation?
+         </label>
+         <div class="nhsuk-hint" id="example-with-hint-text-hint">
+           You can change the list price if you’ve agreed a different rate with the supplier.
+         </div>
+         <div class="govuk-input__wrapper">
+           <div class="govuk-input__prefix" aria-hidden="true">£</div>
+           <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false" value="900">
+           <div class="govuk-input__suffix" aria-hidden="true">per day</div>
+         </div>
+       </div>
+
+<br />       
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="order-5-4-2-select-associated-confirm-quantity">
+              {% from 'button/macro.njk' import button %}
+      
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

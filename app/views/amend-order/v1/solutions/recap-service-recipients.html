@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../edit-dashboard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the additional organisations you previously selected to receive this Catalogue Solution. You can add more Service Recipients in the next section.</p>
+
+
+    <h2>Previously added Service Recipients</h2>
+    <p>The original order had 10 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Assura ER LLP Hull Dermatology</li>
+      <li>Bevan Ltd</li>
+      <li>Burnbrae Medical Practice</li>
+      <li>Cook BF</li>
+      <li>Dermatology Clinic GPSI</li>
+      <li>East Park Practice</li>
+      <li>Kingston Health (Hull)</li>
+      <li>Princes Medical Centre</li>
+      <li>St Andrew's Surgery</li>
+      <li>Wilberforce Surgery</li>
+    </ol>
+    <br />
+
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="add-service-recipients">
+                  {% from 'button/macro.njk' import button %}
+
+                  {{ button({
+                    "text": "Save and continue"
+                  }) }}
+                </form>
+              </div>
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

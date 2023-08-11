@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "orders-proxy",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Nomination terms of use</h1>
+      <p class="nhsuk-lede-text">
+        You must agree to the terms of use before nominating an organisation to create orders on your behalf.
+      </p>
+
+      <hr>
+
+      <h2>
+        Terms and conditions
+      </h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra condimentum accumsan. Fusce non orci id dui volutpat porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse varius felis a nisl vestibulum blandit. Maecenas tristique lectus ut fermentum gravida. Aenean nec metus blandit, fermentum dui at, bibendum leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Cras et massa id mauris aliquam tristique et nec neque.
+      </p>
+
+      <form action="nominate-organisation-selector">
+      {% from 'button/macro.njk' import button %}
+
+        {{ button({
+          "text": "Accept and continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

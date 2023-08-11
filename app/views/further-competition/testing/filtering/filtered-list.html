@@ -1,0 +1,313 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [
+],
+href: "#",
+text: "Home"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Catalogue Solutions found</h1>
+    <p class="nhsuk-lede-text">
+      These are the Catalogue Solutions that meet your search criteria. You can apply additional filters to refine your results further, or compare these results.
+    </p>
+
+    {{ insetText({
+      "HTML": "<p class='nhsuk-body'>Once you’re happy with your results, you can save your filters to create a shortlist.</p>"
+    }) }}
+
+
+    <hr>
+
+    <h2>5 Catalogue Solutions found with this search criteria</h2>
+
+    <h3>Selected Capabilities and Epics</h3>
+
+    <ul>
+      <li>Online Consultation and 5 Epics</li>
+      <li>Video Consultation and 1 epic</li>
+    </ul>
+
+    <p><a href="#" style="margin-right:20px;">Edit Capabilities</a><a href="#" style="margin-right:20px;">Edit Epics</a><a href="index">Start a new search</a></p>
+
+    <div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="select-1">
+        Sort by:
+      </label>
+      <select class="nhsuk-select" id="select-1" name="select-1">
+        <option value="1" selected>A to Z</option>
+        <option value="2">Z to A</option>
+        <option value="3">Last published</option>
+      </select>
+    </div>
+
+    <hr>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-one-third">
+
+        <h2 class="nhsuk-heading-s">Additional filters</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Framework
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            DFOCVC (5)
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Client application type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ checkboxes({
+            "idPrefix": "app-type-checkbox",
+            "name": "app-type-checkbox",
+            "classes": "nhsuk-u-margin-bottom-5 nhsuk-checkboxes--small",
+            "fieldset": {
+
+            },
+            "items": [
+            {
+            "value": "browser",
+            "text": "Browser-based"
+            },
+            {
+            "value": "desktop",
+            "text": "Desktop"
+            },
+            {
+            "value": "mobile",
+            "text": "Mobile or tablet"
+            }
+            ]
+            }) }}
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Hosting type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ checkboxes({
+            "idPrefix": "hosting-type",
+            "name": "hosting-type",
+            "classes": "nhsuk-checkboxes--small",
+            "fieldset": {
+
+            },
+            "items": [
+            {
+            "value": "public-cloud",
+            "text": "Public cloud"
+            },
+            {
+            "value": "private-cloud",
+            "text": "Private cloud"
+            },
+            {
+            "value": "hybrid",
+            "text": "Hybrid"
+            },
+            {
+            "value": "on-premise",
+            "text": "On premise"
+            }
+            ]
+            }) }}
+          </div>
+        </details>
+
+        <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-3" style="width:100%;" href="filtered-list-applied">View results</a>
+
+        <a class="nhsuk-button" style="width:100%;" href="save-filters">Save all filters</a>
+
+        <p><a href="#">Clear additional filters</a></p>
+
+        <p><a href="index">Start a new search</a></p>
+
+
+
+      </div>
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2 class="nhsuk-heading-s">Results</h2>
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Online and Video Consult</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+
+        <p class="nhsuk-body-s">Our online triaging system allows patients to easily access self-help advice, and fill
+          out forms containing their requests and queries that go into their practice's workflow. Helping to improve
+          access to services, Online Consult is configurable, and integrates with all leading GP Clinical Systems.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Search information</h4>
+
+        <p class="nhsuk-body-s"> All of the Capabilities you've selected have been met. </p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Framework</h4>
+
+        <p class="nhsuk-body-s">DFOCVC</p>
+
+
+        <hr />
+
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Q Doctor</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            MyMed Ltd
+          </span>
+        </h3>
+
+        <p class="nhsuk-body-s">Q health is a secure video consultation platform and appointment booking platform used around the NHS, enabling digital appointment booking (including COVID-19 vaccination appointment management) and remote consultations between clinicians and patients.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Required Additional Services:</h4>
+
+        <p class="nhsuk-body-s"><a href="#">Document Management</a></p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Search information</h4>
+
+        <p class="nhsuk-body-s"> All of the Capabilities you've selected have been met. </p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Framework</h4>
+
+        <p class="nhsuk-body-s">DFOCVC</p>
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">healthya Online and Video Consultation</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            ADDVantage Technologies
+          </span>
+        </h3>
+
+        <p class="nhsuk-body-s">Healthya provides a seamless and flexible secure online video consultation platform to
+          supplement NHS Systems. Patients connect to the NHS Health / Care Professional using the user friendly
+          healthya app. The intuitive app is free for NHS patients and integrates with NHS provider services.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Search information</h4>
+
+        <p class="nhsuk-body-s"> All of the Capabilities you've selected have been met. </p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Framework</h4>
+
+        <p class="nhsuk-body-s">DFOCVC</p>
+
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">PATCHS Online Consultation</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Advanced Health and Care Limited 
+          </span>
+        </h3>
+
+        <p class="nhsuk-body-s">PATCHS is a complete online consultation and triage solution designed by GPs and academics to help manage patient workload. It enables practices to implement a Total Triage model, and set up Virtual Hubs / eHubs for federated working.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Search information</h4>
+
+        <p class="nhsuk-body-s"> Missing from your search criteria: Video Consultation.</p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Framework</h4>
+
+        <p class="nhsuk-body-s">DFOCVC</p>
+
+
+        <hr />
+
+        <h3 class="nhsuk-heading-m">
+          <a href="#">Engage Consult</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Engage Health Systems Limited
+          </span>
+        </h3>
+
+        <p class="nhsuk-body-s">Engage Consult allows patients to communicate securely and safely online with their
+          practice about non-emergency medical conditions or admin questions. The solution offers 24/7 access to
+          self-help information, other local NHS and self-care services. </p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Required Additional Services:</h4>
+
+        <p class="nhsuk-body-s"><a href="#">Communication and Text Service</a></p>
+
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Framework</h4>
+
+        <p class="nhsuk-body-s">DFOCVC</p>
+
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

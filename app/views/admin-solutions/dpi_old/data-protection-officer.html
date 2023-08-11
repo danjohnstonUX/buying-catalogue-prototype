@@ -1,0 +1,155 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+{% set officerErrors = data['officerError'] | default('') %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "/admin-solutions/dpi/start",
+"text": "Go back"
+}) }}
+
+<form action="/dpi-processing-route-two" method="post">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {%if officerErrors.length > 0 %}
+      <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+        <h2 class="nhsuk-error-summary__title" id="dpi-choice-title">
+          There is a problem
+        </h2>
+        <div class="nhsuk-error-summary__body">
+
+          <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+            {% if 'name' in officerErrors %}
+              <li>
+                <a href="#officer-name">Please enter a name</a>
+              </li>
+            {% endif %}
+            {% if 'email' in officerErrors %}
+              <li>
+                <a href="#officer-email">Please enter a email address</a>
+              </li>
+            {% endif %}
+            {% if 'tel' in officerErrors %}
+              <li>
+                <a href="#officer-telephone-number">Please enter a telephone number</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <h1>
+        <span role="text">Data Processing Information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Inform potential buyers how your data is processed</p>
+      <hr>
+
+      <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h3 class="nhsuk-fieldset__heading">
+            Data Protection Officer Details
+          </h3>
+        </legend>
+
+        <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+          <div class="nhsuk-form-group {% if 'name' in officerErrors %} nhsuk-form-group--error {% endif %}">
+            <label class="nhsuk-label" for="officer-name">
+              Data Protection Officers Name
+            </label>
+            {%if 'name' in officerErrors %}
+                <span class="nhsuk-error-message" id="example-error-error">
+                  <span class="nhsuk-u-visually-hidden">Error:</span> Please enter a name
+                </span>
+            {% endif %}
+            <input class="nhsuk-input {%if 'name' in officerErrors %} nhsuk-input--error {% endif %}" id="officer-name" value="{{data['officer-name']}}" name="officer-name" type="text">
+          </div>
+
+          <div class="nhsuk-form-group {% if 'email' in officerErrors %} nhsuk-form-group--error {% endif %}">
+            <label class="nhsuk-label" for="officer-email">
+              Data Protection Officers Email address
+            </label>
+            {%if 'email' in officerErrors %}
+                <span class="nhsuk-error-message" id="example-error-error">
+                  <span class="nhsuk-u-visually-hidden">Error:</span> Please enter a email address
+                </span>
+            {% endif %}
+            {# <div id="email-hint" class="govuk-hint">
+              We’ll only use this to send you a receipt
+            </div> #}
+            <input value="{{data['officer-email']}}" class="nhsuk-input {%if 'email' in officerErrors %} nhsuk-input--error {% endif %}" id="officer-email" name="officer-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+          </div>
+
+          <div class="nhsuk-form-group {% if 'tel' in officerErrors %} nhsuk-form-group--error {% endif %}">
+            <label class="nhsuk-label" for="officer-telephone-number">
+              Data Protection Officers Telephone Number
+            </label>
+            {%if 'name' in officerErrors %}
+                <span class="nhsuk-error-message" id="example-error-error">
+                  <span class="nhsuk-u-visually-hidden">Error:</span> Please enter a telephone number
+                </span>
+            {% endif %}
+            <div id="email-hint" class="nhsuk-hint">
+              Include any extension numbers required
+            </div>
+            <input value="{{data['officer-telephone-number']}}" class="nhsuk-input nhsuk-input--width-20 {%if 'tel' in officerErrors %} nhsuk-input--error {% endif %}" id="officer-telephone-number" name="officer-telephone-number" type="tel" autocomplete="tel">
+          </div>
+        </div>
+      </fieldset>
+      
+
+
+      <button class="nhsuk-button nhsuk-u-margin-top-7" data-module="nhsuk-button" type="submit">
+        Save and continue
+      </button>
+
+</form>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

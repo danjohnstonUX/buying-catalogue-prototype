@@ -1,0 +1,377 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Search results
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "/order-v2/filter/v5/catalogue-solutions-start",
+      text: "Catalogue Solutions"
+    },
+    {
+      href: "/order-v2/filter/v5/capabilities",
+      text: "Capabilities"
+    },
+    {
+      href: "/order-v2/filter/v5/epics",
+      text: "Epics"
+    }
+    ],
+    href: "/order-v2/filter/v5/catalogue-solutions",
+    text: "Search results"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<h1>Catalogue Solutions found</h1>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full-width">
+      <p class="nhsuk-lede-text">These are the Catalogue Solutions that meet your search criteria.</p>
+
+      
+      
+      <div class="app-search__contents">
+        <label class="c-search__label visually-hidden" for="query">Filter Catalogue Solutions</label>
+        <input class="app-search__input ui-autocomplete-input" id="query" placeholder="Search by supplier, solution name or Capabilities" autocomplete="off" name="query" type="search" maxlength="50">
+        <button type="submit" class="app-search__submit">
+            <svg class="icon icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                <image class="icon__search icon__search--fallback" src="/apps-library/static/apps_library/images/icon-search-blue.352e1118d687.png" xlink:href="">
+            </image></svg>
+            <span class="visually-hidden">Search</span>
+        </button>
+    </div>
+
+    <br />
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Filter Catalogue Solutions",
+      "href": "capabilities"
+    }) }}
+
+      <hr />
+
+      <h2>7 Catalogue Solutions found with this search criteria:</h2>
+
+        <br />
+        <h4>Capabilities and epics selected:</h4>
+        <ul>
+          <li>Appointments Management - GP and 5 Epics selected</li>
+          <li>Appointment Management - Citizen and 1 Epic selected</li>
+          <li>Clinic Decision Support and 1 Epic selected</li>
+          <li>Online Consultation and 4 Epics selected</li>
+          <li>GP Extracts Verification and 0 Epics selected</li>
+        </ul> 
+       
+        <p class="nhsuk-body-m"><a href="capabilities">Edit Capabilities</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="epics" style="margin-bottom: px;">Edit Epics</a></p>
+ <!-- <br />
+
+      </div>
+        <form>
+          {{ button({
+            "text": "Save search to shortlist",
+            "href": "list-add-to-new-existing"
+          }) }}
+          &nbsp;&nbsp;&nbsp;
+      <div style="display:inline-block;">
+        <form action="list-your-shortlists-2">
+        {{ button({
+          "text": "Download search results",
+          "classes": "nhsuk-button--secondary",
+          "href": "list-your-shortlists-2"
+        }) }}
+        </form>
+      </div> -->
+
+      <br />
+
+      {% from 'button/macro.njk' import button %}
+
+        {{ button({
+          "text": "Clear search criteria",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+      
+        <hr />
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="select-1" style="font-weight: bold;">
+          Sort by:
+        </label>
+        <select class="nhsuk-select" id="select-1" name="select-1">
+          <option value="1" selected>A to Z</option>
+          <option value="2">Z to A</option>
+          <option value="3">Last published</option>
+          <option value="3">Framework</option>
+        </select>
+      </div>
+
+      {% from 'components/bc-list-item/macro.njk' import bcListItem %}
+      {{ bcListItem({
+        "solution": "AccuRx",
+        "supplier": "AccuRx Limited",
+        "text": "accuRx makes communication for healthcare professionals and patients easier. It offers patient messaging (including batch, reminders, questionnaires, documents and photos), video, online consultations and vaccine appointment management.",
+        "HTML": "<br />",
+        "framework": "test",
+        "capabilities": [
+        {
+          "text": "e-Consultations (Patient/Service User to Professional)"
+        },
+        {
+          "text": "Appointments Management – COVID-19 Vaccinations"
+        }
+      ],
+        "additional": [
+        {
+          "name": "Video Consultation",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10030-001/additional-services#10030-001A001"
+        },
+        {
+          "name": "Patient Triage",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10030-001/additional-services#10030-001A002"
+        },
+        {
+          "name": "SMS Plus",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10030-001/additional-services#10030-001A003"
+        }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "Missing Capabilities: Recording Consultation, Questionaires, Batch and reminders, Plus Bundle, accuBook, accuRx Messaging"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+
+      {{ bcListItem({
+        "solution": "AireConsult",
+        "supplier": "Aire Logic",
+        "text": "AireConsult is an online consultation and video consultation platform facilitating paperless working across health and social care. Acting as a healthcare front door, it allows patients to access GP services such as booking, amending or cancelling appointments, repeat prescriptions and much more.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "All of the Capabilities you've selected have been met."
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DFOCV, GP IT Futures"
+          }
+        ]
+      }) }}
+      
+      {{ bcListItem({
+        "solution": "askmyGP - Network",
+        "supplier": "Salvie Ltd",
+        "text": "askmyGP Networks extends the complete workflow system for practices to all providers across a network, including PCN or Secondary Care allowing patient requests to be assigned seamlessly to the most appropriate individual or service in the network while improving service efficiency and integration.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "additional": [
+        {
+          "name": "Network Reporting",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10047-002/additional-services#10047-002A01"
+        }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "All of the Capabilities you've selected have been met."
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DFOCVC"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Best Pathway",
+        "supplier": "DXS International PLC",
+        "text": "Best Pathway enables national and regional authorities to manage and distribute decision support information directly to primary care users. Users have access to templates, pathways, referral forms, patient information leaflets, travel information and medicine reference during consultations.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "additional": [
+        {
+          "name": "Localised Referral Forms",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10007-002/additional-services#10007-002A001"
+        },
+        {
+          "name": "Localised Supporting Content",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10007-002/additional-services#10007-002A002"
+        }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "All of the Capabilities you've selected have been met."
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Gateway",
+        "supplier": "Accenda Limited",
+        "text": "Gateway is a pathway, advice and referral platform, supporting GPs to refer patients into the right service, first time. Gateway fully wraps around the GP clinical system and e-RS. Its dynamic ‘request builder’ streamlines processes, reduces clinical variation, and upholds local pathway criteria.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "e-Consultations (Professional to Professional)"
+          }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "All of the Capabilities you've selected have been met."
+          }
+        ],
+        "additional": [
+        {
+          "name": "Patient Triage",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10055-001/additional-services#10055-001A001"
+        }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+
+      {{ bcListItem({
+        "solution": "myGP Remote Consultation",
+        "supplier": "iPLATO",
+        "text": "myGP Remote Consultation helps GP practices avoid unnecessary appointments and supports remote consultation via video, audio and asynchronous messaging. Video calls can be initiated by SMS or web link, patients don’t need to register for the service or download any additional software.",
+        "HTML": "<br />",
+        "framework": "test",
+        "capabilities": [
+        {
+          "text": "e-Consultations (Patient/Service User to Professional)"
+        },
+        {
+          "text": "Appointments Management – COVID-19 Vaccinations"
+        }
+      ],
+        
+        "capabilitiesMet": [
+          {
+            "text": "Missing Capabilities: Reporting, Risk Stratification"
+          },
+          {
+            "text": "Number of missing Epics: 2"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Vision",
+        "supplier": "Cegedim Healthcare Solutions",
+        "text": "Vision is a comprehensive clinical system for managing all aspects of primary care delivery. Reliable, stable and proven, Vision is renowned for its ease of use, flexibility and superior support, and is currently the only clinical system that integrates with national systems in all parts of the UK.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "capabilitiesMet": [
+          {
+            "text": "All of the Capabilities you've selected have been met."
+          }
+        ],
+        "additional": [
+        {
+          "name": "Vision + 2 Way SMS",
+          "url": "https://buyingcatalogue.digital.nhs.uk/catalogue-solutions/10034-005/additional-services#10034-005A001"
+        }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+
+
+
+
+   
+      
+    
+
+    <!-- <hr style="margin-top: 0.5em;" />
+ 
+    <form action="catalogue-solutions-compare">
+      {% from 'button/macro.njk' import button %}
+      {{ button({
+        "text": "Compare selected",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+    </form> -->
+ 
+   <hr style="margin-top: 0.5em;" />
+ 
+   {% from 'pagination/macro.njk' import pagination %}
+   {{ pagination({
+     "previousUrl": "#",
+     "previousPage": "1 of 20",
+     "nextUrl": "#",
+     "nextPage": "3 of 20"
+   }) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

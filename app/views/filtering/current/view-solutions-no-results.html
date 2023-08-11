@@ -1,0 +1,136 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Catalogue Solutions found<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      AM & VC desktop apps
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the Catalogue Solutions currently available for your saved filter.
+    </p>
+
+    <!--{{ insetText({
+      "HTML": "<p class='nhsuk-body'>Once you’re happy with your results, you can save your filters to create a shortlist.</p>"
+    }) }}-->
+
+    <hr>
+
+    <h2>0 Catalogue Solutions found with this search criteria</h2>
+
+    <h3>Selected Capabilities and Epics</h3>
+
+    <ul>
+      <li>Appointments Management - Citizen and 2 epics</li>
+      <li>Video Consultation and 5 epics</li>
+    </ul>
+
+    <hr>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-one-third">
+
+        <h2 class="nhsuk-heading-s">Additional filters</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Framework
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <ul>
+              <li>DFOCVC (2)</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Client application type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <ul>
+              <li>Browser based</li>
+              <li>Mobile or tablet</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Hosting type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            None selected
+          </div>
+        </details>
+
+        <a class="nhsuk-button nhsuk-button--secondary" style="width:100%;" href="#">Download results</a>
+
+      </div>
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2 class="nhsuk-heading-s">Results</h2>
+
+        <p>Due to changes to the Buying Catalogue, there are no Catalogue Solutions found using this search criteria.</p>
+
+        <p>You'll need to use a different filter.</p>
+
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

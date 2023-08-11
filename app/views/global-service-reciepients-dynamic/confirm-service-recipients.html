@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "add-service-recipients-global",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Confirm Service Recipients 
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C00001-01
+      </span>
+    </h1>
+    </div>
+    </div>
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive the items you’re ordering.</p>
+
+      {% for sr in data['srJsonData'] %}
+
+          <details class="nhsuk-details nhsuk-expander" open >
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                {{sr.categoryName}}
+              </span>
+              <span class="expander-count"><b class="expander-count-text">{{sr.organisations.length}}</b> recipients added</span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <table class="nhsuk-table-responsive" role="table">
+                <caption class="nhsuk-table__caption"></caption>
+                <thead class="nhsuk-table__head" role="rowgroup">
+                  <tr role="row">
+                    <th role="columnheader" scope="col">
+                      Organisation                      
+                    </th>
+                    <th role="columnheader" scope="col">ODS code</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+                  {% for org in sr.organisations %}
+                  <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      {{org.name}}
+                    </td>
+
+                    <td role="cell" class="nhsuk-table__cell">
+                      {{org.code}}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+    {% endfor %}
+
+    <br />
+
+    <p>You can <a href="add-service-recipients-global">add or remove Service Recipients</a> if needed, or edit them later if
+      you continue with your order.</p>
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        {# <form method="post" action="pdd/3-planned-delivery-date"> #}
+          {# <form method="post" action="order-5-4-2-add-solution-service"></form>
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+          "text": "Continue"
+          }) }}
+        </form> #}
+        <a href="index" class="nhsuk-button">Continue</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Service Level Agreement
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "hosting-type",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Service Level Agreement</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+<h2>Core support hours</h2>
+
+<br>
+
+{{ dateInput({
+  "id": "times",
+  "namePrefix": "times",
+  "fieldset": {
+    "legend": {
+      "text": "Times you require core support to be available",
+      "classes": "nhsuk-label--m nhsuk-u-margin-bottom-2",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    "html": "<p class='nhsuk-u-margin-bottom-2'>Enter times in the 24 hour format.</p>
+            <p>For example, 08:30</p>"
+  },
+  "items": [
+    {
+      "name": "From",
+      "classes": "nhsuk-input--width-5"
+    },
+    {
+      "name": "Until",
+      "classes": "nhsuk-input--width-5"
+    }
+  ]
+}) }}
+
+<br>
+
+{{ input({
+  "label": {
+    "text": "Applicable days",
+    "classes": "nhsuk-label--m nhsuk-u-margin-bottom-2"
+  },
+    "hint": {
+    "text": "The days you require core support to be available"
+  },
+  id: "example-with-hint-text",
+  name: "example-with-hint-text",
+  classes: "nhsuk-input--width-30",
+  inputmode: "text"
+}) }}
+
+
+<br>
+<br>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"review-requirements"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

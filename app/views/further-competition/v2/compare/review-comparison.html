@@ -1,0 +1,355 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Review your requirements
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "non-price-elements",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Review your non-price scoring</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+
+<br/>
+
+<h2 class="nhsuk-heading-m">Client application type</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult score"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor score"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Interoperability</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult score"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor score"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Implementation</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult score"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor score"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Hosting type</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult score"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor score"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Service Level Agreement</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult score"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor score"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"compare-price"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Your shortlists
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "solution-qdoctor",
+    text: "Q Doctor"
+  },
+  {
+    href: "list-select-shortlist",
+    text: "Select shortlist"
+  },
+  {
+    href: "list-add-name",
+    text: "Shortlist name"
+  },
+  {
+    href: "list-existing-3",
+    text: "New shortlist"
+  },
+  {
+    href: "list-your-shortlists-2",
+    text: "Your shortlists"
+}]
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Your shortlists</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">This is a view of all of your current shortlists. Proceed with further competition or go back to your Catalogue Solution.</p>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    
+
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Existing shortlist 1</a></caption> 
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Catalogue Solution
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Date added
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Attend Anywhere</td>
+          <td class="nhsuk-table__cell ">1 April 2022</td>
+          <td class="nhsuk-table__cell "><a href="hjhj">Delete</a></td>
+        </tr>
+      </tbody>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Best Pathway</td>
+          <td class="nhsuk-table__cell ">1 April 2022</td>
+          <td class="nhsuk-table__cell "><a href="hjhj">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-select-shortlist"
+    }) }}
+
+
+    <br /><br />
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Existing shortlist 2</caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Catalogue Solution
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Date added
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Q Doctor</td>
+          <td class="nhsuk-table__cell ">9 May 2022</td>
+          <td class="nhsuk-table__cell "><a href="hjhj">Delete</a></td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Docman 7</td>
+          <td class="nhsuk-table__cell ">10 May 2022</td>
+          <td class="nhsuk-table__cell "><a href="hjhj">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-proceed-with-shortlist-2"
+    }) }}
+
+    <br /><br />
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Existing shortlist 3</caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Catalogue Solution
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Date added
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Q Doctor</td>
+          <td class="nhsuk-table__cell ">22 June 2022</td>
+          <td class="nhsuk-table__cell "><a href="hjhj">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-select-shortlist"
+    }) }}
+
+    <br /><br />
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Go back to Q Doctor",
+      "href": "solution-qdoctor"
+    }) }}
+{#
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-select-shortlist"
+    }) }}
+#}
+
+    <!-- <br /><br />
+
+    <form action="list-competion">
+      {{ button({
+        "text": "Continue"
+      }) }}
+    </form> -->
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

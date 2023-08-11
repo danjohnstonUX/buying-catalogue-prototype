@@ -1,0 +1,213 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Upload CSV
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Upload CSV file</h1>
+      <p class="nhsuk-lede-text">Upload your CSV file to create a group of Service Recipients.</p>
+
+      <div>
+      <h2>Upload file</h2>
+      
+      <p>Select a file to upload.</p>
+
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Select CSV file",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+      </div>
+      <br />
+
+      {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  panel: false,
+  caption: "Uploaded files",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "File name"
+    },
+   {
+      text: "Status"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Group 3.csv"
+      },
+      {
+        html: '<p>4 Service Recipients uploaded successfully, <br />2 name discrepancies</p>'
+      },
+      {
+        html: '<p><a href="hjhjhj">Delete</a></p>'
+      }
+    ],
+    [
+      {
+        text: "Group 4.csv"
+      },
+      {
+        html: '<p>8 Service Recipients uploaded successfully, <br />2 failed imports, <br />3 name discrepancies.</p>'
+      },
+      {
+        html: '<p><a href="hjhjhj">Delete</a></p>'
+      }
+    ]
+  ]
+}) }}
+
+{{ table({
+  panel: false,
+  caption: "Failed imports",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "ODS code"
+    },
+    {
+      text: "Name in CSV"
+    },
+    {
+      text: "Name in database"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Y03507"
+      },
+      {
+        text: "ASSURA ER LLP HULL"
+      },
+      {
+        text: "ASSURA ER LLP HULL DERMATOLOGY"
+      }
+    ],
+    [
+      {
+        text: "Y03508"
+      },
+      {
+        text: "BEVAN CORPORATION"
+      },
+      {
+        text: "BEVAN LTD"
+      }
+    ]
+  ]
+}) }}
+
+{{ table({
+  panel: false,
+  caption: "Service Recipient discrepancies",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "ODS code"
+    },
+    {
+      text: "Name in CSV"
+    },
+    {
+      text: "Name in database"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Y03507"
+      },
+      {
+        text: "ASSURA ER LLP HULL"
+      },
+      {
+        text: "ASSURA ER LLP HULL DERMATOLOGY"
+      }
+    ],
+    [
+      {
+        text: "Y03508"
+      },
+      {
+        text: "BEVAN CORPORATION"
+      },
+      {
+        text: "BEVAN LTD"
+      }
+    ]
+  ]
+}) }}
+
+
+      
+
+      <br />
+      <div>
+      {% from 'button/macro.njk' import button %}
+
+      <form action="3-dashboard">
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+
+
+    </div>
+     
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+{% from 'card/macro.njk' import card %}
+
+      {{ card({
+        "descriptionHtml": "<p>Group3.csv</p>"
+      }) }}

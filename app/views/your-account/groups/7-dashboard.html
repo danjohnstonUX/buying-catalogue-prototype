@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Group dashboard
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Export group</h1>
+      <p class="nhsuk-lede-text">Export selected groups to your Catalogue Solution.</p>
+
+
+      
+    
+        {{ table({
+            responsive: true,
+            panel: false,
+            caption: "Select groups to export",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Action"
+              }
+            ],
+            rows: [
+                [
+                {
+                  html: '<div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="recipient-46" name="example" type="checkbox" value="email" subgroup="S">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-46">
+                      Group 1
+                    </label>
+                  </div>'
+                },
+                {
+                  html: '<a href="10-view-service-recipients-group-1">View</a>'
+                }
+              ],
+              [
+                {
+                  html: '<div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="recipient-47" name="example" type="checkbox" value="email" subgroup="S">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-47">
+                      Group 2
+                    </label>
+                  </div>'
+                },
+                {
+                  html: '<a href="10-view-service-recipients-group-2">View</a>'
+                }
+              ]
+            ]
+          }) }}
+
+          <br /><br />
+
+          <div style="display:inline-block;">
+            <form action="8-selected-service-recipients">
+              {% from 'button/macro.njk' import button %}
+        
+              {{ button({
+                "text": "Continue"
+              }) }}
+            </form>
+          </div>
+
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+{% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Import CSV file",
+        "href": "1-upload-csv"
+      }) }}

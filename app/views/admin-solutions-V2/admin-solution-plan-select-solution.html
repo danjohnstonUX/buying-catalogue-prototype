@@ -1,0 +1,134 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-plans",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+            <h1>
+              <span role="text">Work-off plan selected solution
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+
+            <p class="nhsuk-lede-text">Select the Solution or Additonal Service this work-off plan is for.</p>
+
+            <form action="admin-solution-plan-add" method="post">
+
+                {% set selectlistHtml %}
+                {% from 'select/macro.njk' import select %}
+
+                {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                    "text": "Select Additional Service"
+                },
+                "items": [
+                    {
+                    "value": 1,
+                    "text": "Additional Service 1"
+                    },
+                    {
+                    "value": 2,
+                    "text": "Additional Service 2",
+                    "selected": true
+                    },
+                    {
+                    "value": 3,
+                    "text": "Additional Service 3"
+                    }
+                ]
+                }) }}
+                {% endset -%}
+
+                {{ radios({
+                "idPrefix": "contact",
+                "name": "contact",
+                "fieldset": {
+                    "legend": {
+                    "text": "What is this Work-off Plan item for?",
+                    "classes": "nhsuk-fieldset__legend--l",
+                    "isPageHeading": "true"
+                    }
+                },
+                "hint": {
+                    "text": ""
+                },
+                "items": [
+                    {
+                    "value": "email",
+                    "text": "Catalogue Solution"
+                    },
+                    {
+                    "value": "phone",
+                    "text": "Additional Service",
+                    "conditional": {
+                        "html": selectlistHtml
+                    }
+                    }
+                ]
+                }) }}
+
+                <br />
+
+                {% from 'button/macro.njk' import button %}
+
+                {{ button({
+                "text": "Continue"
+                }) }}
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

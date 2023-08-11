@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "confirm-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Price of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span></h1>
+      <p class="nhsuk-lede-text">This is the price you agreed to pay in the original contract. You are unable to change the originally agreed price.</p>
+
+
+      {{ summaryList({
+       rows: [
+         {
+           key: {
+             text: "Price"
+           },
+           value: {
+             text: "£1.26 per patient per year"
+           }
+         }
+       ]
+      }) }}
+
+
+
+
+<br />
+<br />
+
+<div>
+  <div style="display:inline-block;">
+    <form method="post" action="edit-dashboard-sr-added">
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

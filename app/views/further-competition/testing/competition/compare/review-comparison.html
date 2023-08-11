@@ -1,0 +1,240 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Review your requirements
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "compare-dashboard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Review your non-price scoring<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  Your competition
+</span></h1>
+
+<p class="nhsuk-lede-text">Review how you’ve scored any non-price elements you’ve added as part of this competition.</p>
+
+
+<br>
+
+<h2 class="nhsuk-heading-m">Implementation scores</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+<br>
+
+<h2 class="nhsuk-heading-m">Interoperability scores</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+
+<h2 class="nhsuk-heading-m">Service level scores</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Online and video consult"
+      },
+      value: {
+        text: "5"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "score"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Q Doctor"
+      },
+      value: {
+        text: "1"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Engage consult"
+      },
+      value: {
+        text: "4"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+
+<form>
+{{ button({
+  "text": "Continue",
+  "href":"../competition-tasklist"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

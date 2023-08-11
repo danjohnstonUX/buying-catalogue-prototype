@@ -1,0 +1,167 @@
+{% extends 'layout.html' %}
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  <script type="text/javascript" src="/js/accessible-autocomplete.min.js"></script>
+{% endblock %}
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+  {{ backLink({
+  "href": "order-4-summary",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Find supplier information
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Search for the supplier you want to order from.</p>
+
+      {{ insetText({
+  "HTML": "<p>You’ll only be able to find suppliers that offer Additional Services with their solutions.</p>"
+}) }}
+      {{ select({
+                "id": "select-1-search",
+                "name": "select-1-search",
+                "label": {
+                    "text": "Supplier"
+                },
+                "items": [
+                          { "value": "", "text": "Select a Supplier" },
+                          { "value": 10055, "text": "Accenda Limited" },
+                          { "value": 10030, "text": "AccuRx Limited" },
+                          { "value": 10046, "text": "Advanced Health and Care Limited" },
+                          { "value": 10063, "text": "Aire Logic" },
+                          { "value": 10033, "text": "AllDayDr Group Ltd" },
+                          { "value": 10044, "text": "Answer Digital Ltd" },
+                          { "value": 10069, "text": "Apollo Medical Software Solutions Limited" },
+                          { "value": 10053, "text": "Arissian" },
+                          { "value": 100003, "text": "Avatar Solutions" },
+                          { "value": 10016, "text": "BigHand Limited" },
+                          { "value": 10021, "text": "Black Pear Software Ltd" },
+                          { "value": 10009, "text": "Care IS LTD" },
+                          { "value": 100002, "text": "CareShare" },
+                          { "value": 100004, "text": "Catterpillar Medworks" },
+                          { "value": 10025, "text": "Clarity Informatics" },
+                          { "value": 10028, "text": "Clinical Architecture" },
+                          { "value": 100006, "text": "Clinical Raptor" },
+                          { "value": 10019, "text": "Codegate Ltd" },
+                          { "value": 10071, "text": "Connected Tech Group" },
+                          { "value": 100010, "text": "Cure Forward" },
+                          { "value": 100005, "text": "Curtis Systems" },
+                          { "value": 10037, "text": "DictateIT" },
+                          { "value": 10039, "text": "Doc Abode Ltd" },
+                          { "value": 100007, "text": "Doc Lightning" },
+                          { "value": 100008, "text": "Docability Software" },
+                          { "value": 10023, "text": "Docobo Ltd" },
+                          { "value": 10011, "text": "DoctorLink" },
+                          { "value": 100014, "text": "Dr. Nick" },
+                          { "value": 10007, "text": "DXS International PLC" },
+                          { "value": 10026, "text": "eConsult Health" },
+                          { "value": 10038, "text": "Edenbridge" },
+                          { "value": 100013, "text": "eHealth Development" },
+                          { "value": 10032, "text": "Elemental Software" },
+                          { "value": 10036, "text": "Elsevier Limited" },
+                          { "value": 10000, "text": "EMIS Health" },
+                          { "value": 100009, "text": "Empire Softworks" },
+                          { "value": 10042, "text": "Engage Health Systems Limited" },
+                          { "value": 10070, "text": "eSynergy Solutions Limited" },
+                          { "value": 10035, "text": "Evergreen Life" },
+                          { "value": 10010, "text": "Excelicare" },
+                          { "value": 10002, "text": "G2 Speech" },
+                          { "value": 10022, "text": "Gnosco AB" },
+                          { "value": 10047, "text": "GP Access" },
+                          { "value": 100011, "text": "Hansa Healthcare" },
+                          { "value": 10054, "text": "Health Intelligence Ltd" },
+                          { "value": 100016, "text": "Hojo Health" },
+                          { "value": 10043, "text": "IBS Software" },
+                          { "value": 10004, "text": "Informatica Systems Ltd" },
+                          { "value": 10051, "text": "Integrated Care 24 Ltd (IC24)" },
+                          { "value": 10001, "text": "Involve" },
+                          { "value": 10073, "text": "iPLATO" },
+                          { "value": 100017, "text": "Jericho Healthcare" },
+                          { "value": 10027, "text": "Lantum" },
+                          { "value": 10060, "text": "Locum's Nest" },
+                          { "value": 10008, "text": "LumiraDX Care Solutions UK Ltd" },
+                          { "value": 100018, "text": "Mana Systems" },
+                          { "value": 10045, "text": "Meddbase" },
+                          { "value": 10049, "text": "Medical Data Solutions and Services" },
+                          { "value": 10006, "text": "Medical Director" },
+                          { "value": 10013, "text": "Medidata Exchange Limited" },
+                          { "value": 10067, "text": "MEDITECH GROUP LIMITED" },
+                          { "value": 10064, "text": "Medloop" },
+                          { "value": 10012, "text": "MedXnote" },
+                          { "value": 10056, "text": "Metabolic Healthcare Ltd" },
+                          { "value": 10061, "text": "Microtest Ltd" },
+                          { "value": 100012, "text": "Moonlight Intercare" },
+                          { "value": 10020, "text": "MyMed Ltd" },
+                          { "value": 10003, "text": "myOrb" },
+                          { "value": 10058, "text": "Niche Health" },
+                          { "value": 99999, "text": "NotEmis Health" },
+                          { "value": 99998, "text": "NotTPP" },
+                          { "value": 10017, "text": "Numed Healthcare" },
+                          { "value": 100020, "text": "Oakwood" },
+                          { "value": 10015, "text": "Optum Health Solutions UK Limited" },
+                          { "value": 10005, "text": "PharmData" },
+                          { "value": 10050, "text": "Philips" },
+                          { "value": 10059, "text": "Prescribing Services" },
+                          { "value": 10066, "text": "Primary Care IT Ltd" },
+                          { "value": 10048, "text": "Priority Digital Health Limited" },
+                          { "value": 10072, "text": "Push Dr Limited" },
+                          { "value": 10041, "text": "Quality Medical Solutions (QMS)" },
+                          { "value": 100000, "text": "Really Kool Corporation" },
+                          { "value": 10057, "text": "Redwood Technologies Group Limited" },
+                          { "value": 100001, "text": "Remedical Software" },
+                          { "value": 10065, "text": "Sensely" },
+                          { "value": 10024, "text": "Servelec HSC" },
+                          { "value": 10018, "text": "Sesui" },
+                          { "value": 10062, "text": "Silicon Practice" },
+                          { "value": 10068, "text": "Substrakt Health" },
+                          { "value": 100019, "text": "Sunhealth Nanosystems" },
+                          { "value": 10040, "text": "Swiftqueue" },
+                          { "value": 10029, "text": "Targett Business Technology Limited" },
+                          { "value": 100015, "text": "Testproof Technology" },
+                          { "value": 10031, "text": "The Martin Bell Partnership" },
+                          { "value": 10014, "text": "Total Billing Solutions" },
+                          { "value": 10052, "text": "TPP – The Phoenix Partnership (Leeds) Ltd" },
+                          { "value": 10034, "text": "Vision Healthcare Limited" }
+                      ]
+            }) }}
+
+                <script>
+      accessibleAutocomplete.enhanceSelectElement({selectElement: document.querySelector('#select-1-search'), required: true, minLength: 2, displayMenu: 'overlay', showAllValues: true, defaultValue: ''});
+    </script>
+      <br/>
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="order-5-10-1-supplier-selected">
+            {{ button({
+            "text": "Continue"
+          }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+  <br/><br/>
+{% endblock %}
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

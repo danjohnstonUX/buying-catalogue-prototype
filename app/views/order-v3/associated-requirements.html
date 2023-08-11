@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "order-5-4-2-select-associated-confirm-quantity-v2",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Associated Service requirements
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Migration
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide details of any specific requirements for this Associated Service.</p>
+
+
+        {{ details({
+          "text": "What are specific requirements?",
+          "HTML": "
+          <p>For example, you may require all your practice managers to attend training sessions on a given day or for engineering to take place only at weekends.
+          </p>
+          "
+        }) }}
+
+
+        {{ textarea({
+          "name": "example",
+          "id": "example",
+          "label": {
+            "text": "What specific requirements do you have for this Associated Service (optional)?"
+          }
+        }) }}
+
+        <br/>
+        <form action="order-4-summary">
+          {{ button({
+        "text": "Save and continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+    <p><a href="associated-requirements-delete-confirm" style="color: #d5281b">Delete requirements</a></p>
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

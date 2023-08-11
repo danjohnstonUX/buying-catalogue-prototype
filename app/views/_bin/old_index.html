@@ -1,0 +1,125 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+  {{ hero({
+    "heading": "NHS Buying Catalogue",
+    "text": "HTML prototypes for demo and testing purposes."
+  }) }}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-u-margin-top-5">
+    <div class="nhsuk-grid-column-full">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/buying-catalogue-v6",
+            "heading": "v6 Customer organisation",
+            "headingLevel": 3,
+            "description": "Buying Catalogue redesign"
+          }) }}
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/buying-catalogue-v6-proxy",
+            "heading": "v6 Proxy Buyer",
+            "headingLevel": 3,
+            "description": "Buying Catalogue redesign"
+          }) }}
+        </div>
+      </div>
+<!--
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/build-marketing-page",
+            "heading": "Build Marketing Page",
+            "headingLevel": 3,
+            "description": "Supplier build marketing page journey."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "https://public-browse.herokuapp.com/",
+            "heading": "Public Browse",
+            "headingLevel": 3,
+            "description": "Public browse with capability filter."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/buyer-browse",
+            "heading": "Buyer Browse",
+            "headingLevel": 3,
+            "description": "Public browse journey with capability filter."
+          }) }}
+        </div>
+      </div>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/marketing-page",
+            "heading": "Marketing Page Preview",
+            "headingLevel": 3,
+            "description": "Marketing page preview for buyers and suppliers."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/landing-page",
+            "heading": "NHS Demo",
+            "headingLevel": 3,
+            "description": "Demo of browse journey for demo purposes."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/landing-page",
+            "heading": "Landing page",
+            "headingLevel": 3,
+            "description": "Buyers home page"
+          }) }}
+        </div>
+      </div>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/buying-catalogue-v6",
+            "heading": "Buying Catalogue V6",
+            "headingLevel": 3,
+            "description": "Buying Catalogue redesign"
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ card({
+            "href": "/buyer-browse-v6",
+            "heading": "Buyer Browse V2",
+            "headingLevel": 3,
+            "description": "New Buyer Browse journey, still in progress"
+          }) }}
+        </div>
+      </div>
+-->
+    </div>
+  </div>
+{% endblock %}

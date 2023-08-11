@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "../../order-v2/order-0-1-list",
+  "text": "Go back to orders dashboard"
+}) }}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Order completed
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">You’ve successfully completed your order. Make sure you carry out the relevant next steps to finalise your procurement.</p>
+
+    
+
+        <h2>Next steps</h2>
+
+        <ul>
+          <li>download a copy of your order using the button on this page</li>
+          <li>return a signed copy of your order to gpitf.commercial1@nhs.net and gpitfutures.finance@nhs.net</li>
+          <li>if you’ve paid for any part of your order using your central allocation, NHS Digital’s finance team will process the payments for you</li>
+          <li>if you’ve paid for any part of your order using local funding, you’ll need to contact the supplier to arrange payment</li>
+          <li>if you’ve ordered a migration, you can
+            <a href="https://digital.nhs.uk/services/gp-it-futures-systems/clinical-system-migration-guide">find more information on preparing and planning (opens in a new tab)</a>
+          </li>
+        </ul>
+
+        <br/>{{ insetText({
+  "HTML": "<p>A copy of these tasks and any supporting documents will be emailed to the address you’ve provided.</p>"
+}) }}
+
+        <h2 class="nhsuk-heading-l">Supporting documents</h2>
+
+        <p>You’ve referenced the following documents in your order. They must be included when you send your order to the supplier for signature.</p>
+
+        <h3 class="nhsuk-heading-s">Appendix 1: Implementation plan milestones</h3>
+
+        {{ button({
+          "text": "Appendix 1 (Word doc, 100KB)",
+          "classes": "nhsuk-button--secondary",
+          "href": "https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632097/Order+form+templates"
+        }) }}
+
+        <br />
+
+        <h3 class="nhsuk-heading-s">Appendix 2: Associated Service billing and requirements</h3>
+
+
+        {{ button({
+          "text": "Appendix 2 (Word doc, 635KB)",
+          "classes": "nhsuk-button--secondary",
+          "href": "https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632097/Order+form+templates"
+        }) }}
+
+        <br />
+
+        <h3 class="nhsuk-heading-s">Appendix 3: Data Processing Information</h3>
+
+
+        {{ button({
+          "text": "Appendix 3 (Word doc, 878KB)",
+          "classes": "nhsuk-button--secondary",
+          "href": "https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632097/Order+form+templates"
+        }) }}
+
+        <hr />
+
+        {{ button({
+          "text": "Download order PDF",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+        <br/>
+        {{ button({
+        "text": "Return to orders dashboard",
+        "href": "../../order-v2/order-0-1-list"
+      }) }}
+
+        <h2>Need help?</h2>
+        <p>If you need any help or have any queries, you can contact the National and Commercial Procurement Hub:</p>
+        {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+      </div>
+    </div>
+  </article>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

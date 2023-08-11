@@ -1,0 +1,151 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select shortlist
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "solution-qdoctor",
+      text: "Q Doctor"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+    },
+    {
+      href: "list-add-name",
+      text: "Shortlist name"
+    },
+    {
+      href: "list-existing-3",
+      text: "New shortlist"
+    },
+    {
+      href: "list-your-shortlists-2",
+      text: "Your shortlists"
+    },
+    {
+      href: "list-select-shortlist",
+      text: "Select shortlist"
+  }]
+  }) }}
+
+{% endblock %}
+
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<style>
+  .column-right-margin {
+    border-right: #666 solid 1px;
+  }
+</style>
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="select-shortlist"]:checked').value;
+
+    switch(selectedValue){
+        case "existing1":
+           document.location.href = "list-contract-length";
+           break;
+        case "existing2":
+           document.location.href = "list-add-rationale-on";
+            break;
+        case "existing3":
+           document.location.href = "list-add-name";
+            break;
+        case "existing4":
+           document.location.href = "list-add-name";
+            break;
+    }
+  }
+</script>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span role="text">Costliest order value
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+        </span>
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Select a shortlist that you would like to take to further competition.</p>
+
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "select-shortlist",
+  "name": "select-shortlist",
+  "fieldset": {
+    "legend": {
+      "text": "What is the value of your costliest order?",
+      "hint": "The value of your order determines which procedure you should have 
+      executed to identify any solution and services you’re ordering.",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "existing1",
+      "text": "Under £40k"
+    },
+        {
+      "value": "existing2",
+      "text": "£40k to £250k"
+    },
+    {
+      "value": "existing3",
+      "text": "Over £250k"
+    },
+    {
+      "value": "existing4",
+      "text": "I'm not sure"
+    }
+  ]
+}) }}
+
+
+
+<br />
+        <form>
+        {{ button({
+          "text": "Continue",
+          "href":"javascript: sendForm();"
+        }) }}
+        </form>
+        
+        
+        
+        
+        
+            </div>
+          </div>
+        
+          <br /><br />
+        {% endblock %}
+        
+        {% block footer %}
+        {% include "includes/footer.html" %}
+        {% endblock %}
+        

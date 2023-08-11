@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How would you like to weight your criteria?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "price-hub",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Contract length</h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-per-item">
+                What is the maximum term for this Call-off Agreement for each Service Recipient (in months)?
+          </label>
+          <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            This is the maximum length the Call-off Agreement can run for each Service Recipient, which includes the initial period. It cannot exceed 36 months from the delivery date - which is when solutions or services start being used.
+          </div>
+          <div class="govuk-input__wrapper">
+            <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">months</div>
+          </div>
+        </div>
+
+        <br>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"price-hub"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

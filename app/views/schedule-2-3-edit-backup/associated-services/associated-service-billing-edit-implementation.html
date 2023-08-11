@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("billing-radios-1").checked ? document.getElementById("billing-radios-1").value : "";
+      var opt2 = document.getElementById("billing-radios-2").checked ? document.getElementById("billing-radios-2").value : "";
+
+      if(opt1=="on-invoice") {
+          document.location.href = "associated-service-billing-backup";
+      }
+      else if(opt2=="on-milestones") {
+          document.location.href = "associated-service-billing-edit-implementation-1";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "associated-service-billing-backup",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Implementation
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+        {{ radios({
+          "idPrefix": "billing-radios",
+          "name": "billing-radios",
+          "fieldset": {
+            "legend": {
+              "text": "How would you like this associated service to be billed?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "on-invoice",
+              "text": "Bill on invoice"
+            },
+            {
+              "value": "on-milestones",
+              "text": "Bill on milestones"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"JavaScript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

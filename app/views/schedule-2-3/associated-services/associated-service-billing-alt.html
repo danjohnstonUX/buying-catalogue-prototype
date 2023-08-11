@@ -1,0 +1,184 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Implementation
+          </span>
+        </h1>
+
+        {{ table({
+          panel: false,
+          caption: "Payment triggers for your selected Associated Services",
+          tableClasses: "nhsuk-u-margin-bottom-7",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Associated Service"
+            },
+            {
+              text: "Quantity"
+            },
+            {
+              text: "Units assigned to M1"
+            },
+            {
+              text: "Units assigned to M2"
+            },
+            {
+              text: "Units assigned to M3"
+            },
+            {
+              text: "Units assigned to M4"
+            },
+            {
+              text: "Units assigned to M5"
+            },
+            {
+              text: "Units assigned to M6"
+            },
+            {
+              text: "Units assigned to M7"
+            },
+            {
+              text: "Units assigned to M8"
+            },
+            {
+              text: "Units assigned to M9"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Associated Service ID",
+                html: "Implementation"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Units assigned to M1",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M2",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M3",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M4",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M5",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M6",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M7",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M8",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M9",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              }
+            ],
+            [
+              {
+                header: "Associated Service ID",
+                html: "Training"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "Units assigned to M1",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M2",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M3",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M4",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M5",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M6",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M7",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M8",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              },
+              {
+                header: "Units assigned to M9",
+                html: '<input class="nhsuk-input nhsuk-input--width-3" id="input-width-3" name="test-width-3" type="text">'
+              }
+            ]
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"associated-service-billing-2"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

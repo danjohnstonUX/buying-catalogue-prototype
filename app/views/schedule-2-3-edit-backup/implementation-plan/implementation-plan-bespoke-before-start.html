@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-hub",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Payment triggers for bespoke implementation plans
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Before defining your bespoke implementation plan, you should be aware of the payment triggers that your milestones must adhere to.</p>
+
+      <p>Milestones created as part of a bespoke implementation plan should have the same payment triggers as a default implemtentation plan.</p>
+
+      <br />
+
+      {{ table({
+        panel: false,
+        caption: "Milestone payment triggers",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone name"
+          },
+          {
+            text: "Milestone payments trigger"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Milestone 1 (Go Live)"
+            },
+            {
+              text: "No payment."
+            }
+          ],
+          [
+            {
+              text: "Milestone 2 (Service Stability)"
+            },
+            {
+              text: "Charges commence on achievement of Milestone 1, but payments will not be made until Milestone 2 is achieved."
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Continue",
+        "href": "implementation-plan-bespoke-1"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

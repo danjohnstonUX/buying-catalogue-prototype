@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "marketing-page-add-cap-epics",
+  "text": "Go back"
+}) }}
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds"> <!--  -->
+
+      <h1>
+        <span role="text">Appointments Management – GP
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+      <p>Supports the administration, scheduling, resourcing and reporting of appointments.</p>
+
+    <hr />
+
+      <h2>NHS defined Epics</h2>
+
+      <p>
+        <a href="https://gpitbjss.atlassian.net/wiki/spaces/GPITF/pages/1391134029/Appointments+Management+-+GP" target="_blank">
+          View more details including acceptance criteria for Epics defined by the NHS
+        </a>
+      </p>
+
+      <ul>
+          <li>Manage Session templates</li>
+          <li>Manage Sessions</li>
+          <li>Configure Appointments</li>
+          <li>Practice Configuration</li>
+          <li>Manage Appointments</li>
+          <li>View Appointment reports</li>
+          <li>Access Patient Record</li>
+          <li>Identify Patients requiring medicines review</li>
+      </ul>
+
+      <h2>Supplier defined Epics</h2>
+
+      <ul>
+          <li>Manage Session templates</li>
+          <li>Manage Sessions</li>
+          <li>Configure Appointments</li>
+      </ul>
+
+      <br /><br />
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

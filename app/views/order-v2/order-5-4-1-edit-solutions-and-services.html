@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-solutions",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Edit Catalogue Solutions and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Choose the Solution or Service that you would like to edit.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+        "HTML": "<p>You will only be able to edit the service recipient, price and quantity of this Catalogue Solution. If you would like to choose a Catalogue Solution, you will have to restart.</p>"
+      }) }}
+
+      
+    </div>
+</div>
+
+
+
+
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+      responsive: true,
+      panel: false,
+      caption: "Edit a Solution or Service",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Name"
+        },
+        {
+          text: "Type"
+        },
+        {
+          text: "Action"
+        }
+        
+      ],
+      rows: [
+        [
+        {
+          header: "Emis Web GP",
+          html: 'Emis Web GP'
+        },
+        {
+          header: "Catalogue Solution",
+          html: 'Catalogue Solution'
+        },
+        {
+          header: "Edit",
+          html: '<a href="order-5-4-2-edit-service-recipient" style="white-space: nowrap;">Edit</a>'
+        }
+      ],
+        [
+          {
+            header: "Call-off Agreement ID",
+            html: 'Automated Arrivals'
+          },
+          {
+            header: "Catalogue Solution",
+            html: 'Additional Service'
+          },
+          {
+            header: "Edit",
+            html: '<a href="" style="white-space: nowrap;">Edit</a>'
+          }
+        ],
+        [
+            {
+              header: "Call-off Agreement ID",
+              html: 'Document Managment'
+            },
+            {
+              header: "Catalogue Solution",
+              html: 'Additional Service'
+            },
+            {
+              header: "Edit",
+              html: '<a href="" style="white-space: nowrap;">Edit</a>'
+            }
+        ],
+        [
+            {
+              header: "Call-off Agreement ID",
+              html: 'Migration'
+            },
+            {
+              header: "Catalogue Solution",
+              html: 'Associated Service'
+            },
+            {
+              header: "Edit",
+              html: '<a href="" style="white-space: nowrap;">Edit</a>'
+            }
+        ]
+          ]
+        }) }}
+
+<br /><br />
+
+<form action="order-5-4-1-solutions">
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

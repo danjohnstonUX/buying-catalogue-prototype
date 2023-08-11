@@ -1,0 +1,209 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Capabilities and Epice
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Capabilities and Epics<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      AccuRx
+    </span></h1>
+  <p class="nhsuk-lede-text">Select the Capabilities and any Epics met by your Catalogue Solution.</p>
+
+
+
+  {% set epics1Html %}
+
+  {{ checkboxes({
+    "idPrefix": "addsols",
+    "name": "addsols",
+    "fieldset": {
+      "legend": {
+        "text": "Must Epics",
+        "classes": "nhsuk-fieldset__legend--s",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": ""
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "checked": true,
+        "text": "(C1E2) Manage Appointments by Proxy"
+      }
+    ]
+  }) }}
+  {% endset -%}
+
+{% set genysysHtml %}
+
+{{ checkboxes({
+  "idPrefix": "addsols",
+  "name": "addsols",
+  "fieldset": {
+    "legend": {
+      "text": "Must Epics",
+      "classes": "nhsuk-fieldset__legend--s",
+      isPageHeading: true
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "automated arrivals",
+      "checked": true,
+      "text": "(C23E5) Notifications"
+    },
+    {
+      "value": "document management",
+      "checked": true,
+      "text": "(C23E6) Manage Appointment Requests"
+    },
+    {
+      "value": "emis mobile",
+      "checked": true,
+      "text": "(C23E7) Booking approval"
+    }
+  ]
+}) }}
+{{ checkboxes({
+  "idPrefix": "addsols",
+  "name": "addsols",
+  "fieldset": {
+    "legend": {
+      "text": "May Epics",
+      "classes": "nhsuk-fieldset__legend--s",
+      isPageHeading: true
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "automated arrivals",
+      "text": "(C23E8) Report on usage of Cross-Organisation Appointments"
+    },
+    {
+      "value": "document management",
+      "text": "(C23E9) Manage Cross-Organisation Appointment Booking templates"
+    }
+  ]
+}) }}
+
+{% endset -%}
+
+{% set epics2Html %}
+
+  {{ checkboxes({
+    "idPrefix": "addsols",
+    "name": "addsols",
+    "fieldset": {
+      "legend": {
+        "text": "May Epics",
+        "classes": "nhsuk-fieldset__legend--s",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": ""
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "text": "(C46E10) Automatically record which Patients have had COVID-19 vaccination invites created"
+      },
+      {
+        "value": "automated arrivals",
+        "text": "(C46E11) View whether Patients have had a COVID-19 vaccination invite communication created"
+      }
+    ]
+  }) }}
+  {% endset -%}
+
+<form action="">
+{{ checkboxes({
+"idPrefix": "cat_solution",
+"name": "cat_solution",
+"fieldset": {
+  "legend": {
+    "text": "Appointments",
+    "classes": "nhsuk-fieldset__legend--l",
+    "isPageHeading": "true"
+  }
+},
+"hint": {
+  "text": ""
+},
+"items": [
+  {
+    "value": "genysys",
+    "text": "(C1) Appointments Management – Citizen",
+    "conditional": {
+      "html": epics1Html
+    }
+  },
+  {
+    "value": "online and video consult",
+    "text": "(C5) Appointments Management – GP"
+  },
+  {
+    "value": "video consult",
+    "text": "(C23) Cross-organisation Appointment Booking",
+    "conditional": {
+      "html": genysysHtml
+    }
+  },
+  {
+    "value": "anywhere consult",
+    "text": "(C46) Appointments Management – COVID-19 Vaccinations",
+    "conditional": {
+      "html": epics2Html
+    }
+  }
+]
+}) }}
+
+
+<br/>
+
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

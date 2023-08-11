@@ -1,0 +1,292 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    }
+    ],
+    href: "/order-v2/filter/v5/catalogue-solutions-start",
+    text: "Catalogue Solutions"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<h1>Catalogue Solutions</h1>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full-width">
+      <p class="nhsuk-lede-text">Search or filter Catalogue Solutions to find the ones that match the needs of your organisation.</p>
+
+      
+      
+      <div class="app-search__contents">
+        <label class="c-search__label visually-hidden" for="query">Filter Catalogue Solutions</label>
+        <input class="app-search__input ui-autocomplete-input" id="query" placeholder="Search by supplier, solution name or Capabilities" autocomplete="off" name="query" type="search" maxlength="50">
+        <button type="submit" class="app-search__submit">
+            <svg class="icon icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                <image class="icon__search icon__search--fallback" src="/apps-library/static/apps_library/images/icon-search-blue.352e1118d687.png" xlink:href="">
+            </image></svg>
+            <span class="visually-hidden">Search</span>
+        </button>
+    </div>
+
+    <br />
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Filter solutions and services",
+      "href": "filter-by"
+    }) }}
+
+    <hr />
+
+    <h2>10 Catalogue Solutions available:</h2>
+
+
+      <hr />
+
+      <!-- <p class="sorting-span-no-heading">Catalogue Solutions: A-Z. Sort by: <a href="?sort=new">Sort by last published</a></p> -->
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="select-1" style="font-weight: bold;">
+          Sort by:
+        </label>
+        <select class="nhsuk-select" id="select-1" name="select-1">
+          <option value="1" selected>A to Z</option>
+          <option value="2">Z to A</option>
+          <option value="3">Last published</option>
+          <option value="3">Framework</option>
+        </select>
+      </div>
+      
+
+      {% from 'components/bc-list-item/macro.njk' import bcListItem %}
+      {{ bcListItem({
+        "solution": "Online and Video Consult",
+        "supplier": "Caltech Health",
+        "text": "Our online triaging system allows patients to easily access self-help advice, and fill out forms containing their requests and queries that go into their practice's workflow. Helping to improve access to services, Online Consult is configurable, and integrates with all leading GP Clinical Systems.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Q Doctor",
+        "supplier": "MyMed Ltd",
+        "text": "Q health is a secure video consultation platform and appointment booking platform used around the NHS, enabling digital appointment booking (including COVID-19 vaccination appointment management) and remote consultations between clinicians and patients.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DVOFCVC"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "healthya Online and Video Consultation",
+        "supplier": "ADDVantage Technologies",
+        "text": "Healthya provides a seamless and flexible secure online video consultation platform to supplement NHS Systems. Patients connect to the NHS Health / Care Professional using the user friendly healthya app. The intuitive app is free for NHS patients and integrates with NHS provider services.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Engage Consult",
+        "supplier": "Engage Health Systems Limited",
+        "text": "Engage Consult allows patients to communicate securely and safely online with their practice about non-emergency medical conditions or admin questions. The solution offers 24/7 access to self-help information, other local NHS and self-care services.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "e-Consultations (Professional to Professional)"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DVOFCVC"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "PATCHS Online Consultation",
+        "supplier": "Advanced Health and Care Limited",
+        "text": "PATCHS is a complete online consultation and triage solution designed by GPs and academics to help manage patient workload. It enables practices to implement a Total Triage model, and set up Virtual Hubs / eHubs for federated working.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      <div id="list">
+      {{ bcListItem({
+        "solution": "askmyGP",
+        "supplier": "Salvie Ltd",
+        "text": "askmyGP provides online consultation and workflow tools to maintain doctor-patient relationships and keeps patients in touch with their registered practice. Clinicians use askmyGP to prioritise and deliver care by secure message, telephone, video or face-to-face appointment.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DVOFCVC"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "FootFall",
+        "supplier": "Silicon Practice",
+        "text": "FootFall is a complete digital practice that enables patients to engage with all areas of the practice online. With the option to operate in Digital Triage mode, FootFall can transform the way your patients access care and how you manage demands on the practice.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Online and Video Consult",
+        "supplier": "Caltech Health",
+        "text": "Our online triaging system allows patients to easily access self-help advice, and fill out forms containing their requests and queries that go into their practice's workflow. Helping to improve access to services, Online Consult is configurable, and integrates with all leading GP Clinical Systems.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DVOFCVC"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "Q Doctor",
+        "supplier": "MyMed Ltd",
+        "text": "Q health is a secure video consultation platform and appointment booking platform used around the NHS, enabling digital appointment booking (including COVID-19 vaccination appointment management) and remote consultations between clinicians and patients.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          },
+          {
+            "text": "Appointments Management – COVID-19 Vaccinations"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "GP IT Futures"
+          }
+        ]
+      }) }}
+   
+      {{ bcListItem({
+        "solution": "healthya Online and Video Consultation",
+        "supplier": "ADDVantage Technologies",
+        "text": "Healthya provides a seamless and flexible secure online video consultation platform to supplement NHS Systems. Patients connect to the NHS Health / Care Professional using the user friendly healthya app. The intuitive app is free for NHS patients and integrates with NHS provider services.",
+        "capabilities": [
+          {
+            "text": "e-Consultations (Patient/Service User to Professional)"
+          }
+        ],
+        "frameworks": [
+          {
+            "text": "DVOFCVC"
+          }
+        ]
+      }) }}
+   
+      
+
+      <hr style="margin-top: 0.5em;" />
+ 
+      <form action="catalogue-solutions-compare">
+        {% from 'button/macro.njk' import button %}
+        {{ button({
+          "text": "Compare selected",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+      </form>
+   
+     <hr style="margin-top: 0.5em;" />
+   
+     {% from 'pagination/macro.njk' import pagination %}
+     {{ pagination({
+       "previousUrl": "#",
+       "previousPage": "1 of 10",
+       "nextUrl": "#",
+       "nextPage": "3 of 10"
+     }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

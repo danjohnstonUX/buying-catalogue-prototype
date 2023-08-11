@@ -1,0 +1,229 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "select-service-recipients",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Confirm Service Recipients
+      {# <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span> #}
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 00T
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 00V 
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 00Y
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 01D
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 01G
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 01W
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 01Y
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 02A
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 02H
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          NHS GREATER MANCHESTER ICB - 14L
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>You’ve selected 3 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+        </ol>
+      </div>
+    </details>
+
+    <br />
+
+    <p>You can <a href="select-service-recipients">add or remove Service Recipients</a> if needed, or edit them later if
+      you continue with your order.</p>
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        <form method="post" action="confirm-price">
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+          "text": "Continue"
+          }) }}
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

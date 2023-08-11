@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Match changes
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("decision-1").checked ? document.getElementById("decision-1").value : "";
+    var opt2 = document.getElementById("decision-2").checked ? document.getElementById("decision-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "12-planned-delivery-dates-training";
+    }
+    else if(opt2=="no") {
+        document.location.href = "";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "10-planned-delivery-dates-emis",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Match changes
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Provide us with the planned delivery date for the whole contract.</p>
+
+      {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "decision",
+  "name": "decision",
+  "fieldset": {
+    "legend": {
+      "text": "Do you want to match the changes applied on EMIS Web GP to Training Day at Practice?",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+<br />
+
+        <div>
+          {{ button({
+            "text": "Continue",
+            "href":"javascript: sendForm();"
+          }) }}
+          
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

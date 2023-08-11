@@ -1,0 +1,189 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Filter by Capabilities for Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  {% from 'includes/capabilities-must-may.njk' import newCaps %}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "#",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Filter by Capabilities for Catalogue Solutions</h1>
+
+        <p class="nhsuk-lede-text">Capabilities describe business needs. Select the ones you want a Catalogue Solution to address.</p>
+
+        <h2>40 Capabilities available</h2>
+
+        <hr>
+
+        <h3>Select Capabilities</h3>
+
+        <p>0 out of 40 selected</p>
+
+        <button class="nhsuk-button nhsuk-button--secondary">Clear selection</button>
+
+        <form>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+          <div class="nhsuk-card__content nhsuk-card__content--feature">
+            <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-l">
+              Appointments
+            </h2>
+          <p class="nhsuk-card__description">
+            {{ checkboxes({
+              "idPrefix": "appointments-checkbox",
+              "name": "appointments-epics",
+              "fieldset": {
+                "legend": {
+                  "text": "Capability name",
+                  "classes": "nhsuk-fieldset__legend--m",
+                  isPageHeading: false
+                }
+              },
+              "hint": {
+                "html": "<p class='nhsuk-u-margin-bottom-2'>Find solutions that enable staff to efficiently manage time and resources, ensuring all patients have timely access to appropriate medical services. </p>"
+              },
+              "items": [
+                {
+                  "value": "appointments-management-citizen",
+                  "text": "Appointments Management - Citizen"
+                },
+                {
+                  "value": "appointments-management-covid-vacc",
+                  "text": "Appointments Management - COVID-19 Vaccinations"
+                },
+                {
+                  "value": "appointments-management-gp",
+                  "text": "Appointments Management - GP"
+                },
+                {
+                  "value": "cross-org-app-booking",
+                  "text": "Cross-organisation Appointment Booking"
+                }
+              ]
+            }) }}
+
+          </p>
+          </div>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+          <div class="nhsuk-card__content nhsuk-card__content--feature">
+            <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-l">
+              Care coordination
+            </h2>
+          <p class="nhsuk-card__description">
+            {{ checkboxes({
+              "idPrefix": "care-coordination-checkbox",
+              "name": "care-coordination-epics",
+              "fieldset": {
+                "legend": {
+                  "text": "Capability name",
+                  "classes": "nhsuk-fieldset__legend--m",
+                  isPageHeading: false
+                }
+              },
+              "hint": {
+                "html": "<p class='nhsuk-u-margin-bottom-2'> Find solutions that support patient communication, efficient handling of test results and referrals and help identify anyone needing COVID-19 vaccinations.</p>"
+              },
+              "items": [
+                {
+                  "value": "cohort-id",
+                  "text": "Cohort Identification"
+                },
+                {
+                  "value": "digital-diagnostics",
+                  "text": "Digital Diagnostics"
+                },
+                {
+                  "value": "referral-mgmt",
+                  "text": "Referral Management"
+                }
+              ]
+            }) }}
+          </p>
+          </div>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+          <div class="nhsuk-card__content nhsuk-card__content--feature">
+            <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">
+              Citizen services 
+            </h2>
+          <p class="nhsuk-card__description">
+            {{ checkboxes({
+              "idPrefix": "citizen-services-checkbox",
+              "name": "citizen-services-epics",
+              "fieldset": {
+                "legend": {
+                  "text": "Citizen Services",
+                  "classes": "nhsuk-fieldset__legend--m",
+                  isPageHeading: false
+                }
+              },
+              "hint": {
+                "html": "<p class='nhsuk-u-margin-bottom-2'> Find solutions that enable service users to be more involved in their healthcare, including accessing health records, monitoring conditions and managing their appointments. </p>"
+              },
+              "items": [
+                {
+                  "value": "communicate-with-practice-citizen",
+                  "text": "Communicate With Practice – Citizen"
+                },
+                {
+                  "value": "phr",
+                  "text": "Personal Health Record"
+                },
+                {
+                  "value": "prescription-ordering-citizen",
+                  "text": "Prescription Ordering – Citizen"
+                },
+                {
+                  "value": "telehealth",
+                  "text": "Telehealth"
+                },
+                {
+                  "value": "view-record-citizen",
+                  "text": "View Record – Citizen"
+                }
+              ]
+            }) }}
+          </p>
+          </div>
+        </div>
+
+        </form>
+
+        <br/>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"include-epics"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

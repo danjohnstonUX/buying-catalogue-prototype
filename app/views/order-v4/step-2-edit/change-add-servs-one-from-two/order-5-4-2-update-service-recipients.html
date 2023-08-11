@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var radioYes = document.getElementById("contact-1").checked ? document.getElementById("contact-1").value : "";
+    var radioNo = document.getElementById("contact-2").checked ? document.getElementById("contact-2").value : "";
+
+    if(radioYes=="yes") {
+        document.location.href = "order-5-4-2-update-confirm-service-recipients";
+    }
+    else if(radioNo=="no") {
+        document.location.href = "order-5-4-2-add-additional-service-recipient-new-selector-preselected-3-blank";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "are-you-sure-add-servs",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+<form name="triage" id="triage">
+  {% from 'radios/macro.njk' import radios %}
+  {% from 'input/macro.njk' import input %}
+
+  <h1>Update Service Recipients for services in your order</h1>
+
+  <p class="nhsuk-lede-text">Change the Service Recipients for any Additional Services in your order to match those for your Catalogue Solution.</p>
+
+
+  
+
+  {{ radios({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to update Service Recipients for the services in your order?",
+        "classes": "nhsuk-fieldset__legend--m"
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+
+</form>
+
+<br />
+
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

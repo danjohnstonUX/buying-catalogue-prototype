@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% set sub = data['sub-processor-list'][data['index']] %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "view-order",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Delete this sub-processor?
+  <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      {{sub.subProcessorOrgName}}
+  </span>
+</h1>
+<p class="nhsuk-lede-text">The sub-processor will be deleted from the data processing information.</p>
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Deleting a sub-processor",
+  "HTML": "<p>Deleting a sub-processor is permanent and all information previously added will be lost.</p>"
+}) }}
+
+
+
+<form action="/delete-sub-route" method="post">
+
+<input type="hidden" value="{{index['index']}}" name="the-index" />
+
+<button type="submit" class="nhsuk-button" data-module="nhsuk-button">Delete sub-processor</button>
+
+<p><a href="/admin-solutions/dpi/spi-confirmation">Cancel</a></p>
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

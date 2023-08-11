@@ -1,0 +1,267 @@
+.govuk-related-items {
+  margin-top: 30px;
+  border-top: 10px solid #005ea5;
+  padding-top: 5px;
+}
+.govuk-related-items .heading-medium {
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+}
+.govuk-related-items li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.related-container {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.govuk-related-items ul {
+  font-size: 16px;
+  line-height: 1.25;
+}
+.govuk-related-items ul li.related-items-more {
+  font-weight: bold;
+}
+
+.side-nav {
+  border-right: none;
+  display: block;
+  overflow: hidden;
+}
+
+.side-nav__component {
+  border: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.side-nav__list {
+  position: relative;
+  list-style: none;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-family: “Frutiger W01”, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.side-nav__list--selected .side-nav__link, .side-nav__list--selected:hover .side-nav__link {
+  color: #fff;
+  background-color: #005eb8;
+}
+
+.side-nav__link {
+  padding: 12px 30px 8px 15px;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  font-family: “Frutiger W01”, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #005eb8;
+}
+
+.side-nav__link:hover {
+  color: #005eb8;
+}
+
+.side-nav__title {
+  padding: 12px 30px 8px 15px;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  font-family: “Frutiger W01”, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000;
+}
+
+.responsive-nav {
+  padding-bottom: 30px !important;
+}
+
+@media (min-width: 1000px) {
+  .side-nav {
+    border-right: 1px solid #bfc1c3;
+  }
+
+  .responsive-nav {
+    padding-bottom: 0 !important;
+  }
+}
+
+// make it stickyyyy
+
+// Override original styles
+.side-nav__list--selected,
+.side-nav__list--selected:hover {
+  a.side-nav__link {
+    color: #2e8aca;
+ 
+    &:visited {
+      color: #1d70b8;
+    }
+ 
+    //background-color: white;
+    &:focus {
+      background-color: #ffbf47
+    }
+  }
+}
+ 
+// Re-implement restricting to immediate children
+.side-nav__list--selected,
+.side-nav__list--selected:hover {
+  > .side-nav__link {
+    color: white !important;
+    background-color: #005ea5 !important;
+  }
+}
+ 
+// Submenu styles
+ul.fixed-navigation__sub-list {
+  display: block;
+  border-left: 4px solid #b1b4b6;
+  list-style-type: none;
+  padding-left: 0;
+  > li.side-nav__list {
+    a:hover {
+      color: #2e8aca;
+      //background-color: #fff;
+      &:focus {
+        background-color: #ffbf47
+      }
+    }
+ 
+    &.side-nav__list--selected {
+      a:hover {
+        color: white !important;
+        background-color: #005ea5 !important;
+      }
+    }
+  }
+}
+ 
+// Hide sub-navs of NOT selected menu items
+.js-enabled .side-nav__list:not(.side-nav__list--selected) {
+  ul.fixed-navigation__sub-list {
+    display: none;
+  }
+}
+ 
+// Nav link styling
+.side-nav__link {
+  color: #1d70b8;
+  font-family: “Frutiger W01”, Arial, sans-serif;
+  display: block;
+  position: relative;
+  border-radius: 0;
+  margin-bottom: 5px;
+  text-decoration: none;
+  &:visited {
+    color: #1d70b8;
+  }
+}
+ 
+.affix {
+    top: 20px;
+    width: 240px;
+    position: fixed;
+}
+ 
+.affix-bottom {
+    position: absolute;
+    bottom: 0px;
+}
+ 
+.sticky-nav__wrapper {
+  position: relative;
+  margin-top: 1.2em;
+}
+ 
+.govuk-side-nav-content {
+  padding-top: 0;
+}
+ 
+@media (min-width: 40.0625em) {
+  .govuk-side-nav-content {
+    padding-top: 30px;
+  }
+}
+ 
+@media screen and (min-width: 0px) and (max-width: 640px) {
+  #fixed-navigation {
+    display: none;
+  }
+ 
+  .indent {
+    border-left-width: 1px;
+  }
+}
+ 
+// APIS-1127 - iOS touch scroll jittery fixed elements fix
+.side-nav__component {
+  padding: 0;
+  margin-top: 0;
+  list-style-type: none;
+
+  transform: translate3d(0px, 0px, 0px) translateZ(0);
+}
+ 
+@media (min-width: 40.0625em) {
+  .side-nav__component {
+    margin-top: 16px;
+  }
+}
+ 
+// APIS-1198 - fix menu resize isssue, hide chevrons for in-page nav
+.side-nav__link.side-nav__link--in-page:after {
+    content: "";
+}
+ 
+// APIS-3807 - override hover style on left nav so it passes accessibility colour contrast tests
+.side-nav__link:hover {
+  background-color: #fff;
+  text-decoration: underline;
+}
+ 
+// APIS-3807 - this bit makes sure that the :hover style doesn't override the :focus style
+.side-nav__link:focus {
+  background-color: #ffbf47;
+}
+ 
+// Remove sub navigation right border on a mobile phone
+.side-nav {
+    border-right: none;
+  }
+ 
+  // Add sub navigation right border back in for desktop application. uses breakpoint defined in GOV UK frontend toolkit.
+  @media(min-width: 769px) {
+    .side-nav {
+      border-right: 1px solid #bfc1c3;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 40px;
+    }
+  }
+
+  .side-nav-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4c6272;
+  }
+
+  .table-cell-separation {
+    border-left: solid 2px #d8dde0 !important;
+    padding-left: 20px !important;
+  } 
+ 

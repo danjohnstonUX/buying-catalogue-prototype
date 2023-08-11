@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients Emis Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-1-supplier-selected",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Your organisation
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 10 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>CHP LTD - BRANSHOLME (B81002)</li>
+      <li>CITY HEALTH PRACTICE LTD (B81074)</li>
+      <li>CLIFTON HOUSE MEDICAL CENTRE (B81054)</li>
+      <li>DELTA HEALTHCARE (B81097)</li>
+      <li>DR GT HENDOW'S PRACTICE (B81616)</li>
+    </ol>
+  <br/>
+
+  <p>You can <a href="select-recipients">add or remove Service Recipients</a> if needed.</p>
+
+      <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="../solution-hub">
+                  {% from 'button/macro.njk' import button %}
+          
+                  {{ button({
+                    "text": "Continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

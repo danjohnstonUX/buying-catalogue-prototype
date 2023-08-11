@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Task list
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-0-1-list",
+  "text": "Go back to dashboard"
+}) }}
+
+{% from 'tag/macro.njk' import tag %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Competition name
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Your CCG
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, at.</p>
+
+    <!--  <h2 class="nhsuk-heading-s">Description</h2>
+      <p>This description text will only appear when the 'order description' section has been completed in Step 1.</p>-->
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">1.</span>
+        Prepare Competition
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="#">Filter solutions</a>
+            </span>
+            {{ tag({
+              text: "Not started",
+              classes: "nhsuk-tag--grey"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+
+              <a href="#">Select service recipients</a>
+            </span>
+            {{ tag({
+              text: "Not started",
+              classes: "nhsuk-tag--grey"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+              <a href="#">Select award criteria</a>
+            </span>
+            {{ tag({
+              text: "Not started",
+              classes: "nhsuk-tag--grey"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+              <a href="#">Select Price & Non-price weightings</a>
+            </span>
+            {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+            <br/>
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+          </li>
+      </ul>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">2.</span>
+        Requirements
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="#">Client application type</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="#">Select Non-price elements</a>
+          </span>
+          {{ tag({
+          text: "Optional",
+          classes: "nhsuk-tag--white"
+        })}}
+          <br/>
+          <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="#">Non-price weightings</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="#">Review requirements</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+      </ul>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">3.</span>
+        Evaluate
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="#">Evaluate Price</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="#">Evaluate Non-price</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="#">Final results</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Lorem ipsum dolor sit amet.</span>
+        </li>
+      </ul>
+
+
+      <br /><br />
+
+
+  <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Order last updated by Sue Smith on 15 March 2021
+</p>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

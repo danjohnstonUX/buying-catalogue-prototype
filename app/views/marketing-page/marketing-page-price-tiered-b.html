@@ -1,0 +1,232 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+    {{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/catalogue-solution/",
+    text: "Catalogue Solutions"
+}],
+  href: "/marketing-page/",
+  text: "Caltech Web GP"
+}) }}
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>
+          <span role="text">List price
+            <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden">
+                -
+              </span>
+              Caltech Web GP
+            </span>
+          </span>
+        </h1>
+
+        {% from 'contents-list/macro.njk' import contentsList %}
+
+        {{ contentsList({
+        items: [
+          {
+            href: "/marketing-page/",
+            text: "Description"
+          },
+          {
+            href: "marketing-page-2",
+            text: "Features"
+          },
+          {
+            href: "marketing-page-3",
+            text: "Capabilities"
+          },
+          {
+            href: "marketing-page-price-tiered",
+            text: "List price",
+            current: "true"
+          },
+          {
+            href: "marketing-page-additional-tiered",
+            text: "Additional Services"
+          },
+          {
+            href: "marketing-page-associated-tiered",
+            text: "Associated Services"
+          },
+          {
+            href: "marketing-page-4",
+            text: "Interoperability"
+          },
+          {
+            href: "marketing-page-5",
+            text: "Implementation timescales"
+          },
+          {
+            href: "marketing-page-6",
+            text: "Client application type"
+          },
+          {
+            href: "marketing-page-7",
+            text: "Hosting type"
+          },
+          {
+            href: "marketing-page-dpi",
+            text: "Data Processing Information"
+          },
+          {
+            href: "marketing-page-service-level",
+            text: "Service Level Agreement"
+          },
+          {
+            href: "marketing-page-8",
+            text: "Development plans"
+          },
+          {
+            href: "marketing-page-9",
+            text: "Supplier details"
+          }
+        ]
+      }) }}
+      </div>
+    </div>
+
+    <article>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+
+          <p>
+            <strong>This Catalogue Solution is available at the following price:</strong>
+          </p>
+
+          {% from 'tables/macro.njk' import table %}
+
+          {{ table({
+            panel: false,
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Tier"
+              },
+              {
+                text: "Range"
+              },
+              {
+                text: "Price"
+              },
+              {
+                text: "Unit definition"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Tier 1"
+                },
+                {
+                  text: "1-89,999 patients"
+                },
+                {
+                  text: "£1.1000 per patient per year"
+                },
+                {
+                  html: "<a href='#'>View</a>"
+                }
+              ],
+              [
+                {
+                  text: "Tier 2"
+                },
+                {
+                  text: "90,000-899,999 patients"
+                },
+                {
+                  text: "£0.9900 per patient per year"
+                },
+                {
+                  html: "<a href='#'>View</a>"
+                }
+              ],
+              [
+                {
+                  text: "Tier 3"
+                },
+                {
+                  text: "900,000+ patients"
+                },
+                {
+                  text: "£0.0750 per patient per year"
+                },
+                {
+                  html: "<a href='#'>View</a>"
+                }
+              ]
+            ]
+          }) }}
+
+          <p class="nhsuk-body">
+            <strong>The total price for this Catalogue Solution is calculated accumulatively</strong>
+          </p>
+
+          {{ details({
+            "text": "What does calculated accumulatively mean?",
+            "HTML": "
+            <p>The total cost will be determined by the tiers and the number of items you buy. For example:</p>
+            <h2 class='nhsuk-heading-m'>Quantity</h2>
+            <p>Service Recipient 1 needs 5 licences</p>
+              <p>Service Recipient 2 needs 5 licences</p>
+              <p>Service Recipient 3 needs 15 licences</p>
+              <p>Total quantity: 25</p>
+            <h2 class='nhsuk-heading-m'>Tier</h2>
+            <p>Tier 1: 1-9 licences cost £5</p>
+            <p>Tier 2: 10-19 licences cost £2.50</p>
+            <p>Tier 3: 20+ licences cost £1</p>
+            <h2 class='nhsuk-heading-m'>Price</h2>
+            <p>Tier 1: 9 licences cost £45</p>
+            <p>Tier 2: 9 licences cost £22.50</p>
+            <p>Tier 3: 7 licences cost £7</p>
+            <p>Total cost: £74.50"
+}) }}
+
+          <h2 class="nhsuk-heading-xs">Unit definitions for this Catalogue Solution</h2>
+
+          <p class="nhsuk-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2022
+          </p>
+
+          {% from 'pagination/macro.njk' import pagination %}
+
+          {{ pagination({
+    "previousUrl": "marketing-page-3",
+    "previousPage": "Capabilities",
+    "nextUrl": "marketing-page-additional",
+    "nextPage": "Additional Services"
+  }) }}
+        </div>
+      </div>
+    </article>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

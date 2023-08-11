@@ -1,0 +1,86 @@
+<style>
+.nhsuk-expander .nhsuk-details__summary > span,
+.nhsuk-expander .nhsuk-details__summary-text{
+  color:black;
+  text-decoration:none;
+}
+
+.nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+ background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander{
+ background: none;
+}
+</style>
+
+<style>
+  /* this ccs is for the table-details{number}b files
+  .nhsuk-table-responsive th,
+  tr.small-text th {
+    font-size: 0.842em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td,
+  tr.small-text td {
+    font-size: 0.842em;
+  }
+  .bc-detail {
+    //padding-left: 3em;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .bc-last-row td {
+    border: 0;
+  }
+  .bc-align-right {
+    text-align: right;
+  }
+
+  .bc-detail tr td:last-child,
+  .bc-detail tr th:last-child {
+    padding-right: 1em;
+  } */
+</style>
+
+<h2>Catalogue Solution</h2>
+
+
+<!-- <h3 style="margin-bottom: 2;">Catalogue Solution</h3>  -->
+
+  <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Emis Web GP</b>
+      </span>
+      <span style="float:right;">
+        <b>Subtotal:</b> £13,566.42
+      <span>
+    </summary>
+    <div class="nhsuk-details__text">
+      {% include "contracts-testing/step-2/cat-solution-details-table.html" %}
+    </div>
+  </details>
+
+  <br />
+
+  <h2>Additional Services</h2>
+  <!-- <h3 style="margin-bottom: 2;">Additional Services</h3>  -->
+
+ <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Enterprise Search and Report</b>
+      </span>
+      <span style="float:right;">
+        <b>Subtotal:</b> £1,184.37
+      <span>
+    </summary>
+    <div class="nhsuk-details__text">
+      {% include "contracts-testing/step-2/additional-services-details-table.html" %}
+    </div>
+  </details>

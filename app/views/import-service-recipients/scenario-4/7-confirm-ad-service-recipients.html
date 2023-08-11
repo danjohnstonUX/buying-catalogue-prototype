@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients for EMIS Web GP
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "6-select-ad-service-recipients-edited",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Confirm Service Recipients
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Enterprise Search and Reports
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Additional Service.</p>
+
+        <h2>Selected Service Recipients</h2>
+        <p>You’ve selected 20 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>Campus Health Centre</li>
+          <li>City Health Practice Ltd</li>
+          <li>Clifton House Medical Centre</li>
+          <li>Dr GT Hendow's Practice</li>
+          <li>Dr JAD Weir & Partners</li>
+          <li>Drs Raut and Thoufeeq</li>
+          <li>East Hull Family Practice</li>
+          <li>Goodheart Surgery</li>
+          <li>Hastings Medical Centre</li>
+          <li>James Alexander Family practice</li>
+          <li>Laurbel Surgery</li>
+          <li>Princes Medical Centre</li>
+          <li>St Andrews Surgery</li>
+          <li>Sydenham Group Practice</li>
+          <li>The Avenues Medical Centre</li>
+          <li>The Bridge Group Practice</li>
+          <li>The Oaks Medical Centre</li>
+          <li>The Sutton Manor Surgery</li>
+          <li>Wilberforce Surgery</li>
+          <li>Wolseley Medical Centre</li>
+        </ol>
+        <br/>
+
+        <p>You can
+          <a href="2-selected-service-recipients">add or remove Service Recipients</a>
+          if needed, or edit them later if you continue with your order.</p>
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="#">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                    "text": "Save and continue"
+                  }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<br/><br/>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

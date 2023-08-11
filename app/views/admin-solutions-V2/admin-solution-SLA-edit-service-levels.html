@@ -1,0 +1,145 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-SLA",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1>
+              <span role="text">Service levels
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+
+            <p class="nhsuk-lede-text">Provide information on the service levels covered under this Service Level Agreement.</p>
+
+            <form action="admin-solution-SLA" method="post">
+
+                {{ input({
+                "label": {
+                    "text": "Type of service"
+                },
+                "hint": {
+                    "text": "For example, permitted downtime, incident response or escalation and complaints management."
+                },
+                "id": "service-level-type",
+                "name": "service-level-type"
+                }) }}
+
+                {{ textarea({
+                id: "service-level",
+                name: "service-level",
+                label: {
+                    text: "Service level"
+                },
+                "rows": "10",
+                "hint": {
+                    "text": "For example, how quickly you’ll respond to incidents or how much downtime is permitted."
+                }
+                }) }}
+                <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+                {{ textarea({
+                id: "measured-how",
+                name: "measured-how",
+                label: {
+                    text: "How the service levels are measured"
+                },
+                "rows": "10",
+                "hint": {
+                    "text": "For example, how you show that the service levels have or have not been met."
+                }
+                }) }}
+                <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+
+
+                {{ radios({
+                "idPrefix": "contact",
+                "name": "contact",
+
+                "fieldset": {
+                  "legend": {
+                    "text": "Are service credits applied?",
+                    "classes": "nhsuk-fieldset__legend--m"
+                  }
+                },
+                "hint": {
+                  "text": "Do users of your solution receive service credits if the service levels are not met?"
+                },
+                "items": [
+                  {
+                    "value": "Yes",
+                    "text": "Yes"
+                  },
+                  {
+                    "value": "No",
+                    "text": "No"
+                  }
+                ]
+              }) }}
+
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

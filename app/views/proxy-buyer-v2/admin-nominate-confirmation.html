@@ -1,0 +1,70 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "manage-nominated-orgs",
+  "text": "Go back"
+}) }}
+<form action="manage-nominated-orgs">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <div class="nhsuk-u-margin-bottom-7">
+        <h1 class="nhsuk-u-margin-bottom-0">Remove organisation?</h1>
+        <p id="page-heading-org-name" class="nhsuk-caption-xl">NHS Bexley CCG</p>
+      </div>
+
+      <p class="nhsuk-lede-text">This organisation will no longer be able to act on behalf of Cheshire and Merseyside Commissioning Hub.</p>
+
+
+
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Remove organisation"
+      }) }}
+      <br />
+      <a href="manage-nominated-orgs">Cancel</a>
+      <br /><br /><br /><br />
+
+    </div>
+  </div>
+</form>
+
+<br />
+<br />
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Which capabilities do you require?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "#",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Which capabilities do you require?</h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "appointments-checkbox",
+            "name": "appointments-epics",
+            "classes": "nhsuk-u-margin-bottom-5",
+            "fieldset": {
+              "legend": {
+                "text": "Appointments",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'>Find solutions that enable staff to efficiently manage time and resources, ensuring all patients have timely access to appropriate medical services. </p>"
+            },
+            "items": [
+              {
+                "value": "appointments-management-citizen",
+                "text": "Appointments Management - Citizen"
+              },
+              {
+                "value": "appointments-management-covid-vacc",
+                "text": "Appointments Management - COVID-19 Vaccinations"
+              },
+              {
+                "value": "appointments-management-gp",
+                "text": "Appointments Management - GP"
+              },
+              {
+                "value": "cross-org-app-booking",
+                "text": "Cross-organisation Appointment Booking"
+              }
+            ]
+          }) }}
+
+          {{ checkboxes({
+            "idPrefix": "care-coordination-checkbox",
+            "name": "care-coordination-epics",
+            "classes": "nhsuk-u-margin-bottom-5",
+            "fieldset": {
+              "legend": {
+                "text": "Care coordination",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'> Find solutions that support patient communication, efficient handling of test results and referrals and help identify anyone needing COVID-19 vaccinations.</p>"
+            },
+            "items": [
+              {
+                "value": "cohort-id",
+                "text": "Cohort Identification"
+              },
+              {
+                "value": "digital-diagnostics",
+                "text": "Digital Diagnostics"
+              },
+              {
+                "value": "referral-mgmt",
+                "text": "Referral Management"
+              }
+            ]
+          }) }}
+
+          {{ checkboxes({
+            "idPrefix": "citizen-services-checkbox",
+            "name": "citizen-services-epics",
+            "classes": "nhsuk-u-margin-bottom-5",
+            "fieldset": {
+              "legend": {
+                "text": "Citizen Services",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'> Find solutions that enable service users to be more involved in their healthcare, including accessing health records, monitoring conditions and managing their appointments. </p>"
+            },
+            "items": [
+              {
+                "value": "communicate-with-practice-citizen",
+                "text": "Communicate With Practice – Citizen"
+              },
+              {
+                "value": "phr",
+                "text": "Personal Health Record"
+              },
+              {
+                "value": "prescription-ordering-citizen",
+                "text": "Prescription Ordering – Citizen"
+              },
+              {
+                "value": "telehealth",
+                "text": "Telehealth"
+              },
+              {
+                "value": "view-record-citizen",
+                "text": "View Record – Citizen"
+              }
+            ]
+          }) }}
+
+        </form>
+
+        <br/>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"epics"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

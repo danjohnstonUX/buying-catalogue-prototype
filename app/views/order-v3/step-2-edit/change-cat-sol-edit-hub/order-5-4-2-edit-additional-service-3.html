@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Additional Services
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "are-you-sure-cat-sol",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Additional Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Anywhere Consult
+      </span></h1>
+      <p class="nhsuk-lede-text">Select the Additional Services that you want to add to your order.</p>
+
+      
+
+
+
+
+      <!-- <p><a href="#">Add or remove service recipients</a></p> -->
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      {% from 'tables/macro.njk' import table %}
+
+
+
+
+<form>
+  {{ checkboxes({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "Your Additional Services",
+        "classes": "nhsuk-fieldset__legend--m",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": "These are optional add-ons to the main solution that provide extra functionality."
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "text": "Automated Arrivals",
+        id: "contact"
+      },
+      {
+        "value": "document management",
+        "text": "Document Management",
+        id: "contact"
+      },
+
+      {
+        "value": "emis mobile",
+        "text": "EMIS Mobile"
+      },
+      {
+        "value": "emis web dispensing",
+        "text": "EMIS Web Dispensing",
+        id: "contact"
+      },
+      {
+        "value": "enterprise search and reports",
+        "text": "Enterprise Search and Reports"
+      },
+      {
+        "value": "extract services",
+        "text": "Extract Services",
+        id: "contact"
+      },
+      {
+        "value": "long term conditions manager",
+        "text": "Long Term Conditions Manager"
+      },
+      {
+        "value": "risk stratification",
+        "text": "Risk Stratification"
+      }
+    ]
+  }) }}
+</form>
+
+        <br /><br />
+     
+
+      <div>
+        <div style="display:inline-block;">
+          <form method="post" action="order-5-4-2-add-solution-service-recipient">
+            {% from 'button/macro.njk' import button %}
+      
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+      </div>
+
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+<!-- 
+Old code
+
+<h2>Selected Additional Services</h2>
+      <p>These Additional Services have already been added to your order:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Automated Services</li>
+        <li>Document Management</li>
+      </ul>
+
+      <hr /> -->

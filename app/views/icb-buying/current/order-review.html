@@ -1,0 +1,484 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+
+  <style>
+  .nhsuk-expander .nhsuk-details__summary > span,
+  .nhsuk-expander .nhsuk-details__summary-text{
+    color:black;
+    text-decoration:none;
+  }
+
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+   background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  .nhsuk-expander{
+   background: none;
+  }
+  </style>
+
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-tasklist",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Call-off Order Form
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the items you’ve added to your order before marking it complete.</p>
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Order ID"
+              },
+              value: {
+                text: "C01001-01"
+              }
+            },
+            {
+              key: {
+                text: "Description"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              }
+            },
+            {
+              key: {
+                text: "Date created"
+              },
+              value: {
+                text: "24 March 2023"
+              }
+            },
+            {
+              key: {
+                text: "Call-off Ordering Party"
+              },
+              value: {
+                html: '<p>L Evans</p><p>NHS Hull CCG</p><p>03F</p><p>WILBERFORCE COURT</p><p>ALFRED GELDER STREET</p><p>HULL</p><p>HU1 1UY</p><p>ENGLAND</p>'
+              }
+            },
+            {
+              key: {
+                text: "Supplier"
+              },
+              value: {
+                html: '<p>Caltech Health</p><p>Rawdon House</p><p>Green Lane</p><p>West Yorkshire</p><p>LS19 7BY</p><p>England</p>'
+              }
+            },
+            {
+              key: {
+                text: "Approximate start date"
+              },
+              value: {
+                html: '1 July 2023'
+              }
+            },
+            {
+              key: {
+                text: "Initial period"
+              },
+              value: {
+                html: '6 months'
+              }
+            },
+            {
+              key: {
+                text: "Maximum term"
+              },
+              value: {
+                html: '36 months'
+              }
+            },
+            {
+              key: {
+                text: "End date"
+              },
+              value: {
+                html: '30 June 2026'
+              }
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Catalogue Solution</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary" >
+            <span class="nhsuk-details__summary-text">
+              <b>Caltech Web GP</b>
+            </span>
+            <span style="float:right;">
+              <b>Subtotal:</b> £8,706.60
+            <span>
+          </summary>
+          <div class="nhsuk-details__text">
+
+            <br />
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00T </caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Recipient (ODS Code)
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Item ID
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Planned Delivery Date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 1 (Y00001)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00001-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >620</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 2 (Y00002)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00002-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >750</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 3 (Y00003)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00003-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >900</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00V</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Recipient (ODS Code)
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Item ID
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Planned Delivery Date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 1 (Y00004)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00004-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >620</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 2 (Y00005)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00005-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >800</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 3 (Y00006)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00006-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >900</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Service Recipients for NHS GREATER MANCHESTER ICB - 00Y</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Recipient (ODS Code)
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Item ID
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Planned Delivery Date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 1 (Y00007)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00007-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >620</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 2 (Y00008)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00008-1</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >800</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row small-text">
+                  <td class="nhsuk-table__cell" >ORGANISATION 3 (Y00009)</td>
+                  <td class="nhsuk-table__cell" >C01001-01-Y00006-9</td>
+                  <td class="nhsuk-table__cell" >1 Jul 2023</td>
+                  <td class="nhsuk-table__cell" >900</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+              <table class="nhsuk-table bc-detail">
+                <caption class="nhsuk-table__caption">Pricing</caption>
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row" class="small-text">
+
+                    <th role="columnheader" class="" scope="col">
+                      Price per unit
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Quantity
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Total cost (per year)
+                    </th>
+                  </tr>
+                </thead>
+              <tbody class="nhsuk-table__body">
+                <tr>
+                  <td class="nhsuk-table__cell" style="width:50%">£1.26 per patient per year</td>
+                  <td class="nhsuk-table__cell">6,910</td>
+                  <td class="nhsuk-table__cell">£8,706.60</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </details>
+
+         <h2>Milestones and payment triggers for Catalogue Solution and Additional Services</h2>
+
+         {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Default milestones and payment triggers",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone name"
+          },
+          {
+            text: "Milestone payment trigger"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Delivery date (go live)"
+            },
+            {
+              text: "No payment."
+            }
+          ],
+          [
+            {
+              text: "Service stability"
+            },
+            {
+              text: "Charges commence on achievement of delivery date (go live), but payments will not be made until service stability is achieved."
+            }
+          ]
+        ]
+      }) }}
+      
+      <br />
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Bespoke milestones and payment triggers",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone name"
+          },
+          {
+            text: "Milestone payment trigger"
+        
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Interoperability with finance system"
+            },
+            {
+              text: "Payment will be made once the supplier has demonstrated to our satisfaction that their solution works with our finance system."
+            
+            }
+          ],
+          [
+            {
+              text: "Project plan"
+            },
+            {
+              text: "Payments will be made once the supplier's project plan has been signed off by us."
+            }
+          ]
+        ]
+      }) }}
+      
+<br />
+
+<h2 class="nhsuk-heading-m">Indicative costs not including VAT</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Total one-off cost:"
+              },
+              value: {
+                text: "£0.00"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Total monthly cost:"
+              },
+              value: {
+                text: "£725.55"
+              },
+              actions: {
+                items: [
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Total cost for one year:"
+              },
+              value: {
+                html: '<p>£8,706.60</p>'
+              },
+              actions: {
+                items: [
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        {% from "summary-list/macro.njk" import summaryList %}
+
+        {{ summaryList({
+          rows: [
+
+            {
+              key: {
+                text: "Total cost of contract (36 months):"
+              },
+              value: {
+                text: "£26,119.80"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            }
+          ]
+       }) }}
+
+      </div>
+    </div>
+
+    <br />
+
+        
+
+    <h2 class="nhsuk-heading-m">Preview order</h2>
+
+    <p>You can download and review your order with colleagues before marking it complete.</p>
+
+    {{ button({
+      "text": "Download order PDF",
+      "classes": "nhsuk-button--secondary",
+      "href":"/files/icb_order_pdf.pdf"
+    }) }}
+
+    <br />
+
+    <h2 class="nhsuk-heading-m">Complete order</h2>
+
+    <p>If you’re happy with your order, you can mark it complete.</p>
+
+
+    {{ button({
+      "text": "Complete order",
+      "href":"order-tasklist"
+    }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

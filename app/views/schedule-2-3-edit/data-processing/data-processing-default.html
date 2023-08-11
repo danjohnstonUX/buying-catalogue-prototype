@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("accept-default-dpi-1").checked ? document.getElementById("accept-default-dpi-1").value : "";
+      var opt2 = document.getElementById("accept-default-dpi-2").checked ? document.getElementById("accept-default-dpi-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "edit-hub";
+      }
+      else if(opt2=="no") {
+          document.location.href = "data-processing-holding";
+      }
+    }
+  </script>
+
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "edit-hub",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Personal data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Make sure you’ve contacted the supplier and reviewed how they process personal data.</p>
+
+        {{ radios({
+          "idPrefix": "accept-default-dpi",
+          "name": "accept-default-dpi",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to proceed using the supplier’s default data processing information?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I’ve agreed variations to the default data processing information with the supplier"
+            }
+          ]
+        }) }}
+
+        <br />
+
+        {{ button({
+          "text": "Save and continue",
+          "href": "javascript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

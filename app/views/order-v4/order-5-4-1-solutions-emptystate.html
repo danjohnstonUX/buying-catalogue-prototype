@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Catalogue Solutions and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Add any Catalogue Solutions and services you want to be part of this order.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Add solutions or services",
+        "href": "order-5-4-2-add-solution-service"
+      }) }}
+<p>Use the link to add Catalogue Solutions and/or services and assign them to service recipients.</p>
+    </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {#
+      {% include "order-v2/order-5-4-1-table-orders2.html" %}
+    #}
+
+    <br /><br />
+
+<form action="order-4-summary-supplier">
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

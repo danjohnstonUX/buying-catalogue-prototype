@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "order-4-summary-before",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Order description
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Order C010000-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide a brief description of your order to help identify it from any others you’ve worked on. Once you save the description, a unique order ID will be generated.</p>
+
+        {{ textarea({
+          "name": "example",
+          "id": "example",
+          "label": {
+            "text": "Provide a description of the order"
+          }
+        }) }}
+
+        <br/>
+        <form action="order-4-summary">
+          {{ button({
+        "text": "Save and continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

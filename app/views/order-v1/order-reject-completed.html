@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-table-responsive th {
+    font-size: 1em;
+    white-space: normal;
+  }
+  .nhsuk-table-responsive td {
+    font-size: 1em;
+  }
+</style>
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+{{ backLink({
+  "href": "order-preview",
+  "text": "Go back to solution dashboard"
+}) }}
+
+
+
+    <form action="admin-user">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+
+          <h1>Caltech deleted</h1>
+          <p class="nhsuk-lede-text">This Catalogue Solution has been deleted.</p>
+
+
+
+
+  <br />
+  <br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

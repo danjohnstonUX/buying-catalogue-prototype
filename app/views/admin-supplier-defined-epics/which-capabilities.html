@@ -1,0 +1,160 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+{% from 'includes/capabilities-must-may.njk' import newCaps %} 
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "./",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+            
+            <h1>
+              <span role="text">Capabilities for this supplier defined Epic
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Health
+                </span>
+              </span>
+            </h1>
+
+            <p class="nhsuk-lede-text">Select the Capabilities relating to this supplier defined Epic.</p>
+
+  
+
+            <form action="epics-further-details" method="post">
+
+              <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                  
+
+                  {% for cap in newCaps %}
+
+                  
+
+                  <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" >
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">{{cap['category-name']}}</span>
+                      <span class="expander-count"><b class="expander-count-text">0</b> Capabilities selected</span>
+                  </summary>
+                    <div class="nhsuk-details__text">
+                 
+                    <div class="nhsuk-form-group"><table class="nhsuk-table-responsive" role="table"><tbody class="nhsuk-table__body">
+                      
+                      {% for ability in cap['all-capabilities'] %}
+                      <tr role="row" class="nhsuk-table__row">
+                                <td role="cell" class="nhsuk-table__cell">
+                                    <div class="nhsuk-checkboxes">
+                                        <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input capper" {% if ability['expired'] %} disabled {% endif %} data-val="true"  id="{{cap['category-name']}}-{{ loop.index }}" name="capabilities" subgroup="{{cap['category-name']}}" type="checkbox" value="{{ability}}"><label class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_0__Selected">
+                                          {{ability['capability']}} {{cap['capability']}} {% if ability['expired'] %} <strong class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-3">Expired</strong>{% endif %}</label>
+                                          <input id="SelectedItems_0__Id" name="SelectedItems[0].Id" type="hidden" value="1"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody></table></div>
+                </div></details>
+
+                  {% endfor %}
+
+                  {# <div class="nhsuk-checkboxes">
+                    
+                    {% for cap in caps %}
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="{{loop.index}}" name="capabilities" type="checkbox" value="{{cap}}">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="{{loop.index}}">
+                          {{cap}}
+                        </label>
+                      </div>
+                    {% endfor %}
+
+            
+                  </div>
+                </fieldset>
+            
+              </div> #}
+
+              <button class="nhsuk-button nhsuk-u-margin-top-5" type="submit">
+                Save and continue
+              </button>
+
+              </form>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+function updateCounts() {
+    $('.nhsuk-details').each(function() {
+        var count = $(this).find('.capper:checked').length;
+        $(this).find('.expander-count-text').text(count);
+    });
+}
+
+updateCounts();
+
+$('.nhsuk-details .epic-caps, .capper').on('change', updateCounts);
+
+$('.capper').on('change', function() {
+    if ($(this).is(':checked')) { // Check if the 'capper' checkbox was checked
+        // Navigate up to the parent and then down to find the '.must-epics' checkboxes
+        $(this).parent().next().find('.must-epics').prop('checked', true);
+    } else {
+        $(this).parent().next().find('.must-epics').prop('checked', false);
+    }
+    // Trigger custom event on the .capper checkbox
+    $(this).trigger("checkboxChanged");
+});
+
+// Listening for the custom event on .capper checkboxes
+$('.capper').on("checkboxChanged", function() {
+    console.log("Checkbox has been checked!");
+    updateCounts();
+});
+});
+
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+<!--
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [{
+    href: "/",
+    text: "Home"
+  }],
+  href: "/",
+  text: "Orders"
+  }) }} -->
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "orders-proxy",
+  "text": "Go back"
+}) }}
+
+{% from 'tag/macro.njk' import tag %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Order C010013-01</h1>
+      <p class="nhsuk-lede-text">Complete the following steps to create an order summary.</p>
+
+      <h2>Order description</h2>
+      <p>Lorem ipsum</p>
+
+
+
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">1.</span>
+        Prepare order
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="/order/organisation/C010013-01/description">Order description</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+          </li>
+
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="/order/organisation/C010013-01/ordering-party">Call-off Ordering Party information</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="/order/organisation/C010013-01/supplier">Supplier information</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="/order/organisation/C010013-01/commencement-date">Commencement date for this agreement</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+          </li>
+      </ul>
+
+
+      <!--h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">3.</span>
+        Commencement date
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="/order/organisation/C010013-01/commencement-date">Provide commencement date for this agreement</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+          </li>
+      </ul-->
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">2.</span>
+        Add services
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="order-add-catalogue-solutions-qty">Add Catalogue Solutions to your order</a>
+            </span>
+            {{ tag({
+              text: "Not started",
+              classes: "nhsuk-tag--grey"
+            })}}
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                Add Additional Services to your order
+            </span>
+            {{ tag({
+              text: "Cannot start yet",
+              classes: "nhsuk-tag--grey"
+            })}}
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                Add Associated Services to your order
+            </span>
+            {{ tag({
+              text: "Optional",
+              classes: "nhsuk-tag--white"
+            })}}
+          </li>
+      </ul>
+
+      <!--h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">5.</span>
+        Indicate funding source
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <span>Explain how you're paying for this order</span>
+            </span>
+            {{ tag({
+              text: "Cannot start yet",
+              classes: "nhsuk-tag--grey"
+            })}}
+          </li>
+      </ul-->
+
+
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">3.</span>
+        Complete order
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              Indicate funding source
+          </span>
+          {{ tag({
+            text: "Cannot start yet",
+            classes: "nhsuk-tag--grey"
+          })}}
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="order-preview-confirm">Review and complete order</a>
+          </span>
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+        </li>
+      </ul>
+
+      <br />
+
+      {% from 'button/macro.njk' import button %}
+
+      <form action="order-preview">
+      {{ button({
+        "text": "Preview order summary",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+      </form>
+
+      <a href="#" style="color: red;">Delete order</a>
+
+      </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Engineering quantity
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "18-associated-service-1-price",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Quantity of Associated Service<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Engineering
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Enter the amount that you want to order for each Service Recipient.</p>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-per-item">
+             How many do you want?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">days</div>
+          </div>
+        </div>
+
+        <br />
+
+        {{ details({
+         "text": "What quantity should I enter?",
+         "HTML": "
+           <p>Dependent on the issue, a typical range is 1-7 days. Additional Engineering is available and would be dependant on scale and user needs. This could be one day or purchased in bulk. </p>"
+       }) }}
+
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="20-add-associated-service-2-recipients">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <br/><br/>
+    {% endblock %}
+
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}

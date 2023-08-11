@@ -1,0 +1,147 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-hint-solutions {
+    font-size: 1rem;
+  }
+</style>
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+      "href": "compare-solutions",
+      "text": "Go back"
+    }) }}
+
+    <h1>Catalogue Solutions found<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      OC/VC competition
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the results from your chosen filter. You must provide a reason if any of the solutions listed are not taken through to your competition shortlist.
+    </p>
+
+    {{ insetText({
+      "HTML": "<p>You must add between 2 and 8 solutions to your shortlist for this competition. If there is only 1 solution, you do not have to carry out a competition and can execute a direct award.</p>"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <form>
+
+          <div class="nhsuk-form-group">
+        
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <h1 class="nhsuk-fieldset__heading">
+                  Which solutions would you like to add to your competition shortlist?
+                </h1>
+              </legend>
+        
+              <div class="nhsuk-hint" id="example-hint">
+                Select at least 2 solutions and a maximum of 8 to take through to your competition.
+              </div>
+        
+              <div class="nhsuk-checkboxes">
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                  <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-1">
+                    <a href="#">Online and Video Consult (opens in a new tab)</a>
+                  </label>
+                  <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                    Caltech Health
+                  </div>
+                  <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                    Additional Services required: <br>Document Management, Caltech Mobile
+                  </div>
+                </div>
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+                  <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-2">
+                    <a href="#">Q Doctor (opens in a new tab)</a>
+                  </label>
+                  <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                    MyMed Ltd
+                  </div>
+                  <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                    Additional Services required: <br>None
+                  </div>
+                </div>
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="text message">
+                  <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-3">
+                    <a href="#">healthya Online and Video Consultation (opens in a new tab)</a>
+                  </label>
+                  <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                    ADDVantage Technologies 
+                  </div>
+                  <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                    Additional Services required: <br>None
+                  </div>
+                </div>
+
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="text message">
+                  <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-4">
+                    <a href="#">Engage Consult (opens in a new tab)</a>
+                  </label>
+                  <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                    Engage Health Systems Limited 
+                  </div>
+                  <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                    Additional Services required: <br>Document Management, Engage Mobile
+                  </div>
+                </div>
+        
+              </div>
+            </fieldset>
+        
+          </div>
+        
+        </form>
+
+        
+    <a href="unselected-justification" class="nhsuk-button">Save and continue</a>
+
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,140 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Review Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "4-discrepancies",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Review Service Recipients<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+       
+      </span></h1></h1>
+
+
+
+      <p class="nhsuk-lede-text">Review the Service Recipients continue to import into your order importing into your order.</p>
+
+      <div>
+      
+        
+     
+
+      {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  panel: false,
+  caption: "Service Recipients",
+  hint: "hjjhj",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "ODS code"
+    },
+    {
+      text: "Service Recipient"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+   [
+      {
+        text: "Y03508"
+      },
+      {
+        html: '<p>BEVAN LTD</p>'
+      },
+      {
+        html: '<p><a href="hjhjhj">Delete</a></p>'
+      }
+    ],
+    [
+      {
+        text: "Y00427"
+      },
+      {
+        html: '<p>BRANSHOLME MIU</p>'
+      },
+      {
+        html: '<p><a href="hjhjhj">Delete</a></p>'
+      }
+    ],
+    [
+      {
+        text: "B81085"
+      },
+      {
+        html: '<p>BURNBRAE MEDICAL PRACTICE</p>'
+      },
+      {
+        html: '<p><a href="hjhjhj">Delete</a></p>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+      
+
+      <br />
+      <div>
+      {% from 'button/macro.njk' import button %}
+
+      <form action="6-selected-service-recipients">
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+
+
+    </div>
+     
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+{% from 'card/macro.njk' import card %}
+
+      {{ card({
+        "descriptionHtml": "<p>Group3.csv</p>"
+      }) }}

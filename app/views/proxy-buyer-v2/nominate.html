@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [{
+
+  }],
+  href: "/",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Nominate an organisation to create orders on your behalf</h1>
+      <p class="nhsuk-lede-text">
+        Get help procuring IT systems from the Buying Catalogue.
+      </p>
+
+      <hr>
+
+      <p>
+        If you need support in carrying out the procurement of clinical IT systems, you can nominate an organisation to create orders on your behalf.
+      </p>
+      <p>The Buying Catalogue has been designed to make ordering easier and allow a wider number of people to be involved.
+      </p>
+      <p>Use the button below to begin the nomination process. You’ll be able to connect with an organisation that can support your organisation in its procurement activities.
+
+      </p>
+      <form action="login-nominate">
+      {% from 'button/macro.njk' import button %}
+
+        {{ button({
+          "text": "Start"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

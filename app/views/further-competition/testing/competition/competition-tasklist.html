@@ -1,0 +1,220 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "competitions-hub",
+"text": "Go back to manage competitions"
+}) }}
+
+{% from 'tag/macro.njk' import tag %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>OC/VC competition 
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        NHS WEST YORKSHIRE INTEGRATED CARE BOARD
+      </span>
+    </h1>
+    <p class="nhsuk-lede-text">Complete the following steps to carry out a competition.</p>
+
+    <h2 class="nhsuk-heading-s">Description</h2>
+    <p>This description has been provided by the user when creating this competition.</p>
+    <h2 class="bc-c-task-list__task">
+      <span class="bc-c-task-list__task-number">1.</span>
+      Prepare competition
+    </h2>
+
+    <ul class="bc-c-task-list__items">
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+
+          <a href="prepare/shortlisted-solutions">Shortlisted Catalogue Solutions</a>
+        </span>
+        {{ tag({
+        text: "Completed",
+        classes: "nhsuk-tag--green"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          View the solutions you added to your shortlist for this competition.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+
+          <a href="prepare/select-recipients">Service Recipients</a>
+        </span>
+        {{ tag({
+        text: "Completed",
+        classes: "nhsuk-tag--green"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Confirm who’ll be receiving the winning solution <br />to help calculate total costs.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+
+          <a href="prepare/contract-length">Contract length</a>
+        </span>
+        {{ tag({
+        text: "Completed",
+        classes: "nhsuk-tag--green"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Confirm how long your contract will be in months.</span>
+      </li>
+    </ul>
+
+    <h2 class="bc-c-task-list__task">
+      <span class="bc-c-task-list__task-number">2.</span>
+      Define competition criteria
+    </h2>
+
+    <ul class="bc-c-task-list__items">
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="select-criteria">Award criteria</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Select the criteria you want to use to compare your <br />shortlisted solutions.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="price-weighting">Award criteria weightings</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Give your chosen award criteria weightings based on <br />how important they are to you.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="non-price/non-price-hub">Non-price elements</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Select if you want to add any non-price elements to <br />help you score your shortlisted solutions.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="non-price/non-price-weighting">Non-price weightings</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Give your chosen non-price elements weightings based <br />on how important they are to you.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="non-price/review-requirements">Review competition criteria</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Review your weightings and any non-price elements <br />you’ve added to your competition.</span>
+      </li>
+    </ul>
+
+    <h2 class="bc-c-task-list__task">
+      <span class="bc-c-task-list__task-number">3.</span>
+      Compare and score solutions
+    </h2>
+
+    <ul class="bc-c-task-list__items">
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="compare/compare-dashboard">Compare and score non-price elements</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Compare and score your shortlisted solutions based <br />on non-price elements.</span>
+      </li>
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="price/price-hub">Calculate price</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Provide information to calculate the price for <br />each of your shortlisted solutions.</span>
+      </li>
+
+    </ul>
+
+    <h2 class="bc-c-task-list__task">
+      <span class="bc-c-task-list__task-number">4.</span>
+      Finish and view results
+    </h2>
+
+    <ul class="bc-c-task-list__items">
+      <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+        <span class="bc-c-task-list__task-name">
+          <a href="results/confirm-results">View results</a>
+        </span>
+        {{ tag({
+        text: "Not started",
+        classes: "nhsuk-tag--grey"
+        })}}
+        <br />
+        <span style="color:	#4c6272">
+          Confirm you’re ready to view the final results for this <br />competition.</span>
+      </li>
+
+    </ul>
+
+    <br />
+
+
+    <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+      Competition last updated by Sue Smith on 15 March 2021
+    </p>
+    {% endblock %}
+
+    {% block footer %}
+    {% include "includes/footer.html" %}
+    {% endblock %}

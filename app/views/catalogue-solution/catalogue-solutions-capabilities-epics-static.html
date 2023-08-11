@@ -1,0 +1,277 @@
+{% from 'components/bc-list-capability-epic-static/macro.njk' import bcListCapEpicStatic %}
+{{ bcListCapEpicStatic({
+  idPrefix: "appointments",
+  category: "Appointments",
+  description: "Find solutions that enable patients and staff to efficiently manage time and resources.",
+  capabilities: [
+    {
+      text: "Appointments Management – Citizen (4)",
+      tick: true,
+      mustEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "Manage Appointments by Proxy (2)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage Appointments (4)"
+        },
+        {
+          text: "Manage Appointments by Proxy (2)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+{{ bcListCapEpicStatic({
+  idPrefix: "consultation",
+  category: "Consultations and communication",
+  description: "Find solutions that support the delivery of remote consultations and digital care.",
+  capabilities: [
+    {
+      text: "Communication Managemen (2)",
+      tick: true,
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    },
+    {
+      text: "e-Consultations: Professional to Professional (3)",
+      tick: true,
+      mustEpics: [
+        {
+          text: "Patient/Service User requests support"
+        },
+        {
+          text: "Respond to request for support from Patient/Service User"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Patient/Service User makes administrative request"
+        },
+        {
+          text: "Link requests and responses to Patient/Service User Record"
+        },
+        {
+          text: "Self-help and signposting"
+        },
+        {
+          text: "Live Consultation: Patient/Service User and Health and Care Professionals"
+        },
+        {
+          text: "Group e-Consultations"
+        },
+        {
+          text: "Reports"
+        }
+      ]
+    },
+    {
+      text: "Online Consultation (7)",
+      tick: true,
+      mustEpics: [
+        {
+          text: "Manage communications: Patient (3)"
+        },
+        {
+          text: "Manage communications: Proxy (5)"
+        }
+      ],
+      mayEpics: [
+        {
+          text: "Manage communication consents for a Patient (2)"
+        },
+        {
+          text: "Manage communication preferences for a Patient (1)"
+        },
+        {
+          text: "Manage communication templates (3)"
+        },
+        {
+          text: "Create communicationsn (7)"
+        },
+        {
+          text: "Manage automated communications (2)"
+        },
+        {
+          text: "View communication reports (3)"
+        },
+        {
+          text: "Access Patient Record (2)"
+        },
+        {
+          text: "Manage communication consents for a Proxy (2)"
+        },
+        {
+          text: "Manage communication preferences for a Proxy (2)"
+        },
+        {
+          text: "Manage incoming communications0 (2)"
+        },
+        {
+          text: "Share monitoring data with my General Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Practice (2)"
+        },
+        {
+          text: "Configure Telehealth for the Patient (2)"
+        },
+        {
+          text: "Manage incoming Telehealth data (2)"
+        }
+      ]
+    }
+  ]
+}) }}
+
+
+
+<!--
+
+
+{
+  text: "e-Consultations: Patient/Service User to Professional (1)",
+  tick: true,
+  mustEpics: [
+    {
+      text: "Patient/Service User requests support - C28E1"
+    },
+    {
+      text: "Respond to request for support from Patient/Service User - C28E2"
+    }
+  ],
+  mayEpics: [
+    {
+      text: "Patient/Service User makes administrative request - C28E3"
+    },
+    {
+      text: "Link requests and responses to Patient/Service User Record - C28E4"
+    },
+    {
+      text: "Self-help and signposting - C28E5"
+    },
+    {
+      text: "Live Consultation: Patient/Service User and Health and Care Professionals - C28E6"
+    },
+    {
+      text: "Group e-Consultations - C28E7"
+    },
+    {
+      text: "Reports - C28E8"
+    }
+  ]
+},
+  ,
+  {
+    text: "Video Consultation (2)",
+    tick: true,
+    mustEpics: [
+      {
+        text: "Manage communications: Patient (3)"
+      },
+      {
+        text: "Manage communications: Proxy (5)"
+      }
+    ],
+    mayEpics: [
+      {
+        text: "Manage communication consents for a Patient (2)"
+      },
+      {
+        text: "Manage communication preferences for a Patient (1)"
+      },
+      {
+        text: "Manage communication templates (3)"
+      },
+      {
+        text: "Create communicationsn (7)"
+      },
+      {
+        text: "Manage automated communications (2)"
+      },
+      {
+        text: "View communication reports (3)"
+      },
+      {
+        text: "Access Patient Record (2)"
+      },
+      {
+        text: "Manage communication consents for a Proxy (2)"
+      },
+      {
+        text: "Manage communication preferences for a Proxy (2)"
+      },
+      {
+        text: "Manage incoming communications0 (2)"
+      },
+      {
+        text: "Share monitoring data with my General Practice (2)"
+      },
+      {
+        text: "Configure Telehealth for the Practice (2)"
+      },
+      {
+        text: "Configure Telehealth for the Patient (2)"
+      },
+      {
+        text: "Manage incoming Telehealth data (2)"
+      }
+    ]
+  }
+  -->

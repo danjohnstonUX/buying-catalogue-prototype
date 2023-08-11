@@ -1,0 +1,2123 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Filter by epics
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<style>
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter {
+    background-color: #005eb8;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: -1px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text {
+    text-decoration: none;
+  }
+</style>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "#",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-9">
+
+    <h1>Filter by epics</h1>
+
+    <p class="nhsuk-lede-text">Select the Epics you want to filter by.</p>
+
+    <h2 class="nhsuk-heading-s">2 Epics found with this search criteria</h2>
+
+    <ul>
+      <li><strong>Appointments</strong> - Appointments Management - Citizen</li>
+      <li><strong>Appointments</strong> - Appointments Management - GP</li>
+    </ul>
+
+    <p><a href="capabilities">Edit Capabilities</a></p>
+
+    <hr>
+
+    <h2 class="nhsuk-heading-m">Select Epics</h2>
+
+    <p>0 out of 2 selected</p>
+
+    <button class="nhsuk-button nhsuk-button--secondary">Clear selected epics</button>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+    <form>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Online
+            Consultation<span class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">70
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="OnlineConsultation"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            The Online Consultation Capability allows patients, service users or proxies to request and receive support
+            relating to healthcare concerns, at a time and place convenient for them.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption"></caption>
+              <thead class="nhsuk-table__head" role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Epic name</th>
+                  <th role="columnheader" scope="col">Epic type</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_73__Selected"
+                          name="SelectedItems[73].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_73__Selected">Accessibility options for online consultation</label><input
+                          id="SelectedItems_73__Id" name="SelectedItems[73].Id" type="hidden" value="E00081"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_85__Selected"
+                          name="SelectedItems[85].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_85__Selected">Alert practice if expected response times are
+                          exceeded</label><input id="SelectedItems_85__Id" name="SelectedItems[85].Id" type="hidden"
+                          value="S00002"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_86__Selected"
+                          name="SelectedItems[86].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_86__Selected">Allow practice to set target response times for patient
+                          requests</label><input id="SelectedItems_86__Id" name="SelectedItems[86].Id" type="hidden"
+                          value="S00003"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_87__Selected"
+                          name="SelectedItems[87].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_87__Selected">Allow to track whether a patient has read the practice
+                          response.</label><input id="SelectedItems_87__Id" name="SelectedItems[87].Id" type="hidden"
+                          value="S00004"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_33__Selected"
+                          name="SelectedItems[33].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_33__Selected">Assign online consultation requests to a health or care
+                          professional manually</label><input id="SelectedItems_33__Id" name="SelectedItems[33].Id"
+                          type="hidden" value="E00034"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_36__Selected"
+                          name="SelectedItems[36].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_36__Selected">Assign online consultation requests to health or care
+                          professional automatically</label><input id="SelectedItems_36__Id" name="SelectedItems[36].Id"
+                          type="hidden" value="E00038"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_8__Selected"
+                          name="SelectedItems[8].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_8__Selected">Automated response to online consultation requests for support
+                          from patients or service users</label><input id="SelectedItems_8__Id"
+                          name="SelectedItems[8].Id" type="hidden" value="E00009"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_9__Selected"
+                          name="SelectedItems[9].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_9__Selected">Automated response to online consultation requests for support
+                          from&nbsp;proxies</label><input id="SelectedItems_9__Id" name="SelectedItems[9].Id"
+                          type="hidden" value="E00010"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_14__Selected"
+                          name="SelectedItems[14].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_14__Selected">Automated&nbsp;responses&nbsp;to administrative requests from
+                          patients or service users</label><input id="SelectedItems_14__Id" name="SelectedItems[14].Id"
+                          type="hidden" value="E00015"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_15__Selected"
+                          name="SelectedItems[15].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_15__Selected">Automated&nbsp;responses&nbsp;to administrative requests from
+                          proxies</label><input id="SelectedItems_15__Id" name="SelectedItems[15].Id" type="hidden"
+                          value="E00016"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_90__Selected"
+                          name="SelectedItems[90].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_90__Selected">Automatic follow-up reminders</label><input
+                          id="SelectedItems_90__Id" name="SelectedItems[90].Id" type="hidden" value="S00008"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_35__Selected"
+                          name="SelectedItems[35].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_35__Selected">Automatically prioritise online consultation
+                          requests</label><input id="SelectedItems_35__Id" name="SelectedItems[35].Id" type="hidden"
+                          value="E00037"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_91__Selected"
+                          name="SelectedItems[91].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_91__Selected">Capacity &amp; Demand Modelling</label><input
+                          id="SelectedItems_91__Id" name="SelectedItems[91].Id" type="hidden" value="S00009"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_76__Selected"
+                          name="SelectedItems[76].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_76__Selected">Categorise administration requests</label><input
+                          id="SelectedItems_76__Id" name="SelectedItems[76].Id" type="hidden" value="E00084"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_34__Selected"
+                          name="SelectedItems[34].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_34__Selected">Categorise outcome of online consultation
+                          requests</label><input id="SelectedItems_34__Id" name="SelectedItems[34].Id" type="hidden"
+                          value="E00035"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_78__Selected"
+                          name="SelectedItems[78].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_78__Selected">Configuration of the triage process</label><input
+                          id="SelectedItems_78__Id" name="SelectedItems[78].Id" type="hidden" value="E00086"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_75__Selected"
+                          name="SelectedItems[75].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_75__Selected">Customisation of instructions to patients or service users
+                          using online consultation Solution</label><input id="SelectedItems_75__Id"
+                          name="SelectedItems[75].Id" type="hidden" value="E00083"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_27__Selected"
+                          name="SelectedItems[27].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_27__Selected">Customisation&nbsp;of report</label><input
+                          id="SelectedItems_27__Id" name="SelectedItems[27].Id" type="hidden" value="E00028"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_72__Selected"
+                          name="SelectedItems[72].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_72__Selected">Customisation of the question sets for patients or service
+                          users requesting online consultation support</label><input id="SelectedItems_72__Id"
+                          name="SelectedItems[72].Id" type="hidden" value="E00080"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_93__Selected"
+                          name="SelectedItems[93].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_93__Selected">DIRECT Automatic searching, matching, linking and opening of
+                          patient records in TPP SystmOne, Emis Web, Cegedim Vision - Lan &amp; Aeros</label><input
+                          id="SelectedItems_93__Id" name="SelectedItems[93].Id" type="hidden" value="S00011"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_22__Selected"
+                          name="SelectedItems[22].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_22__Selected">Direct&nbsp;messaging</label><input id="SelectedItems_22__Id"
+                          name="SelectedItems[22].Id" type="hidden" value="E00023"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_23__Selected"
+                          name="SelectedItems[23].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_23__Selected">Direct&nbsp;messaging&nbsp;by a proxy</label><input
+                          id="SelectedItems_23__Id" name="SelectedItems[23].Id" type="hidden" value="E00024"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_48__Selected"
+                          name="SelectedItems[48].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_48__Selected">Disable and enable direct messaging for a healthcare
+                          organisation</label><input id="SelectedItems_48__Id" name="SelectedItems[48].Id" type="hidden"
+                          value="E00056"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_49__Selected"
+                          name="SelectedItems[49].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_49__Selected">Disable and enable direct messaging for a patient or service
+                          user</label><input id="SelectedItems_49__Id" name="SelectedItems[49].Id" type="hidden"
+                          value="E00057"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_77__Selected"
+                          name="SelectedItems[77].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_77__Selected">Disable and enable direct messaging&nbsp;for an online
+                          consultation request for support</label><input id="SelectedItems_77__Id"
+                          name="SelectedItems[77].Id" type="hidden" value="E00085"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_50__Selected"
+                          name="SelectedItems[50].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_50__Selected">Disable and enable electronic file sharing during direct
+                          messaging for a healthcare organisation</label><input id="SelectedItems_50__Id"
+                          name="SelectedItems[50].Id" type="hidden" value="E00058"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_94__Selected"
+                          name="SelectedItems[94].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_94__Selected">Display a warning to a patient when they are uploading an
+                          image</label><input id="SelectedItems_94__Id" name="SelectedItems[94].Id" type="hidden"
+                          value="S00012"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_25__Selected"
+                          name="SelectedItems[25].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_25__Selected">Electronically share&nbsp;files&nbsp;during direct
+                          messaging</label><input id="SelectedItems_25__Id" name="SelectedItems[25].Id" type="hidden"
+                          value="E00026"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_26__Selected"
+                          name="SelectedItems[26].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_26__Selected">Electronically share&nbsp;files&nbsp;during direct
+                          messaging&nbsp;with a proxy</label><input id="SelectedItems_26__Id"
+                          name="SelectedItems[26].Id" type="hidden" value="E00027"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_95__Selected"
+                          name="SelectedItems[95].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_95__Selected">Event Log</label><input id="SelectedItems_95__Id"
+                          name="SelectedItems[95].Id" type="hidden" value="S00013"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_97__Selected"
+                          name="SelectedItems[97].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_97__Selected">Filtering, sorting and searching all incoming
+                          messages</label><input id="SelectedItems_97__Id" name="SelectedItems[97].Id" type="hidden"
+                          value="S00015"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_82__Selected"
+                          name="SelectedItems[82].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_82__Selected">Health or care professional initiates an online consultations
+                          request</label><input id="SelectedItems_82__Id" name="SelectedItems[82].Id" type="hidden"
+                          value="E00090"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_6__Selected"
+                          name="SelectedItems[6].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_6__Selected">Include attachments&nbsp;in online
+                          consultation&nbsp;requests</label><input id="SelectedItems_6__Id" name="SelectedItems[6].Id"
+                          type="hidden" value="E00007"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_7__Selected"
+                          name="SelectedItems[7].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_7__Selected">Include attachments&nbsp;in online
+                          consultation&nbsp;requests&nbsp;from a proxy</label><input id="SelectedItems_7__Id"
+                          name="SelectedItems[7].Id" type="hidden" value="E00008"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_16__Selected"
+                          name="SelectedItems[16].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_16__Selected">Link online consultation requests for support and
+                          responses</label><input id="SelectedItems_16__Id" name="SelectedItems[16].Id" type="hidden"
+                          value="E00017"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_17__Selected"
+                          name="SelectedItems[17].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_17__Selected">Link online consultation requests for support from a proxy
+                          and responses</label><input id="SelectedItems_17__Id" name="SelectedItems[17].Id"
+                          type="hidden" value="E00018"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_32__Selected"
+                          name="SelectedItems[32].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_32__Selected">Manually prioritise online consultation requests for
+                          support</label><input id="SelectedItems_32__Id" name="SelectedItems[32].Id" type="hidden"
+                          value="E00033"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_74__Selected"
+                          name="SelectedItems[74].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_74__Selected">Notification to patients or service users</label><input
+                          id="SelectedItems_74__Id" name="SelectedItems[74].Id" type="hidden" value="E00082"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_0__Selected"
+                          name="SelectedItems[0].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_0__Selected">Online consultation</label><input id="SelectedItems_0__Id"
+                          name="SelectedItems[0].Id" type="hidden" value="E00001"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_1__Selected"
+                          name="SelectedItems[1].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_1__Selected">Online consultation with a proxy</label><input
+                          id="SelectedItems_1__Id" name="SelectedItems[1].Id" type="hidden" value="E00002"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_103__Selected"
+                          name="SelectedItems[103].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_103__Selected">Out of Hours (OOH) Requests</label><input
+                          id="SelectedItems_103__Id" name="SelectedItems[103].Id" type="hidden" value="S00021"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_67__Selected"
+                          name="SelectedItems[67].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_67__Selected">Patient or service user feedback for online
+                          consultation</label><input id="SelectedItems_67__Id" name="SelectedItems[67].Id" type="hidden"
+                          value="E00075"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_10__Selected"
+                          name="SelectedItems[10].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_10__Selected">Patient or service user makes an administrative
+                          request</label><input id="SelectedItems_10__Id" name="SelectedItems[10].Id" type="hidden"
+                          value="E00011"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_2__Selected"
+                          name="SelectedItems[2].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_2__Selected">Patient or service user requests for&nbsp;online consultation
+                          support and provides information</label><input id="SelectedItems_2__Id"
+                          name="SelectedItems[2].Id" type="hidden" value="E00003"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_105__Selected"
+                          name="SelectedItems[105].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_105__Selected">Preset Messages</label><input id="SelectedItems_105__Id"
+                          name="SelectedItems[105].Id" type="hidden" value="S00023"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_11__Selected"
+                          name="SelectedItems[11].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_11__Selected">Proxy makes an administrative request</label><input
+                          id="SelectedItems_11__Id" name="SelectedItems[11].Id" type="hidden" value="E00012"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_3__Selected"
+                          name="SelectedItems[3].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_3__Selected">Proxy requests for&nbsp;online consultation support and
+                          provides information</label><input id="SelectedItems_3__Id" name="SelectedItems[3].Id"
+                          type="hidden" value="E00004"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_19__Selected"
+                          name="SelectedItems[19].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_19__Selected">Proxy supporting self-help and signposting</label><input
+                          id="SelectedItems_19__Id" name="SelectedItems[19].Id" type="hidden" value="E00020"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_83__Selected"
+                          name="SelectedItems[83].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_83__Selected">Proxy verification</label><input id="SelectedItems_83__Id"
+                          name="SelectedItems[83].Id" type="hidden" value="E00091"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_68__Selected"
+                          name="SelectedItems[68].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_68__Selected">Record online consultation outcome to the&nbsp;Patient
+                          Record</label><input id="SelectedItems_68__Id" name="SelectedItems[68].Id" type="hidden"
+                          value="E00076"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_106__Selected"
+                          name="SelectedItems[106].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_106__Selected">Remote Monitoring</label><input id="SelectedItems_106__Id"
+                          name="SelectedItems[106].Id" type="hidden" value="S00024"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_29__Selected"
+                          name="SelectedItems[29].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_29__Selected">Report on outcomes or dispositions provided to the patient or
+                          service user</label><input id="SelectedItems_29__Id" name="SelectedItems[29].Id" type="hidden"
+                          value="E00030"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_31__Selected"
+                          name="SelectedItems[31].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_31__Selected">Report on patient demographics using online
+                          consultation</label><input id="SelectedItems_31__Id" name="SelectedItems[31].Id" type="hidden"
+                          value="E00032"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_30__Selected"
+                          name="SelectedItems[30].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_30__Selected">Report on the status of online consultations</label><input
+                          id="SelectedItems_30__Id" name="SelectedItems[30].Id" type="hidden" value="E00031"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_28__Selected"
+                          name="SelectedItems[28].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_28__Selected">Report on&nbsp;utilisation&nbsp;of online consultation
+                          requests for support</label><input id="SelectedItems_28__Id" name="SelectedItems[28].Id"
+                          type="hidden" value="E00029"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_12__Selected"
+                          name="SelectedItems[12].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_12__Selected">Respond to administrative requests for support from patients
+                          or service users</label><input id="SelectedItems_12__Id" name="SelectedItems[12].Id"
+                          type="hidden" value="E00013"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_13__Selected"
+                          name="SelectedItems[13].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_13__Selected">Respond to administrative requests for support from
+                          proxies</label><input id="SelectedItems_13__Id" name="SelectedItems[13].Id" type="hidden"
+                          value="E00014"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_4__Selected"
+                          name="SelectedItems[4].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_4__Selected">Respond to Online&nbsp;Consultation requests for support from
+                          patients or service users</label><input id="SelectedItems_4__Id" name="SelectedItems[4].Id"
+                          type="hidden" value="E00005"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_5__Selected"
+                          name="SelectedItems[5].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_5__Selected">Respond to Online&nbsp;Consultation requests for support from
+                          proxies</label><input id="SelectedItems_5__Id" name="SelectedItems[5].Id" type="hidden"
+                          value="E00006"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_69__Selected"
+                          name="SelectedItems[69].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_69__Selected">Retain attachments (file and images) in the&nbsp;Patient
+                          Record</label><input id="SelectedItems_69__Id" name="SelectedItems[69].Id" type="hidden"
+                          value="E00077"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_81__Selected"
+                          name="SelectedItems[81].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_81__Selected">Save the complete record of an online consultation to the
+                          Patient Record</label><input id="SelectedItems_81__Id" name="SelectedItems[81].Id"
+                          type="hidden" value="E00089"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_108__Selected"
+                          name="SelectedItems[108].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_108__Selected">Search online consultations</label><input
+                          id="SelectedItems_108__Id" name="SelectedItems[108].Id" type="hidden" value="S00027"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_18__Selected"
+                          name="SelectedItems[18].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_18__Selected">Self-help and signposting</label><input
+                          id="SelectedItems_18__Id" name="SelectedItems[18].Id" type="hidden" value="E00019"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_71__Selected"
+                          name="SelectedItems[71].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_71__Selected">SNOMED code online consultation</label><input
+                          id="SelectedItems_71__Id" name="SelectedItems[71].Id" type="hidden" value="E00079"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_20__Selected"
+                          name="SelectedItems[20].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_20__Selected">Symptom checking</label><input id="SelectedItems_20__Id"
+                          name="SelectedItems[20].Id" type="hidden" value="E00021"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_21__Selected"
+                          name="SelectedItems[21].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_21__Selected">Symptom checking&nbsp;by a proxy</label><input
+                          id="SelectedItems_21__Id" name="SelectedItems[21].Id" type="hidden" value="E00022"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_110__Selected"
+                          name="SelectedItems[110].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_110__Selected">To determine when a patient has read a practice response, if
+                          at all.</label><input id="SelectedItems_110__Id" name="SelectedItems[110].Id" type="hidden"
+                          value="S00029"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_70__Selected"
+                          name="SelectedItems[70].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_70__Selected">Verify patient or service user details against Personal
+                          Demographics Service (PDS)</label><input id="SelectedItems_70__Id" name="SelectedItems[70].Id"
+                          type="hidden" value="E00078"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_24__Selected"
+                          name="SelectedItems[24].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_24__Selected">View the Patient Record during online
+                          consultation</label><input id="SelectedItems_24__Id" name="SelectedItems[24].Id" type="hidden"
+                          value="E00025"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_111__Selected"
+                          name="SelectedItems[111].Selected" subgroup="OnlineConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_111__Selected">Viewing messages sent to patients</label><input
+                          id="SelectedItems_111__Id" name="SelectedItems[111].Id" type="hidden" value="S00031"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open="">
+        <summary class="nhsuk-details__summary nhsuk-u-padding-top-7">
+          <h3 class="nhsuk-details__summary-text__letter"><span class="nhsuk-u-visually-hidden">letter</span>Video
+            Consultation<span class="nhsuk-u-visually-hidden">-</span></h3><span class="nhsuk-details__summary-text">42
+            results&nbsp;&nbsp;<span class="counter-class" subgroup="VideoConsultation"></span></span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>
+            The Video Consultation Capability allows health and care professionals to conduct secure live remote video
+            consultations with individual or groups of patients or service users or proxies ensuring they can receive
+            support relating to healthcare concerns when a video consultation is most appropriate.
+          </p>
+          <div class="nhsuk-form-group">
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption"></caption>
+              <thead class="nhsuk-table__head" role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Epic name</th>
+                  <th role="columnheader" scope="col">Epic type</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_84__Selected"
+                          name="SelectedItems[84].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_84__Selected">1-Way Video Triage Consultations</label><input
+                          id="SelectedItems_84__Id" name="SelectedItems[84].Id" type="hidden" value="S00001"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_53__Selected"
+                          name="SelectedItems[53].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_53__Selected">Accessibility options for video consultation</label><input
+                          id="SelectedItems_53__Id" name="SelectedItems[53].Id" type="hidden" value="E00061"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_88__Selected"
+                          name="SelectedItems[88].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_88__Selected">Appless Video</label><input id="SelectedItems_88__Id"
+                          name="SelectedItems[88].Id" type="hidden" value="S00005"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_89__Selected"
+                          name="SelectedItems[89].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_89__Selected">Automated multiple reminders via multiple
+                          channels</label><input id="SelectedItems_89__Id" name="SelectedItems[89].Id" type="hidden"
+                          value="S00007"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_44__Selected"
+                          name="SelectedItems[44].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_44__Selected">Conduct&nbsp;group video consultations</label><input
+                          id="SelectedItems_44__Id" name="SelectedItems[44].Id" type="hidden" value="E00048"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_37__Selected"
+                          name="SelectedItems[37].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_37__Selected">Conduct video consultation</label><input
+                          id="SelectedItems_37__Id" name="SelectedItems[37].Id" type="hidden" value="E00039"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_38__Selected"
+                          name="SelectedItems[38].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_38__Selected">Conduct video consultation with a proxy</label><input
+                          id="SelectedItems_38__Id" name="SelectedItems[38].Id" type="hidden" value="E00040"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_40__Selected"
+                          name="SelectedItems[40].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_40__Selected">Conduct video consultation with a proxy without
+                          registration</label><input id="SelectedItems_40__Id" name="SelectedItems[40].Id" type="hidden"
+                          value="E00042"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_39__Selected"
+                          name="SelectedItems[39].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_39__Selected">Conduct video consultation with the patient or service user
+                          without registration</label><input id="SelectedItems_39__Id" name="SelectedItems[39].Id"
+                          type="hidden" value="E00041"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_63__Selected"
+                          name="SelectedItems[63].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_63__Selected">Consecutive consultations with multiple patients or service
+                          users via a single video consultation</label><input id="SelectedItems_63__Id"
+                          name="SelectedItems[63].Id" type="hidden" value="E00071"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_92__Selected"
+                          name="SelectedItems[92].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_92__Selected">Consultation Countdown</label><input
+                          id="SelectedItems_92__Id" name="SelectedItems[92].Id" type="hidden" value="S00010"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_42__Selected"
+                          name="SelectedItems[42].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_42__Selected">Direct messaging during a video consultation</label><input
+                          id="SelectedItems_42__Id" name="SelectedItems[42].Id" type="hidden" value="E00045"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_65__Selected"
+                          name="SelectedItems[65].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_65__Selected">Disable and enable audio during a group video
+                          consultation</label><input id="SelectedItems_65__Id" name="SelectedItems[65].Id" type="hidden"
+                          value="E00073"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_55__Selected"
+                          name="SelectedItems[55].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_55__Selected">Disable and enable direct messaging during a video
+                          consultation for the patient or service user</label><input id="SelectedItems_55__Id"
+                          name="SelectedItems[55].Id" type="hidden" value="E00063"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_59__Selected"
+                          name="SelectedItems[59].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_59__Selected">Disable and enable electronic file sharing during a video
+                          consultation</label><input id="SelectedItems_59__Id" name="SelectedItems[59].Id" type="hidden"
+                          value="E00067"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_60__Selected"
+                          name="SelectedItems[60].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_60__Selected">Disable and enable screen sharing during a video
+                          consultation</label><input id="SelectedItems_60__Id" name="SelectedItems[60].Id" type="hidden"
+                          value="E00068"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_66__Selected"
+                          name="SelectedItems[66].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_66__Selected">Disable and enable video during a group video
+                          consultation</label><input id="SelectedItems_66__Id" name="SelectedItems[66].Id" type="hidden"
+                          value="E00074"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_45__Selected"
+                          name="SelectedItems[45].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_45__Selected">Electronically share files during a video
+                          consultation</label><input id="SelectedItems_45__Id" name="SelectedItems[45].Id" type="hidden"
+                          value="E00051"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_41__Selected"
+                          name="SelectedItems[41].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_41__Selected">End&nbsp;video consultation with a patient or service
+                          user</label><input id="SelectedItems_41__Id" name="SelectedItems[41].Id" type="hidden"
+                          value="E00043"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_96__Selected"
+                          name="SelectedItems[96].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_96__Selected">Facility for clinician to take notes during video
+                          consultation</label><input id="SelectedItems_96__Id" name="SelectedItems[96].Id" type="hidden"
+                          value="S00014"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_51__Selected"
+                          name="SelectedItems[51].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_51__Selected">Health or care professional can record a video
+                          consultation</label><input id="SelectedItems_51__Id" name="SelectedItems[51].Id" type="hidden"
+                          value="E00059"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_46__Selected"
+                          name="SelectedItems[46].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_46__Selected">Health or care professional&nbsp;can share their
+                          screen&nbsp;during a video consultation</label><input id="SelectedItems_46__Id"
+                          name="SelectedItems[46].Id" type="hidden" value="E00053"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_98__Selected"
+                          name="SelectedItems[98].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_98__Selected">In call video tools - video blurring</label><input
+                          id="SelectedItems_98__Id" name="SelectedItems[98].Id" type="hidden" value="S00016"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_99__Selected"
+                          name="SelectedItems[99].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_99__Selected">In call video tools - zoom</label><input
+                          id="SelectedItems_99__Id" name="SelectedItems[99].Id" type="hidden" value="S00017"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_100__Selected"
+                          name="SelectedItems[100].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_100__Selected">Instant Forwarding</label><input id="SelectedItems_100__Id"
+                          name="SelectedItems[100].Id" type="hidden" value="S00018"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_101__Selected"
+                          name="SelectedItems[101].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_101__Selected">Instant Location</label><input id="SelectedItems_101__Id"
+                          name="SelectedItems[101].Id" type="hidden" value="S00019"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_102__Selected"
+                          name="SelectedItems[102].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_102__Selected">Instant Vital Signs</label><input id="SelectedItems_102__Id"
+                          name="SelectedItems[102].Id" type="hidden" value="S00020"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_58__Selected"
+                          name="SelectedItems[58].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_58__Selected">Invite new participants to an existing video consultation
+                          with a patient or service user</label><input id="SelectedItems_58__Id"
+                          name="SelectedItems[58].Id" type="hidden" value="E00066"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_52__Selected"
+                          name="SelectedItems[52].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_52__Selected">Patient or service user can record a video
+                          consultation</label><input id="SelectedItems_52__Id" name="SelectedItems[52].Id" type="hidden"
+                          value="E00060"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_61__Selected"
+                          name="SelectedItems[61].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_61__Selected">Patient or service user feedback on video
+                          consultations</label><input id="SelectedItems_61__Id" name="SelectedItems[61].Id"
+                          type="hidden" value="E00069"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_57__Selected"
+                          name="SelectedItems[57].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_57__Selected">Patient or service user name is not automatically visible in
+                          a group video consultation</label><input id="SelectedItems_57__Id" name="SelectedItems[57].Id"
+                          type="hidden" value="E00065"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_104__Selected"
+                          name="SelectedItems[104].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_104__Selected">Pop Out Floating Video</label><input
+                          id="SelectedItems_104__Id" name="SelectedItems[104].Id" type="hidden" value="S00022"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_56__Selected"
+                          name="SelectedItems[56].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_56__Selected">Record direct messages to the Patient Record</label><input
+                          id="SelectedItems_56__Id" name="SelectedItems[56].Id" type="hidden" value="E00064"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_47__Selected"
+                          name="SelectedItems[47].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_47__Selected">Record video consultation outcome to the&nbsp;Patient Record
+                        </label><input id="SelectedItems_47__Id" name="SelectedItems[47].Id" type="hidden"
+                          value="E00055"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_64__Selected"
+                          name="SelectedItems[64].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_64__Selected">Reminder of upcoming&nbsp;or&nbsp;scheduled&nbsp;video
+                          consultation</label><input id="SelectedItems_64__Id" name="SelectedItems[64].Id" type="hidden"
+                          value="E00072"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_107__Selected"
+                          name="SelectedItems[107].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_107__Selected">Reporting</label><input id="SelectedItems_107__Id"
+                          name="SelectedItems[107].Id" type="hidden" value="S00025"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_79__Selected"
+                          name="SelectedItems[79].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_79__Selected">Retain attachments (file and images) received during video
+                          consultation in the&nbsp;Patient Record</label><input id="SelectedItems_79__Id"
+                          name="SelectedItems[79].Id" type="hidden" value="E00087"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_80__Selected"
+                          name="SelectedItems[80].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_80__Selected">SNOMED code video consultation</label><input
+                          id="SelectedItems_80__Id" name="SelectedItems[80].Id" type="hidden" value="E00088"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_109__Selected"
+                          name="SelectedItems[109].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_109__Selected">Take screen captures during video consultation</label><input
+                          id="SelectedItems_109__Id" name="SelectedItems[109].Id" type="hidden" value="S00028"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    Supplier defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_62__Selected"
+                          name="SelectedItems[62].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_62__Selected">Test the video consultation settings</label><input
+                          id="SelectedItems_62__Id" name="SelectedItems[62].Id" type="hidden" value="E00070"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_43__Selected"
+                          name="SelectedItems[43].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_43__Selected">View the Patient Record during video
+                          consultation</label><input id="SelectedItems_43__Id" name="SelectedItems[43].Id" type="hidden"
+                          value="E00047"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true"
+                          data-val-required="The Selected field is required." id="SelectedItems_54__Selected"
+                          name="SelectedItems[54].Selected" subgroup="VideoConsultation" type="checkbox"
+                          value="true"><label class="nhsuk-label nhsuk-checkboxes__label"
+                          for="SelectedItems_54__Selected">Waiting room</label><input id="SelectedItems_54__Id"
+                          name="SelectedItems[54].Id" type="hidden" value="E00062"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell"><span class="nhsuk-table-responsive__heading">Epic
+                      type</span>
+                    NHS defined
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <br>
+
+    </form>
+
+    <br />
+
+    <form>
+      {{ button({
+      "text": "Save and continue",
+      "href":"filtered-list"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

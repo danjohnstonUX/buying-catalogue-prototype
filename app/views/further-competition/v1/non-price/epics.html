@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Which epics do you require?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "#",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Which epics do you require?</h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+        <form>
+          <div class="nhsuk-form-group">
+            <h2 class="nhsuk-heading-m">Appointments Management – Citizen (optional)</h2>
+            <p class="nhsuk-hint">Enables citizens to manage their appointments online. Supports the use of appointment slots that have been configured in Appointments Management – GP.</p>
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption"></caption>
+              <thead class="nhsuk-table__head" role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Epic name</th>
+                  <th role="columnheader" scope="col">Epic type</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="SelectedItems_0__Selected" name="SelectedItems[0].Selected" subgroup="AppointmentsManagement–Citizen" type="checkbox" value="true">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_0__Selected">Manage Appointments</label><input id="SelectedItems_0__Id" name="SelectedItems[0].Id" type="hidden" value="C1E1"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic type</span>
+                                    NHS defined
+                                </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="SelectedItems_1__Selected" name="SelectedItems[1].Selected" subgroup="AppointmentsManagement–Citizen" type="checkbox" value="true">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_1__Selected">Manage Appointments by Proxy</label><input id="SelectedItems_1__Id" name="SelectedItems[1].Id" type="hidden" value="C1E2"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic type</span>
+                                    NHS defined
+                                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="nhsuk-form-group">
+            <h2 class="nhsuk-heading-m">Personal Health Record</h2>
+            <p class="nhsuk-hint"> Enables a patient or service user to manage and maintain their own Electronic Health Record and to share that information with relevant health and care professionals. </p>
+            <table class="nhsuk-table-responsive" role="table">
+              <caption class="nhsuk-table__caption"></caption>
+              <thead class="nhsuk-table__head" role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Epic name</th>
+                  <th role="columnheader" scope="col">Epic type</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic name</span>
+                    <div class="nhsuk-checkboxes">
+                      <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="SelectedItems_2__Selected" name="SelectedItems[2].Selected" subgroup="PersonalHealthRecord" type="checkbox" value="true">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="SelectedItems_2__Selected">Maintain Personal Health Record content</label><input id="SelectedItems_2__Id" name="SelectedItems[2].Id" type="hidden" value="C33E1"></div>
+                    </div>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Epic type</span>
+                                    NHS defined
+                                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </form>
+
+        <br/>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"client-application-type"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

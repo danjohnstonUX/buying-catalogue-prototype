@@ -1,0 +1,244 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Task list
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-0-1-list",
+  "text": "Go back to dashboard"
+}) }}
+
+{% from 'tag/macro.njk' import tag %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Order C000001-01
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          NHS Hull CCG
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">Complete the following steps to create an order summary. Your progress will be saved as you complete each section so you can leave and come back to your order later.</p>
+
+      <h2 class="nhsuk-heading-s">Description</h2>
+      <p>This description text will only appear when the 'order description' section has been completed in Step 1.</p>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">1.</span>
+        Prepare order
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="order-3-description-save-button">Order description</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+            Provide a description of your order.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="order-5-2-ordering-party-contact">Call-off Ordering Party contact details</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+           Provide information about the primary contact for <br />your order.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+                <a href="order-5-10-supplier-autocomplete">Supplier information and contact details</a>
+            </span>
+            {{ tag({
+              text: "Completed",
+              classes: "nhsuk-tag--green"
+            })}}
+            <br />
+            <span style="color:	#4c6272">
+            Find the supplier you want to order from and select <br />a supplier contact.</span>
+          </li>
+          <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+            <span class="bc-c-task-list__task-name">
+              <a href="timescales-period-completed">Timescales for Call-off Agreement</a>
+            </span>
+            {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+            <br/>
+            <span style="color:	#4c6272">
+              Provide the approximate start date, the length of
+              <br/>the contract and its initial period.</span>
+          </li>
+      </ul>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">2.</span>
+        Add solution and services
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="order-5-4-1-solutions">Solutions and services</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Select a solution or services, Service Recipients, prices <br />and quantities.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="pdd/3-planned-delivery-date">Planned delivery dates</a>
+          </span>
+          {{ tag({
+          text: "Completed",
+          classes: "nhsuk-tag--green"
+        })}}
+          <br/>
+          <span style="color:	#4c6272">
+            Enter the planned delivery dates for what you’re <br />ordering.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+            <a href="../contracts-testing/step-2-funding/1-funding-table">Funding source</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Review how you’ll be paying for your order.</span>
+        </li>
+      </ul>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">3.</span>
+        Supporting documents
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="supporting-documents/implementation-plan-standard">Implementation plan milestones</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Download the implementation plan milestones<br /> template for the supplier to complete.</span>
+        </li>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="supporting-documents/associated-service-holding">Associated Service billing and requirements</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Select how you’d like to be billed for any Associated<br /> Services in your order.</span>
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="supporting-documents/data-processing-holding">Data processing information</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+            <span style="color:	#4c6272">
+            Download the data processing information<br /> template for the supplier to complete.</span>
+        </li>
+      </ul>
+
+      <h2 class="bc-c-task-list__task">
+        <span class="bc-c-task-list__task-number">4.</span>
+        Finish order
+      </h2>
+
+      <ul class="bc-c-task-list__items">
+        <li class="bc-c-task-list__item nhsuk-u-padding-top-3 nhsuk-u-padding-bottom-3">
+          <span class="bc-c-task-list__task-name">
+              <a href="../contracts-testing/review/contract-order-overview">Review and confirm order</a>
+          </span>
+          {{ tag({
+            text: "Completed",
+            classes: "nhsuk-tag--green"
+          })}}
+          <br />
+              <span style="color:	#4c6272">
+              Check the information you’ve provided is correct<br /> and complete your order summary.</span>
+        </li>
+      </ul>
+
+
+
+      <br /><br />
+
+      <!-- <div>
+        <div style="display:inline-block;">
+          <form action="delete-your-order">
+          {{ button({
+            "text": "Save for later",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+        </form>
+        </div>
+
+      <br /><br />
+
+      </div> -->
+      <div style="display:inline-block;">
+        <form action="delete-your-order">
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+            "text": "Delete order",
+            "classes": "nhsuk-button, nhsuk-button--delete"
+          }) }}
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Order last updated by Sue Smith on 15 March 2021
+</p>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

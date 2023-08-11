@@ -1,0 +1,581 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<style>
+.nhsuk-expander .nhsuk-details__summary > span,
+.nhsuk-expander .nhsuk-details__summary-text{
+  color:black;
+  text-decoration:none;
+}
+
+.nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+ background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander{
+ background: none;
+}
+</style>
+
+{{ backLink({
+  "href": "edit-dashboard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Catalogue Solution and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-02
+      </span></h1>
+      <p class="nhsuk-lede-text">Review the Catalogue Solution and any services that you've added to this order.
+        You can edit the items that you've added at any time.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Edit solution and services",
+        "href": "order-4-edit-solutions-and-services"
+      }) }}
+
+
+      <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+<hr />
+    </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h2>Catalogue Solution</h2>
+
+
+    <!-- <h3 style="margin-bottom: 2;">Catalogue Solution</h3>  -->
+
+      <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Caltech Web GP</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £3,452.40
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+
+                <th role="columnheader" class="" scope="col">
+                  Recipient
+                </th>
+
+                <th role="columnheader" class="" scope="col">
+                  Quantity <br />per practice
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Assura ER LLP Hull Dermatology
+                </td>
+                <td class="nhsuk-table__cell" style="width:40%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Bevan Limited</td>
+                <td class="nhsuk-table__cell" style="width:40%">750</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">CHP Ltd - Bransholme {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:40%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">City Health Practice  {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}</td>
+                <td class="nhsuk-table__cell" style="width:40%">750</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Pricing tier
+                  </th>
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr>
+                <td style="width:35%">Tier 1</td>
+                <td class="nhsuk-table__cell" style="width:50%">£1.26 per patient per year</td>
+                <td class="nhsuk-table__cell">2,740</td>
+              </tr>
+              <tr>
+                <td style="width:35%">Tier 2</td>
+                <td class="nhsuk-table__cell" style="width:50%">£2.26 per patient per year</td>
+                <td class="nhsuk-table__cell">0</td>
+              </tr>
+              <tr>
+                <td style="width:35%">Tier 3</td>
+                <td class="nhsuk-table__cell" style="width:50%">£3.26 per patient per year</td>
+                <td class="nhsuk-table__cell">0</td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </details>
+
+      <br />
+
+      <h2>Additional Services</h2>
+      <!-- <h3 style="margin-bottom: 2;">Additional Services</h3>  -->
+
+      <details class="nhsuk-details nhsuk-expander" open>
+       <summary class="nhsuk-details__summary" >
+         <span class="nhsuk-details__summary-text">
+           <b>Caltech Mobile {{ tag({
+             text: "Newly added",
+             classes: "nhsuk-tag--grey"
+           })}}</b>
+         </span>
+         <span style="float:right;">
+           <b>Subtotal:</b> £191.80
+         <span>
+       </summary>
+       <div class="nhsuk-details__text">
+         <br />
+         <table class="nhsuk-table bc-detail">
+           <caption class="nhsuk-table__caption">Service Recipients</caption>
+           <thead role="rowgroup" class="nhsuk-table__head">
+             <tr role="row" class="small-text">
+
+               <th role="columnheader" class="" scope="col">
+                 Recipient
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Quantity <br />per practice
+               </th>
+             </tr>
+           </thead>
+           <tbody class="nhsuk-table__body">
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:60%">Assura ER LLP Hull Dermatology</td>
+               <td class="nhsuk-table__cell" style="width:40%">620</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:60%">Bevan Limited</td>
+               <td class="nhsuk-table__cell" style="width:40%">750</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:60%">CHP Ltd - Bransholme
+               </td>
+               <td class="nhsuk-table__cell" style="width:40%">620</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:60%">City Health Practice</td>
+               <td class="nhsuk-table__cell" style="width:40%">750</td>
+             </tr>
+           </tbody>
+           </table>
+
+
+           <table class="nhsuk-table bc-detail">
+             <caption class="nhsuk-table__caption">Pricing</caption>
+             <thead role="rowgroup" class="nhsuk-table__head">
+               <tr role="row" class="small-text">
+
+                 <th role="columnheader" class="" scope="col">
+                   Price per unit
+                 </th>
+                 <th role="columnheader" class="" scope="col">
+                   Quantity
+                 </th>
+
+               </tr>
+             </thead>
+           <tbody class="nhsuk-table__body">
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:60%">£0.0700 per patient per year</td>
+               <td class="nhsuk-table__cell" style="width:40%">1,370</td>
+             </tr>
+           </tbody>
+         </table>
+
+       </div>
+     </details>
+
+     <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Automated Arrivals</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £12,000.00
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+
+                <th role="columnheader" class="" scope="col">
+                  Recipient
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity <br />per practice
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Assura ER LLP Hull Dermatology</td>
+                <td class="nhsuk-table__cell" style="width:40%">1</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Bevan Limited</td>
+                <td class="nhsuk-table__cell" style="width:40%">1</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">CHP Ltd - Bransholme {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:40%">1</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">City Health Practice  {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}</td>
+                <td class="nhsuk-table__cell" style="width:40%">1</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">£3000 per item</td>
+                <td class="nhsuk-table__cell" style="width:40%">4</td>
+              </tr>
+
+
+
+            </tbody>
+          </table>
+
+        </div>
+      </details>
+
+       <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Document Management</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £6,576.00
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+
+                <th role="columnheader" class="" scope="col">
+                  Recipient
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity <br />per practice
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Assura ER LLP Hull Dermatology</td>
+                <td class="nhsuk-table__cell" style="width:40%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">Bevan Limited</td>
+                <td class="nhsuk-table__cell" style="width:40%">750</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">CHP Ltd - Bransholme {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:40%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">City Health Practice  {{ tag({
+                  text: "Newly added",
+                  classes: "nhsuk-tag--white"
+                })}}</td>
+                <td class="nhsuk-table__cell" style="width:40%">750</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Quantity
+                  </th>
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:60%">£2.40 per patient per year</td>
+                <td class="nhsuk-table__cell" style="width:40%">1370</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+
+        </div>
+      </details>
+
+
+
+    <br />
+
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous one-off cost:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New one-off cost:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Total one-off cost:"
+            },
+            value: {
+              text: "£12,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New one-off cost payable:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous monthly cost:"
+            },
+            value: {
+              text: "£417.85"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New monthly cost:"
+            },
+            value: {
+              text: "£851.69"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous cost per year:"
+            },
+            value: {
+              text: "£5,014.20"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New cost per year:"
+            },
+            value: {
+              text: "£10,220.20"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous total cost of contract (36 months):"
+            },
+            value: {
+              text: "£21,042.60"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New total cost of contract (35 months):"
+            },
+            value: {
+              text: "£41,809.15"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          }
+        ]
+     }) }}
+
+
+<br />
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="order-tasklist">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

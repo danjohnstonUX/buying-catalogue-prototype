@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How do you want to decide the criteria for your competition?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+
+{{ backLink({
+  "href": "competition-tasklist",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to change your award criteria?<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  Your competition
+</span></h1>
+
+<p class="nhsuk-lede-text">
+  You are about to change your award criteria for this competition.
+</p>
+
+{{ warningCallout({
+  "heading": "Changing award criteria",
+  "HTML": "<p>Changing your award criteria for this competition means you’ll permanently lose any information you’ve added for non-price elements.</p><p>Once you continue, this cannot be undone.</p>"
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Continue",
+  "href":"competition-tasklist"
+}) }}
+
+<p><a href="#">Cancel</a></p>
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

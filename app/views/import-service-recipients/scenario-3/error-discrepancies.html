@@ -1,0 +1,125 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Discrepancies
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "1-upload-csv",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>There is a problem with your Service Recipients
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          EMIS Web GP
+        </span>
+      </h1>
+      <p class="nhsuk-lede-text">There are discrepancies between the Service Recipient names in your CSV file and what we have on record.</p>
+
+    </div>
+
+      <br />
+
+      <div class="nhsuk-grid-column-full">
+
+
+      {{ table({
+        panel: false,
+        caption: "Name discrepancies",
+        firstCellIsHeader: false,
+        head: [
+
+          {
+            text: "Name in CSV"
+          },
+          {
+            text: "Name on record"
+          },
+          {
+            text: "ODS code"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "CHP LIMITED BRANSHOLME"
+            },
+            {
+              text: "CHP LTD - BRANSHOLME"
+            },
+            {
+              text: "B81002"
+            }
+          ],
+          [
+            {
+              text: "CHP LIMITED FIELD VIEW"
+            },
+            {
+              text: "CHP LTD - FIELD VIEW"
+            },
+            {
+              text: "B81095"
+            }
+          ]
+        ]
+      }) }}
+
+    </div>
+
+    <br />
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div>
+
+        <p>If you continue with your order, we’ll use the Service Recipient names we have on record.</p>
+
+      <form action="2-selected-service-recipients">
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+        </form>
+        <p><a href="../scenario-1/0-select-service-recipients">Cancel</a></p>
+
+
+    </div>
+
+
+      <br /><br />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,164 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+
+    <h1>
+      <span role="text">Development plans
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <!--h2>User accounts</h2-->
+
+    <p class="nhsuk-lede-text">Let buyers know about any future development plans for your Catalogue Solution.</p>
+
+<h2>Work-off Plans</h2>
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Add a Work-off Plan item",
+      "href": "admin-solution-plan-add"
+    }) }}
+    <p>Use the link to add information about each Work-off Plan item for your Catalogue Solution.</p>
+    {% from 'tables/macro.njk' import table %}
+
+    {{ table({
+      panel: false,
+      caption: "",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Name of Standard"
+        },
+        {
+          text: "Details"
+        },
+        {
+          text: "Agreed completion date"
+        }
+      ],
+      rows: [
+      [
+        {
+          text: "Clinical Safety"
+        },
+        {
+          text: "Work-off Plan for GP-REF-2.1.11 requirement."
+        },
+        {
+          text: "01/10/2020"
+        },
+        {
+        html: '<a href="admin-solution-plan-add">Edit</a>'
+        }
+      ],
+      [
+        {
+          text: "Appointments Management – Citizen"
+        },
+        {
+          html: "Work-off Plan for GP-IG- 18.6 ID requirement."
+        },
+        {
+          html: "02/11/2020"
+        },
+        {
+        html: '<a href="admin-solution-plan-add">Edit</a>'
+        }
+      ],
+      [
+        {
+         text: "Training"
+        },
+        {
+          html: "Work-off Plan for GP-REF-2.1.11 requirement."
+        },
+        {
+          html: "30/06/2021"
+        },
+        {
+            html: '<a href="admin-solution-plan-add">Edit</a>'
+        }
+      ]
+    ]
+  }) }}
+
+<h2>Roadmap</h2>
+    {{ input({
+      "label": {
+        "text": "Link to roadmap (optional)"
+      },
+      "rows": "10",
+      "hint": {
+        "text": "Provide a URL to a page that gives buyers further information about your roadmap."
+      },
+      "id": "last-name",
+      "name": "last-name"
+    }) }}
+    <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+    {% from 'inset-text/macro.njk' import insetText %}
+
+    {{ insetText({
+      "HTML": "<p>This information will be published on the Buying Catalogue and therefore available to anyone. You should not include anything you consider commercially sensitive.</p>"
+    }) }}
+
+    <form action="admin-solution">
+    {{ button({
+      "text": "Save and continue",
+      "href": "admin-solution"
+    }) }}
+    </form>
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

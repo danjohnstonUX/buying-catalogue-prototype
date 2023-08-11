@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Export to Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Export group to Service Recipients</h1>
+      <p class="nhsuk-lede-text">Export your group to Service Recipients.</p>
+
+
+      <h2>Service Recipients</h2>
+
+    <p>You have Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Assura ER LLP Hull Dermatology</li>
+      <li>Bevan Ltd</li>
+      <li>Burnbrae Medical Practice</li>
+      <li>Cook BF</li>
+      <li>Dermatology Clinic GPSI</li>
+      <li>East Park Practice</li>
+      <li>Kingston Health (Hull)</li>
+      <li>Princes Medical Centre</li>
+      <li>St Andrew's Surgery</li>
+      <li>Wilberforce Surgery</li>
+    </ol>
+
+    <br /><br />
+
+    
+
+    {% from 'button/macro.njk' import button %}
+
+    {{ button({
+      "text": "Export group"
+    }) }}
+
+      
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

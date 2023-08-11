@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../competition-tasklist",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Calculate price<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Your competition
+    </span></h1>
+
+    <p class="nhsuk-lede-text">Provide information to calculate the price for each of your shortlisted solutions.</p>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "Price of solutions",
+    tableClasses: "nhsuk-u-margin-bottom-7",
+    firstCellIsHeader: false,
+    head: [
+    {
+    text: "Catalogue Solution"
+    },
+    {
+    text: "Price"
+    },
+    {
+    text: "Status"
+    },
+    {
+    text: "Action"
+    }
+    ],
+    rows: [
+    [
+    {
+    header: "Catalogue Solution",
+    text: "Online and Video Consult"
+    },
+    {
+    header: "Price",
+    text: "£197,358"
+    },
+    {
+    header: "Status",
+    html: "<strong class='nhsuk-tag nhsuk-tag--green'>
+      Completed
+    </strong>"
+    },
+    {
+    header: "Action",
+    html: "<a href='solutions/solution-hub'>Edit</a>"
+    }
+    ],
+    [
+    {
+    header: "Catalogue Solution",
+    text: "Q Doctor"
+    },
+    {
+    header: "Price",
+    text: "£205,480"
+    },
+    {
+    header: "Status",
+    html: "<strong class='nhsuk-tag nhsuk-tag--green'>
+      Completed
+    </strong>"
+    },
+    {
+    header: "Action",
+    html: "<a href='solutions/solution-hub'>Edit</a>"
+    }
+    ],
+    [
+    {
+    header: "Catalogue Solution",
+    text: "healthya Online and Video Consultation"
+    },
+    {
+    header: "Price",
+    text: "Not calculated"
+    },
+    {
+    header: "Status",
+    html: "<strong class='nhsuk-tag nhsuk-tag--grey'>
+      Not started
+    </strong>"
+    },
+    {
+    header: "Action",
+    html: "<a href='solutions/solution-hub'>Edit</a>"
+    }
+    ]
+    ]
+    }) }}
+
+
+    <form>
+      {{ button({
+      "text": "Continue",
+      "href":"../competition-tasklist"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

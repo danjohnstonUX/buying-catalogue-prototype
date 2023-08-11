@@ -1,0 +1,102 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [
+  ],
+  href: "/admin/home",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1>Allowed email domains</h1>
+    <p class="nhsuk-lede-text">
+      Add or delete allowed email domains that a user can register with.
+    </p>
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ actionLink({
+      "text": "Add an email domain",
+      "href": "add-email-domain"
+    }) }}
+
+    {{ table({
+      panel: false,
+      caption: "Allowed email domains",
+      head: [
+        {
+          text: "Domain"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "@nhs.net"
+          },
+          {
+            html: '<a href="delete-email-domain">Delete</a>'
+          }
+        ],
+        [
+          {
+            text: "@nhs.uk"
+          },
+          {
+            html: '<a href="delete-email-domain">Delete</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {{ button({
+      href: "/admin/home",
+      text: "Continue"
+    })}}
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

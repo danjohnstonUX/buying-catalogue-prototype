@@ -1,0 +1,365 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/admin-solutions/",
+  text: "Manage Catalogue Solutions"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "admin-solution",
+  "text": "Go back"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+
+    <h1>
+      <span role="text">Service Level Agreement
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Web GP
+        </span>
+      </span>
+    </h1>
+
+    <!--h2>User accounts</h2-->
+
+    <p class="nhsuk-lede-text">Let buyers know what service levels are provided for your Catalogue Solution.</p>
+<!--
+    {{ textarea({
+      id: "reject",
+      name: "reject",
+      label: {
+        text: "Summary (optional)"
+      },
+      "hint": {
+        "text": "Detail the minimum, average and maximum number of working days required to implement your Catalogue Solution. Provide any information that could influence the timescales and any responsibilities expected of a buyer."
+      }
+    }) }}
+    <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1,000 characters remaining</p>
+-->
+    <p class="nhsuk-heading-m">Current solution type: Type 1</p>
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Change solution type",
+      "href": "admin-solution-SLA-edit-type"
+    }) }}
+
+    <p>Use the link to select the Catalogue Solution type that this Service Level Agreement covers.</p>
+    {% from 'tables/macro.njk' import table %}
+
+
+    <h2>Service availability</h2>
+    <p>Provide information on when users can contact support services. You must add at least one time period.</P>
+        {{ actionLink({
+      "text": "Add availability times",
+      "href": "admin-solution-SLA-edit-service-hours"
+    }) }}
+
+    {{ table({
+      panel: false,
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Type of support"
+        },
+
+        {
+          text: "Hours available"
+        },
+        {
+          text: "Applicable days"
+        }
+      ],
+      rows:
+       [
+        [
+          {
+            text: "Core support hours"
+          },
+
+
+          {
+            text: "06:30 - 20:30"
+          },
+          {
+            text: "Monday – Sunday inclusive and including Bank Holidays."
+          },
+
+          {
+          html: '<a href="admin-solution-SLA-edit-service-hours">Edit</a>'
+        }
+      ],
+      [
+        {
+            text: "Non-core support hours"
+          },
+
+          {
+            html: "20:30 - 06:30"
+          },
+          {
+            html: "Monday – Sunday inclusive and including Bank Holidays."
+          },
+          {
+          html: '<a href="admin-solution-SLA-edit-service-hours">Edit</a>'
+        }
+      ]
+
+      ]
+    })
+  }}
+
+
+  <br />
+
+  <h2>Contact details</h2>
+  <p>Provide information on how users can contact support services. You must add at least one contact channel.</p>
+      {{ actionLink({
+      "text": "Add contact details",
+      "href": "admin-solution-SLA-edit-contacts"
+    }) }}
+
+  {{ table({
+    panel: false,
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Channel"
+      },
+
+      {
+        text: "Contact"
+      },
+      {
+        text: "Hours available"
+      },
+      {
+        text: "Applicable days"
+      }
+    ],
+    rows:
+    [
+     [
+      {
+        text: "Phone"
+      },
+      {
+        text : "+447123 456789"
+      },
+      {
+        text : "09:00 - 17:00"
+      },
+      {
+        text : "Monday - Thursday"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-contacts">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Phone"
+      },
+      {
+        text: "+447123 456789"
+      },
+      {
+        text: "09:00 - 14:00"
+      },
+      {
+        text : "Friday"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-contacts">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Webchat"
+      },
+      {
+        text: "www.webchat.com"
+      },
+      {
+        text: "00:00 - 23:59"
+      },
+      {
+        text : "Monday - Sunday"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-contacts">Edit</a>'
+      }
+     ]
+    ]
+  }) }}
+
+<br />
+
+  <h2>Service levels</h2>
+  <p>Detail the levels of service you provide for users. You must add at least one type of service.</p>
+      {{ actionLink({
+      "text": "Add service levels",
+      "href": "admin-solution-SLA-edit-service-levels"
+    }) }}
+
+  {{ table({
+    panel: false,
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Type of service"
+      },
+
+      {
+        text: "Service level"
+      },
+      {
+        text: "How the service levels are measured"
+      },
+      {
+        text: "Are service credits applied?"
+      }
+    ],
+    rows:
+    [
+      [
+      {
+        text: "Catalogue Solution availability including interfaces to national systems"
+      },
+      {
+        text : "99.9% availability during each calendar month and less than 10 minutes downtime in total"
+      },
+      {
+        text : "Measured on a per practice basis by suppliers monitoring tools and reported to service management"
+      },
+      {
+        text : "Yes"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-service-levels">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Catalogue Solution responsiveness"
+      },
+      {
+        text : "99.9% of transactions take less than 2 seconds"
+      },
+      {
+        text : "Measured per transaction within the boundaries of the suppliers datacentre and reported to service management"
+      },
+      {
+        text : "Yes"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-service-levels">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Clinical safety"
+      },
+      {
+        text : "No Clinical Safety Incidents in a calendar month and not resolved within the resolution time"
+      },
+      {
+        text : "Any Clinical Safety Incidents being reported in accordance with DCB0129"
+      },
+      {
+        text : "Yes"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-service-levels">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Other failures"
+      },
+      {
+        text : "No High Severity Service Incidents in a calendar month and not resolved with resolution time"
+      },
+      {
+        text : "Any High Severity Service Incidents being reported"
+      },
+      {
+        text : "Yes"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-service-levels">Edit</a>'
+      }
+     ],
+     [
+      {
+        text: "Service desk performance"
+      },
+      {
+        text : "Applicable service failures and their definitions to be agreed with each supplier"
+      },
+      {
+        text : "To be taken from the approved proposal from the supplier"
+      },
+      {
+        text : "Yes"
+      },
+      {
+        html: '<a href="admin-solution-SLA-edit-service-levels">Edit</a>'
+      }
+     ]
+    ]
+  }) }}
+
+
+
+<br />
+
+
+    <form action="admin-solution">
+    {{ button({
+      "text": "Continue",
+      "href": "admin-solution"
+    }) }}
+    </form>
+
+  <br/>
+  <br/>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

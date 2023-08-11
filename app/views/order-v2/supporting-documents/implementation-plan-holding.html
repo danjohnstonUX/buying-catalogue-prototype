@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "implementation-plan-standard",
+  "text": "Go back"
+}) }}
+
+    <!--{% set securityHtml %}
+
+    {{ textarea({
+    "idPrefix": "security-measures-required",
+    "name": "security-measures-required",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to add any Additional Services?",
+        "classes": "nhsuk-fieldset__legend--s"
+      }
+    },
+    "hint": {
+      "text": "What are the special security measures you require?"
+    }
+  }) }}
+
+    {% endset -%}-->
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Implementation plan milestones
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Download the implementation plan milestones template for the supplier to complete. You must include the blank template when you send your order to the supplier.</p>
+
+        <p>Download the <a target="_blank" href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/12209422525/Order+form+template+Implementation+plan+milestones">Implementation plan milestones template (opens in a new tab)</a> so that the supplier can provide information on when payments will begin.</p>
+
+      <!--     {{ button({
+          "text": "Download Appendix 1 (Word doc, 100KB)",
+          "classes": "nhsuk-button--secondary",
+          "href": "https://gpitbjss.atlassian.net/wiki/spaces/BC/pages/12044632097/Order+form+templates"
+        }) }} -->
+
+        <p>This document must be included when you send your order to the supplier. You can download it now or after you’ve completed your order.</p>
+        <br />
+
+     {{ button({
+          "text": "Continue",
+          "href": "../order-4-summary-implementation-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

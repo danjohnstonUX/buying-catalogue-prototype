@@ -1,0 +1,439 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Index pages
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-nonav.html" %}
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Prototype index</h1>
+      </div>
+    </div>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h2>Email whitelisting</h2>
+
+        <ul>
+
+          <li>
+            <a href="../admin-all-users/email-domains-whitelist">Whitelisted email domains table</a>
+          </li>
+
+          <li>
+            <a href="../admin-all-users/add-email-domain">Add a new domain to the whitelist</a>
+          </li>
+
+          <li>
+            <a href="../admin-all-users/delete-email-domain">Confirm deletion</a>
+          </li>
+
+        </ul>
+
+        <h2>Tiered pricing</h2>
+
+        <h3>Adding a new tier</h3>
+
+        <ul>
+
+          <li>
+            <a href="../admin-solutions/list-price/list-price-select-type">
+              Add a list price
+            </a>
+          </li>
+
+        </ul>
+
+        <h3>Editing an existing tier</h3>
+
+        <ul>
+
+          <li>
+            <a href="../admin-solutions/list-price/list-price-edit-price-tiered">
+              Editing an unpublished tiered list price
+            </a>
+          </li>
+
+          <li>
+            <a href="../admin-solutions/list-price/list-price-edit-published-price-tiered">
+              Editing a published tiered list price
+            </a>
+          </li>
+
+        </ul>
+
+        <h3>Order flow (buyer side)</h3>
+
+        <ul>
+
+          <li>
+            <a href="../order-v2/tiered-pricing/catalogue-solution-price-tiered">
+              Select tiered list price
+            </a>
+          </li>
+
+          <li>
+            <a href="../order-v2/tiered-pricing/additional-service-1-price-tiered">
+              Select tiered additional service price
+            </a>
+          </li>
+
+          <li>
+            <a href="../order-v2/tiered-pricing/order-5-4-2-select-associated-confirm-price-tiered">
+              Select tiered associated service price
+            </a>
+          </li>
+
+        </ul>
+
+        <h3>Tier capping</h3>
+
+        <ul>
+
+          <li>
+            <a href="../admin-solutions/list-price/list-price-add-price-tiered-bands-max-5">
+              Add price
+            </a>
+          </li>
+
+          <li>
+            <a href="../admin-solutions/list-price/list-price-edit-price-tiered-max">
+              Edit price
+            </a>
+          </li>
+
+        </ul>
+
+        <h3>Schedule 2.3</h3>
+
+        <ul>
+
+          <li>
+            <a href="../schedule-2-3/order-4-summary-completed">
+              Summary page
+            </a>
+          </li>
+
+        </ul>
+
+        <h2>Order form</h2>
+
+        <ul>
+
+          <li>
+            <a href="../order-v2/order-1-guidance">
+              Catalogue Solutions and services
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/order-1-guidance">
+              Associated Services only
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/order-4-edit-solutions-and-services">
+              Edit Solutions and services
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/edit-associated-services/v3/order-4-edit-solutions-and-services-3">
+              Edit Associated Services only
+            </a>
+          </li>
+        </ul>
+
+        <h3>Start where you left off</h3>
+        <ul>
+          <li>
+
+            <a href="../order-v2/order-4-restart">
+              Change Additional Services
+            </a>
+          </li>
+        </ul>
+
+        <h2>Search filter</h2>
+
+        <ul>
+          <li>
+            <a href="../order-v2/filter/v5/catalogue-solutions-start">
+              Filter Catalogue Solutions
+            </a>
+          </li>
+        </ul>
+
+        <h2>Planned delivery dates</h2>
+
+        <h3>User test scenarios</h3>
+        <ul>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-1/order-4-summary-funding-completed">
+              Scenarios 1, 2 and 3
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-4/order-4-summary-funding-completed">
+              Scenario 4
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-5/order-4-summary-funding-completed">
+              Scenario 5
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6a/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br />ordered alphabetically)
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6b/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br />ordered chronologically)
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6c/review-planned-delivery-dates-main">
+              Review screen (Order Tracker Service Recipients - <br />ordered by table)
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6d/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br />ordered alphabetically)
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6e/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br />ordered chronologically)
+            </a>
+          </li>
+          <li>
+            <a href="../contracts-testing/planned-delivery-date-ut-scenario-6f/review-planned-delivery-dates-main">
+              Review screen (Scenario 4 Service Recipients - <br />ordered by table)
+            </a>
+          </li>
+        </ul>
+        <!-- <ul>
+          <li>
+            <a href="../contracts-testing/order-4-summary-funding-completed">
+              Planned delivery dates
+            </a>
+          </li>
+        </ul> -->
+
+        <h2>Select a framework</h2>
+
+        <ul>
+          <li>
+            <a href="../order-v2/order-5-7-choose-framework">
+              Choose framework
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/order-5-7-confirm-framework">
+              Confirm framework change
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/order-5-7-funding-framework">
+              Funding source page with framework info
+            </a>
+          </li>
+        </ul>
+
+        <h2>Compare Catalogue Solutions</h2>
+
+        <ul>
+          <li>
+            <!-- <a href="../order-v2/filter/v5/catalogue-solutions-start"> -->
+              Compare Catalogue Solutions
+            </a>
+          </li>
+        </ul>
+
+        <h2>Tech Innovation Framework (TIF)</h2>
+
+        <ul>
+          <li>
+            <a href="../marketing-page/marketing-page-tif">
+              Marketing page
+            </a>
+          </li>
+          <li>
+            <a href="../admin-solutions/admin-add-solution">
+              Adding a framework (admin)
+            </a>
+          </li>
+          <li>
+            <a href="../catalogue-solution/index">
+              Catalogue solutions page with updated framework filter
+            </a>
+          </li>
+          <li>
+            <a href="../index-tif">
+              Homepage with "What's new" section
+            </a>
+          </li>
+          <li>
+            <a href="../tif/tif-info">
+              TIF information page
+            </a>
+          </li>
+        </ul>
+
+        <h2>Delete an order (admin)</h2>
+
+        <ul>
+          <li>
+            <a href="../admin-all-orders/view-order">
+              Order overview including delete link
+            </a>
+          </li>
+          <li>
+            <a href="../admin-all-orders/confirm-delete-order">
+              Confirm order deletion
+            </a>
+          </li>
+        </ul>
+
+        <h2>Amend order</h2>
+
+        <ul>
+          <li>
+            <a href="../amend-order/order-dashboard">
+              Journey start
+            </a>
+          </li>
+          <li>
+            <a href="../amend-order/tasklists/tasklist-start">
+              Order tasklist
+            </a>
+          </li>
+          <li>
+            <a href="../amend-order/edit-dashboard">
+              Edit solutions and services
+            </a>
+          </li>
+        </ul>
+
+        <h2>Importing Service Recipients</h2>
+
+        <ul>
+          <li>
+            <a href="../order-v2/import-service-recipients-happy/0-select-service-recipients">
+              Happy path (work in progress)
+            </a>
+          </li>
+          <li>
+            <a href="../order-v2/import-service-recipients-unhappy/0-select-service-recipients">
+              Unhappy path (work in progress)
+            </a>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="../import-service-recipients/scenario-1/0-select-service-recipients">
+              Testing scenario 1
+            </a>
+          </li>
+          <li>
+            <a href="../import-service-recipients/scenario-2/0-select-service-recipients">
+              Testing scenario 2
+            </a>
+          </li>
+          <li>
+            <a href="../import-service-recipients/scenario-3/0-select-service-recipients">
+              Testing scenario 3
+            </a>
+          </li>
+          <li>
+            <a href="../import-service-recipients/scenario-4/0-select-service-recipients">
+              Testing scenario 4
+            </a>
+          </li>
+        </ul>
+
+        <h2>Password pages</h2>
+
+        <ul>
+          <li>
+            <a href="../password/account-locked">
+              Account locked
+            </a>
+          </li>
+          <li>
+            <a href="../password/update-password">
+              Update password
+            </a>
+          </li>
+        </ul>
+
+        <h2>Compare solutions</h2>
+
+        <ul>
+          <li>
+            <a href="../compare/">
+              Search page
+            </a>
+          </li>
+          <li>
+            <a href="../compare/compare-list-price">
+              Comparison pages
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://codesandbox.io/s/unruffled-feather-r4c0g2?file=/index.html">
+              Tabs example (Opens in new tab)
+            </a>
+          </li>
+          <li>
+            <a href="../compare/ideation/catalogue-solutions-compare">
+              Initial ideas with 3 solutions per page
+            </a>
+          </li>
+        </ul>
+
+        <!--<h2>Other links (For Dan)</h2>
+
+        <ul>
+          <li>
+            <a href="../your-account/index">
+              User account landing page (old - hide link from page and archive)
+            </a>
+          </li>
+        </ul>-->
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    <br/><br/>
+
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,199 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("confirm-payment-schedule-1").checked ? document.getElementById("confirm-payment-schedule-1").value : "";
+      var opt2 = document.getElementById("confirm-payment-schedule-2").checked ? document.getElementById("confirm-payment-schedule-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "associated-service-requirements";
+      }
+      else if(opt2=="no") {
+          document.location.href = "associated-service-billing-1";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      </div>
+      <div class="nhsuk-grid-column-full">
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Payment triggers for your selected Associated Services",
+          tableClasses: "nhsuk-u-margin-bottom-7",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Associated Service"
+            },
+            {
+              text: "Quantity"
+            },
+            {
+              text: "M1"
+            },
+            {
+              text: "M2"
+            },
+            {
+              text: "M3"
+            },
+            {
+              text: "M4"
+            },
+            {
+              text: "M5"
+            },
+            {
+              text: "M6"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Associated Service ID",
+                text: "Implementation"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "M1",
+                text: "5"
+              },
+              {
+                header: "M2",
+                text: "5"
+              },
+              {
+                header: "M3",
+                text: "0"
+              },
+              {
+                header: "M4",
+                text: "0"
+              },
+              {
+                header: "M5",
+                text: "0"
+              },
+              {
+                header: "M6",
+                text: "0"
+              }
+            ],
+            [
+              {
+                header: "Associated Service ID",
+                text: "Training"
+              },
+              {
+                header: "Quantity",
+                text: "10"
+              },
+              {
+                header: "M1",
+                text: "0"
+              },
+              {
+                header: "M2",
+                text: "0"
+              },
+              {
+                header: "M3",
+                text: "10"
+              },
+              {
+                header: "M4",
+                text: "0"
+              },
+              {
+                header: "M5",
+                text: "0"
+              },
+              {
+                header: "M6",
+                text: "0"
+              }
+            ]
+          ]
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+
+        {{ radios({
+          "idPrefix": "confirm-payment-schedule",
+          "name": "confirm-payment-schedule-radios",
+          "classes": "nhsuk-u-margin-bottom-3",
+          "fieldset": {
+            "legend": {
+              "text": "Are you happy with this payment schedule?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, I would like to use this payment schedule"
+            },
+            {
+              "value": "no",
+              "text": "No, I would like to amend this payment schedule"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"javascript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

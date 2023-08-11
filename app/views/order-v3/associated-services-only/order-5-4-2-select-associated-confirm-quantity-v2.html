@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Migration quantity
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-select-associated-confirm-price-v2",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Quantity of Associated Service<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Migration
+      </span></h1>
+      <p class="nhsuk-lede-text">Enter the total amount that you want to order.</p>
+
+
+       <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="cost-per-item">
+              How many do you want?
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false" value="">
+          <div class="govuk-input__suffix" aria-hidden="true">migrations</div>
+        </div>
+      </div>
+
+      {% from 'details/macro.njk' import details %}
+
+       {{ details({
+         "text": "What quantity should I enter?",
+         "HTML": "
+
+           <p>
+
+           The typical unit of order is expected to be on an individual practice migration basis (one).
+           Migrations could potentially be ordered for a whole CCG if there was a bulk request (up to one hundred).</p>
+
+         "
+       }) }}
+
+
+<br />       
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="order-5-4-1-solutions-assoc">
+              {% from 'button/macro.njk' import button %}
+      
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+          </div>
+        </div>
+
+
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

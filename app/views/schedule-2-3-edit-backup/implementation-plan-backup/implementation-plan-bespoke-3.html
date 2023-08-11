@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("add-milestone-1").checked ? document.getElementById("add-milestone-1").value : "";
+    var opt2 = document.getElementById("add-milestone-2").checked ? document.getElementById("add-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "implementation-plan-bespoke-4";
+    }
+    else if(opt2=="no") {
+        document.location.href = "implementation-review-bespoke-milestones";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-bespoke-2",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Add another milestone</h1>
+
+      <p class="nhsuk-lede-text">Provide another implementation milestone if required.</p>
+
+      <br />
+
+      {{ radios({
+        "idPrefix": "add-milestone",
+        "name": "add-milestone-radios",
+        "fieldset": {
+          "legend": {
+            "text": "Would you like to add another implementation milestone?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

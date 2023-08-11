@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Implementation Plan requirements</h1>
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet.</p>
+
+      <h2>Overview Implementation Plan</h2>
+
+      <p>Where a number of Service Instances will be undergoing implementation planning and/or actual implementation the Call Off Ordering Party may require an Overview Implementation Plan which will set out, as a minimum, the following for each of the Service Instances which have yet to Achieve Milestone M2:</p>
+      <ul>
+      	<li>the Milestone Dates for Milestones M1 and M2;</li>
+      	<li>the start and end dates for any activity associated with the migration of data from the solutions which the Catalogue Solution is replacing to the Catalogue Solution;</li>
+      	<li>the start and end dates for the training activity.</li>
+      </ul>
+      <p>Where an Overview Implementation Plan is required, enter the Service Instances you wish it to encompass below, otherwise enter “N/A”. Please populate the below as appropriate:</p>
+
+      {% from 'textarea/macro.njk' import textarea %}
+      {{ textarea({
+        "name": "example",
+        "id": "example",
+        "label": {
+          "text": "Service Instance"
+        }
+      }) }}
+
+
+      <h2>Implementation Plans</h2>
+
+      <p>The table below must list the Implementation Plans required and any go live constraints that are applicable. Each Service Instance will have its own Outline Implementation Plan, which may then be developed (if indicated as required in the table below) into a Detailed Implementation Plan. The Service Instance unique IDs to be used in this section are those set out in the Order Summary.</p>
+      <p>The Outline Implementation Plan(s) should cover:</p>
+      <ul>
+        <li>each Milestone;</li>
+        <li>each Milestone Achievement Criteria;</li>
+        <li>each Deliverable that contributes to each Milestone Achievement Criteria; and</li>
+        <li>each Call Off Ordering Party and/or Service Recipient responsibility</li>
+      </ul>
+      <p>Please populate the below if required:</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Add implementation item",
+        "href": "#"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        responsive: false,
+        panel: false,
+        caption: "",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Implementation Plan ID and title"
+          },
+          {
+            text: "Applicable Milestone / Milestone Achievement Criteria"
+          },
+          {
+            text: "Service Instance unique ID"
+          },
+          {
+            text: "Go Live date constraints"
+          },
+          {
+            text: "Is a Detailed Implementation Plan required?"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Implementation Plan ID and title",
+              text: "Lorem ipsum"
+            },
+            {
+              header: "Applicable Milestone / Milestone Achievement Criteria",
+              text: "As set out in section C.1"
+            },
+            {
+              header: "Service Instance unique ID",
+              text: "M1-1"
+            },
+            {
+              header: "Go Live date constraints",
+              text: "Lorem ipsum dolor sit amet consectetuer"
+            },
+            {
+              header: "Is a Detailed Implementation Plan required?",
+              text: "No"
+            }
+          ]
+        ]
+      }) }}
+
+<br />
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "Are you happy with this Implementation plan?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, approve"
+          },
+          {
+            "value": "no",
+            "text": "No, ask supplier to revise"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      <form action="order-4-summary-supplier">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

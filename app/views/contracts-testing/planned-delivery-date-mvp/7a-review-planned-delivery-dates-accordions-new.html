@@ -1,0 +1,382 @@
+<h2>Catalogue Solution</h2>
+
+<br />
+  
+  {# {% from 'action-link/macro.njk' import actionLink %}
+
+{{ actionLink({
+  "text": "Edit planned delivery dates",
+  "href": "8a-edit-planned-delivery-date-emis"
+}) }} #}
+
+  <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Planned majority delivery date: </b>29 September 2022
+      </span>
+      <span style="float:right;">
+        <a href="planned-delivery-date" class="nhsuk-link">Edit majority date</a>
+      <span>
+    </summary>
+    <div class="nhsuk-details__text">
+      
+<br />
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+    {
+      text: "Planned delivery date"
+    },
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      }
+    ],
+    rows: [
+    [
+    {
+      text: "29 September 2022"
+    },
+    {
+       text: "ASSURA ER LLP HULL DERMATOLOGY"
+     },
+     {
+       text: "Y03508"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "BEVAN LIMITED"
+     },
+     {
+       text: "Y03507"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "DERMATOLOGY CLINIC GPSI"
+     },
+     {
+       text: "Y00894"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "HAXBY GROUP HULL"
+     },
+     {
+       text: "Y02747"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "HULL CCG VOCARENHS111 OOH"
+     },
+     {
+       text: "Y06959"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "JAMES ALEXANDER FAMILY PRACTICE"
+     },
+     {
+       text: "B81112"
+     }
+   ],
+   [
+   {
+    text: "29th September 2022"
+  },
+     {
+       text: "LAURBEL SURGERY"
+     },
+     {
+       text: "B81635"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "PAIN MANAGEMENT GPSI"
+     },
+     {
+       text: "Y01218"
+     }
+   ],
+   [{
+    text: "29 September 2022"
+  },
+     {
+       text: "ST ANDREWS SURGERY"
+     },
+     {
+       text: "B81027"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "SYDENHAM GROUP PRACTICE"
+     },
+     {
+       text: "B81058"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "THE AVENUES MEDICAL CENTRE"
+     },
+     {
+       text: "B81035"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "THE BRIDGE GROUP PRACTICE"
+     },
+     {
+       text: "B81046"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "THE SUTTON MANOR SURGERY"
+     },
+     {
+       text: "B81020"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "WILBERFORCE SURGERY"
+     },
+     {
+       text: "B81032"
+     }
+   ],
+   [
+   {
+    text: "29 September 2022"
+  },
+     {
+       text: "WOLSELEY MEDICAL CENTRE"
+     },
+     {
+       text: "B81047"
+     }
+   ]      
+      ]
+      }) }}
+    </div>
+  </details>
+
+  <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Other planned delivery dates</b>
+      </span>
+      <span style="float:right;">
+        <a href="planned-delivery-dates-emis" class="nhsuk-link">Edit dates</a>
+      <span>
+    </summary>
+    <div class="nhsuk-details__text">
+      <table role="table" class="nhsuk-table-responsive">
+        <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Planned date
+          </th>
+            <th role="columnheader" class="" scope="col">
+              Service Recipients
+            </th>
+            <th role="columnheader" class="" scope="col">
+              ODS code
+            </th>
+        </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>ASSURA ER LLP HULL DERMATOLOGY
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y03508
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>BEVAN LIMITED
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y03507
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>DERMATOLOGY CLINIC GPSI
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y00894
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>HAXBY GROUP HULL
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y02747
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>HULL CCG VOCARENHS111 OOH
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y06959
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>JAMES ALEXANDER FAMILY PRACTICE
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>B81112
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>LAURBEL SURGERY
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>B81635
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>PAIN MANAGEMENT GPSI
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>Y01218
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>ST ANDREWS SURGERY
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>B81027
+                </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading"> </span>6 September 2022
+            </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>WOLSELEY MEDICAL CENTRE
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading"> </span>B81047
+                </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <br />
+
+  {# <h2>Associated Services</h2>
+  
+  <br /> #}
+  
+  {# {% from 'action-link/macro.njk' import actionLink %}
+
+{{ actionLink({
+  "text": "Edit planned delivery dates",
+  "href": "8a-edit-planned-delivery-date-training"
+}) }}
+
+ <details class="nhsuk-details nhsuk-expander" open>
+    <summary class="nhsuk-details__summary" >
+      <span class="nhsuk-details__summary-text">
+        <b>Training Day at Practice</b>
+      </span>
+      <span style="float:right;">
+        <b>Planned delivery date:</b> 1 September 2022
+      <span>
+    </summary>
+    <div class="nhsuk-details__text">
+      {% include "contracts-testing/planned-delivery-date-mvp/7a-review-planned-delivery-dates-details-training.html" %}
+    </div>
+  </details> #}
+
+<br />
+
+
+  

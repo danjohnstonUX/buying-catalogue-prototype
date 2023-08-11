@@ -1,0 +1,203 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .view-results {
+    padding: 0;
+    padding-top: 1em;
+    padding-bottom: 2em;
+  }
+</style>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <a id="header-navigation"></a>
+
+      <h1>Find Catalogue Solutions</h1>
+      <p class="nhsuk-lede-text">
+        Search for Catalogue Solutions that match the needs of your organisation.
+      </p>
+    </div>
+  </div>
+
+  {% from 'radios/macro.njk' import radios %}
+  {% from 'input/macro.njk' import input %}
+  {% from 'checkboxes/macro.njk' import checkboxes %}
+
+  {% set frameworkHtml %}
+    {{ radios({
+      idPrefix: "frameworks",
+      name: "frameworks",
+      items: [
+        {
+          value: "framework1",
+          text: "GP IT Futures framework (3)",
+          "attributes": {
+            "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "block";'
+          }
+        },
+        {
+          value: "framework2",
+          text: "DVOFCVC framework (8)",
+          "attributes": {
+            "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "block";'
+          }
+        }
+      ]
+    }) }}
+  {% endset -%}
+
+  {% set supplierHtml %}
+    {{ input({
+      id: "email",
+      name: "email",
+      classes: "nhsuk-u-width-two-thirds",
+      label: {
+        text: ""
+      },
+      hint: {
+        text: "Type a supplier or solution name (auto-complete)"
+      }
+    }) }}
+  {% endset -%}
+
+  {% set capabilitiesHtml %}
+    {% include "catalogue-solutions-capabilities.html" %}
+  {% endset -%}
+
+  {% set epics2Html %}
+    {% include "catalogue-solutions-epics.html" %}
+  {% endset -%}
+
+
+  {{ radios({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "What would you like to do?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": "true"
+      }
+    },
+    "hint": {
+      "text": "Select one option"
+    },
+    "items": [
+      {
+        "value": "all",
+        "text": "View all solutions",
+        "hint": {
+          "text": "Take a look at everything available on the Buying Catalogue."
+        },
+        "attributes": {
+          "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "none";'
+        }
+      },
+      {
+        "value": "framework",
+        "text": "Filter by framework",
+        "hint": {
+          "text": "See what's available if you're using funding from a specific framework."
+        },
+        "conditional": {
+          "html": frameworkHtml
+        },
+        "attributes": {
+          "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "block";'
+        }
+      },
+      {
+        "value": "supplier",
+        "text": "Search by supplier or solution name",
+        "hint": {
+          "text": "Find a specific supplier or solution on the Buying Catalogue."
+        },
+        "conditional": {
+          "html": supplierHtml
+        },
+        "attributes": {
+          "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "none";'
+        }
+      },
+      {
+        "value": "capabilities",
+        "text": "Filter by Capabilities",
+        "hint": {
+          "text": "Search for a solution based on the business needs of your organisation."
+        },
+        "conditional": {
+          "html": capabilitiesHtml
+        },
+        "attributes": {
+          "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "none";'
+        }
+      },
+      {
+        "value": "epics",
+        "text": "Filter by Epics",
+        "hint": {
+          "text": "Search for a solution based on the functionality it demonstrated to meet a Capability."
+        },
+        "conditional": {
+          "html": epics2Html
+        },
+        "attributes": {
+          "onclick": 'javascript: document.getElementById("conditional-contact-2").style.display = "none";'
+        }
+      }
+    ]
+  }) }}
+
+  <form action="https://buyingcatalogue.digital.nhs.uk/solutions/capabilities-selector.C28">
+    <!-- catalogue-solutions-list -->
+    {% from 'button/macro.njk' import button %}
+    {{ button({
+      "text": "Continue"
+    }) }}
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

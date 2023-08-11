@@ -1,0 +1,19 @@
+.nhsuk-button--blue {
+    background-color: #005eb8;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 0 #003087;
+}
+
+.nhsuk-button--blue:hover {
+    background-color: #003087;
+    box-shadow: 0 4px 0 #003087;
+}
+
+.nhsuk-button--blue:focus {
+    background: #ffeb3b;
+    box-shadow: 0 4px 0 #212b32;
+    color: #212b32;
+    outline: 4px solid transparent;
+}

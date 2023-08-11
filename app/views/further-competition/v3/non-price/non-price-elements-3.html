@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Which non-price elements would you like to include?
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {{ backLink({
+      "href": "non-price-hub",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Which non-price element would you like to add?<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Your competition
+        </span></h1>
+
+        <p class="nhsuk-lede-text">You can add any or all optional non-price elements to help you score your shortlisted solutions.</p>
+
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "criteria-radio",
+            "name": "select-criteria",
+            "fieldset": {
+              "legend": {
+                "text": "Select non-price elements",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'>You must add non-price elements 1 at a time. If you want to add more than 1, you can do so later.</p>"
+            },
+            "items": [
+              {
+                "value": "sla",
+                "text": "Service Level Agreement"
+              }
+            ]
+          }) }}
+        </form>
+
+        <br/>
+
+        <form>
+          {{ button({
+            "text": "Save and continue",
+            "href":"sla"
+          }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

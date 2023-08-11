@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  How do you want to decide the criteria for your competition?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="select-criteria"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "choose-filter";
+           break;
+        case "no":
+           document.location.href = "#";
+            break;
+    }
+  }
+</script>
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Do you have a saved filter?</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "select-criteria",
+  "name": "select-criteria",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes, I have a saved filter I want to use for my competition",
+      "hint": {
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    },
+    {
+      "value": "no",
+      "text": "No, I need to create a filter to use for my competition",
+      "hint": {
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

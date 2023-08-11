@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+  <script>
+    function sendForm() {
+      var opt1 = document.getElementById("default-payment-schedule-1").checked ? document.getElementById("default-payment-schedule-1").value : "";
+      var opt2 = document.getElementById("default-payment-schedule-2").checked ? document.getElementById("default-payment-schedule-2").value : "";
+
+      if(opt1=="yes") {
+          document.location.href = "associated-service-requirements";
+      }
+      else if(opt2=="no") {
+          document.location.href = "associated-service-holding";
+      }
+    }
+  </script>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../order-4-summary-implementation-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Review Associated Services billing
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Make you’re happy with the payment schedule for your Associated Services.</p>
+
+        {{ insetText({
+          "HTML": "<p>Charges commence on achievement of Milestone 1, but payments will not be made until Milestone 2 is achieved.</p>"
+        }) }}
+
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Associated Services billing",
+          tableClasses: "nhsuk-u-margin-bottom-7",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "Quantity"
+            },
+            {
+              text: "Payment trigger"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Associated Service name",
+                text: "Training Day at Practice"
+              },
+              {
+                header: "Quantity",
+                text: "90"
+              },
+              {
+                header: "Payment trigger and conditions",
+                text: "Milestone 2"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ radios({
+          "idPrefix": "default-payment-schedule",
+          "name": "default-payment-schedule-radios",
+          "classes": "nhsuk-u-margin-bottom-3",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to proceed with this payment schedule?",
+              "classes": "nhsuk-fieldset__legend--s",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I’ve agreed bespoke billing with the supplier"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"javascript: sendForm();"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

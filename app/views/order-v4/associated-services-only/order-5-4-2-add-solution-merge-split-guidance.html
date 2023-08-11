@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-merger-or-split",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Catalogue Solutions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Health
+      </span></h1>
+
+      <hr>
+
+      {% if data['merge-or-split'] == 'merge' %}
+
+      <h2 class="nhsuk-heading-l">Guidance for {{data['cat_solution']}}</h2>
+      <p class="nhsuk-body">A Merger is where two (or more) practices join into a single practice with a combined patient list and single patient database.  The Lead Practice in the Merger will retain it's existing ODS Code and the merged practice(s) will not retain it's previous ODS code, but may have a new Branch ODS Code(s) assigned if it remains as a separate location/premises.</p>
+      <p class="nhsuk-body">For example the Lead Practice will retain it’s ODS code A99999 and the “branch site” will become A99999001.</p>
+      <p class="nhsuk-body">Branch sites are just treated as part of the main site for charging (not needing a separate call-off agreement) so any orders that deal with branches will just reference the main site.</p>
+      <p class="nhsuk-body">A practice closure may occur where a practice shuts down (e.g. due to retirement, or financial insolvency, etc.) the transfer of patients is classed as a merger</p>
+      {# <p class="nhsuk-body">Process :</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Select the practices that will be merged, you will need to select more than one</li>
+        <li>Select the lead practice that will host the merger</li>
+        <li>Add the price agreed with the supplier per practice</li>
+        <li>pale skin</li>
+      </ul> #}
+
+
+
+       {% elif data['merge-or-split'] == 'split' %}
+
+       <h2 class="nhsuk-heading-l">Guidance for {{data['cat_solution']}}</h2>
+       <p class="nhsuk-body">A Demerger also known as a Split, is a migration in reverse.</p>
+       <p class="nhsuk-body">This is where the patient database list is in effect split between the partners who stay and those who leave forming two database lists (needing two supplier solutions instead of one).</p>
+       <p class="nhsuk-body nhsuk-u-margin-bottom-8">The original practice ODS code will remain associated with the original location, and new ODS code will be setup for the new practice created.</p>
+      {% endif %}
+    {# <p class="nhsuk-lede-text">Select the Catalogue Solution the Associated Service you want to order supports.</p> #}
+
+
+{# {% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%} #}
+<form action="merge-or-split-route">
+
+
+{{ button({
+  "text": "Continue",
+  "class":  "nhsuk-u-margin-top-8"
+}) }}
+
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

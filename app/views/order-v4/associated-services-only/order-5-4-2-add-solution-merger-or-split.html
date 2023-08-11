@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service-assoc-service",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Catalogue Solutions<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Health
+      </span></h1>
+    {# <p class="nhsuk-lede-text">Select the Catalogue Solution the Associated Service you want to order supports.</p> #}
+
+
+{# {% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%} #}
+<form action="/merge-or-split-route" method="post">
+{{ radios({
+  "idPrefix": "merge-or-split",
+  "name": "merge-or-split",
+  "fieldset": {
+    "legend": {
+      "text": "Do you want to order a merger or a split?",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": "true"
+    }
+  },
+  "items": [
+    {
+      "value": "merge",
+      "text": "Order a merge"
+    },
+    {
+      "value": "split",
+      "text": "Order a split"
+    },
+    {
+      "value": "other",
+      "text": "Order other associated service"
+
+    }
+  ]
+}) }}
+
+<br/>
+
+<input type="hidden" name="selected-cat" value="{{data['cat_solution']}}" />
+
+{{ button({
+  "text": "Save and continue"
+}) }}
+
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

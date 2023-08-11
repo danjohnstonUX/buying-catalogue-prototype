@@ -1,0 +1,90 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Group dashboard
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "add-groups",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Name your group</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">Create a name for your group</p>
+
+{% from 'input/macro.njk' import input %}
+
+{{ input({
+  "label": {
+    "text": "Name of group"
+  },
+  "id": "input-width-20",
+  "name": "group-width-20",
+  "classes": "nhsuk-input--width-20"
+}) }}
+
+<br />
+
+{% from 'textarea/macro.njk' import textarea %}
+
+{{ textarea({
+  "name": "example",
+  "id": "example",
+  "label": {
+    "text": "Add a description (optional)"
+  },
+  "hint": {
+    "text": "Provide a brief description of your group to help identify it from 
+    any others you’ve created."
+  }
+}) }}
+
+<br />
+      <form action="1-upload-csv">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+    
+    
+
+
+
+    <br /><br />
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

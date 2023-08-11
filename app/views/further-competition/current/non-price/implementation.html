@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Implementation
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "non-price-elements",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Implementation requirements<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  Your competition
+</span></h1>
+
+<p class="nhsuk-lede-text">Explain your requirements for when the winning solution is implemented.</p>
+
+
+{{ textarea({
+  "name": "implementation",
+  "id": "implementation",
+  "label": {
+    "text": "Implementation requirements",
+    "classes": "nhsuk-label--m nhsuk-u-margin-bottom-2"
+  },
+  "hint": {
+    "text": "For example, how quickly you’ll need the solution to be up and running, or anything else you need from the supplier during implementation."
+  }
+}) }}
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"non-price-hub-implementation-added"
+}) }}
+</form>
+
+<p><a href="non-price-elements">Cancel</a></p>
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

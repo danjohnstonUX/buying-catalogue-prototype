@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "marketing-page-associated",
+  "text": "Go back"
+}) }}
+
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>
+        <span role="text">Practice reorganisation
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+
+      <h2>Pricing</h2>
+
+      {{ table({
+        responsive: true,
+        panel: false,
+        tableClasses: "nhsuk-u-margin-bottom-5",
+        caption: "Flat price per practice merge/split",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Price"
+          },
+          {
+            text: "Unit"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Price",
+              text: "£1500"
+            },
+            {
+              header: "Unit",
+              text: "per practice merge/split"
+            }
+          ]
+        ]
+      }) }}
+
+      <h3 class="nhsuk-heading-xs">Unit definitions for this price</h3>
+
+      <p class="nhsuk-u-margin-bottom-9 nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+      {{ table({
+        responsive: true,
+        panel: false,
+        tableClasses: "nhsuk-u-margin-bottom-5",
+        caption: "Flat price per practice",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Price"
+          },
+          {
+            text: "Unit"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Price",
+              text: "£1,750"
+            },
+            {
+              header: "Unit",
+              text: "per practice"
+            }
+          ]
+        ]
+      }) }}
+
+      <h3 class="nhsuk-heading-xs">Unit definitions for this price</h3>
+
+      <p class="nhsuk-u-margin-bottom-9 nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+      <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+        Solution information last reviewed: 31 March 2020
+      </p>
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

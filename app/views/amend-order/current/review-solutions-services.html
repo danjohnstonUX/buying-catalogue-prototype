@@ -1,0 +1,893 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<style>
+.nhsuk-expander .nhsuk-details__summary > span,
+.nhsuk-expander .nhsuk-details__summary-text{
+  color:black;
+  text-decoration:none;
+}
+
+.nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+ background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+}
+
+.nhsuk-expander{
+ background: none;
+}
+</style>
+
+{{ backLink({
+  "href": "edit-dashboard-service-added",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Catalogue Solution and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-02
+      </span></h1>
+      <p class="nhsuk-lede-text">Review the Catalogue Solution and any services that you've added to this order.
+        You can edit the items that you've added at any time.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Edit solution and services",
+        "href": "edit-dashboard-service-added"
+      }) }}
+
+
+      <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+<hr />
+    </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h2>Catalogue Solution</h2>
+
+
+    <!-- <h3 style="margin-bottom: 2;">Catalogue Solution</h3>  -->
+
+      <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Caltech Web GP</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £53,373.60
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+                <th role="columnheader" class="" scope="col">
+                  Status
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Service Recipient (ODS Code)
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                  text: "Removed",
+                  classes: "nhsuk-tag--pink"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:75%"> BANKFIELD SURGERY (B84016)
+                </td>
+                <td class="nhsuk-table__cell" style="width:15%">952</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                  text: "Removed",
+                  classes: "nhsuk-tag--pink"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:75%">BEECHWOOD MEDICAL CENTRE (B84613)</td>
+                <td class="nhsuk-table__cell" style="width:15%">1,758</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                  text: "Removed",
+                  classes: "nhsuk-tag--pink"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:75%">BRIG ROYD SURGERY (B84007)</td>
+                <td class="nhsuk-table__cell" style="width:15%">1,758</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CARITAS GROUP PRACTICE (B84618)
+                </td>
+                <td class="nhsuk-table__cell" style="width:15%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CHURCH LANE SURGERY (B84011)</td>
+                <td class="nhsuk-table__cell" style="width:15%">750</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">DR CHIN AND PARTNERS (B84008)</td>
+                <td class="nhsuk-table__cell" style="width:15%">857</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%"> HEBDEN BRIDGE GROUP PRACTICE (B84004)</td>
+                <td class="nhsuk-table__cell" style="width:15%">1,023</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">KEIGHLEY ROAD SURGERY (B84010)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">KING CROSS PRACTICE (B84021)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                  text: "Added",
+                  classes: "nhsuk-tag--blue"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:75%">LISTER LANE SURGERY (B84612)
+                </td>
+                <td class="nhsuk-table__cell" style="width:15%">952</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                  text: "Added",
+                  classes: "nhsuk-tag--blue"
+                })}}
+                </td>
+                <td class="nhsuk-table__cell" style="width:75%">LONGROYDE SURGERY (B84623)</td>
+                <td class="nhsuk-table__cell" style="width:15%">1,758</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">PLANE TREES GROUP PRACTICE (B84013)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">RASTRICK HEALTH CENTRE (B84014)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">ROSEGARTH SURGERY (B84005)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">RYDINGS HALL SURGERY (B84003)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">SPRING HALL GROUP PRACTICE (B84012)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">STAINLAND ROAD MEDICAL CENTRE (B84009)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">STATION ROAD SURGERY (B84001)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">THE BOULEVARD MEDICAL PRACTICE (B84019)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">TODMORDEN GROUP PRACTICE (B84006)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" colspan="2" style="text-align: right"><strong>Total quantity</strong></td>
+                <td class="nhsuk-table__cell">6,630</td>
+              </tr>
+            </tbody>
+          </table>
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing and total quantities</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old price
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New price
+                  </th>
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr>
+                <td class="nhsuk-table__cell" style="width: 40%">£1.26 per patient per year</td>
+                <td class="nhsuk-table__cell" style="width: 15%">15,198</td>
+                <td class="nhsuk-table__cell" style="width: 15%">14,120</td>
+                <td class="nhsuk-table__cell" style="width: 15%">£19,149.48</td>
+                <td class="nhsuk-table__cell" style="width: 15%">£17,791.20</td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </details>
+
+      <br />
+
+      <h2>Additional Services</h2>
+      <!-- <h3 style="margin-bottom: 2;">Additional Services</h3>  -->
+
+      <details class="nhsuk-details nhsuk-expander" open>
+       <summary class="nhsuk-details__summary" >
+         <span class="nhsuk-details__summary-text">
+           {{ tag({
+             text: "Added",
+             classes: "nhsuk-tag--blue"
+           })}}
+           <b>Caltech Mobile</b>
+         </span>
+         <span style="float:right;">
+           <b>Subtotal:</b> £1,392.30
+         <span>
+       </summary>
+       <div class="nhsuk-details__text">
+         <br />
+         <table class="nhsuk-table bc-detail">
+           <caption class="nhsuk-table__caption">Service Recipients</caption>
+           <thead role="rowgroup" class="nhsuk-table__head">
+             <tr role="row" class="small-text">
+               <th role="columnheader" class="" scope="col">
+                 Status
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Service Recipient (ODS Code)
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Quantity
+               </th>
+             </tr>
+           </thead>
+           <tbody class="nhsuk-table__body">
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}
+               </td>
+               <td class="nhsuk-table__cell" style="width:70%">BURNBRAE MEDICAL PRACTICE (B81085)
+               </td>
+               <td class="nhsuk-table__cell" style="width:15%">952</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}
+               </td>
+               <td class="nhsuk-table__cell" style="width:70%">CAMPUS HEALTH CENTRE (B81104)</td>
+               <td class="nhsuk-table__cell" style="width:15%">1,758</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}</td>
+               <td class="nhsuk-table__cell" style="width:70%">CHP LTD - BRANSHOLME (B81002)
+               </td>
+               <td class="nhsuk-table__cell" style="width:15%">620</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}</td>
+               <td class="nhsuk-table__cell" style="width:70%">CITY HEALTH PRACTICE LTD (B81074)</td>
+               <td class="nhsuk-table__cell" style="width:15%">750</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}</td>
+               <td class="nhsuk-table__cell" style="width:70%">CLIFTON HOUSE MEDICAL CENTRE (B81054)</td>
+               <td class="nhsuk-table__cell" style="width:15%">857</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}</td>
+               <td class="nhsuk-table__cell" style="width:70%">DELTA HEALTHCARE (B81097)</td>
+               <td class="nhsuk-table__cell" style="width:15%">1,023</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" style="width:10%">{{ tag({
+                 text: "Added",
+                 classes: "nhsuk-tag--blue"
+               })}}</td>
+               <td class="nhsuk-table__cell" style="width:75%">DR GT HENDOW'S PRACTICE (B81616)</td>
+               <td class="nhsuk-table__cell" style="width:15%">680</td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row small-text">
+               <td class="nhsuk-table__cell" colspan="2" style="text-align: right"><strong>Total quantity</strong></td>
+               <td class="nhsuk-table__cell">6,630</td>
+             </tr>
+           </tbody>
+           </table>
+
+
+           <table class="nhsuk-table bc-detail">
+             <caption class="nhsuk-table__caption">Pricing and total quantities</caption>
+             <thead role="rowgroup" class="nhsuk-table__head">
+               <tr role="row" class="small-text">
+
+                 <th role="columnheader" class="" scope="col">
+                   Price per unit
+                 </th>
+                 <th role="columnheader" class="" scope="col">
+                   Old quantity
+                 </th>
+                 <th role="columnheader" class="" scope="col">
+                   New quantity
+                 </th>
+                 <th role="columnheader" class="" scope="col">
+                   Old price
+                 </th>
+                 <th role="columnheader" class="" scope="col">
+                   New price
+                 </th>
+               </tr>
+             </thead>
+           <tbody class="nhsuk-table__body">
+             <tr>
+               <td class="nhsuk-table__cell" style="width:40%">£0.0700 per patient per year</td>
+               <td class="nhsuk-table__cell" style="width: 15%">N/A</td>
+               <td class="nhsuk-table__cell" style="width: 15%">6,630</td>
+               <td class="nhsuk-table__cell" style="width: 15%">N/A</td>
+               <td class="nhsuk-table__cell" style="width: 15%">£464.10</td>
+             </tr>
+           </tbody>
+
+         </table>
+
+       </div>
+     </details>
+
+     <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Automated Arrivals</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £15,000.00
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+                <th role="columnheader" class="" scope="col">
+                  Status
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Service Recipient (ODS Code)
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CHP LTD - BRANSHOLME (B81002)
+                </td>
+                <td class="nhsuk-table__cell" style="width:15%">N/A</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CITY HEALTH PRACTICE LTD (B81074)</td>
+                <td class="nhsuk-table__cell" style="width:15%">N/A</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CLIFTON HOUSE MEDICAL CENTRE (B81054)</td>
+                <td class="nhsuk-table__cell" style="width:15%">N/A</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">DELTA HEALTHCARE (B81097)</td>
+                <td class="nhsuk-table__cell" style="width:15%">N/A</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">DR GT HENDOW'S PRACTICE (B81616)</td>
+                <td class="nhsuk-table__cell" style="width:15%">N/A</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing and total quantities</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old price
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New price
+                  </th>
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr>
+                <td class="nhsuk-table__cell" style="width: 40%">£3,000 per item</td>
+                <td class="nhsuk-table__cell" style="width: 15%">5</td>
+                <td class="nhsuk-table__cell" style="width: 15%">5</td>
+                <td class="nhsuk-table__cell" style="width: 15%">£15,000</td>
+                <td class="nhsuk-table__cell" style="width: 15%">£15,000</td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </details>
+
+       <details class="nhsuk-details nhsuk-expander" open>
+        <summary class="nhsuk-details__summary" >
+          <span class="nhsuk-details__summary-text">
+            <b>Document Management</b>
+          </span>
+          <span style="float:right;">
+            <b>Subtotal:</b> £28,224.00
+          <span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <br />
+          <table class="nhsuk-table bc-detail">
+            <caption class="nhsuk-table__caption">Service Recipients</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row" class="small-text">
+                <th role="columnheader" class="" scope="col">
+                  Status
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Service Recipient (ODS Code)
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row small-text">
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CHP LTD - BRANSHOLME (B81002)
+                </td>
+                <td class="nhsuk-table__cell" style="width:15%">620</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CITY HEALTH PRACTICE LTD (B81074)</td>
+                <td class="nhsuk-table__cell" style="width:15%">750</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">CLIFTON HOUSE MEDICAL CENTRE (B81054)</td>
+                <td class="nhsuk-table__cell" style="width:15%">857</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:60%">DELTA HEALTHCARE (B81097)</td>
+                <td class="nhsuk-table__cell" style="width:15%">1,023</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" style="width:10%"></td>
+                <td class="nhsuk-table__cell" style="width:75%">DR GT HENDOW'S PRACTICE (B81616)</td>
+                <td class="nhsuk-table__cell" style="width:15%">680</td>
+              </tr>
+              <tr role="row" class="nhsuk-table__row small-text">
+                <td class="nhsuk-table__cell" colspan="2" style="text-align: right"><strong>Total quantity</strong></td>
+                <td class="nhsuk-table__cell">3,920</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+            <table class="nhsuk-table bc-detail">
+              <caption class="nhsuk-table__caption">Pricing and total quantities</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row" class="small-text">
+
+                  <th role="columnheader" class="" scope="col">
+                    Price per unit
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New quantity
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Old price
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    New price
+                  </th>
+
+                </tr>
+              </thead>
+            <tbody class="nhsuk-table__body">
+              <tr>
+                <td class="nhsuk-table__cell" style="width:40%">£2.40 per patient per year</td>
+                <td class="nhsuk-table__cell" style="width:15%">3,920</td>
+                <td class="nhsuk-table__cell" style="width:15%">3,920</td>
+                <td class="nhsuk-table__cell" style="width:15%">£9,408.00</td>
+                <td class="nhsuk-table__cell" style="width:15%">£9,408.00</td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </details>
+
+
+
+    <br />
+
+    <!--{{ table({
+      responsive: true,
+      panel: false,
+      caption: "One-off costs",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Previous costs"
+        },
+        {
+          text: "New costs payable"
+        },
+        {
+          text: "Total"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Previous costs",
+            text: "£6,000"
+          },
+          {
+            header: "New costs payable",
+            text: "£6,000"
+          },
+          {
+            header: "Total costs",
+            text: "£12,000"
+          }
+        ]
+      ]
+      }) }}
+
+      <br />-->
+
+      {{ table({
+        responsive: true,
+        panel: false,
+        caption: "Indicative costs",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Cost type"
+          },
+          {
+            text: "Previous cost"
+          },
+          {
+            text: "New cost"
+          }
+        ],
+        rows: [
+          [
+            {
+              header: "Cost type",
+              text: "One-off"
+            },
+            {
+              header: "Previous cost",
+              text: "£15,000 "
+            },
+            {
+              header: "New cost",
+              text: "£15,000"
+            }
+          ],
+          [
+            {
+              header: "Cost type",
+              text: "Monthly"
+            },
+            {
+              header: "Previous cost",
+              text: "£1,195.60"
+            },
+            {
+              header: "New cost",
+              text: "£1,518.81"
+            }
+          ],
+          [
+            {
+              header: "Cost type",
+              text: "Yearly"
+            },
+            {
+              header: "Previous cost",
+              text: "14,347.20"
+            },
+            {
+              header: "New cost",
+              text: "£18,225.77"
+            }
+          ],
+          [
+            {
+              header: "Cost type",
+              html: "<strong>Total</strong>"
+            },
+            {
+              header: "Previous cost",
+              text: "£58,041.60"
+            },
+            {
+              header: "New cost",
+              text: "£69,677.30"
+            }
+          ]
+        ]
+        }) }}
+
+        <br />
+
+
+
+      <!--{{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous one-off cost:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New one-off cost:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Total one-off cost:"
+            },
+            value: {
+              text: "£12,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New one-off cost payable:"
+            },
+            value: {
+              text: "£6,000.00"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous monthly cost:"
+            },
+            value: {
+              text: "£417.85"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New monthly cost:"
+            },
+            value: {
+              text: "£851.69"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous cost per year:"
+            },
+            value: {
+              text: "£5,014.20"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New cost per year:"
+            },
+            value: {
+              text: "£10,220.20"
+            },
+            actions: {
+              items: [
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Previous total cost of contract (36 months):"
+            },
+            value: {
+              text: "£21,042.60"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "New total cost of contract (35 months):"
+            },
+            value: {
+              text: "£41,809.15"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          }
+        ]
+      }) }}-->
+
+
+      <br />
+
+      <div>
+        <div style="display:inline-block;">
+          <form method="post" action="tasklists/tasklist-solutions-completed">
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Continue"
+            }) }}
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

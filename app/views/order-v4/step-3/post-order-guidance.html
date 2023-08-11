@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../../order-v2/order-0-1-list",
+  "text": "Go back to orders dashboard"
+}) }}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Order completed
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C000001-01
+    </span>
+  </h1>
+      <p class="nhsuk-lede-text">You’ve successfully completed your Call-off Order Form. Make sure you carry out the listed tasks where relevant to finalise your procurement.</p>
+
+
+      {{ insetText({
+  "HTML": "<p>A copy of these tasks will be emailed to the address you’ve provided.</p>"
+  }) }}
+
+
+      <h2>Next steps</h2>
+
+      <ul>
+        <!--<li>download a copy of your Call-off Order Form using the button on this page</li>-->
+        <li>return a signed copy of your Call-off Order Form to gpitf.commercial1@nhs.net, gpitfutures.finance@nhs.net and commercial.procurementhub@nhs.net</li>
+        <li>if you’re paying for your order using your central allocation, NHS Digital’s finance team will process the payments for you</li>
+        <li>if you’re paying for your order using local funding, you’ll need to contact the supplier to arrange payment</li>
+        <li>if you’ve ordered a migration, you can
+          <a href="https://digital.nhs.uk/services/gp-it-futures-systems/clinical-system-migration-guide">find more information on preparing and planning (opens in a new tab)</a>
+        </li>
+        <li>once solutions and services are in use, enter the activation dates on the order tracker so we can start paying for centrally funded orders</li>
+      </ul>
+
+      <br/>
+
+      <h2 class="nhsuk-heading-l">Supporting documents</h2>
+
+      <p>Blank copies of the following templates must be included for the supplier to complete when you send your Call-off Order Form for signature.</p>
+
+      <ul>
+        <li><a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/12209422525/Order+form+template+Implementation+plan+milestones" target="_blank">Implementation plan milestones template (opens in a new tab)</a></li>
+        <li><a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/12207980954/Order+form+template+Data+processing+information" target="_blank">Data Processing Information template (opens in a new tab)</a></li>
+      </ul>
+
+      <br />
+
+      {{ button({
+        "text": "Download order form (PDF)",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+      <br/>
+      {{ button({
+        "text": "Return to orders dashboard",
+        "href": "../order-dashboard-completed"
+      }) }}
+
+      <h2>Need help?</h2>
+      <p>If you need any help or have any queries, you can contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+
+
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

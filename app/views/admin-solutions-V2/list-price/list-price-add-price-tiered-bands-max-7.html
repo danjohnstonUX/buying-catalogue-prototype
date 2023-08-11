@@ -1,0 +1,231 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "list-price-add-price-tiered",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+            <h1>
+                <span role="text">Tiered list price information
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                    <span class="nhsuk-u-visually-hidden"> - </span>
+                    Caltech Web GP
+                </span>
+                </span>
+            </h1>
+            <p class="nhsuk-lede-text">Provide information about the pricing tiers available for your Catalogue Solution.</p>
+
+          </div>
+
+          <div class="nhsuk-grid-column-full">
+
+            <form action="index" method="get">
+
+              {{ insetText({
+                "HTML": "<p>The maximum number of tiers you can add is 7. You cannot add any more tiers for this price."
+              })}}
+
+
+              {{ table({
+                responsive: true,
+                panel: false,
+                caption: "Pricing tiers",
+                firstCellIsHeader: false,
+                head: [
+                    {
+                    text: "Tier"
+                    },
+                    {
+                    text: "Price"
+                    },
+                    {
+                    text: "Range"
+                    },
+                    {
+                    text: "Action"
+                    }
+                ],
+                rows: [
+                    [
+                        {
+                            text: "Tier 1"
+                        },
+                        {
+                            text: "£0.5000 per patient per year"
+                        },
+                        {
+                            text: "1 to 99,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 2"
+                        },
+                        {
+                            text: "£0.4500 per patient per year"
+                        },
+                        {
+                            text: "100,000 to 199,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 3"
+                        },
+                        {
+                            text: "£0.4000 per patient per year"
+                        },
+                        {
+                            text: "200,000 to 299,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 4"
+                        },
+                        {
+                            text: "£0.3500 per patient per year"
+                        },
+                        {
+                            text: "300,000 to 399,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 5"
+                        },
+                        {
+                            text: "£0.3000 per patient per year"
+                        },
+                        {
+                            text: "400,000 to 499,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 6"
+                        },
+                        {
+                            text: "£0.2500 per patient per year"
+                        },
+                        {
+                            text: "500,000 to 599,999 patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ],
+                    [
+                        {
+                            text: "Tier 7"
+                        },
+                        {
+                            text: "£0.2000 per patient per year"
+                        },
+                        {
+                            text: "600,000+ patients"
+                        },
+                        {
+                            html: '<a href="list-price-add-pricing-band">Edit</a>'
+                        }
+                    ]
+                ]
+              }) }}
+
+                <br /><br />
+
+                <h2>Publication status</h2>
+
+
+                {{ radios({
+                "idPrefix": "example",
+                "name": "example",
+                "fieldset": {
+                    "legend": {
+                    "text": "",
+                    "classes": "nhsuk-fieldset__legend--l"
+                    }
+                },
+                "hint": {
+                    "text": ""
+                },
+                "items": [
+                                {
+                    "value": "yes",
+                    "text": "Published"
+                    },
+                    {
+                    "value": "no",
+                    "text": "Saved as draft"
+                    }
+                ]
+                }) }}
+                <br/><br/>
+                {{ button({
+                    "text": "Save and continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

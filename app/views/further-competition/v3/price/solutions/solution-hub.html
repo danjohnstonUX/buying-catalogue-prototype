@@ -1,0 +1,259 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+How would you like to weight your criteria?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+<style>
+  .nhsuk-expander .nhsuk-details__summary > span,
+  .nhsuk-expander .nhsuk-details__summary-text{
+    color:black;
+    text-decoration:none;
+  }
+  
+  .nhsuk-expander .nhsuk-details__summary .nhsuk-details__summary-text:before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+  
+  .nhsuk-expander[open] .nhsuk-details__summary .nhsuk-details__summary-text:before{
+   background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' %3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+  
+  .nhsuk-expander{
+   background: none;
+  }
+  </style>
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../price-hub",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Solutions and services</h1>
+
+    <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+    <h2>Catalogue Solution</h2>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>Online and Video Consult</b>
+        </span>
+        <span style="float:right;">
+          <b>Subtotal:</b>  £60,352
+          <span>
+          </span></span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <br>
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Section
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Status
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell">Price</td>
+              <td class="nhsuk-table__cell"><strong class="nhsuk-tag nhsuk-tag--green">Completed</strong></td>
+              <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+
+            </tr>
+          </tbody>
+        </table>
+
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity
+              </th>
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr>
+              <td class="nhsuk-table__cell">£1.26 per patient per year</td>
+              <td class="nhsuk-table__cell">11,629</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+      </div>
+    </details>
+
+    <h2>Additional Services</h2>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>Document Management</b>
+        </span>
+        <span style="float:right;">
+          <b>Subtotal:</b>  £30,000
+          <span>
+          </span></span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <br>
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Section
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Status
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell">Price</td>
+              <td class="nhsuk-table__cell"><strong class="nhsuk-tag nhsuk-tag--green">Completed</strong></td>
+              <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell">Quantity</td>
+              <td class="nhsuk-table__cell"><strong class="nhsuk-tag nhsuk-tag--green">Completed</strong></td>
+              <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity
+              </th>
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr>
+              <td class="nhsuk-table__cell">£3,000 per consultation</td>
+              <td class="nhsuk-table__cell">10</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          <b>Caltech Mobile</b>
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <br>
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Service Recipients</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+
+              <th role="columnheader" class="" scope="col">
+                Section
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Status
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell">Price</td>
+              <td class="nhsuk-table__cell"><strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong></td>
+              <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row small-text">
+              <td class="nhsuk-table__cell">Quantity</td>
+              <td class="nhsuk-table__cell"><strong class="nhsuk-tag nhsuk-tag--grey">Not started</strong></td>
+              <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </details>
+
+    <h2>Associated Services</h2>
+
+    {{ actionLink({
+      "text": "Edit Associated Services",
+      "href": "#"
+    }) }}
+
+
+    <form>
+      {{ button({
+      "text": "Save and continue",
+      "href":"competition-tasklist"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

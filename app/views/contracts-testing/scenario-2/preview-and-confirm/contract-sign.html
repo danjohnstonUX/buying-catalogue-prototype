@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "contract-preview-submit",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Sign contract digitally</h1>
+      <p class="nhsuk-lede-text">A link was sent to the Buyer with signature role and the Supplier. This process will be completed when they open the email and sign the document.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+        "HTML": "<p>The Call Off Commencement Date is the date of signature by the later of the two parties, unless agreed otherwise in writing by the parties and recorded on the relevant section of the Order Summary.</p>"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+
+      {{ table({
+        panel: false,
+        caption: "Signatures",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Party"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Call-off ordering party"
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--blue">Awaiting signature</strong>'
+            },
+            {
+              html: '<a href="#">Sign the contract</a>'
+            }
+          ],
+          [
+            {
+              text: "Supplier"
+            },
+            {
+              html: '<strong class="nhsuk-tag nhsuk-tag--blue">Awaiting signature</strong>'
+            },
+            {
+              html: '<a href="#">Resend link</a>'
+            }
+          ]
+        ]
+      }) }}
+
+      <form action="../order-4-summary-review-completed">
+      {{ button({
+        "text": "Save and return"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

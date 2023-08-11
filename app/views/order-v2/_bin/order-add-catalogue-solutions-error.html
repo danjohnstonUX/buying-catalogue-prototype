@@ -1,0 +1,272 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% from 'error-summary/macro.njk' import errorSummary %}
+
+{{ errorSummary({
+  "titleText": "There is a problem",
+  "descriptionText": "Describe the errors and how to correct them",
+  "errorList": [
+    {
+      "text": "Planned delivery date must be in the future",
+      "href": "#example-error-1"
+    },
+    {
+      "text": "Enter the quantity",
+      "href": "#example-error-1"
+    }
+  ]
+}) }}
+
+      <h1>Write on Time information for C010002-01</h1>
+      <p class="nhsuk-lede-text">
+        The information we have about this order has been included, but can be changed if required. Refer to the guidance provided if you’re unsure what to enter.
+      </p>
+
+      <div class="govuk-form-group">
+        <h2><label class="nhsuk-u-font-weight-bold" for="cost-per-item">
+              What price have you agreed, in pounds?
+        </label></h2>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          You can change the list price if you’ve agreed a different rate with the supplier.
+        </div>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">per consultation</div>
+        </div>
+      </div>
+
+
+        <!--div data-test-id="view-section-price-id" class="">
+          <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            What price should I enter?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">You can change the list price if you’ve agreed a different rate with the supplier.
+        </div>
+      </details>
+
+        </div-->
+
+        <br /><br />
+
+                <!--hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-3 bc-c-order-table__hr"/-->
+
+      </div>
+    </div>
+
+                        <div class="nhsuk-grid-row">
+                          <div class="nhsuk-grid-column-full">
+
+
+
+
+
+                            <table role="table" class="nhsuk-table-responsive">
+                              <caption class="nhsuk-table__caption">
+                                <h2>List of recipients</h2>
+                                <div style="font-weight: normal;">
+                                  <details class="nhsuk-details">
+                                      <summary class="nhsuk-details__summary">
+                                        <span class="nhsuk-details__summary-text">
+                                          How to fill this form
+                                        </span>
+                                      </summary>
+                                      <div class="nhsuk-details__text">
+                                        <b>What quantity should I enter?</b>
+                                        <br />
+                                        Estimate the quantity you think you'll need either per month or per year.
+                                        <br /><br />
+                                        <b>What date should I enter?</b>
+                                        <br />
+                                        Enter the planned delivery date you've agreed with the supplier. This is the day that each of the listed Service Recipients will start using this Catalogue Solution.<br><br>We've included the commencement date for this Call-off Agreement, but you can change it if you’ve agreed a different delivery date.
+                                      </div>
+                                    </details>
+                                  </div>
+                              </caption>
+                              <thead role="rowgroup" class="nhsuk-table__head">
+                                <tr role="row">
+                                  <th role="columnheader" class="" scope="col">
+                                    Recipient name (ODS code)
+                                  </th>
+                                  <th role="columnheader" class="" scope="col">
+                                    Quantity
+                                  </th>
+                                  <th role="columnheader" class="" scope="col">
+                                    Planned delivery date
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="nhsuk-table__body">
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Recipient name (ODS code) </span>
+                                    <div style="margin-bottom: 1.9em;"></div>
+                                    ASSURA ER LLP HULL DERMATOLOGY (Y03508)
+                                  </td>
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Quantity </span>
+                                    <div style="margin-bottom: 1.7em;"></div>
+                                    <div class="govuk-form-group">
+                                      <div class="govuk-input__wrapper">
+                                        <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false">
+                                        <div class="govuk-input__suffix" aria-hidden="true">per year</div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Planned delivery date </span>
+                                    <div class="nhsuk-date-input" id="example" style="white-space:nowrap;">
+                                      <div class="nhsuk-date-input__item">
+                                        <div class="nhsuk-form-group">
+                                          <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                                            Day
+                                          </label>
+                                          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day" name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                        </div>
+                                      </div>
+                                      <div class="nhsuk-date-input__item">
+                                        <div class="nhsuk-form-group">
+                                          <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                            Month
+                                          </label>
+                                          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month" name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                        </div>
+                                      </div>
+                                      <div class="nhsuk-date-input__item">
+                                        <div class="nhsuk-form-group">
+                                          <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                            Year
+                                          </label>
+                                          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year" name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Recipient name (ODS code)</span>
+                                    <div style="margin-bottom: 1.9em;"></div>
+                                    BRANSHOLME MIU (Y00427)
+                                  </td>
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Quantity </span>
+                                    <div class="nhsuk-form-group nhsuk-form-group--error">
+                                      <fieldset class="nhsuk-fieldset" aria-describedby="dob-day-error-hint dob-day-error-error" role="group">
+
+
+                                    <div class="govuk-form-group govuk-form-group--error">
+                                      <span id="cost-per-item-error-error" class="nhsuk-error-message">
+                                        Enter the quantity
+                                      </span>
+                                      <div style="margin-bottom: 2.4em;"></div>
+                                      <div class="govuk-input__wrapper">
+                                        <input class="nhsuk-input nhsuk-input--width-5 nhsuk-input--error" type="text" spellcheck="false">
+                                        <div class="govuk-input__suffix" aria-hidden="true">per year</div>
+                                      </div>
+                                    </div>
+
+                                      </fieldset>
+                                    </div>
+
+                                  </td>
+                                  <td role="cell" class="nhsuk-table__cell">
+                                    <span class="nhsuk-table-responsive__heading">Planned delivery date </span>
+
+                                    {% from 'error-message/macro.njk' import errorMessage %}
+                                    {% from 'date-input/macro.njk' import dateInput %}
+
+                                    {{ dateInput({
+                                      "id": "dob-day-error",
+                                      "namePrefix": "dob-day-error",
+                                      "fieldset": {
+                                          "legend": {
+                                          "text": "",
+                                          "classes": "nhsuk-fieldset__legend--l",
+                                          "isPageHeading": true
+                                          }
+                                      },
+                                      "hint": {
+                                          "text": ""
+                                      },
+                                      "errorMessage": {
+                                          "text": "Date must be in the future"
+                                      },
+                                      "items": [
+                                          {
+                                          "name": "day",
+                                          "classes": "nhsuk-input--width-2 nhsuk-input--error",
+                                          value: 15
+                                          },
+                                          {
+                                          "name": "month",
+                                          "classes": "nhsuk-input--width-2 nhsuk-input--error",
+                                          value: 3
+                                          },
+                                          {
+                                          "name": "year",
+                                          "classes": "nhsuk-input--width-4 nhsuk-input--error",
+                                          value: 2084
+                                          }
+                                      ]
+                                      }) }}
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+<br /><br />
+
+<form action="order-preview">
+{{ button({
+  "text": "Save"
+}) }}
+</form>
+
+<form action="order-preview">
+{{ button({
+  "text": "Edit Service Recipients",
+  "classes": "nhsuk-button--secondary"
+}) }}
+</form>
+
+<a href="#" style="color: red;">Delete Catalogue Solution</a>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

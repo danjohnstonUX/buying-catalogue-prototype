@@ -1,0 +1,135 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+
+    {{ backLink({
+    "href": "admin-organisation",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-u-margin-bottom-7">
+          <h1 class="nhsuk-u-margin-bottom-0">User accounts</h1>
+          <p id="page-heading-org-name" class="nhsuk-caption-xl">Cheshire and Merseyside Commissioning Hub</p>
+        </div>
+
+        <p class="nhsuk-lede-text">Add, edit and view user accounts for this organisation name.</p>
+
+      </div>
+
+      <div class="nhsuk-grid-column-full">
+
+        {{ actionLink({
+          "text": "Add a user",
+          "href": "admin-add-user"
+        }) }}
+
+        {% from 'tables/macro.njk' import table %}
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Existing users",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "Telephone number"
+            },
+            {
+              text: "Email address"
+            },
+            {
+              text: ""
+            }
+            ,
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Name",
+                text: "Mr Test Test"
+              },
+              {
+                header: "Telephone number",
+                text: "0987654678"
+              },
+              {
+                header: "Email address",
+                text: "test@test.com"
+              },
+              {
+                header: "Status",
+                html: '<strong class="nhsuk-tag nhsuk-tag--grey">Account disabled</strong>'
+              },
+              {
+                header: "Action",
+                html: '<a href="admin-user">Edit</a>'
+              }
+            ],
+            [
+              {
+                header: "Name",
+                text: "Mr Test Test2"
+              },
+              {
+                header: "Telephone number",
+                text: "0987654678"
+              },
+              {
+                header: "Email address",
+                text: "test2@test.com"
+              },
+              {
+                header: "Status",
+                html: ''
+              },
+              {
+                header: "Action",
+                html: '<a href="admin-user">Edit</a>'
+              }
+            ]
+          ]
+        }) }}
+
+        <br />
+
+        <form action="admin-organisation">
+          {{ button({
+            "text": "Continue"
+          }) }}
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

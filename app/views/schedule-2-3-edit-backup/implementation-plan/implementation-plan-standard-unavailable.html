@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("accept-milestone-1").checked ? document.getElementById("accept-milestone-1").value : "";
+    var opt2 = document.getElementById("accept-milestone-2").checked ? document.getElementById("accept-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "../order-4-summary-implementation-completed";
+    }
+    else if(opt2=="no") {
+        document.location.href = "implementation-plan-bespoke-1";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Standard implementation milestones unavailable
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">There are no implementation milestones available for this Catalogue Solution.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "accept-milestone",
+        "name": "accept-milestones",
+        "fieldset": {
+          "legend": {
+            "text": "Do you want to proceed anyway?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No, I want to create my own milestones"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

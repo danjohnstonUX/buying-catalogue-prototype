@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {{ backLink({
+  "href": "order-5-4-2-cata-sol-or-assoc-serv",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Number of Care Plans for this catalogue solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            EMIS Web GP
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <form action="catalogue-solution-price-tiered">
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="input-width-5">
+            Care plans
+          </label>
+          <input class="nhsuk-input nhsuk-input--width-5" type="text">
+        </div>
+
+        <br/>
+
+        {{ button({
+            "text": "Save and continue"
+          }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br/><br/>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

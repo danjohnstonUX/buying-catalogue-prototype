@@ -1,0 +1,113 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+  .nhsuk-hint-solutions {
+    font-size: 1rem;
+  }
+</style>
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+    "href": "compare-solutions",
+    "text": "Go back"
+    }) }}
+
+    <h1>Catalogue Solutions found<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        OC/VC competition
+      </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the results from your chosen filter.
+    </p>
+
+    {{ insetText({
+    "HTML": "<p>Your selected filter has only returned 1 result. You therefore do not need to carry out a competition and can instead use a direct award to procure this solution.</p>
+    "
+    }) }}
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h3 class="nhsuk-heading-s">
+          <a href="#">Online and Video Consult (opens in a new tab)</a>
+          <span class="nhsuk-caption-m nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Health
+          </span>
+        </h3>
+        <h4 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Additional Services required:</h4>
+
+        <p class="nhsuk-body">Document Management, Caltech Mobile</p>
+
+        <hr>
+
+        {{ radios({
+          "idPrefix": "example",
+          "name": "example",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to use a direct award?",
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, I want to use a direct award",
+              "hint": {
+                "text": "You’ll be able to place an order for this solution without carrying out a competition."
+              }
+            },
+            {
+              "value": "no",
+              "text": "No, I want to abandon this competition",
+              "hint": {
+                "text": "Abandoning this competition will delete it permanently."
+              }
+            }
+          ]
+        }) }}
+
+        <br>
+
+        <a href="unselected-justification" class="nhsuk-button">Save and continue</a>
+
+
+      </div>
+    </div>
+    <br /><br />
+
+    {% endblock %}
+
+    {% block footer %}
+    {% include "includes/footer.html" %}
+    {% endblock %}

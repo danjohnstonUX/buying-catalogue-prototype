@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "add-service-recipients-global",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Confirm Service Recipients 
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C00001-01
+      </span>
+    </h1>
+    </div>
+    </div>
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive the items you’re ordering.</p>
+
+    {# {% for sr in data['selected-srs'] %} #}
+
+        {# {% if 'NHS-WEST-YORKSHIRE' in sr %} #}
+
+        
+          <details class="nhsuk-details nhsuk-expander" open >
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                NHS GREATER MANCHESTER ICB - 00T
+              </span>
+              <span class="expander-count"><b class="expander-count-text">3</b> recipients selected</span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <ol class="nhsuk-list nhsuk-list--bullet">
+                <li>ORGANISATION 1</li>
+                <li>ORGANISATION 2</li>
+                <li>ORGANISATION 3</li>
+              </ol>
+            </div>
+          </details>
+
+        {# {% endif %} #}
+
+    {# {% endfor %} #}
+
+    
+
+    <br />
+
+    <p>You can <a href="add-service-recipients-global">add or remove Service Recipients</a> if needed, or edit them later if
+      you continue with your order.</p>
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        {# <form method="post" action="pdd/3-planned-delivery-date"> #}
+          {# <form method="post" action="order-5-4-2-add-solution-service"></form>
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+          "text": "Continue"
+          }) }}
+        </form> #}
+        <a href="order-4-summary-post-recipients" class="nhsuk-button">Continue</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

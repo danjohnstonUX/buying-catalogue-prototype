@@ -1,0 +1,60 @@
+
+<br />
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      }
+    ],
+    rows: [
+    [
+    {
+       text: "ASSURA ER LLP HULL DERMATOLOGY"
+     },
+     {
+       text: "Y03508"
+     }
+   ],
+   [
+     {
+       text: "BEVAN LIMITED"
+     },
+     {
+       text: "Y03507"
+     }
+   ],
+   [
+     {
+       text: "DERMATOLOGY CLINIC GPSI"
+     },
+     {
+       text: "Y00894"
+     }
+   ],
+   [
+     {
+       text: "HAXBY GROUP HULL"
+     },
+     {
+       text: "Y02747"
+     }
+   ],
+   [
+     {
+       text: "HULL CCG VOCARENHS111 OOH"
+     },
+     {
+       text: "Y06959"
+     }
+   ]
+      ]
+      }) }}

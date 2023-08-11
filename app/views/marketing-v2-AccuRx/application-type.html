@@ -1,0 +1,357 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+AccuRx - Application type
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">AccuRx</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to AccuRx</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav-accurx.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Application type
+        <span class="nhsuk-caption-xl">AccuRx</span>  
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+           <dd class="nhsuk-summary-list__value">
+            <a href="supplier-details" class="nhsuk-link nhsuk-link--no-visited-state">	
+              AccuRx</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+              
+10030-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Tech Innovation
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            No
+          </dd>
+          
+        </div>
+
+      
+      
+    </dl>
+      <h2>Application type</h2>
+
+      <p>This Catalogue Solution is supported by the following client application types:</p>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Browser-based application"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Desktop application"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Mobile application"
+            },
+            value: {
+              text: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Browser-based application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Supported browser types"
+                },
+                value: {
+                  html: '<ul><li>Google Chrome</li><li>Microsoft Edge</li><li>Mozilla Firefox</li><li>Opera</li><li>Safari</li><li>Chromium</li><li>Internet Explorer 11</li><li>Internet Explorer 10</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Mobile responsive"
+                },
+                value: {
+                  text: "Yes"
+                }
+              },
+              {
+                key: {
+                  text: "Plug-ins or extensions required"
+                },
+                value: {
+                  text: "No"
+                }
+              },
+              {
+                key: {
+                  text: "Minimum connection speed"
+                },
+                value: {
+                  text: "2Mbps"
+                }
+              },
+              {
+                key: {
+                  text: "Screen resolution and aspect ratio"
+                },
+                value: {
+                  text: "	4:3 – 1024 x 768"
+                }
+              },
+              {
+                key: {
+                  text: "Hardware requirements"
+                },
+                value: {
+                  text: "	Personal Computer with Windows 8.1 Professional & above (32/64 bit)"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Desktop application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Description of supported operating systems"
+                },
+                value: {
+                  html: '<p>Windows 8.1 Professional & above (32/64 bit)</p>'
+                }
+              },
+              {
+                key: {
+                  text: "Minimum connection speed"
+                },
+                value: {
+                  html: '<p>2Mbps</p>'
+                }
+              },
+              {
+                key: {
+                  text: "Screen resolution and aspect ratio"
+                },
+                value: {
+                  text: "4:3 – 1024 x 768"
+                }
+              },
+              {
+                key: {
+                  text: "Memory size"
+                },
+                value: {
+                  text: "256MB"
+                }
+              },
+              {
+                key: {
+                  text: "Storage space"
+                },
+                value: {
+                  text: "N/A"
+                }
+              },
+              {
+                key: {
+                  text: "Processing power"
+                },
+                value: {
+                  text: "N/A"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+           Mobile or tablet application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Supported operating systems"
+                },
+                value: {
+                  html: '<ul><li>Apple IOS</li><li>Android</li><li>Other</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Minimum connection speed"
+                },
+                value: {
+                  html: '<p>2Mbps</p>'
+                }
+              },
+              {
+                key: {
+                  text: "Connection types supported"
+                },
+                value: {
+                  html: '<ul><li>GPRS</li><li>3G</li><li>LTE</li><li>4G</li><li>5G</li><li>Bluetooth</li><li>Wifi</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Memory size"
+                },
+                value: {
+                  text: "2GB"
+                }
+              },
+              {
+                key: {
+                  text: "Storage space"
+                },
+                value: {
+                  text: "N/A"
+                }
+              },
+              {
+                key: {
+                  text: "Hardware requirements"
+                },
+                value: {
+                  text: "In-built camera for video consultation."
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+
+<p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Solution information last reviewed: 31 March 2020
+</p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "data-processing",
+    "previousPage": "Data processing information",
+    "nextUrl": "hosting-type",
+    "nextPage": "Hosting type"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){   
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+  });
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

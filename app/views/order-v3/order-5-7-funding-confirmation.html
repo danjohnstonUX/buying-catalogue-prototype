@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+<style>
+  .bc-summary-totals .nhsuk-summary-list__row {
+    text-align: right;
+  }
+  .bc-summary-totals .nhsuk-summary-list__key,
+  .bc-summary-totals .nhsuk-summary-list__value,
+  .bc-summary-totals .nhsuk-summary-list__actions {
+    display: inline-block;
+    width: auto;
+  }
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Confirm funding source <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Confirm the funding source you're using to pay for this order.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>If you want to pay using two different funding sources, you’ll need to create two separate orders.</p>"
+}) }}
+
+      {% call fieldset({
+        legend: {
+        }
+        }) %}
+        {{ hint({
+          "text": ""
+        }) }}
+        {{ radios({
+          "idPrefix": "order",
+          "name": "order",
+          "items": [
+        {
+          "value": "central",
+          "text": "Central funding"
+        },
+        {
+          "value": "local",
+          "text": "Local funding"
+        }
+      ]
+      }) }}
+      {% endcall %}
+
+      {{ details({
+        "text": "What is central and local funding?",
+        "HTML": "
+        <p><b>Central funding</b></p>
+        <p>Central funding means you’re using your centrally held allocation to pay for the order. Any solutions or services you order will be paid for by either NHS England or NHS Digital. The supplier will invoice the relevant organisation directly.<p/>
+        <p>You should make sure you have enough of your central allocation available to pay for your order before placing it.</p>
+        <p><b>Local funding</b></p>
+        <p>Local funding means your organisation will be paying for the order. The supplier will invoice you directly.</p>
+        "
+      }) }}
+
+
+      <br /><br />
+
+
+
+      <form action="order-4-summary-completed">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

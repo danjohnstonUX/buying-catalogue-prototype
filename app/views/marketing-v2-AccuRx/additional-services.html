@@ -1,0 +1,287 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+AccuRx - Additional services
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+    <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+      <div class="nhsuk-width-container">
+        <ol class="nhsuk-breadcrumb__list">
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+          <li class="nhsuk-breadcrumb__item">AccuRx</li>
+        </ol>
+        <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to AccuRx</a></p>
+      </div>
+    </nav>
+    
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    <a id="maincontent"></a>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+        <nav class="side-nav">
+          {% set template = "includes/sticky-side-nav-accurx.njk" %}
+          {% include template %}
+        </nav>
+      </div>
+      <div class="nhsuk-grid-column-two-thirds content" id="content">
+        <h1>
+          Additional Services
+          <span class="nhsuk-caption-xl">AccuRx</span> 
+        </h1>
+        {% from 'contents-list/macro.njk' import contentsList %}
+        {% from "summary-list/macro.njk" import summaryList %}
+  
+        <dl class="nhsuk-summary-list">
+  
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Supplier name
+            </dt>
+             <dd class="nhsuk-summary-list__value">
+              <a href="supplier-details" class="nhsuk-link nhsuk-link--no-visited-state">	
+                AccuRx</a> 
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Solution ID
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+                
+  10030-001
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Framework(s)
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Tech Innovation
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Foundation Solution
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              No
+            </dd>
+            
+          </div>
+  
+        
+        
+      </dl>
+      <h2 class="nhsuk-heading-l">Additional Services</h2>
+          <p>Additional Services are add-ons that provide additional functionality to a Catalogue Solution for an extra cost. For example, enabling a Catalogue Solution to be used on a mobile device.</p>
+
+          <p>
+            <strong>These are the Additional Services offered with this Catalogue Solution:</strong>
+          </p>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                AccuRx Video Consultation
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "The Video Consultation Capability allows Health or Care Professionals to conduct secure live remote video consultations with individual or groups of Patients/Service Users/Proxies ensuring they can receive support relating to healthcare concerns when a Video Consultation is most appropriate"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="capabilities-and-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.2000 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Patient Triage
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Patient Triage allows patients to request and receive support from their GP practice regarding their healthcare concerns. The solution allows the GP practice to triage requests effectively and make informed decisions about how best to respond."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="capabilities-and-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<ul class="nhsuk-list"><li>	£0.2500 per patient for 0-89,999 per year</li><li>£0.2300 per patient for 90,000-899,999 per year</li>£0.1500 per patient for 900,000 + patients per year<li></li></ul>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                SMS Plus
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "	
+                      Attach a document to a patient message, request a text or photo response from a patient, or send a schedule of delayed messages to a patient selecting from 40+ Pathways templates."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="capabilities-and-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<ul class="nhsuk-list"><li>0.1330 per patient for 90,000-899,999 patients per year</li><li>£0.0860 per patient for 900,000+ patients per year</li>£0.1660 per patient for 1-89,999 patients per year<li></li></ul>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+
+          {% from 'pagination/macro.njk' import pagination %}
+
+          {{ pagination({
+    "previousUrl": "capabilities-and-epics",
+    "previousPage": "Capabilities and Epics",
+    "nextUrl": "associated-services",
+    "nextPage": "Associated Services"
+  }) }}
+
+
+      </div>
+    </div>
+
+  {% endblock %}
+  {% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){  
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+  
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+  });
+
+</script>
+
+
+{% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

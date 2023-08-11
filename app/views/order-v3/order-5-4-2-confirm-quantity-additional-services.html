@@ -1,0 +1,181 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Confirm Additional Service quantity</h1>
+      <p class="nhsuk-lede-text">The information we have about this order has been included, but can be changed if required.</p>
+
+      {% from 'inset-text/macro.njk' import insetText %}
+
+      {{ insetText({
+        "HTML": "<p>Enter the price you've agreed with the supplier. We've included the list price, but this can be changed if required.</p>"
+      }) }}
+      
+<!-- Find the solution or service, or supplier
+
+List of favourite solutions from the marketing pages
+
+OR
+
+Radio
+Catalogue Solution
+Additional Service
+Associated Service
+
+
+After add a solution, show additional services and associated Services
+
+
+
+ -->
+
+<!--
+      Online and Video Consult information for C010089-01
+       -->
+
+       
+
+          {% set quantityHtml %}
+          {{ input({
+            id: "quantity",
+            name: "quantity",
+            classes: "nhsuk-u-width-two-thirds",
+            label: {
+             
+            }
+          }) }}
+        {% endset -%}
+      
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "Quantity per practice",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Recipient name (ODS code)"
+    },
+    {
+      text: "Practice list size"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Abbey Grange Medical Practice (B12345)"
+      },
+      {
+        html: quantityHtml
+      }
+    ],
+    [
+    {
+      text: "Aireborough Community Care (Y12345)"
+    },
+    {
+      html: quantityHtml
+    }
+    ],
+    [
+    {
+      text: "Aireborough Family Practice (Y54321)"
+    },
+    {
+      html: quantityHtml
+    }
+    ]
+  ]
+}) }}
+
+
+
+<!--
+      What price have you agreed? (£)
+      0.15 -->
+
+
+
+<!--
+
+What list size should I enter?
+Enter the amount you wish to order. This is usually based on each Service Recipient's practice list size to help calculate an estimated price, but the figure can be changed if required.
+
+As you’re ordering per patient, we've included each practice list size if we have it. If it's not included, you'll need to add it yourself. -->
+<!--
+
+
+{{ input({
+  "label": {
+  "text": "5 character width"
+  },
+  "id": "input-width-5",
+  "name": "test-width-5",
+  "classes": "nhsuk-input--width-5"
+}) }}
+
+
+HEADER
+Recipient name (ODS code)
+Practice list size
+Planned delivery date
+For example 14 01 2020
+
+
+TABLE
+BRANSHOLME MIU (Y00427)
+
+Day
+20
+
+Month
+10
+
+Year
+2041 -->
+
+
+<br />
+<br />
+
+<form action="order-5-4-2-add-additional-service-price-1">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+<br />
+
+<p><a href="kjjkkjjkk.com" style="color: #cc0000;">Delete Catalog Solution</a></p>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

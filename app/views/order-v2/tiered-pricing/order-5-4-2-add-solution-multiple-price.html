@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service-recipient",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>List price for Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      EMIS Web GP
+    </span></h1>
+
+    <p class="nhsuk-lede-text">There is more than one list price for this Catalogue Solution. Select one, and if you've agreed a different price with the supplier, it can be altered later.</p>
+
+    <h2 class="nhsuk-heading-s">1-5 Care Plans</h2>
+    <p>Tier 1: £1.10 per patient per year for 1 to 89,999 patients<br/>
+      Tier 2: £0.99 per patient per year for 90,000 to 899,999 patients<br/>
+      Tier 3: £0.75 per patient per year for 900,000+ patients</p>
+
+    <h2 class="nhsuk-heading-s">6+ Care Plans</h2>
+    <p>Tier 1: £1.25 per patient per year for 1 to 89,999 patients<br/>
+      Tier 2: £0.90 per patient per year for 90,000 to 899,999 patients<br/>
+      Tier 3: £0.70 per patient per year for 900,000+ patients
+    </p>
+
+    <br />
+
+    {% call fieldset({
+      legend: {
+        "text": "How many care plans do you want?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": false
+      }
+      }) %}
+      {{ hint({
+        "text": "Select one option.",
+        "classes": "nhsuk-u-margin-bottom-2"
+      }) }}
+      {{ radios({
+        "idPrefix": "example-hints",
+        "name": "example-hints",
+        "items": [
+        {
+          "value": "list-price-1",
+          "text":"1-5 Care Plans"
+        },
+        {
+          "value": "list-price-2",
+          "text":"6+ Care Plans"
+        }
+      ]
+      }) }}
+    {% endcall %}
+
+<br/>
+
+<form action="catalogue-solution-price-tiered">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

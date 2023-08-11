@@ -1,0 +1,135 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-cta-add-2",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>Add a hosting type</h1>
+            <p class="nhsuk-lede-text">Select a hosting type that supports your Catalogue Solution.</p>
+
+            <form action="admin-solution-cta-add-2" method="post">
+
+              {% from 'select/macro.njk' import select %}
+
+              {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Connection speed"
+                },
+                "hint": {
+                  "text": "Select the minimum bandwidth required for your Catalogue Solution to function."
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "0.5 Mbps"
+                  },
+                  {
+                    "value": 2,
+                    "text": "1 Mbps"
+                  },
+                  {
+                    "value": 2,
+                    "text": "1.5 Mbps"
+                  },
+                  {
+                    "value": 2,
+                    "text": "2 Mbps"
+                  }
+                ]
+              }) }}
+
+              {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Screen resolution and aspect ratio (optional)"
+                },
+                "hint": {
+                  "text": "Select the minimum recommended screen resolution and aspect ratio for your Catalogue Solution to function on desktop."
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "5:4 - 1280 x 1024"
+                  },
+                  {
+                    "value": 2,
+                    "text": "16:9 - 1360 - 768"
+                  },
+                  {
+                    "value": 2,
+                    "text": "16:9 - 1360 - 768"
+                  },
+                  {
+                    "value": 2,
+                    "text": "16:9 - 1360 - 768"
+                  }
+                ]
+              }) }}
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and return"
+            }) }}
+
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

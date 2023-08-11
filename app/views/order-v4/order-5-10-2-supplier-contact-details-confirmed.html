@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-1-supplier-selected",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Supplier contact details
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span>
+    </h1>
+
+          <p class="nhsuk-lede-text">Select an existing contact for Cyberdyne Systems or add a new one.</p>
+
+      {% from 'warning-callout/macro.njk' import warningCallout %}
+      {{ warningCallout({
+        "heading": "Your confirmed supplier",
+        "HTML": "<p>As you've confirmed the supplier details for this order they cannot be changed.</p>
+        <p>If you need to select a new supplier, you must start a new order.</p>"
+      }) }}
+
+      {{ radios({
+      "idPrefix": "contact",
+      "name": "contact",
+      "fieldset": {
+        "legend": {
+          "text": "Who is your contact for this order?",
+          "classes": "nhsuk-fieldset__legend--m",
+          "isPageHeading": "false"
+        }
+      },
+      "hint": {
+        "text": "Select one option."
+      },
+      "items": [
+        {
+          "value": "jim",
+          "text" : "Mr Jim Jones (Marketing)"
+        },
+        {
+          "value": "jan",
+          "text" : "Ms Jan Smith (Sales)"
+        },
+        {
+          "value": "jack",
+          "text" : "Mr Jack Symmonds (Purchasing)"
+        }
+      ]
+      }) }}
+      <br />
+      <p>Your contact has been added. You may edit this contact at any time.</p>
+
+      {{ table({
+        panel: false,
+        caption: "Contacts added to this order",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Department"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Mr Jack Symmonds"
+            },
+            {
+              text: "Purchasing"
+            },
+            {
+              html: "<a href='order-5-10-2-supplier-add-contact'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+            <form action="order-4-summary">
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+            </form>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

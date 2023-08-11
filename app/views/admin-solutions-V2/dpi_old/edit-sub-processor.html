@@ -1,0 +1,209 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+{% set sub = data['sub-processor-list'][data['index']] %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+    "href": "/admin-solutions/",
+    "text": "Go back"
+  }) }}
+
+    <form action="/dpi-upload-route" method="post">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          
+
+           <h1>
+              <span role="text">{{sub.subProcessorOrgName}} Sub Processor
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+            <p class="nhsuk-lede-text">Inform potential buyers how your data is processed</p>
+            <hr>
+
+            <section id="main-data-processing-information">
+              <h2 class="nhsuk-heading-m">Sub-processor information</h2>
+              <dl class="nhsuk-summary-list">
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Organisation name
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.subProcessorOrgName}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> name</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Subject matter of the processing
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.subMatterProcessing}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> name</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+              
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Duration of the processing
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.durationOfTheProcessing}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/data-processing-information?edit=true">
+                      Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+              
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Nature and purposes of processing
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.subNatureAndPurpose}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> contact information</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+              
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Types of personal data
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.subNatureAndPurpose}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Categories of data subjects
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.subCategoriesDataSubjects}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Location of data processing
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{sub.planForReturn}}
+                  </dd>
+              
+                  <dd class="nhsuk-summary-list__actions">
+              
+                    <a href="/admin-solutions/dpi/edit-sub-processor-form?index={{data['index']}}">
+                      Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                    </a>
+              
+                  </dd>
+              
+                </div>
+              
+              </dl>
+            </section>
+
+            <p><a href="/admin-solutions/dpi/confirm-delete?index={{data['index']}}" style="color: #d5281b;">Delete {{sub.subProcessorOrgName}} Sub-Processor</a></p>
+
+            <a href="/admin-solutions/dpi/dpi-confirmation" class="nhsuk-button nhsuk-u-margin-top-7" data-module="nhsuk-button" type="submit">
+              Save and continue
+            </a>
+
+        </form>
+
+      {% endblock %}
+
+      {% block footer %}
+        {% include "includes/footer.html" %}
+      {% endblock %}

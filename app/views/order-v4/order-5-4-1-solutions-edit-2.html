@@ -1,0 +1,305 @@
+My favourite cou{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Edit Catalogue Solutions and services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Add any Catalogue Solutions and services you want to be part of this order.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Add solutions or services",
+        "href": "order-5-4-2-add-solution-service"
+      }) }}
+<p>Use the link to add Catalogue Solutions and/or services and assign them to service recipients.</p>
+    </div>
+</div>
+
+<h2>Catalogue Solution</h2>
+
+<h3>Emis Web GP</h3>
+
+
+{% from "summary-list/macro.njk" import summaryList %}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Assura ER LLP Hull Dermatology"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Bevan Limited"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        html: "£1.26"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Quantity"
+      },
+      value: {
+        html: '875'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+<h2>Additional Services</h2>
+
+<h3>Automated Arrivals</h3>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Assura ER LLP Hull Dermatology"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Bevan Limited"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        html: "£1.26"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Quantity"
+      },
+      value: {
+        html: '875'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h3>Document Management</h3>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Assura ER LLP Hull Dermatology"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Bevan Limited"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        html: "£1.26"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Quantity"
+      },
+      value: {
+        html: '875'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{% from 'details/macro.njk' import details %}
+
+{{ details({
+  "classes": "nhsuk-expander",
+  "text": "Get your medical records",
+  "HTML": "
+  <p>You can see your GP records by:</p>
+  <ul>
+    <li>asking for them at your GP surgery </li>
+    <li>going online to see them (if you have signed up for <a href="hkhhkjk">GP online services</a>) </li>
+  </ul> "
+}) }}
+
+<br />
+
+<form action="order-4-summary-supplier">
+{{ button({
+  "text": "Continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

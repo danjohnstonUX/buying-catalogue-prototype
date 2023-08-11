@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../edit-dashboard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Service Recipients for Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span></h1>
+
+      <p class="nhsuk-lede-text">All your Service Recipients were included in the original order, so there are no more available to add.</p>
+
+
+
+      <br />
+
+      <!-- <h2>Select Service Recipients</h2> -->
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Continue"
+            }) }}
+
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

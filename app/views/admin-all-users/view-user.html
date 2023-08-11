@@ -1,0 +1,370 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - Edit the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  <script type="text/javascript" src="/js/accessible-autocomplete.min.js"></script>
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    {{ breadcrumb({
+      items: [{
+        href: "/admin/home",
+        text: "Home"
+      }],
+      href: "/admin-all-users/",
+      text: "Manage users"
+    }) }}
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-u-margin-bottom-7">
+          <h1 class="nhsuk-u-margin-bottom-0">View user</h1>
+          <p id="page-heading-org-name" class="nhsuk-caption-xl">suesmith@email.com</p>
+        </div>
+
+        <h2 class="nhsuk-heading-m">Personal details</h2>
+
+        {{ summaryList({
+        classes: "nhsuk-summary-list--no-border",
+        rows: [
+            {
+              key: {
+                text: "First name"
+              },
+              value: {
+                text: "Sue"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "edit-personal-details",
+                    text: "Edit",
+                    visuallyHiddenText: "first name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Last name"
+              },
+              value: {
+                text: "Smith"
+              }
+            },
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                text: "suesmith@email.com"
+              }
+            }
+            ]
+          }) }}
+
+        <h2 class="nhsuk-heading-m">Account details</h2>
+
+        {{ summaryList({
+          classes: "nhsuk-u-margin-bottom-7",
+          rows: [
+            {
+              key: {
+                text: "Organisation"
+              },
+              value: {
+                text: "NHS Digital"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "edit-organisation",
+                    text: "Edit",
+                    visuallyHiddenText: "organisation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Account type"
+              },
+              value: {
+                text: "Buyer"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "edit-account-type",
+                    text: "Edit",
+                    visuallyHiddenText: "account type"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Account status"
+              },
+              value: {
+                html: "<strong class='nhsuk-tag nhsuk-tag--green'>Active</strong>"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "edit-account-status",
+                    text: "Edit",
+                    visuallyHiddenText: "account status"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        {{ button({
+          href: "password-reset",
+          text: "Reset password",
+          classes: "nhsuk-button--secondary"
+        })}}
+
+      </div>
+
+      <div class="nhsuk-grid-column-full">
+
+        <h2 class="nhsuk-heading-m">Orders associated with this user</h2>
+
+        <p>Showing 10 orders, ordered by most recently created</p>
+
+        {{ table({
+          panel: false,
+          caption: "",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Call-off Agreement Id"
+            },
+            {
+              text: "Description"
+            },
+            {
+              text: "Created Date"
+            },
+            {
+              text: "Status"
+            },
+            {
+              text: "Action"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "C010067-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "15/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010066-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "15/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010065-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "14/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010064-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "12/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010063-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "09/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010062-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "09/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010061-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "07/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010060-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "05/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--green">Completed</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010059-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "04/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ],
+            [
+              {
+                text: "C010059-01"
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+              },
+              {
+                text: "04/02/2022"
+              },
+              {
+                html: '<strong class="nhsuk-tag nhsuk-tag--yellow">In&nbsp;Progress</strong>'
+              },
+              {
+                html: '<a href="view-order">View</a>'
+              }
+            ]
+          ]
+        }) }}
+
+        {{ actionLink({
+        "text": "View all orders",
+        "href": "user-orders"
+      }) }}
+
+      </div>
+    </div>
+
+    <script>
+      accessibleAutocomplete.enhanceSelectElement({selectElement: document.querySelector('#select-1-search'), required: true, minLength: 2, displayMenu: 'overlay', showAllValues: true});
+    </script>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-select-solution-confirm-price",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Quantity of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Automated Arrivals
+      </span></h1>
+      <p class="nhsuk-lede-text">These are the quantities you agreed in the original contract. You are unable to change the originally agreed quantities.</p>
+
+
+
+
+{{ summaryList({
+ rows: [
+   {
+     key: {
+       text: "Quantity"
+     },
+     value: {
+       text: "2 kiosks"
+     }
+   }
+ ]
+}) }}
+
+  <br />
+  <div>
+    <div style="display:inline-block;">
+      <form method="post" action="edit-dashboard-quantity-added">
+        {% from 'button/macro.njk' import button %}
+
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+
+
+
+<!-- Old nunjucks code -->
+
+
+{#
+  {% set quantityHtml %}
+  {{ input({
+    id: "quantity",
+    name: "quantity",
+    classes: "nhsuk-u-width-two-thirds",
+    value: "875",
+    label: {
+
+    }
+  }) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }} #}
+
+{#
+
+{% set quantityHtml %}
+{{ input({
+id: "quantity",
+name: "quantity",
+classes: "nhsuk-u-width-two-thirds",
+value: "875",
+label: {
+
+}
+}) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+text: 620
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Burnbrae Medical Practice (B81085)"
+},
+{
+text: 285
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dermatology Clinic GPSI (Y00894)"
+},
+{
+text: 440
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dr Jad Weir & Partners (B81040)"
+},
+{
+text: 325
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Haxby Group Hull (Y02747)"
+},
+{
+text: 598
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Hull CCG Vocarenhs111 OOH (Y06959)"
+},
+{
+text: 525
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "James Alexander Family Practice (B81112)"
+},
+{
+text: 610
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Laurbel Surgery (B81635)"
+},
+{
+text: 425
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Pain Management GPSI (Y01218)"
+},
+{
+text: 348
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "St Andrews Surgery (YB81027)"
+},
+{
+text: 400
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Sydenham Group Practice (B81027)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }}
+
+#}

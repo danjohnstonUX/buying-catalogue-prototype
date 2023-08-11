@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "order-5-4-2-update-service-recipients";
+           break;
+        case "no":
+           document.location.href = "/order-v2/order-4-edit-solutions-and-services";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "order-5-4-2-edit-additional-service-2",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to change your Additional Service?</h1>
+
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+<p class="nhsuk-lede-text">You’ll lose all the information you’ve previously entered for any Additional Services you remove.</p>
+{{ warningCallout({
+  "heading": "Changing an Additional Service",
+  "HTML": "<p>Changing an Additional Service will remove any Service Recipients, quantities and prices you've previously entered.</p>"
+}) }}
+<h2></h2>
+<p style="color: #4c6272;"></p>
+
+<h2>Changes to your Additional Services</h2>
+<p>You’ve made the following changes to your order.</p>
+    <p><b>Removed:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Document Management</li>
+    </ol>
+  <br/>
+  <p><b>Added:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Extract Services</li>
+    </ol>
+  <hr/>
+
+  {% from 'radios/macro.njk' import radios %}
+
+  {{ radios({
+    "idPrefix": "example-hints",
+    "name": "example-hints",
+    "fieldset": {
+      "legend": {
+        "text": "",
+        "classes": "nhsuk-fieldset__legend--l",
+        "text": "Do you want to confirm your changes?",
+        "isPageHeading": true
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes, I want to confirm changes to my Additional Service",
+        "hint": {
+          "text": ""
+        }
+      },
+      {
+        "value": "no",
+        "text": "No, I want to keep my current Additional Services",
+        "hint": {
+          "text": ""
+        }
+      }
+    ]
+  }) }}
+
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,221 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Is the planned delivery date the same?
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("decision-1").checked ? document.getElementById("decision-1").value : "";
+    var opt2 = document.getElementById("decision-2").checked ? document.getElementById("decision-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "4-planned-delivery-date-yespath";
+    }
+    else if(opt2=="no") {
+        document.location.href = "4-planned-delivery-date-nopath";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "7-assign-service-recipients-checked",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Is the planned delivery date the same?
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Web GP
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Reassign your Service Recipients.</p>
+
+      <p class="nhsuk-body-l"><b>You have selected to reassign the following Service Recipients:</b></p>
+      
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>ASSURA ER LLP HULL DERMATOLOGY</li>
+        <li>BEVAN LIMITED</li>
+        <li>DERMATOLOGY CLINIC GPSI</li>
+      </ul>
+
+      <br />
+
+      {#
+      {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "decision",
+  "name": "decision",
+  "fieldset": {
+    "legend": {
+      "text": "What date to you want to assign these Service Recipients to?",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "1 September 2022"
+    },
+    {
+      "value": "no",
+      "text": "1 November 2022"
+    },
+    {
+      "value": "no",
+      "text": "Another planned delivery date"
+    }
+  ]
+}) }}
+
+
+{% from 'date-input/macro.njk' import dateInput %}
+
+    {{ dateInput({
+      "id": "example",
+      "namePrefix": "example",
+      "fieldset": {
+        "legend": {
+          "text": "Assign a planned delivery date",
+          "classes": "nhsuk-label--m",
+          "isPageHeading": true
+        }
+      },
+      "hint": {
+        "text": ""
+      },
+      "items": [
+        {
+          "name": "day",
+          "classes": "nhsuk-input--width-2"
+        },
+        {
+          "name": "month",
+          "classes": "nhsuk-input--width-2"
+        },
+        {
+          "name": "year",
+          "classes": "nhsuk-input--width-4"
+        }
+      ]
+    }) }}
+
+    <br /><br />
+    #}
+
+
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'date-input/macro.njk' import dateInput %}
+
+{% set dateHtml %}
+{{ dateInput({
+  "id": "example",
+  "namePrefix": "example",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-label--m",
+      "isPageHeading": true
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+{{ radios({
+  "idPrefix": "example-divider",
+  "name": "example-divider",
+  "fieldset": {
+    "legend": {
+      "text": "Assign a planned delivery date",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "nhsuk-login",
+      "text": "1 September 2022"
+    },
+    {
+      "divider": "or"
+    },
+    {
+      "value": "create-account",
+      "text": "Assign a planned delivery date",
+      "conditional": {
+        "html": dateHtml
+      }
+    }
+  ]
+}) }}
+
+<br />
+
+        <div>
+          <form action="8-planned-delivery-date-hub-2">
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+          
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

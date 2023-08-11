@@ -1,0 +1,629 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+   <style>
+
+        .scrollToBottom {
+            display: none;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            height: auto;
+            background-color: #005eb8;
+            color: white!important;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 0 #003087;
+            box-sizing: border-box;
+            padding: 12px 16px;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            float: right;
+            text-align: center;
+            line-height: 12px;
+            right: 20px;
+            }
+
+            .scrollToBottom:hover, .scrollToBottom:focus {
+            background-color: #003087;
+            text-decoration: underline;
+            box-shadow: 0 4px 0 #003087;
+            }
+
+    </style>
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "2-selected-service-recipients",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1>Confirm Service Recipients for NHS GREATER MANCHESTER ICB - 00T
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+        <h2>Selected Service Recipients</h2>
+        <p>You’ve selected 500 Service Recipients.</p>
+        <ol class="nhsuk-list nhsuk-list--bullet">
+          <li>ORGANISATION 1</li>
+          <li>ORGANISATION 2</li>
+          <li>ORGANISATION 3</li>
+          <li>ORGANISATION 4</li>
+          <li>ORGANISATION 5</li>
+          <li>ORGANISATION 6</li>
+          <li>ORGANISATION 7</li>
+          <li>ORGANISATION 8</li>
+          <li>ORGANISATION 9</li>
+          <li>ORGANISATION 10</li>
+          <li>ORGANISATION 11</li>
+          <li>ORGANISATION 12</li>
+          <li>ORGANISATION 13</li>
+          <li>ORGANISATION 14</li>
+          <li>ORGANISATION 15</li>
+          <li>ORGANISATION 16</li>
+          <li>ORGANISATION 17</li>
+          <li>ORGANISATION 18</li>
+          <li>ORGANISATION 19</li>
+          <li>ORGANISATION 20</li>
+          <li>ORGANISATION 21</li>
+          <li>ORGANISATION 22</li>
+          <li>ORGANISATION 23</li>
+          <li>ORGANISATION 24</li>
+          <li>ORGANISATION 25</li>
+          <li>ORGANISATION 26</li>
+          <li>ORGANISATION 27</li>
+          <li>ORGANISATION 28</li>
+          <li>ORGANISATION 29</li>
+          <li>ORGANISATION 30</li>
+          <li>ORGANISATION 31</li>
+          <li>ORGANISATION 32</li>
+          <li>ORGANISATION 33</li>
+          <li>ORGANISATION 34</li>
+          <li>ORGANISATION 35</li>
+          <li>ORGANISATION 36</li>
+          <li>ORGANISATION 37</li>
+          <li>ORGANISATION 38</li>
+          <li>ORGANISATION 39</li>
+          <li>ORGANISATION 40</li>
+          <li>ORGANISATION 41</li>
+          <li>ORGANISATION 42</li>
+          <li>ORGANISATION 43</li>
+          <li>ORGANISATION 44</li>
+          <li>ORGANISATION 45</li>
+          <li>ORGANISATION 46</li>
+          <li>ORGANISATION 47</li>
+          <li>ORGANISATION 48</li>
+          <li>ORGANISATION 49</li>
+          <li>ORGANISATION 50</li>
+          <li>ORGANISATION 51</li>
+          <li>ORGANISATION 52</li>
+          <li>ORGANISATION 53</li>
+          <li>ORGANISATION 54</li>
+          <li>ORGANISATION 55</li>
+          <li>ORGANISATION 56</li>
+          <li>ORGANISATION 57</li>
+          <li>ORGANISATION 58</li>
+          <li>ORGANISATION 59</li>
+          <li>ORGANISATION 60</li>
+          <li>ORGANISATION 61</li>
+          <li>ORGANISATION 62</li>
+          <li>ORGANISATION 63</li>
+          <li>ORGANISATION 64</li>
+          <li>ORGANISATION 65</li>
+          <li>ORGANISATION 66</li>
+          <li>ORGANISATION 67</li>
+          <li>ORGANISATION 68</li>
+          <li>ORGANISATION 69</li>
+          <li>ORGANISATION 70</li>
+          <li>ORGANISATION 71</li>
+          <li>ORGANISATION 72</li>
+          <li>ORGANISATION 73</li>
+          <li>ORGANISATION 74</li>
+          <li>ORGANISATION 75</li>
+          <li>ORGANISATION 76</li>
+          <li>ORGANISATION 77</li>
+          <li>ORGANISATION 78</li>
+          <li>ORGANISATION 79</li>
+          <li>ORGANISATION 80</li>
+          <li>ORGANISATION 81</li>
+          <li>ORGANISATION 82</li>
+          <li>ORGANISATION 83</li>
+          <li>ORGANISATION 84</li>
+          <li>ORGANISATION 85</li>
+          <li>ORGANISATION 86</li>
+          <li>ORGANISATION 87</li>
+          <li>ORGANISATION 88</li>
+          <li>ORGANISATION 89</li>
+          <li>ORGANISATION 90</li>
+          <li>ORGANISATION 91</li>
+          <li>ORGANISATION 92</li>
+          <li>ORGANISATION 93</li>
+          <li>ORGANISATION 94</li>
+          <li>ORGANISATION 95</li>
+          <li>ORGANISATION 96</li>
+          <li>ORGANISATION 97</li>
+          <li>ORGANISATION 98</li>
+          <li>ORGANISATION 99</li>
+          <li>ORGANISATION 100</li>
+          <li>ORGANISATION 101</li>
+          <li>ORGANISATION 102</li>
+          <li>ORGANISATION 103</li>
+          <li>ORGANISATION 104</li>
+          <li>ORGANISATION 105</li>
+          <li>ORGANISATION 106</li>
+          <li>ORGANISATION 107</li>
+          <li>ORGANISATION 108</li>
+          <li>ORGANISATION 109</li>
+          <li>ORGANISATION 110</li>
+          <li>ORGANISATION 111</li>
+          <li>ORGANISATION 112</li>
+          <li>ORGANISATION 113</li>
+          <li>ORGANISATION 114</li>
+          <li>ORGANISATION 115</li>
+          <li>ORGANISATION 116</li>
+          <li>ORGANISATION 117</li>
+          <li>ORGANISATION 118</li>
+          <li>ORGANISATION 119</li>
+          <li>ORGANISATION 120</li>
+          <li>ORGANISATION 121</li>
+          <li>ORGANISATION 122</li>
+          <li>ORGANISATION 123</li>
+          <li>ORGANISATION 124</li>
+          <li>ORGANISATION 125</li>
+          <li>ORGANISATION 126</li>
+          <li>ORGANISATION 127</li>
+          <li>ORGANISATION 128</li>
+          <li>ORGANISATION 129</li>
+          <li>ORGANISATION 130</li>
+          <li>ORGANISATION 131</li>
+          <li>ORGANISATION 132</li>
+          <li>ORGANISATION 133</li>
+          <li>ORGANISATION 134</li>
+          <li>ORGANISATION 135</li>
+          <li>ORGANISATION 136</li>
+          <li>ORGANISATION 137</li>
+          <li>ORGANISATION 138</li>
+          <li>ORGANISATION 139</li>
+          <li>ORGANISATION 140</li>
+          <li>ORGANISATION 141</li>
+          <li>ORGANISATION 142</li>
+          <li>ORGANISATION 143</li>
+          <li>ORGANISATION 144</li>
+          <li>ORGANISATION 145</li>
+          <li>ORGANISATION 146</li>
+          <li>ORGANISATION 147</li>
+          <li>ORGANISATION 148</li>
+          <li>ORGANISATION 149</li>
+          <li>ORGANISATION 150</li>
+          <li>ORGANISATION 151</li>
+          <li>ORGANISATION 152</li>
+          <li>ORGANISATION 153</li>
+          <li>ORGANISATION 154</li>
+          <li>ORGANISATION 155</li>
+          <li>ORGANISATION 156</li>
+          <li>ORGANISATION 157</li>
+          <li>ORGANISATION 158</li>
+          <li>ORGANISATION 159</li>
+          <li>ORGANISATION 160</li>
+          <li>ORGANISATION 161</li>
+          <li>ORGANISATION 162</li>
+          <li>ORGANISATION 163</li>
+          <li>ORGANISATION 164</li>
+          <li>ORGANISATION 165</li>
+          <li>ORGANISATION 166</li>
+          <li>ORGANISATION 167</li>
+          <li>ORGANISATION 168</li>
+          <li>ORGANISATION 169</li>
+          <li>ORGANISATION 170</li>
+          <li>ORGANISATION 171</li>
+          <li>ORGANISATION 172</li>
+          <li>ORGANISATION 173</li>
+          <li>ORGANISATION 174</li>
+          <li>ORGANISATION 175</li>
+          <li>ORGANISATION 176</li>
+          <li>ORGANISATION 177</li>
+          <li>ORGANISATION 178</li>
+          <li>ORGANISATION 179</li>
+          <li>ORGANISATION 180</li>
+          <li>ORGANISATION 181</li>
+          <li>ORGANISATION 182</li>
+          <li>ORGANISATION 183</li>
+          <li>ORGANISATION 184</li>
+          <li>ORGANISATION 185</li>
+          <li>ORGANISATION 186</li>
+          <li>ORGANISATION 187</li>
+          <li>ORGANISATION 188</li>
+          <li>ORGANISATION 189</li>
+          <li>ORGANISATION 190</li>
+          <li>ORGANISATION 191</li>
+          <li>ORGANISATION 192</li>
+          <li>ORGANISATION 193</li>
+          <li>ORGANISATION 194</li>
+          <li>ORGANISATION 195</li>
+          <li>ORGANISATION 196</li>
+          <li>ORGANISATION 197</li>
+          <li>ORGANISATION 198</li>
+          <li>ORGANISATION 199</li>
+          <li>ORGANISATION 200</li>
+          <li>ORGANISATION 201</li>
+          <li>ORGANISATION 202</li>
+          <li>ORGANISATION 203</li>
+          <li>ORGANISATION 204</li>
+          <li>ORGANISATION 205</li>
+          <li>ORGANISATION 206</li>
+          <li>ORGANISATION 207</li>
+          <li>ORGANISATION 208</li>
+          <li>ORGANISATION 209</li>
+          <li>ORGANISATION 210</li>
+          <li>ORGANISATION 211</li>
+          <li>ORGANISATION 212</li>
+          <li>ORGANISATION 213</li>
+          <li>ORGANISATION 214</li>
+          <li>ORGANISATION 215</li>
+          <li>ORGANISATION 216</li>
+          <li>ORGANISATION 217</li>
+          <li>ORGANISATION 218</li>
+          <li>ORGANISATION 219</li>
+          <li>ORGANISATION 220</li>
+          <li>ORGANISATION 221</li>
+          <li>ORGANISATION 222</li>
+          <li>ORGANISATION 223</li>
+          <li>ORGANISATION 224</li>
+          <li>ORGANISATION 225</li>
+          <li>ORGANISATION 226</li>
+          <li>ORGANISATION 227</li>
+          <li>ORGANISATION 228</li>
+          <li>ORGANISATION 229</li>
+          <li>ORGANISATION 230</li>
+          <li>ORGANISATION 231</li>
+          <li>ORGANISATION 232</li>
+          <li>ORGANISATION 233</li>
+          <li>ORGANISATION 234</li>
+          <li>ORGANISATION 235</li>
+          <li>ORGANISATION 236</li>
+          <li>ORGANISATION 237</li>
+          <li>ORGANISATION 238</li>
+          <li>ORGANISATION 239</li>
+          <li>ORGANISATION 240</li>
+          <li>ORGANISATION 241</li>
+          <li>ORGANISATION 242</li>
+          <li>ORGANISATION 243</li>
+          <li>ORGANISATION 244</li>
+          <li>ORGANISATION 245</li>
+          <li>ORGANISATION 246</li>
+          <li>ORGANISATION 247</li>
+          <li>ORGANISATION 248</li>
+          <li>ORGANISATION 249</li>
+          <li>ORGANISATION 250</li>
+          <li>ORGANISATION 251</li>
+          <li>ORGANISATION 252</li>
+          <li>ORGANISATION 253</li>
+          <li>ORGANISATION 254</li>
+          <li>ORGANISATION 255</li>
+          <li>ORGANISATION 256</li>
+          <li>ORGANISATION 257</li>
+          <li>ORGANISATION 258</li>
+          <li>ORGANISATION 259</li>
+          <li>ORGANISATION 260</li>
+          <li>ORGANISATION 261</li>
+          <li>ORGANISATION 262</li>
+          <li>ORGANISATION 263</li>
+          <li>ORGANISATION 264</li>
+          <li>ORGANISATION 265</li>
+          <li>ORGANISATION 266</li>
+          <li>ORGANISATION 267</li>
+          <li>ORGANISATION 268</li>
+          <li>ORGANISATION 269</li>
+          <li>ORGANISATION 270</li>
+          <li>ORGANISATION 271</li>
+          <li>ORGANISATION 272</li>
+          <li>ORGANISATION 273</li>
+          <li>ORGANISATION 274</li>
+          <li>ORGANISATION 275</li>
+          <li>ORGANISATION 276</li>
+          <li>ORGANISATION 277</li>
+          <li>ORGANISATION 278</li>
+          <li>ORGANISATION 279</li>
+          <li>ORGANISATION 280</li>
+          <li>ORGANISATION 281</li>
+          <li>ORGANISATION 282</li>
+          <li>ORGANISATION 283</li>
+          <li>ORGANISATION 284</li>
+          <li>ORGANISATION 285</li>
+          <li>ORGANISATION 286</li>
+          <li>ORGANISATION 287</li>
+          <li>ORGANISATION 288</li>
+          <li>ORGANISATION 289</li>
+          <li>ORGANISATION 290</li>
+          <li>ORGANISATION 291</li>
+          <li>ORGANISATION 292</li>
+          <li>ORGANISATION 293</li>
+          <li>ORGANISATION 294</li>
+          <li>ORGANISATION 295</li>
+          <li>ORGANISATION 296</li>
+          <li>ORGANISATION 297</li>
+          <li>ORGANISATION 298</li>
+          <li>ORGANISATION 299</li>
+          <li>ORGANISATION 300</li>
+          <li>ORGANISATION 301</li>
+          <li>ORGANISATION 302</li>
+          <li>ORGANISATION 303</li>
+          <li>ORGANISATION 304</li>
+          <li>ORGANISATION 305</li>
+          <li>ORGANISATION 306</li>
+          <li>ORGANISATION 307</li>
+          <li>ORGANISATION 308</li>
+          <li>ORGANISATION 309</li>
+          <li>ORGANISATION 310</li>
+          <li>ORGANISATION 311</li>
+          <li>ORGANISATION 312</li>
+          <li>ORGANISATION 313</li>
+          <li>ORGANISATION 314</li>
+          <li>ORGANISATION 315</li>
+          <li>ORGANISATION 316</li>
+          <li>ORGANISATION 317</li>
+          <li>ORGANISATION 318</li>
+          <li>ORGANISATION 319</li>
+          <li>ORGANISATION 320</li>
+          <li>ORGANISATION 321</li>
+          <li>ORGANISATION 322</li>
+          <li>ORGANISATION 323</li>
+          <li>ORGANISATION 324</li>
+          <li>ORGANISATION 325</li>
+          <li>ORGANISATION 326</li>
+          <li>ORGANISATION 327</li>
+          <li>ORGANISATION 328</li>
+          <li>ORGANISATION 329</li>
+          <li>ORGANISATION 330</li>
+          <li>ORGANISATION 331</li>
+          <li>ORGANISATION 332</li>
+          <li>ORGANISATION 333</li>
+          <li>ORGANISATION 334</li>
+          <li>ORGANISATION 335</li>
+          <li>ORGANISATION 336</li>
+          <li>ORGANISATION 337</li>
+          <li>ORGANISATION 338</li>
+          <li>ORGANISATION 339</li>
+          <li>ORGANISATION 340</li>
+          <li>ORGANISATION 341</li>
+          <li>ORGANISATION 342</li>
+          <li>ORGANISATION 343</li>
+          <li>ORGANISATION 344</li>
+          <li>ORGANISATION 345</li>
+          <li>ORGANISATION 346</li>
+          <li>ORGANISATION 347</li>
+          <li>ORGANISATION 348</li>
+          <li>ORGANISATION 349</li>
+          <li>ORGANISATION 350</li>
+          <li>ORGANISATION 351</li>
+          <li>ORGANISATION 352</li>
+          <li>ORGANISATION 353</li>
+          <li>ORGANISATION 354</li>
+          <li>ORGANISATION 355</li>
+          <li>ORGANISATION 356</li>
+          <li>ORGANISATION 357</li>
+          <li>ORGANISATION 358</li>
+          <li>ORGANISATION 359</li>
+          <li>ORGANISATION 360</li>
+          <li>ORGANISATION 361</li>
+          <li>ORGANISATION 362</li>
+          <li>ORGANISATION 363</li>
+          <li>ORGANISATION 364</li>
+          <li>ORGANISATION 365</li>
+          <li>ORGANISATION 366</li>
+          <li>ORGANISATION 367</li>
+          <li>ORGANISATION 368</li>
+          <li>ORGANISATION 369</li>
+          <li>ORGANISATION 370</li>
+          <li>ORGANISATION 371</li>
+          <li>ORGANISATION 372</li>
+          <li>ORGANISATION 373</li>
+          <li>ORGANISATION 374</li>
+          <li>ORGANISATION 375</li>
+          <li>ORGANISATION 376</li>
+          <li>ORGANISATION 377</li>
+          <li>ORGANISATION 378</li>
+          <li>ORGANISATION 379</li>
+          <li>ORGANISATION 380</li>
+          <li>ORGANISATION 381</li>
+          <li>ORGANISATION 382</li>
+          <li>ORGANISATION 383</li>
+          <li>ORGANISATION 384</li>
+          <li>ORGANISATION 385</li>
+          <li>ORGANISATION 386</li>
+          <li>ORGANISATION 387</li>
+          <li>ORGANISATION 388</li>
+          <li>ORGANISATION 389</li>
+          <li>ORGANISATION 390</li>
+          <li>ORGANISATION 391</li>
+          <li>ORGANISATION 392</li>
+          <li>ORGANISATION 393</li>
+          <li>ORGANISATION 394</li>
+          <li>ORGANISATION 395</li>
+          <li>ORGANISATION 396</li>
+          <li>ORGANISATION 397</li>
+          <li>ORGANISATION 398</li>
+          <li>ORGANISATION 399</li>
+          <li>ORGANISATION 400</li>
+          <li>ORGANISATION 401</li>
+          <li>ORGANISATION 402</li>
+          <li>ORGANISATION 403</li>
+          <li>ORGANISATION 404</li>
+          <li>ORGANISATION 405</li>
+          <li>ORGANISATION 406</li>
+          <li>ORGANISATION 407</li>
+          <li>ORGANISATION 408</li>
+          <li>ORGANISATION 409</li>
+          <li>ORGANISATION 410</li>
+          <li>ORGANISATION 411</li>
+          <li>ORGANISATION 412</li>
+          <li>ORGANISATION 413</li>
+          <li>ORGANISATION 414</li>
+          <li>ORGANISATION 415</li>
+          <li>ORGANISATION 416</li>
+          <li>ORGANISATION 417</li>
+          <li>ORGANISATION 418</li>
+          <li>ORGANISATION 419</li>
+          <li>ORGANISATION 420</li>
+          <li>ORGANISATION 421</li>
+          <li>ORGANISATION 422</li>
+          <li>ORGANISATION 423</li>
+          <li>ORGANISATION 424</li>
+          <li>ORGANISATION 425</li>
+          <li>ORGANISATION 426</li>
+          <li>ORGANISATION 427</li>
+          <li>ORGANISATION 428</li>
+          <li>ORGANISATION 429</li>
+          <li>ORGANISATION 430</li>
+          <li>ORGANISATION 431</li>
+          <li>ORGANISATION 432</li>
+          <li>ORGANISATION 433</li>
+          <li>ORGANISATION 434</li>
+          <li>ORGANISATION 435</li>
+          <li>ORGANISATION 436</li>
+          <li>ORGANISATION 437</li>
+          <li>ORGANISATION 438</li>
+          <li>ORGANISATION 439</li>
+          <li>ORGANISATION 440</li>
+          <li>ORGANISATION 441</li>
+          <li>ORGANISATION 442</li>
+          <li>ORGANISATION 443</li>
+          <li>ORGANISATION 444</li>
+          <li>ORGANISATION 445</li>
+          <li>ORGANISATION 446</li>
+          <li>ORGANISATION 447</li>
+          <li>ORGANISATION 448</li>
+          <li>ORGANISATION 449</li>
+          <li>ORGANISATION 450</li>
+          <li>ORGANISATION 451</li>
+          <li>ORGANISATION 452</li>
+          <li>ORGANISATION 453</li>
+          <li>ORGANISATION 454</li>
+          <li>ORGANISATION 455</li>
+          <li>ORGANISATION 456</li>
+          <li>ORGANISATION 457</li>
+          <li>ORGANISATION 458</li>
+          <li>ORGANISATION 459</li>
+          <li>ORGANISATION 460</li>
+          <li>ORGANISATION 461</li>
+          <li>ORGANISATION 462</li>
+          <li>ORGANISATION 463</li>
+          <li>ORGANISATION 464</li>
+          <li>ORGANISATION 465</li>
+          <li>ORGANISATION 466</li>
+          <li>ORGANISATION 467</li>
+          <li>ORGANISATION 468</li>
+          <li>ORGANISATION 469</li>
+          <li>ORGANISATION 470</li>
+          <li>ORGANISATION 471</li>
+          <li>ORGANISATION 472</li>
+          <li>ORGANISATION 473</li>
+          <li>ORGANISATION 474</li>
+          <li>ORGANISATION 475</li>
+          <li>ORGANISATION 476</li>
+          <li>ORGANISATION 477</li>
+          <li>ORGANISATION 478</li>
+          <li>ORGANISATION 479</li>
+          <li>ORGANISATION 480</li>
+          <li>ORGANISATION 481</li>
+          <li>ORGANISATION 482</li>
+          <li>ORGANISATION 483</li>
+          <li>ORGANISATION 484</li>
+          <li>ORGANISATION 485</li>
+          <li>ORGANISATION 486</li>
+          <li>ORGANISATION 487</li>
+          <li>ORGANISATION 488</li>
+          <li>ORGANISATION 489</li>
+          <li>ORGANISATION 490</li>
+          <li>ORGANISATION 491</li>
+          <li>ORGANISATION 492</li>
+          <li>ORGANISATION 493</li>
+          <li>ORGANISATION 494</li>
+          <li>ORGANISATION 495</li>
+          <li>ORGANISATION 496</li>
+          <li>ORGANISATION 497</li>
+          <li>ORGANISATION 498</li>
+          <li>ORGANISATION 499</li>
+          <li>ORGANISATION 500</li>
+        </ol>
+        <br/>
+
+        <p>You can <a href="4-edit-service-recipients">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+        <br/>
+
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="sublocation-2">
+               <button id="continue-button" class="nhsuk-button" data-module="nhsuk-button" type="submit">
+                  Save and continue
+                </button>
+            </form>
+
+            <a href="#" id="scrollToBottom" class="scrollToBottom" style="display: none;">Scroll to bottom</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<br/><br/>
+
+<script>
+
+        var scrollBottom = $(window).scrollTop() + $(window).height();
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop()) {
+            $(".scrollToBottom").fadeIn();
+            } else {
+            $(".scrollToBottom").fadeOut();
+            }
+
+            if ($(window).scrollTop() + $(window).height() < $(document).height() - $("#nhsuk-footer").height() - 92) {
+            $('.scrollToBottom').css("position", "fixed"); //resetting it
+            $('.scrollToBottom').css("bottom", "20px"); //resetting it
+            $('.scrollToBottom').css("right", "20px"); //resetting it
+            }
+
+
+        });
+
+        $(".scrollToBottom").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#continue-button").offset().top
+            }, 1000);
+        });
+
+    </script>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,158 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-solution-additional-add",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+            <h1>
+              <span role="text">[Additional Service name] price
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+
+            <p class="nhsuk-lede-text">Provide information about the cost of the Additional Service.</p>
+
+            <form action="admin-solution-additional-add" method="post">
+
+
+              {% from 'select/macro.njk' import select %}
+
+              {{ select({
+                "id": "select-1",
+                "name": "select-1",
+                "label": {
+                  "text": "Price type"
+                },
+                "items": [
+                  {
+                    "value": 1,
+                    "text": "Flat"
+                  },
+                  {
+                    "value": 2,
+                    "text": "Tiered"
+                  }
+                ]
+              }) }}
+
+
+
+              {% from 'input/macro.njk' import input %}
+
+              {{ input({
+                "label": {
+                  "text": "Price"
+                },
+                "hint": {
+                  "text": "Provide the list price in £s to a maximum of 4 decimal places."
+                },
+                "id": "solution-name",
+                "name": "solution-name",
+                "classes": "nhsuk-input--width-10"
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 100 characters remaining</p>
+
+              {{ input({
+                "label": {
+                  "text": "Unit"
+                },
+                "hint": {
+                  "text": "For example, per day, per practice, per patient per year."
+                },
+                "id": "solution-name",
+                "name": "solution-name"
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 100 characters remaining</p>
+
+              {% from 'textarea/macro.njk' import textarea %}
+
+              {{ textarea({
+              "name": "example",
+              "id": "example",
+              "label": {
+              "text": "Unit definition (optional)"
+              },
+              "hint": {
+              "text": "For example, if the unit is per day, between what hours?"
+              }
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 1000 characters remaining</p>
+
+              {{ input({
+                "label": {
+                  "text": "Volume"
+                },
+                "hint": {
+                  "text": "If a tiered pricing model, what order volumes are available at this price? For example 1-500, 500-1,000, 1,000-1,500."
+                },
+                "id": "solution-name",
+                "name": "solution-name"
+              }) }}
+              <p class="nhsuk-hint" style="margin-top:-16px; margin-bottom: 32px;">You have 100 characters remaining</p>
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+<p><a href="#" style="color: red;">Delete price</a></p>
+            <!--br /><br />
+            <a href="admin-solution-interoperability">Return</a-->
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

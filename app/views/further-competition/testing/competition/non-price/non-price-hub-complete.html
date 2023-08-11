@@ -1,0 +1,166 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - Edit the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "../competition-tasklist",
+      "text": "Go back"
+    }) }}
+
+    <h1>Non-price elements<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      OC/VC competition
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      All optional non-price elements have been added for this competition.
+    </p>
+
+    <h2 class="nhsuk-heading-m">Implementation</h2>
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Implementation details"
+          },
+          value: {
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam obcaecati aliquam fuga nam quam distinctio odit incidunt quae laboriosam quos."
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Edit",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        }    
+      ]
+    }) }}
+
+    <br>
+
+    <h2 class="nhsuk-heading-m">Interoperability</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "IM1 integrations"
+      },
+      value: {
+        text: "IM1 Transactional"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "GP Connect integrations"
+      },
+      value: {
+        text: "None selected"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Service levels</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Core support hours"
+      },
+      value: {
+        text: "08:30 to 19:00"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Applicable days"
+      },
+      value: {
+        text: "Monday to Friday, including bank holidays"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+    <a href="../competition-tasklist" class="nhsuk-button">Continue</a>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

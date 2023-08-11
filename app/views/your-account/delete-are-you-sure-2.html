@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Existing shortlist 1
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "your-account",
+    text: "Your account"
+  },
+  {
+    href: "shortlist-your-shortlist",
+    text: "Your shortlists"
+  }
+]
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-two-thirds">
+
+    <h1>Delete saved search</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">Deleting this saved search will also delete the related shortlist.</p>
+
+<!-- <h4>Capabilities used in this search:</h4>
+    <p>Online Consultation, Video Consultation, Recording Consultation</p>
+<br /> -->
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    
+
+    {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example",
+  "name": "example",
+  "fieldset": {
+    "legend": {
+      "text": "Are you sure that you want to delete this saved search?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+    <br />
+
+    <form action="shortlist-your-shortlist-deleted-2">
+      {{ button({
+        "text": "Continue"
+      }) }}
+    </form>
+
+    <br /><br />
+ 
+    
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

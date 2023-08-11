@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Planned delivery date
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../order-4-summary-timescales-completed",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Planned delivery date
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Enter the planned delivery date for when any solutions and services you’re ordering will start being used.</p>
+
+      {{ insetText({
+      "HTML": "<p>If you have more than one planned delivery date, you should enter the date the majority of Service Recipients will begin using any solutions and services you’re ordering.</p>
+              <p>This date will initially be applied to all recipients, but you’ll be able to change it for any recipients with a different planned delivery date.</p>"
+    }) }}
+
+      {% from 'date-input/macro.njk' import dateInput %}
+
+      {{ dateInput({
+        "id": "example",
+        "namePrefix": "example",
+        "fieldset": {
+          "legend": {
+            "text": "What is the planned delivery date?",
+            "classes": "nhsuk-label--xs",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This is the date any solutions and services you’re ordering will start being used."
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      }) }}
+
+
+      <!-- <br/>
+
+      <p>Alternatively, you can provide the <a href="">planned delivery date for specific Service Recipients</a>.</p>
+       -->
+      <br /><br />
+
+
+
+
+      <!-- <form action="order-4-summary">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form> -->
+      <!-- <form action="order-4-summary">
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+        </form> -->
+
+        <div>
+          <div style="display:inline-block;">
+            <form action="4-planned-delivery-dates-emis">
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+            </form>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

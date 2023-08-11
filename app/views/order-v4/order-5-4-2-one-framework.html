@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Catalogue Solutions
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service-framework",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Framework<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Caltech Web GP
+    </span></h1>
+  <p class="nhsuk-lede-text">This Catalogue Solution is only available under the GP IT Futures framework</p>
+
+
+
+<form action="order-5-4-2-add-solution-service-recipient">
+{{ radios({
+  "idPrefix": "confirm-framework",
+  "name": "confirm-framework",
+  "fieldset": {
+    "legend": {
+      "text": "Are you happy to continue with this Catalogue Solution?",
+      "classes": "nhsuk-fieldset__legend--m"
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+<br/>
+
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

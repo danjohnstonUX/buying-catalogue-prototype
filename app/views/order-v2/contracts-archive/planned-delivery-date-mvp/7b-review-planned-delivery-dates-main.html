@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Review Planned Delivery Dates
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "6-planned-delivery-dates-training-no",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Review planned delivery dates<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Review the planned delivery dates for your solutions and services.</p>
+
+      <p style="font-size: 24px;"><b>Planned delivery date for the majority of Service Recipients:</b> 1 September 2022 &nbsp;&nbsp;<a href="3a-planned-delivery-date">Edit</a></p>
+
+      <hr />
+
+    </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+
+
+{% include "contracts-testing/planned-delivery-date-mvp/7b-review-planned-delivery-dates-accordions.html" %}
+
+<br />
+
+<div>
+          <div style="display:inline-block;">
+            <form method="post" action="../order-4-summary-timescales-pdd-completed">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - List price
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <div class="nhsuk-width-container">
+      <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+        <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+      </ol>
+      <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+    </div>
+  </nav>
+  
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+
+    <article>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+          <nav class="side-nav">
+            {% set template = "includes/sticky-side-nav.njk" %}
+            {% include template %}
+          </nav>
+        </div>
+        <div class="nhsuk-grid-column-two-thirds content" id="content">
+          <h1>
+            List price
+            <span class="nhsuk-caption-xl">Caltech Web GP</span>             
+          </h1>
+          {% from 'contents-list/macro.njk' import contentsList %}
+          {% from "summary-list/macro.njk" import summaryList %}
+    
+          <dl class="nhsuk-summary-list">
+      
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Supplier name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+              </dd>
+              
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Solution ID
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                10000-001
+              </dd>
+              
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Framework(s)
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                GP IT Futures
+              </dd>
+              
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Foundation Solution
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+              
+            </div>
+          
+        </dl>
+          <h2>List price</h2>
+
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Price of catalogue solution</h3>
+              <p>This is how much this Catalogue Solution costs:
+              </p>
+              {% from 'tables/macro.njk' import table %}
+
+          {{ table({
+            panel: false,
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Tier"
+              },
+              {
+                text: "Price per unit"
+              },
+              {
+                text: "Range"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "1"
+                },
+                {
+                  text: "£1.1000 per patient per year"
+                },
+                {
+                  text: "1 to 89,999 patients"
+                }
+
+              ],
+              [
+                {
+                  text: "2"
+                },
+                {
+                  text: "£0.9900 per patient per year"
+                },
+                {
+                  text: "90,000 to 899,999 patients"
+                }
+              ],
+              [
+                {
+                  text: "3"
+                },
+                {
+                  text: "£0.0750 per patient per year"
+                },
+                {
+                  text: "900,000+ patients"
+                }
+              ]
+            ]
+          }) }}
+
+          <p>The total price for this Catalogue Solution is calculated cumulatively. </p>
+          {{ details({
+            "text": "What does calculated cumulatively mean?",
+            "HTML": "
+            <p>The total cost will be determined by the tiers and the number of items you buy. For example:</p>
+            <h2 class='nhsuk-heading-m'>Quantity</h2>
+            <p>Service Recipient 1 needs 5 licences</p>
+              <p>Service Recipient 2 needs 5 licences</p>
+              <p>Service Recipient 3 needs 15 licences</p>
+              <p>Total quantity: 25</p>
+            <h2 class='nhsuk-heading-m'>Tier</h2>
+            <p>Tier 1: 1-9 licences cost £5</p>
+            <p>Tier 2: 10-19 licences cost £2.50</p>
+            <p>Tier 3: 20+ licences cost £1</p>
+            <h2 class='nhsuk-heading-m'>Price</h2>
+            <p>Tier 1: 9 licences cost £45</p>
+            <p>Tier 2: 9 licences cost £22.50</p>
+            <p>Tier 3: 7 licences cost £7</p>
+            <p>Total cost: £74.50"
+}) }}
+              </div>
+          </div>
+
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Unit definitions for this Catalogue Solution</h3>
+              <p class="nhsuk-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            </div>
+          </div>
+          
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2022
+          </p>
+
+          {% from 'pagination/macro.njk' import pagination %}
+
+          {{ pagination({
+    "previousUrl": "features",
+    "previousPage": "Features",
+    "nextUrl": "capabilities-and-epics",
+    "nextPage": "Capabilities and Epics"
+  }) }}
+          
+
+        </div>
+
+
+      </div>
+    </article>
+  {% endblock %}
+  {% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+});
+
+</script>
+
+
+{% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

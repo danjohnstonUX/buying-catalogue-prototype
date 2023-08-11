@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Your shortlists
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "your-account",
+    text: "Your account"
+  },
+  {
+    href: "shortlist-your-shortlist",
+    text: "Your shortlists"
+  }
+]
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Saved searches</h1>
+  </div>
+</div>
+
+<p class="nhsuk-lede-text">This is a view of all of your saved searches. Using the link you will be able to see the related listed of Catalogue Solutions relevant to the search.</p>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+    
+
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Your shortlists</a></caption> 
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Name
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Search criteria
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Date added
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell"><a href="shortlist-existing-1">Saved search 1</a></td>
+          <td class="nhsuk-table__cell">Online Consultation, Video Consultation,<br />Recording Consultation and 2 Epics</td>
+          <td class="nhsuk-table__cell ">1 July 2022</td>
+          <td class="nhsuk-table__cell "><a href="delete-are-you-sure-1">Delete</a></td>
+        </tr>
+      </tbody>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell"><a href="shortlist-existing-2">Saved search 2</a></td>
+          <td class="nhsuk-table__cell">Clinical Decision Support, Appointments<br /> Management – Citizen and 1 Epic</td>
+          <td class="nhsuk-table__cell ">20 July 2022</td>
+          <td class="nhsuk-table__cell "><a href="delete-are-you-sure-2">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    {{ actionLink({
+      "text": "Your account",
+      "href": "your-account"
+    }) }}
+
+
+
+    <br /><br />
+
+   
+{#
+    {{ actionLink({
+      "text": "Proceed to further competition",
+      "href": "list-select-shortlist"
+    }) }}
+#}
+
+    <!-- <br /><br />
+
+    <form action="list-competion">
+      {{ button({
+        "text": "Continue"
+      }) }}
+    </form> -->
+
+    
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

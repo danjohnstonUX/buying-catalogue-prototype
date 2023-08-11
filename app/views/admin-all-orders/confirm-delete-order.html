@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "view-order",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to delete this order?
+  <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C10001-01
+  </span>
+</h1>
+<p class="nhsuk-lede-text">Provide details for the person who requested that this order be deleted and the person who approved it.</p>
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Deleting an order",
+  "HTML": "<p>Deleting an order will remove it from the buyer’s orders dashboard permanently. It will still be visible on your orders dashboard with a status of deleted, but you’ll not be able to change the order status back once deleted.</p>"
+}) }}
+
+{{ input({
+  "label": {
+    "text": "Who requested the deletion?",
+    "classes": "nhsuk-label--s nhsuk-u-margin-bottom-3"
+  },
+    "hint": {
+    "text": "Enter the name of the person who asked for this order to be deleted."
+  },
+  id: "requester-name",
+  name: "requester-name"
+}) }}
+
+<br />
+
+{{ input({
+  "label": {
+    "text": "Who approved the deletion?",
+    "classes": "nhsuk-label--s nhsuk-u-margin-bottom-3"
+  },
+    "hint": {
+    "text": "Enter the name of the person who gave approval for this order to be deleted."
+  },
+  id: "approver-name",
+  name: "approver-name"
+}) }}
+
+{{ dateInput({
+  "id": "approval-date",
+  "namePrefix": "approval-date",
+  "fieldset": {
+    "legend": {
+      "text": "What date was the approval given?",
+      "classes": "nhsuk-label--s"
+    }
+  },
+  "hint": {
+    "text": "Enter the date that approval was given to delete this order, for example, 15 3 2020"
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Delete order",
+  "href":"index"
+}) }}
+
+<p><a href="#">Cancel</a></p>
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

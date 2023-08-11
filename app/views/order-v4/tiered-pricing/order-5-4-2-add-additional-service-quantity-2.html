@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-additional-service-price-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Quantity of Additional Service<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Automated Arrivals
+      </span></h1>
+      <p class="nhsuk-lede-text">Enter the amount you want to order.</p>
+
+       <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="cost-per-item">
+              How many do you want?
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false" value="1">
+          <div class="govuk-input__suffix" aria-hidden="true">items</div>
+        </div>
+      </div>
+
+<br />
+<br />
+
+<form action="order-5-4-2-add-associated-service-option">
+{{ button({
+  "text": "Save and continue"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

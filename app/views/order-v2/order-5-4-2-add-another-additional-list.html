@@ -1,0 +1,325 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-another-additional-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Additional Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Select the Additional Services that you want to add to your order.</p>
+
+      <h2>Selected Additional Services</h2>
+      <p>These Additional Services have already been added to your order.</p>
+
+      <p>Document Management</p>
+
+      <hr />
+
+
+
+
+      <!-- <p><a href="#">Add or remove service recipients</a></p> -->
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      {% from 'tables/macro.njk' import table %}
+
+
+{#
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "Selected more Additional Services",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email" checked="true">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Organisation
+        </label>
+      </div>'
+    },
+    {
+      text: "ODS code"
+    }
+  ],
+  rows: [
+  [
+  {
+    html: '<div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email" checked="true">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+        Assura ER LLP Hull Dermatology
+      </label>
+    </div>'
+  },
+  {
+    text: "Y03508"
+  }
+  ],
+  [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email" checked="true">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Bevan Limited
+          </label>
+        </div>'
+      },
+      {
+        text: "Y07021"
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "Select Service Recipients",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Organisation
+        </label>
+      </div>'
+    },
+    {
+      text: "ODS code"
+    }
+  ],
+  rows: [
+  [
+  {
+    html: '<div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+        Assura ER LLP Hull Dermatology
+      </label>
+    </div>'
+  },
+  {
+    text: "Y03508"
+  }
+  ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Bevan Limited
+          </label>
+        </div>'
+      },
+      {
+        text: "Y07021"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Bransholme MIU
+          </label>
+        </div>'
+      },
+      {
+        text: "Y00427"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Burnbrae Medical Practice
+          </label>
+        </div>'
+      },
+      {
+        text: "B81085"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            CHCP - Urgent Care OOH
+          </label>
+        </div>'
+      },
+      {
+        text: "Y00023"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            CHCP Stroke Rehabilitation
+          </label>
+        </div>'
+      },
+      {
+        text: "Y04419"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            City Health Practice Ltd
+          </label>
+        </div>'
+      },
+      {
+        text: "Y03508"
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Community Paediatrition Service (Hull)
+          </label>
+        </div>'
+      },
+      {
+        text: "Y03503"
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+
+
+<form>
+  {{ checkboxes({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "Selected Additional Services",
+        "classes": "nhsuk-fieldset__legend--m",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": "These Additional Services have already been added to your order."
+    },
+    "items": [
+      {
+        "value": "document management",
+        "text": "Document Management",
+        id: "contact"
+      }
+    ]
+  }) }}
+</form>
+
+<br />#}
+
+<form>
+  {{ checkboxes({
+    "idPrefix": "contact",
+    "name": "contact",
+    "fieldset": {
+      "legend": {
+        "text": "Other Additional Services available",
+        "classes": "nhsuk-fieldset__legend--m",
+        isPageHeading: true
+      }
+    },
+    "hint": {
+      "text": "These are optional add-ons to the main solution that provide extra functionality."
+    },
+    "items": [
+      {
+        "value": "automated arrivals",
+        "text": "Automated Arrivals",
+        id: "contact"
+      },
+
+      {
+        "value": "emis mobile",
+        "text": "EMIS Mobile"
+      },
+      {
+        "value": "emis web dispensing",
+        "text": "EMIS Web Dispensing",
+        id: "contact"
+      },
+      {
+        "value": "enterprise search and reports",
+        "text": "Enterprise Search and Reports"
+      },
+      {
+        "value": "extract services",
+        "text": "Extract Services",
+        id: "contact"
+      },
+      {
+        "value": "long term conditions manager",
+        "text": "Long Term Conditions Manager"
+      },
+      {
+        "value": "risk stratification",
+        "text": "Risk Stratification"
+      }
+    ]
+  }) }}
+</form>
+
+        <br /><br />
+      <form action="order-5-4-2-add-solution-service-recipient-new-selector-preselected-3">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

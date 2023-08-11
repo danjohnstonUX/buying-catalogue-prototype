@@ -1,0 +1,195 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "../competitions-hub",
+"text": "Go back to manage competitions"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Competition results</h1>
+
+    <p class="nhsuk-lede-text">These are the results for this competition.</p>
+
+  </div>
+
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-card">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">
+          Winning Solution
+        </h2>
+        <br>
+        <h3>Online and Video Consult<span class="nhsuk-caption-m nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Caltech Health
+        </span></h3>
+        <br>
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Price score",
+          tableClasses: "nhsuk-u-margin-bottom-5",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Price"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Price",
+                text: "£50,123"
+              },
+              {
+                header: "Score",
+                text: "5"
+              }
+            ]
+          ]
+        }) }}
+
+      </div>
+    </div>
+
+    <h2>Other shortlisted solutions</h2>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          View other shortlisted solutions
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <h3>Q Doctor<span class="nhsuk-caption-m nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          MyMed Ltd 
+        </span></h3>
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Price score",
+          tableClasses: "nhsuk-u-margin-bottom-5",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Price"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Price",
+                text: "£62,567"
+              },
+              {
+                header: "Score",
+                text: "4"
+              }
+            ]
+          ]
+        }) }}
+
+
+        <br>
+        
+        <h3>healthya Online and Video Consultation<span class="nhsuk-caption-m nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          ADDVantage Technologies 
+        </span></h3>
+
+        {{ table({
+          responsive: true,
+          panel: false,
+          caption: "Price score",
+          tableClasses: "nhsuk-u-margin-bottom-5",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Price"
+            },
+            {
+              text: "Score"
+            }
+          ],
+          rows: [
+            [
+              {
+                header: "Price",
+                text: "£65,589"
+              },
+              {
+                header: "Score",
+                text: "3"
+              }
+            ]
+          ]
+        }) }}
+
+      </div>
+    </details>
+
+    <br>
+
+    <form>
+
+      <h2>Download your results</h2>
+      <p class="nhsuk-body nhsuk-u-reading-width">Download the results of your competition as evidence of how you arrived at your winning solution.</p>
+
+      <a class="nhsuk-button nhsuk-u-margin-bottom-7" href="#" draggable="false">
+        Download results (PDF)
+      </a>
+
+
+      <h2>Ordering information</h2>
+      <p class="nhsuk-body nhsuk-u-reading-width"><a href="order-preview">View and download the information (opens in a new tab) </a> you’ll need to create an order for this solution. It includes the Service Recipients you added and any services you may also need to order. </p>
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link nhsuk-u-margin-bottom-2" href="order-preview">
+          <class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+            </path>
+          
+          <!--<span class="nhsuk-action-link__text">View winning solution details</span>-->
+        </a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

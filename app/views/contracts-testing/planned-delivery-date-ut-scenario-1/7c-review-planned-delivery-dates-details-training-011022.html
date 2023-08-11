@@ -1,0 +1,60 @@
+
+<br />
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      }
+    ],
+    rows: [
+    [
+    {
+       text: "ASSURA ER LLP HULL DERMATOLOGY"
+     },
+     {
+       text: "Y03508"
+     }
+   ],
+   [
+     {
+       text: "BURNLEY GP PRACTICE"
+     },
+     {
+       text: "Y03507"
+     }
+   ],
+   [
+     {
+       text: "DONCASTER GP PRACTICE"
+     },
+     {
+       text: "Y03507"
+     }
+   ],
+   [
+     {
+       text: "FOXBOROUGH GP PRACTICE"
+     },
+     {
+       text: "Y03507"
+     }
+   ],
+   [
+     {
+       text: "HACKNEY GP PRACTICE"
+     },
+     {
+       text: "Y03507"
+     }
+   ] 
+      ]
+      }) }}

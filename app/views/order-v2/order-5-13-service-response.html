@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Service provision response</h1>
+      <p class="nhsuk-lede-text">If the Services are procured via a Direct Award or On-Catalogue Further Competition Procedure, the details below should be completed prior to entering into the Call Off Agreement. If the services are procured via an Off-Catalogue Further Competition Procedure, the details below should be provided as part of the Tender.</p>
+
+      <h2>Section D.1 Supplier service provision response</h2>
+
+      {% from 'textarea/macro.njk' import textarea %}
+      {{ textarea({
+        "name": "example",
+        "id": "example",
+        "label": {
+          "text": "Commercially Sensitive Information"
+        },
+        "hint": {
+          "text": "Commercially Sensitive Information relating to the Supplier, its IPR or its business, or which the Supplier is indicating to the Call Off Ordering Party that, if disclosed by the Call Off Ordering Party, would cause the Supplier significant commercial disadvantage or material financial loss."
+        }
+      }) }}
+
+
+
+      <h3>Exclusive Assets</h3>
+      <p>Please list any Exclusive Assets applicable to each Service Instance:</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Add Exclusive Asset",
+        "href": "#"
+      }) }}
+
+
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Service Instance ID"
+          },
+          {
+            text: "Exclusive Assets"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Lorem ipsum"
+            },
+            {
+              text: "Lorem ipsum"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ]
+        ]
+      }) }}
+
+
+      <h2>Section D.2 Specific Associated Services requirement responses</h2>
+      <p>Please provide a brief description of how you will satisfy the specific Associated Services requirements set out in section B.5 above for each entry in section B.5 where the Call Off Ordering Party has indicated that a solution description is required in that section.</p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Add Specific Associated Services requirement response",
+        "href": "#"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Service Instance ID"
+          },
+          {
+            text: "Solution summary"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Lorem ipsum"
+            },
+            {
+              text: "Lorem ipsum"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ]
+        ]
+      }) }}
+
+<br />
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "Are you happy with this Service response plan?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, approve"
+          },
+          {
+            "value": "no",
+            "text": "No, ask supplier to revise"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      <form action="order-4-summary-supplier">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-3-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>[Service recipient group name]</h1>
+      <p class="nhsuk-lede-text">These are the service recipients included in this group.</p>
+
+      <p><a href="order-5-3-service-recipients">Edit service recipient group</a></p>
+
+      <!--{% from 'input/macro.njk' import input %}
+
+      {{ input({
+        "label": {
+          "text": "What is the group name?"
+        },
+        "id": "example",
+        "name": "example"
+      }) }}-->
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: 'Organisation'
+    },
+    {
+      text: "ODS code"
+    },
+    {
+      text: "Practice size"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: 'ASSURA ER LLP HULL DERMATOLOGY'
+      },
+      {
+        text: "Y03508"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'BEVAN LIMITED'
+      },
+      {
+        text: "Y07021"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'BRANSHOLME MIU'
+      },
+      {
+        text: "Y00427"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'BURNBRAE MEDICAL PRACTICE'
+      },
+      {
+        text: "B81085"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'CHCP - URGENT CARE OOH'
+      },
+      {
+        text: "Y00023"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'CHCP STROKE REHABILITATION'
+      },
+      {
+        text: "Y04419"
+      },
+      {
+        text: "32,531"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'CITY HEALTH PRACTICE LTD'
+      },
+      {
+        text: "Y03508"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: 'COMMUNITY PAEDIATRICIAN SERVICE (HULL)'
+      },
+      {
+        text: "Y03503"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ]
+  ]
+}) }}
+
+<br />
+
+      <form action="order-4-summary-completed">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

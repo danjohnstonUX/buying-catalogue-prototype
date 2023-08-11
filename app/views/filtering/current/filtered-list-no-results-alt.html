@@ -1,0 +1,225 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [
+],
+href: "#",
+text: "Home"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Catalogue Solutions found</h1>
+    <p class="nhsuk-lede-text">
+      These are the Catalogue Solutions that meet your search criteria.
+    </p>
+
+    <!--{{ insetText({
+      "HTML": "<p class='nhsuk-body'>Once you’re happy with your results, you can save your filters to create a shortlist.</p>
+      "
+    }) }}-->
+
+
+    <hr>
+
+    <h2>0 Catalogue Solutions found with this search criteria</h2>
+    <p>Try changing any filters you've selected.</p>
+    <h3>Selected Capabilities and Epics</h3>
+
+    <ul>
+      <li>Appointments Management - Citizen and 2 epics</li>
+      <li>Video Consultation and 5 epics</li>
+    </ul>
+
+    <p><a href="#" style="margin-right:20px;">Edit Capabilities</a><a href="#" style="margin-right:20px;">Edit Epics</a><a href="index">Start a new search</a></p>
+
+    <!--<div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="select-1">
+        Sort by:
+      </label>
+      <select class="nhsuk-select" id="select-1" name="select-1">
+        <option value="1" selected>A to Z</option>
+        <option value="2">Z to A</option>
+        <option value="3">Last published</option>
+      </select>
+    </div>-->
+
+    <hr>
+
+   <!-- <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-one-third">
+
+        <h2 class="nhsuk-heading-s">Additional filters</h2>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Framework
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ radios({
+            "idPrefix": "framework",
+            "name": "framework",
+            "classes": "nhsuk-radios--small",
+            "fieldset": {
+
+            },
+            "items": [
+            {
+            "value": "dfocvc",
+            "text": "DFOCVC (0)"
+            },
+            {
+            "value": "gpitf",
+            "text": "GP IT Futures (4)"
+            },
+            {
+            "value": "tif",
+            "text": "Tech Innovation (0)"
+            }
+            ]
+            }) }}
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Client application type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ checkboxes({
+            "idPrefix": "app-type-checkbox",
+            "name": "app-type-checkbox",
+            "classes": "nhsuk-u-margin-bottom-5 nhsuk-checkboxes--small",
+            "fieldset": {
+
+            },
+            "items": [
+            {
+            "value": "browser",
+            "text": "Browser-based"
+            },
+            {
+            "value": "desktop",
+            "text": "Desktop"
+            },
+            {
+            "value": "mobile",
+            "text": "Mobile or tablet"
+            }
+            ]
+            }) }}
+          </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" open>
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Hosting type
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            {{ checkboxes({
+            "idPrefix": "hosting-type",
+            "name": "hosting-type",
+            "classes": "nhsuk-checkboxes--small",
+            "fieldset": {
+
+            },
+            "items": [
+            {
+            "value": "public-cloud",
+            "text": "Public cloud"
+            },
+            {
+            "value": "private-cloud",
+            "text": "Private cloud"
+            },
+            {
+            "value": "hybrid",
+            "text": "Hybrid"
+            },
+            {
+            "value": "on-premise",
+            "text": "On premise"
+            }
+            ]
+            }) }}
+          </div>
+        </details>
+
+        <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-3" style="width:100%;">Apply additional filters</button>
+
+        <a class="nhsuk-button" style="width:100%;" href="save-filters">Save all filters</a>
+
+        <p><a href="#">Clear additional filters</a></p>
+
+        <p><a href="index">Start a new search</a></p>
+
+
+      </div>
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h2 class="nhsuk-heading-s">Results</h2>
+
+        <p class="nhsuk-body"><strong>There were no Catalogue Solutions found with this search criteria</strong></p>
+
+        <p class="nhsuk-body">Try changing any filters you've selected. </p>
+
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+  </div>-->
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

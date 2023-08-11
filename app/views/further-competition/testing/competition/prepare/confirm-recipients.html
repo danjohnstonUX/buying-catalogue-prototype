@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients Emis Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "select-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        OC/VC competition
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive the winning solution for this competition.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 5 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>ABBEY GRANGE MEDICAL PRACTICE (B86068)</li>
+      <li>AIRE VALLEY SURGERY (B86051)</li>
+      <li>AIREBOROUGH COMMUNITY CARE (Y05993)</li>
+      <li>AIREBOROUGH FAMILY PRACTICE (B86070)</li>
+      <li>ALLERTON MEDICAL CENTRE (B86039)</li>
+      <li>ALWOODLEY MEDICAL CENTRE (B86008)</li>
+      <li>AMP HEALTHCARE OPHTHALMOLOGY (Y05221)</li>
+      <li>ARTHINGTON MEDICAL CENTRE (B86096)</li>
+      <li>ASHFIELD MEDICAL CENTRE (B86055)</li>
+      <li>ASHTON VIEW MEDICAL CTR (B86623)</li>
+    </ol>
+  <br/>
+
+  <p>You can <a href="select-recipients">add or remove Service Recipients</a> if needed.</p>
+
+      <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="../competition-tasklist">
+                  {% from 'button/macro.njk' import button %}
+          
+                  {{ button({
+                    "text": "Continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

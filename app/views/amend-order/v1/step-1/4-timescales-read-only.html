@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Timescales for Call-off Agreement
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../tasklists/tasklist-start",
+  "text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>Timescales for Call-off Agreement
+    <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C000001-02
+    </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">This is the commencement date, maximum term and initial period for the original order. They cannot be changed.</p>
+
+    {% from 'inset-text/macro.njk' import insetText %}
+
+    {{ insetText({
+      "HTML": "<p>The Call-off Agreement will extend automatically up to the maximum of 48 months unless notice to terminate is given 30 working days before the end of the initial period.</p>
+              <p>This is to allow implementation at multiple sites over an extended period. However, no Service Recipient can receive solutions or services for more than 36 months within the 48 month period.</p>"
+    }) }}
+
+    {{ summaryList({
+      rows: [
+        {
+          key: {
+            text: "Commencement date"
+          },
+          value: {
+            text: "1 April 2022"
+          }
+        },
+        {
+          key: {
+            text: "Initial period"
+          },
+          value: {
+            text: "6 months"
+          }
+        },
+        {
+          key: {
+            text: "Maximum term for each Service Recipient"
+          },
+          value: {
+            html: "36 months"
+          }
+        }
+      ]
+    }) }}
+
+    <br /><br />
+
+    <!-- <form action="order-4-summary">
+    {{ button({
+      "text": "Save and continue"
+    }) }}
+    </form> -->
+    <!-- <form action="order-4-summary">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form> -->
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="../tasklists/tasklist-timescales-completed">
+          {{ button({
+            "text": "Continue"
+          }) }}
+          </form>
+        </div>
+    <!---    &nbsp;&nbsp;&nbsp;
+        <div style="display:inline-block;">
+          <form action="order-0-1-list">
+          {{ button({
+            "text": "Save for later",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+        </form>--->
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+<br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

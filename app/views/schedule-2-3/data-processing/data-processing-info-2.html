@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "data-processing-hub-variation-added",
+      "text": "Go back"
+    }) }}
+
+    <script>
+      function sendForm() {
+        var opt1 = document.getElementById("add-another-variation-1").checked ? document.getElementById("add-another-variation-1").value : "";
+        var opt2 = document.getElementById("add-another-variation-2").checked ? document.getElementById("add-another-variation-2").value : "";
+
+        if(opt1=="yes") {
+            document.location.href = "data-processing-info-1";
+        }
+        else if(opt2=="no") {
+            document.location.href = "data-processing-info-review";
+        }
+      }
+    </script>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Add a variation to the default data processing information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Provide information on the changes to the default data processing information.</p>
+
+        {{ details({
+          "text": "View the standard data processing information",
+          "HTML": '
+          <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Catalogue Solution Personal Data Processing Information</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Description
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Details
+              </th>
+          </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Catalogue Solution Name</td>
+                    <td class="nhsuk-table__cell ">Caltech Web GP</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Subject matter of the processing</td>
+                    <td class="nhsuk-table__cell ">Health &amp; Social Care data to support the online video consultation platform with integrated healthcare specific workflows.</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Duration of the processing</td>
+                    <td class="nhsuk-table__cell ">A Patients name and contact details, along with all recorded consultations and associated data and communications relating to consultations are kept on the Caltech platform for audit and reference for 12 months as standard, more on agreement.</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Nature and purposes of the processing</td>
+                    <td class="nhsuk-table__cell ">Provides citizen with a secure place to store some of their Personal Health Data and share with Health Care professionals for analysis and consultation. Additionally, to provide online video conferencing facilities for Health Care consultations.</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Type of Personal Data</td>
+                    <td class="nhsuk-table__cell "><p><strong>Personal Data (GDPR Category 6): </strong>The Caltech Web GP Platform utilises the following Category 6 data items - Email address, User password, First name, Last name, Company name (optional to provide), Mobile / Company phone number (optional to provide),Profile picture (optional to provide)</p>
+                      <br>
+                      <p><strong>Special Data (GDPR Category 9): </strong>freeform notes taken by the clinician may include racial or ethnic origin, health data, data concerning a person’s sex life and data concerning a person’s sexual orientation.</p></td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Categories of Data Subjects</td>
+                    <td class="nhsuk-table__cell ">Private Citizens</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Plan for return and destruction of the data once the Processing is complete</td>
+                    <td class="nhsuk-table__cell ">The Caltech Web GP Platform is built and hosted on Amazon Web Services (AWS), all data at rest is stored in an encrypted form using a minimum 128-bit AES encryption keys. When processing is complete Caltech utilises AWS services for the deletion of encrypted consultation archives using the AWS Management Console. AWS is GDPR compliant.</td>
+            </tr>
+          </tbody>
+        </table>
+                '
+        }) }}
+
+        {{ textarea({
+          "label": {
+            "text": "What variation has been agreed with the supplier?"
+          },
+          "id": "variation",
+          "name": "variation"
+        }) }}
+
+        <br />
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"data-processing-hub-variation-added-2"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

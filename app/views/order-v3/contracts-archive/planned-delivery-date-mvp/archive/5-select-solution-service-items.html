@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select solutions or services
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "4-planned-delivery-date-nopath",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Select solution or services
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Provide us with the planned delivery date for the whole contract.</p>
+
+      {% from 'radios/macro.njk' import radios %}
+
+{{ checkboxes({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "Select all the items that have a different planned delivery date",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": ""
+  },
+  "items": [
+    {
+      "value": "email",
+      "text": "EMIS Web GP"
+    },
+    {
+      "value": "phone",
+      "text": "Enterprise Search and Report"
+    },
+    {
+      "value": "phone",
+      "text": "Training Day at Practice"
+    }
+  ]
+}) }}
+
+<br />
+
+      <!-- <form action="order-4-summary">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form> -->
+      <!-- <form action="order-4-summary">
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+        </form> -->
+
+        <div>
+          <div style="display:inline-block;">
+            <form action="6-planned-delivery-date-emis-1">
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+            </form>
+          </div>
+          
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <br /><br />
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

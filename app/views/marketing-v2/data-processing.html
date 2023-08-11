@@ -1,0 +1,266 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Data processing
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Data processing information
+        <span class="nhsuk-caption-xl">Caltech Web GP</span>  
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+      <h2 class="nhsuk-heading-l">General data processing information</h2>
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            View general data processing information
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p class="nhsuk-heading-s">Subject matter of the processing</p>
+      <p>The subject-matter of processing of personal data by the Processor is
+        the provision of the Service to the Controller that involves the
+        processing of personal data. Personal data will be subject to those
+        processing activities which are for the purposes of providing you with
+        healthcare and medical services and/or information relating to support
+        relevant to you and to comply with a legal obligation and to fulfil a
+        contractual obligation that we have with you.</p>
+
+      <p class="nhsuk-heading-s">Duration the processing</p>
+      <p>The Processing will take place over the duration of the relevant
+        Service. The storage of any data item that contains detail of either
+        system or practice operational information, that may require retention
+        for purposes of historical review or audit, shall be retained for a period
+        which is no longer than is necessary for those purposes, as instructed
+        by the Service Recipients in their capacity as Controllers.</p>
+
+      <p class="nhsuk-heading-s">Nature and purposes of processing</p>
+      <p>For a Patient/Service User
+        Patient/Service Users can receive support relating to their healthcare concerns
+        when a Video and Online Consultation is the most appropriate method for
+        delivering that support
+        For Health or Care Professional
+        Health or Care Professionals can conduct consultations remotely over video and
+        online ensuring care services can be delivered in a personal way regardless of
+        location
+        For Healthcare Organisation
+        Increase Patient/Service User access to advice or consultation by removing the
+        barrier of locality.
+        All Processing is conducted in the United Kingdom.</p>
+
+      <p class="nhsuk-heading-s">Types of personal data</p>
+      <p>Patients/Patients' representatives/guardians: contact details
+        First Name
+        Last Name
+        Gender
+        Password
+        Email address</p>
+
+      <p class="nhsuk-heading-s">Categories of data subjects</p>
+      <p>Application and Platform and website Users. Patients, Patients'
+        representatives/guardians, Practice/Service Users, persons working within the
+        wider NHS and social care system. Staff (including volunteers, agents, and
+        temporary workers), customers/ clients, suppliers, patients, students / pupils,
+        members of the public and public bodies as required by Law.</p>
+
+      <p class="nhsuk-heading-s">Location of data processing</p>
+      <p>All data is processed in the UK.</p>
+        </div>
+      </details>
+
+      <hr>
+        <h3 class="nhsuk-heading-l">Data Protection Officer</h3>
+        <details class="nhsuk-details nhsuk-expander">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              View Data Protection Officer details
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  Travis McRowe
+                </dd>           
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  travis.mcrowe@emailaddress.com
+                </dd>           
+              </div>
+            </dl>
+          </div>
+        </details>
+      
+        <hr>
+        <h4 class="nhsuk-heading-l">Sub-processors</h4>
+
+        <details class="nhsuk-details nhsuk-expander">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Google Llc UK
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <p class="nhsuk-heading-s">Subject matter of the processing</p>
+      <p>To provide Klinik Access service for Health care organizations (Data Controllers).</p>
+
+      <p class="nhsuk-heading-s">Duration the processing</p>
+      <p>The duration of the processing will be the duration of the agreement.</p>
+
+      <p class="nhsuk-heading-s">Nature and purposes of processing</p>
+      <p>"Hosting and storage services used to produce the service in accordance of NHS
+        Digital"</p>
+
+      <p class="nhsuk-heading-s">Types of personal data</p>
+      <p>All data mentioned above in The Suppliers Data processing information.</p>
+
+      <p class="nhsuk-heading-s">Categories of data subjects</p>
+      <p>Patients data, Data controllers employees</p>
+
+      <p class="nhsuk-heading-s">Plan for return and destruction of the data once the processing is complete</p>
+      <p>The Supplier shall return all Personal Data to the Customer according to the
+        instructions given by the Customer. In addition, the Supplier shall delete all existing
+        copies of Personal Data, unless required to store them under law.</p>
+          </div>
+        </details>
+
+        <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+          Solution information last reviewed: 31 March 2023
+        </p>
+  
+        {% from 'pagination/macro.njk' import pagination %}
+  
+        {{ pagination({
+        "previousUrl": "interoperability",
+        "previousPage": "Interoperability",
+        "nextUrl": "application-type",
+        "nextPage": "Application type"
+        }) }}
+      
+
+        
+    </div>
+  </div>
+
+</article>
+{% endblock %}
+
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });  
+  
+});
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

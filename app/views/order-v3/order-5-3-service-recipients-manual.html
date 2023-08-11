@@ -1,0 +1,249 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+// function delay() {
+//   var delayInMilliseconds = 1; //1 second
+//
+//   setTimeout(function() {
+//   //your code to be executed after 1 second
+//   $("#conditional-contact-1").removeClass("nhsuk-radios__conditional--hidden");
+// }, delayInMilliseconds);
+// }
+
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-3-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+      <h1>Service Recipients<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Genysys Web
+      </span></h1>
+      <p class="nhsuk-lede-text">Select the organisations you want to receive this Catalogue Solution.</p>
+
+      {% from 'checkboxes/macro.njk' import checkboxes %}
+
+      {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Organisation
+        </label>
+      </div>'
+    },
+    {
+      text: "ODS code"
+    },
+    {
+      text: "Practice size"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            ASSURA ER LLP HULL DERMATOLOGY
+          </label>
+        </div>'
+      },
+      {
+        text: "Y03508"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            BEVAN LIMITED
+          </label>
+        </div>'
+      },
+      {
+        text: "Y07021"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            BRANSHOLME MIU
+          </label>
+        </div>'
+      },
+      {
+        text: "Y00427"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            BURNBRAE MEDICAL PRACTICE
+          </label>
+        </div>'
+      },
+      {
+        text: "B81085"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            CHCP - URGENT CARE OOH
+          </label>
+        </div>'
+      },
+      {
+        text: "Y00023"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            CHCP STROKE REHABILITATION
+          </label>
+        </div>'
+      },
+      {
+        text: "Y04419"
+      },
+      {
+        text: "32,531"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            CITY HEALTH PRACTICE LTD
+          </label>
+        </div>'
+      },
+      {
+        text: "Y03508"
+      },
+      {
+        text: "14,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            COMMUNITY PAEDIATRICIAN SERVICE (HULL)
+          </label>
+        </div>'
+      },
+      {
+        text: "Y03503"
+      },
+      {
+        text: "1,537"
+      },
+      {
+        html: '<a href="#">Edit</a>'
+      }
+    ]
+  ]
+}) }}
+
+
+        <br />
+      <form action="order-5-3-service-recipients-list">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+<script>
+  // var old_element = document.getElementById("group-1");
+  // var new_element = old_element.cloneNode(true);
+  // old_element.parentNode.replaceChild(new_element, old_element);
+</script>
+{% endblock %}

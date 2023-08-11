@@ -1,0 +1,297 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Review your requirements
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "non-price-elements",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Review your requirements</h1>
+
+<p class="nhsuk-lede-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dolorum.</p>
+
+
+<br/>
+
+<h2 class="nhsuk-heading-m">Weighting</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        text: "75%"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Non-price"
+      },
+      value: {
+        text: "25%"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Application type and features</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Application type"
+      },
+      value: {
+        text: "Mobile or tablet application"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Supported operating systems"
+      },
+      value: {
+        html: "<ul><li>Apple iOS</li><li>Android</li></ul>"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Memory size"
+      },
+      value: {
+        text: "4GB"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+    
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Interoperability</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "IM1 Integrations"
+      },
+      value: {
+        text: "IM1 Transactional"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "GP Connect Integrations"
+      },
+      value: {
+        text: "None selected"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Implementation</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Implementation details"
+      },
+      value: {
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam obcaecati aliquam fuga nam quam distinctio odit incidunt quae laboriosam quos."
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }    
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Hosting type</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Hosting type required"
+      },
+      value: {
+        text: "Private cloud"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    } 
+  ]
+}) }}
+
+<br>
+
+<h2 class="nhsuk-heading-m">Service Level Agreement</h2>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Core support hours"
+      },
+      value: {
+        text: "08:30 to 19:00"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Applicable days"
+      },
+      value: {
+        text: "Monday to Friday, including bank holidays"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"non-price-weighting"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

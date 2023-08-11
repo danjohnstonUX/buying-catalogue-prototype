@@ -1,0 +1,1437 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-another-additional-list",
+  "text": "Go back"
+}) }}
+
+<style>
+  .nhsuk-expander-index{
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary{
+    padding-top:40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text{
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter{
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color:#212b32;
+    display: block;
+  }
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){
+  updateGlobalCount();
+  updateAllSubgroupCounters();
+  document.getElementById('selection-counter').removeAttribute('style');
+
+  const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+  for (var i = 0; i < allCheckboxes.length; i++){
+    allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+  }
+}
+
+function updateSubGroupCount(selectedCheckbox){
+  var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+  updateSubGroupCountWorker(subgroup);
+  updateGlobalCount();
+}
+
+function updateSubGroupCountWorker(subgroup){
+  const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+  const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+  if(count > 0){
+    const endingS = count > 1 ? 's' : '';
+    counter.innerText = ` - ${count} recipient${endingS} selected`;
+  }
+  else{
+    counter.innerText = '';
+  }
+}
+
+function updateAllSubgroupCounters(){
+  const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+  const allSubgroups = [];
+  allSelectedCheckboxes.forEach(function(cv, ci, lo)
+  {
+  allSubgroups.push(cv.getAttribute('subgroup'));
+  });
+  const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+  uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+}
+
+function updateGlobalCount(){
+  const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+  const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+  const globalCounter = document.getElementById('selection-counter');
+  globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+  }
+</script>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Service Recipients<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+         Enterprise Search and Reports 
+      </span></h1>
+      <p class="nhsuk-lede-text">Select the organisations you want to receive this Additional Service.</p>
+
+      {{ insetText({
+        "HTML": "<p>The recipients you selected for your Catalogue Solution have been pre-selected.</p>"
+      }) }}
+
+
+      <h2>Select Service Recipients</h2>
+
+      {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+      <p id="selection-counter" style="display:none;"></p>
+      <br/>
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> A <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 Service Recipient<span class="counter-class" subgroup="A"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    header: "Organisation",
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-1" name="example" type="checkbox" value="y03508" subgroup="A" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-1">
+                        Assura ER LLP Hull Dermatology
+                      </label>
+                    </div>'
+                  },
+                  {
+                    header: "ODS code",
+                    text: "Y03508"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> B <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 Service Recipients<span class="counter-class" subgroup="B"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-2" name="example" type="checkbox" value="email" subgroup="B" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-2">
+                        BEVAN LIMITED
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y03508"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-3" name="example" type="checkbox" value="email" subgroup="B">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-3">
+                        BRANSHOLME MIU
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y00427"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-4" name="example" type="checkbox" value="email" subgroup="B" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-4">
+                        BURNBRAE MEDICAL PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81085"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> C <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              11 Service Recipients<span class="counter-class" subgroup="C"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-5" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-5">
+                        CHCP - URGENT CARE OOH
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y00023"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-6" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-6">
+                        CHCP STROKE REHABILITATION
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y04419"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-7" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-7">
+                        CHP LTD - BRANSHOLME
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81002"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-8" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-8">
+                        CITY HEALTH PRACTICE LTD
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81074"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-9" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-9">
+                        CLIFTON HOUSE MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81054"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-10" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-10">
+                        COMMUNITY PAEDIATRICIAN SERVICE (HULL)
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y04461"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-11" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-11">
+                        COMMUNITY SERVICES
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y03834"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-12" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-12">
+                        CONCORDIA COMMUNITY CARDIOLOGY SERVICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y03701"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-13" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-13">
+                        CONIFER HOUSE SEXUAL HEALTH CLINIC
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y03450"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-13a" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-13a">
+                        COOK BF
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81095"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-14" name="example" type="checkbox" value="email" subgroup="C">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-14">
+                        CRI HULL DRUGS INTERVENTION PROGRAMME
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y04568"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> D <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              5 Service Recipients<span class="counter-class" subgroup="D"></span>
+            </span>
+          </span>
+
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-15" name="example" type="checkbox" value="email" subgroup="D">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-15">
+                        DELTA HEALTHCARE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81097"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-16" name="example" type="checkbox" value="email" subgroup="D" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-16">
+                        DERMATOLOGY CLINIC GPSI
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y00894"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-17" name="example" type="checkbox" value="email" subgroup="D">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-17">
+                        DR GT HENDOW\'S PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81616"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-18" name="example" type="checkbox" value="email" subgroup="D" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-18">
+                        DR JAD WEIR & PARTNERS
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81040"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-19" name="example" type="checkbox" value="email" subgroup="D">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-19">
+                        DRS RAUT AND THOUFEEQ
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81631"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> E <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              4 Service Recipients<span class="counter-class" subgroup="E"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-20" name="example" type="checkbox" value="email" subgroup="E">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-20">
+                        EAST HULL FAMILY PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81008"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-21" name="example" type="checkbox" value="email" subgroup="E">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-21">
+                        EAST PARK PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81645"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-22" name="example" type="checkbox" value="email" subgroup="E">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-22">
+                        ED CLINIC
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y00424"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-23" name="example" type="checkbox" value="email" subgroup="E">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-23">
+                        EXTENDED ACCESS SERVICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y06227"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> G <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 Service Recipients<span class="counter-class" subgroup="G"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-24" name="example" type="checkbox" value="email" subgroup="G">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-24">
+                        GOODHEART SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81119"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-25" name="example" type="checkbox" value="email" subgroup="G">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-25">
+                        GOODHEART SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81688"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-26" name="example" type="checkbox" value="email" subgroup="G">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-26">
+                        GPSI SEXUAL HEALTH & WOMENS SERVICES
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y00426"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> H <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              5 Service Recipients<span class="counter-class" subgroup="H"></span>
+            </span>
+          </span>
+
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-27" name="example" type="checkbox" value="email" subgroup="H">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-27">
+                        HASTINGS MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81075"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-28" name="example" type="checkbox" value="email" subgroup="H">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-28">
+                        HAXBY GROUP CALVERT & NEWINGTON
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81675"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-29" name="example" type="checkbox" value="email" subgroup="H" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-29">
+                        HAXBY GROUP HULL
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y02747"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-30" name="example" type="checkbox" value="email" subgroup="H">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-30">
+                        HULL AND EAST YORKSHIRE BOWEL CANCER SCREENING CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "A99976"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-31" name="example" type="checkbox" value="email" subgroup="H" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-31">
+                        HULL CCG VOCARENHS111 OOH
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y06959"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> I <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 Service Recipients<span class="counter-class" subgroup="I"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-32" name="example" type="checkbox" value="email" subgroup="I">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-32">
+                        INTEGRATED CARE CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y06079"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-33" name="example" type="checkbox" value="email" subgroup="I">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-33">
+                        INTERMEDIATE CARE SERVICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y04395"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-34" name="example" type="checkbox" value="email" subgroup="I">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-34">
+                        INTERMEDIATE CARE SERVICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y06056"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> J <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 service recipient<span class="counter-class" subgroup="J"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-35" name="example" type="checkbox" value="email" subgroup="J" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-35">
+                        JAMES ALEXANDER FAMILY PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81112"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> K <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              2 Service Recipients<span class="counter-class" subgroup="K"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-36" name="example" type="checkbox" value="email" subgroup="K">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-36">
+                        KINGSTON HEALTH (HULL)
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81011"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-37" name="example" type="checkbox" value="email" subgroup="K">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-37">
+                        KINGSTON MEDICAL GROUP
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81017"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> L <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 Service Recipient<span class="counter-class" subgroup="L"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-38" name="example" type="checkbox" value="email" subgroup="L" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-38">
+                        LAURBEL SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81635"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            M
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 Service Recipient<span class="counter-class" subgroup="M"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-39" name="example" type="checkbox" value="email" subgroup="M">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-39">
+                        MODALITY PARTNERSHIP (HULL)
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81048"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> N <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              2 Service Recipients<span class="counter-class" subgroup="N"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-40" name="example" type="checkbox" value="email" subgroup="N">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-40">
+                        NAYAR JK
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81104"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-41" name="example" type="checkbox" value="email" subgroup="N">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-41">
+                        NORTHPOINT
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y02344"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> O <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 Service Recipient<span class="counter-class" subgroup="O"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-42" name="example" type="checkbox" value="email" subgroup="O">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-42">
+                        ORCHARD 2000 GROUP
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81018"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> P <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 Service Recipients<span class="counter-class" subgroup="P"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-43" name="example" type="checkbox" value="email" subgroup="P" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-43">
+                        PAIN MANAGEMENT GPSI
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y01218"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-44" name="example" type="checkbox" value="email" subgroup="P">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-44">
+                        PALLIATIVE CARE CLINIC
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y03108"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-45" name="example" type="checkbox" value="email" subgroup="P">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-45">
+                        PRINCES MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81052"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> S <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              2 Service Recipients<span class="counter-class" subgroup="S"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-46" name="example" type="checkbox" value="email" subgroup="S" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-46">
+                        ST ANDREWS SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81027"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-47" name="example" type="checkbox" value="email" subgroup="S" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-47">
+                        SYDENHAM GROUP PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81058"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> T <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              4 Service Recipients<span class="counter-class" subgroup="T"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-48" name="example" type="checkbox" value="email" subgroup="T">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-48">
+                        THE AVENUES MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81035"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-49" name="example" type="checkbox" value="email" subgroup="T">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-49">
+                        THE BRIDGE GROUP PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81046"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-50" name="example" type="checkbox" value="email" subgroup="T">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-50">
+                        THE OAKS MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81038"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-51" name="example" type="checkbox" value="email" subgroup="T">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-51">
+                        THE SUTTON MANOR SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81020"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> W <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              2 Service Recipients<span class="counter-class" subgroup="W"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-52" name="example" type="checkbox" value="email" subgroup="W">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-52">
+                        WILBERFORCE SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81032"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-53" name="example" type="checkbox" value="email" subgroup="W">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-53">
+                        WOLSELEY MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81047"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index">
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> Y <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              1 Service Recipient<span class="counter-class" subgroup="Y"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-54" name="example" type="checkbox" value="email" subgroup="Y">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-54">
+                        YPS SSM SERVICE (REFRESH)
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "Y05235"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <br />
+
+      <form action="additional-service-1-price-tiered">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

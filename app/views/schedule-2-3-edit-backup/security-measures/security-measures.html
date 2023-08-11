@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "../order-4-summary-completed",
+  "text": "Go back"
+}) }}
+
+    {% set securityHtml %}
+
+    {{ textarea({
+    "idPrefix": "security-measures-required",
+    "name": "security-measures-required",
+    "fieldset": {
+      "legend": {
+        "text": "Do you want to add any Additional Services?",
+        "classes": "nhsuk-fieldset__legend--s"
+      }
+    },
+    "hint": {
+      "text": "What are the special security measures you require?"
+    }
+  }) }}
+
+    {% endset -%}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Security measures
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Select if you require any special security measures such as practice staff using the solution in private.</p>
+
+        {{ details({
+  "text": "What are special security measures?",
+  "HTML": "
+
+    <p>????????????????????????????????????????????????????????????????????????</p>
+  "
+}) }}
+
+
+        {{ radios({
+          "idPrefix": "security-measures",
+          "name": "security-measures-radios",
+          "fieldset": {
+            "legend": {
+              "text": "Do you require any special security measures?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+          {
+            "value": "yes",
+            "text": "Yes",
+            "conditional": {
+              "html": securityHtml
+            }
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"../order-4-summary-security-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

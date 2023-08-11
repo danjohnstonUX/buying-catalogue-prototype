@@ -1,0 +1,76 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "/",
+  "text": "Go back to homepage"
+}) }}
+
+
+
+    <form action="/">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+
+          <h1>Request submitted</h1>
+          <p class="nhsuk-lede-text">Your request has been sent to the Buying Catalogue Team.</p>
+          <p><b>What next?</b></p>
+
+<p>Once we’ve set up your account, you’ll be sent a link to the email address you provide so you can create a password. Remember to check your ‘Junk’ or ‘Spam’ folder.</p>
+
+<p>The link can be used only once to set up one account, and will be valid for 24 hours from the time you receive the email.</p>
+
+<p>The Buying Catalogue Team aims to respond to account requests within 5 working days.</p>
+
+
+        </div>
+      </div>
+    </form>
+
+  <br />
+  <br />
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

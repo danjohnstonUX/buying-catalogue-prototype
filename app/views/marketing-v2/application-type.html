@@ -1,0 +1,417 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Application type
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+      <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+      <nav class="side-nav">
+        {% set template = "includes/sticky-side-nav.njk" %}
+        {% include template %}
+      </nav>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds content" id="content">
+      <h1>
+        Application type
+        <span class="nhsuk-caption-xl">Caltech Web GP</span>  
+      </h1>
+      {% from 'contents-list/macro.njk' import contentsList %}
+      {% from "summary-list/macro.njk" import summaryList %}
+
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Solution ID
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            10000-001
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Framework(s)
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            GP IT Futures
+          </dd>
+          
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Foundation Solution
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+          
+        </div>
+      
+    </dl>
+      <h2>Application type</h2>
+
+      <p>This Catalogue Solution is supported by the following client application types:</p>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Browser-based application"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Desktop application"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Mobile application"
+            },
+            value: {
+              text: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Browser-based application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Supported browser types"
+                },
+                value: {
+                  html: '<ul><li>Google Chrome</li><li>Chromium</li><li>Internet Explorer 11</li><li>Internet Explorer 10</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Mobile responsive"
+                },
+                value: {
+                  text: "Yes"
+                }
+              },
+              {
+                key: {
+                  text: "Plug-ins or extensions required"
+                },
+                value: {
+                  text: "No"
+                }
+              },
+              {
+                key: {
+                  text: "Minimum connection speed"
+                },
+                value: {
+                  text: "2Mbps"
+                }
+              },
+              {
+                key: {
+                  text: "Screen resolution and aspect ratio"
+                },
+                value: {
+                  text: "16:9 – 1366 x 768"
+                }
+              },
+              {
+                key: {
+                  text: "Hardware requirements"
+                },
+                value: {
+                  text: "The browser activities are only supported in relation to the native desktop client and therefore mirror the native desktop client hardware requirements detailed below."
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Native desktop application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Supported operating systems"
+                },
+                value: {
+                  html: '<ul><li>Microsoft Windows 7 (x86 x64)</li><li>Microsoft Windows 8.1 (x86 x64)</li><li>Microsoft Windows 10 (x86 x64)</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Minimum connection speed"
+                },
+                value: {
+                  text: "2Mbps"
+                }
+              },
+              {
+                key: {
+                  text: "Memory size"
+                },
+                value: {
+                  text: "4GB"
+                }
+              },
+              {
+                key: {
+                  text: "Storage space"
+                },
+                value: {
+                  text: "10GB free disk space."
+                }
+              },
+              {
+                key: {
+                  text: "Processing power"
+                },
+                value: {
+                  text: "Intel Core i3 equivalent or higher."
+                }
+              },
+              {
+                key: {
+                  text: "Screen resolution and aspect ratio"
+                },
+                value: {
+                  text: "16:9 – 1366 x 768"
+                }
+              },
+              {
+                key: {
+                  text: "Third-party components"
+                },
+                value: {
+                  text: ".NET framework 4."
+                }
+              },
+              {
+                key: {
+                  text: "Device capabilities"
+                },
+                value: {
+                  text: "The application requires connectivity to the Caltech Data Centre."
+                }
+              },
+              {
+                key: {
+                  text: "Hardware requirements"
+                },
+                value: {
+                  html: 'The spoke server is an important part of the solution. It provides a patch distribution system for client updates and acts as a local cache.<br /><br />Caltech Health recommends that your spoke is a dedicated device. However, if you use your spoke to perform other functions, such as act as a domain controller, store business documents or host other applications, then a Windows server class operating system will be required, along with an appropriate specification of server hardware.'
+                }
+              },
+              {
+                key: {
+                  text: "Additional information"
+                },
+                value: {
+                  html: 'The minimum connection speed is dependent on the number of clients that need to be supported.<br /><br />Caltech Health do not support the use of on-screen keyboards for 2 in 1 devices.'
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Native mobile or tablet application
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Supported operating systems"
+                },
+                value: {
+                  html: '<ul><li>Apple IOS</li><li>Android</li><li>Other</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Description of supported operating systems"
+                },
+                value: {
+                  html: '<ul><li>iOS v 10.3.3.3 and above</li><li>Android v 6 and above</li><li>Windows 10 (Build 14393)</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Connection types supported"
+                },
+                value: {
+                  html: '<ul><li>GPRS</li><li>3G</li><li>LTE</li><li>4G</li><li>5G</li><li>Wifi</li></ul>'
+                }
+              },
+              {
+                key: {
+                  text: "Connection requirements"
+                },
+                value: {
+                  text: "The mobile application only requires internet connectivity to synchronise, therefore there is no minimum connection speed required."
+                }
+              },
+              {
+                key: {
+                  text: "Memory size"
+                },
+                value: {
+                  text: "2GB"
+                }
+              },
+              {
+                key: {
+                  text: "Storage space"
+                },
+                value: {
+                  text: "All compliant devices must have a minimum 16GB storage."
+                }
+              },
+              {
+                key: {
+                  text: "Device capabilities"
+                },
+                value: {
+                  text: "The device should have access to the relevant App Store to enable the installation of the respective application although deployment via mobile device management solutions is supported."
+                }
+              },
+              {
+                key: {
+                  text: "Hardware requirements"
+                },
+                value: {
+                  text: "Any device capable of supporting the listed supported operating systems is compliant."
+                }
+              },
+              {
+                key: {
+                  text: "Additional information"
+                },
+                value: {
+                  html: 'Apple have recently announced that a new operating system, designed specifically for iPad devices.<br /><br />We have tested this and can confirm that Caltech Mobile is fully compatible.'
+                }
+              },
+              {
+                key: {
+                  text: "Memory size"
+                },
+                value: {
+                  text: "2GB"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </details>
+
+
+<p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Solution information last reviewed: 31 March 2020
+</p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "data-processing",
+    "previousPage": "Data processing information",
+    "nextUrl": "hosting-type",
+    "nextPage": "Hosting type"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+{% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){   
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+  });
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

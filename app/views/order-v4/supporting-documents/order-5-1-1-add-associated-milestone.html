@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-standard",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1>Add a bespoke Associated Service milestone<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span></h1>
+
+        <p class="nhsuk-lede-text">Add any Associated Service milestones you’ve agreed with the supplier that will act as payment triggers.</p>
+
+
+
+        {% from 'select/macro.njk' import select %}
+
+{{ select({
+  "id": "select-1",
+  "name": "select-1",
+  "label": {
+    "text": "Associated Service name"
+  },
+  "hint": {
+  "text": "Select the Associated Service this milestone will apply to."
+  },
+  "items": [
+    {
+      "value": 1,
+      "text": "Engineering"
+    },
+    {
+      "value": 2,
+      "text": "Migration",
+      "selected": true
+    },
+    {
+      "value": 3,
+      "text": "Training",
+      "disabled": true
+    }
+  ]
+}) }}
+      
+
+      {% from 'input/macro.njk' import input %}
+      {{ input({
+        "label": {
+          "text": "Milestone name"
+        },
+          "hint": {
+          "text": "Provide a name for the milestone you want to add to this order."
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {% from 'textarea/macro.njk' import textarea %}
+
+      {{ textarea({
+        "name": "example",
+        "id": "example",
+        "label": {
+          "text": "Milestone payment trigger"
+        },
+        "hint": {
+          "text": "Provide a description of how this milestone will trigger payments as part of this order."
+        }
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Number of units to be billed on milestone achievement"
+        },
+        "hint": {
+          "text": "Enter the number of Associated Service units that will be billable once this milestone is achieved."
+        },
+        id: "input-width-2",
+        name: "test-width-2",
+        classes: "nhsuk-input--width-2"
+      }) }}
+
+
+      <form action="associated-service-holding">
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+      </form>
+
+      <p><a href="delete-milestone-confirm" style="color: #d5281b">Delete milestone</a></p>
+
+    </div>
+  </div>
+  
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

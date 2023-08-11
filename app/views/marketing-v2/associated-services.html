@@ -1,0 +1,419 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Associated services
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <div class="nhsuk-width-container">
+      <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+        <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+      </ol>
+      <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+    </div>
+  </nav>
+  
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    <a id="maincontent"></a>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+        <nav class="side-nav">
+          {% set template = "includes/sticky-side-nav.njk" %}
+          {% include template %}
+        </nav>
+      </div>
+      <div class="nhsuk-grid-column-two-thirds content" id="content">
+        <h1>
+          Associated Services
+          <span class="nhsuk-caption-xl">Caltech Web GP</span> 
+        </h1>
+        {% from 'contents-list/macro.njk' import contentsList %}
+        {% from "summary-list/macro.njk" import summaryList %}
+  
+        <dl class="nhsuk-summary-list">
+    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Supplier name
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Solution ID
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              10000-001
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Framework(s)
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              GP IT Futures
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Foundation Solution
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Yes
+            </dd>
+            
+          </div>
+          
+      </dl>
+      <h2>Associated Services</h2>
+          <p>Associated Services help you to implement or optimise the live operation of a Catalogue Solution or Additional Service, for example, training or data migration.</p>
+
+          <p>
+            <strong>These are the Associated Services offered with this Catalogue Solution:</strong>
+          </p>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                SMS Fragments
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "SMS messaging service to provide patients with access to Caltech Web services. An SMS fragment is 160 characters."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: 'Typical units ordered: 800,000'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Practice reorganisation
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Our practice reorganisation service provides support during practice splits and mergers. When two or more practices decide to split or merge clinical information, our service can target either select patients or the full patient list. It makes organising a change in practice simple. This service is applicable to both implementation and live operations."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: "The typical unit of order for practice mergers and splits is likely to be on an individual basis (one). This is a fixed fee per practice regardless of size."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Engineering
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "This service ensure practice infrastructure is in place and has optimum configuration. This service is applicable to the implementation phase and live operations."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: "Dependent on the issue, a typical range is 1-7 days. Additional Engineering is available and would be dependant on scale and user needs. This could be one day or purchased in bulk."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Lloyd George digitisation
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "A fully managed, ISO compliant, service for the digitisation of Lloyd George records. We’ll collect your paper records, scan them and upload them into Caltech Web as digital files. Following sign-off paper records are securely destroyed by shredding them and then recycling them in an eco-friendly way."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: "The typical volume would be an average of eight thousand which is the typical practice capitation. The largest practice size is the maximum."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Lloyd George digitisation (upload only)
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "We will take digitised Lloyd George files and upload them into Caltech Web. This allows for full visibility of a patient's medical records from within the clinical system for more informed decisions at the point of care."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: "The typical volume would be an average of eight thousand which is the typical practice capitation. The largest practice size is the maximum."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Project management
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Our project management service can help organisations to seamlessly manage end-to-end projects based on their requirements. From initial planning to roll-out and ongoing project management, our team provides tailored support to customers."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Order guidance"
+                    },
+                    value: {
+                      text: "Project Management resource is anticipated to be low for standard installations. For more complex deployments it is anticipated to be higher. The minimum is 1 day, maximum is 10 days per practice."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price type"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">Flat</p>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body">£0.3500 per patient per year</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+
+          {% from 'pagination/macro.njk' import pagination %}
+
+          {{ pagination({
+    "previousUrl": "additional-services",
+    "previousPage": "Additional Services",
+    "nextUrl": "implementation-timescales",
+    "nextPage": "Implementation"
+  }) }}
+
+
+      </div>
+    </div>
+
+  {% endblock %}
+  {% block pageScripts %}
+
+  <script type="text/javascript">
+    $(document).ready(function(){ 
+      
+      jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+    
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });   
+  
+  });
+  
+  </script>
+  
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

@@ -1,0 +1,73 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Index pages
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-nonav.html" %}
+{% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  {% block content %}
+
+  {{ backLink({
+    "href": "order-4-edit-solutions-and-services-3",
+    "text": "Go back"
+  }) }}
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Edit Associated Services only scenarios</h1>
+      </div>
+    </div>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        
+
+        <h2>Change Catalogue Solution</h2>
+        
+
+        <h3>Scenario 1</h3>
+        <ol>
+          <li>Buyer selects Anywhere Consult</li>
+          <li>Buyer confirms changes</li>
+          <li>Buyer selects Training Day at Practice</li>
+          <li>Continue until completion</li>
+        </ol>
+        
+        {% from 'action-link/macro.njk' import actionLink %}
+
+        {{ actionLink({
+          "text": "Start journey",
+          "href": "order-5-4-2-add-solution-service-assoc-service"
+        }) }}
+
+        <br />
+
+
+
+
+
+        
+      </div>
+    </div>
+    <br/><br/>
+
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

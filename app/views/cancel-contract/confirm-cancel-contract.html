@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-recap",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Are you sure you want to terminate this contract?
+  <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      Order C10001-01
+  </span>
+</h1>
+<p class="nhsuk-lede-text">Provide the following information and confirm you want to terminate this contract.</p>
+<!-- {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>You will not be able to retrieve you order once confirmed.</p>"
+}) }} -->
+
+{% from 'warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Terminating a contract",
+  "HTML": "<p>Terminating a contract means your Service Recipients will stop receiving any solutions and services that were ordered. You should have contacted the supplier in writing and given them at least 30 days’ notice.</p>
+  <p>Once terminated, you’ll no longer be able to reactivate this contract.</p>"
+}) }}
+
+<form>
+
+{{ textarea({
+  "label": {
+    "text": "Why is this contract being terminated?",
+    "classes": "nhsuk-label--s nhsuk-u-margin-bottom-3"
+  },
+    "hint": {
+    "text": "Provide the reason you want to terminate this contract."
+  },
+  id: "approver-name",
+  name: "approver-name"
+}) }}
+
+<br>
+
+{{ dateInput({
+  "id": "approval-date",
+  "namePrefix": "approval-date",
+  "fieldset": {
+    "legend": {
+      "text": "What date will the termination take place?",
+      "classes": "nhsuk-label--s"
+    }
+  },
+  "hint": {
+    "text": "For example, 12 3 2023. The termination date must be at least 30 days’ from when you gave written notice to the supplier."
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+
+<br/>
+
+  {{ checkboxes({
+    "idPrefix": "confirm-terminate",
+    "name": "confirm-terminate",
+    "fieldset": {
+      "legend": {
+        "text": "Confirm termination",
+        "classes": "nhsuk-fieldset__legend--s",
+        isPageHeading: false
+      }
+    },
+    "hint": {
+      "text": "Confirm you want to terminate this contract and are authorised to do so."
+    },
+    "items": [
+      {
+        "value": "confirm",
+        "text": "I confirm I want to terminate this contract",
+        id: "confirm-checkbox"
+      }
+    ]
+  }) }}
+</form>
+
+
+<form>
+{{ button({
+  "text": "Terminate contract",
+  "href":"terminated-contract-details"
+}) }}
+
+<p><a href="#">Cancel</a></p>
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-4-summary-supplier",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Description of Personal Data</h1>
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet.</p>
+
+      <h2>Section D.5 Description of Personal Data</h2>
+      <p>The description of the Personal Data Processing applicable to the Call Off Agreement will be as set out in the table at D.5.1 below (with any variations set out in the table at D.5.2 below) for each of the Catalogue Solutions and Additional Services encompassed by this Call Off Agreement (as set out in section B of this Call Off Order Form).</p>
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Description"
+          },
+          {
+            text: "Details"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Subject matter of the Processing"
+            },
+            {
+              text: 'The subject matter of the Processing is as summarised in the “Description” and “Outcomes” sections of the Capabilities encompassed by the Catalogue Solution or Additional Service.'
+            }
+          ],
+          [
+            {
+              text: "Duration of the Processing"
+            },
+            {
+              text: 'The Processing will take place over the duration of the relevant Service Instances as set out in section B of this Call Off Order Form, except that storage of any data item that contains detail of either system or practice operational information, that may require retention for purposes of historical review or audit, will be retained  by the Supplier for a period which is no longer than is necessary for those purposes, as instructed by the Service Recipients in their capacity as Data Controllers.'
+            }
+          ],
+          [
+            {
+              text: "Nature and purposes of Processing"
+            },
+            {
+              html: 'As summarised in the "Outcomes", “Epics” and “Acceptance Criteria” sections of the Capabilities encompassed by the Catalogue Solution or Additional Service.
+              <br /><br />
+              All Processing is to be conducted in the United Kingdom unless otherwise permitted in Restricted Countries as set out in section B.4 above.'
+            }
+          ],
+          [
+            {
+              text: "Type of Personal Data"
+            },
+            {
+              html: 'Patients/Patients\' representatives/guardians: names, contact details (e.g. email address, telephone number), relevant medical providers (e.g. GP Practice) user details (e.g. usernames, passwords).
+              <br /><br />
+              Practice Users/Workers within NHS and social care system: names, contact details, job titles, employer details. and as further summarised in the "Outcomes", “Epics and Acceptance Criteria” sections of the Capabilities encompassed by the Catalogue Solution or Additional Service.'
+            }
+          ],
+          [
+            {
+              text: "Categories of Data Subjects"
+            },
+            {
+              html: 'Patients, Patients\' representatives/guardians, Practice Users, persons working within the wider NHS and social care system, and as further summarised in the "Outcomes", “Epics” and “Acceptance Criteria” sections of the Capabilities encompassed by the Catalogue Solution or Additional Service.'
+            }
+          ]
+        ]
+      }) }}
+
+      {% from 'textarea/macro.njk' import textarea %}
+      {{ textarea({
+        "name": "example",
+        "id": "example",
+        "label": {
+          "text": "Supplier’s Data Protection Officer"
+        },
+        "hint": {
+          "text": "Please provide the Supplier’s Data Protection Officer Name and Contact Details."
+        }
+      }) }}
+
+
+      <h2>D.5.1 Default Personal Data Processing information</h2>
+      <p>The Supplier must complete the Supplier’s Data Protection Officer fields shaded light grey below.</p>
+
+      <h2>D.5.2 Variation to default Personal Data Processing information</h2>
+      <p>Complete a copy of the rows shaded light grey in the table below with any variations to the content of the table at section D.5.1 above making it clear to which Service Instances, Catalogue Solutions and/or Additional Services each variation applies. If no variations apply delete the table and enter “No variations apply”.</p>
+
+      {% from 'input/macro.njk' import input %}
+      {{ input({
+        "label": {
+          "text": "Applicable to"
+        },
+          "hint": {
+          "text": "List the Service Instance IDs, Catalogue Solutions and/or Additional Services to which this set of variations apply."
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Subject matter of the Processing"
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Duration of the Processing"
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Nature and purposes of Processing"
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Type of Personal Data"
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Categories of Data Subjects"
+        },
+        id: "example-with-hint-text",
+        name: "example-with-hint-text"
+      }) }}
+
+      <br />
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "Are you happy with this?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, approve"
+          },
+          {
+            "value": "no",
+            "text": "No, ask supplier to revise"
+          }
+        ]
+      }) }}
+
+      <br />
+
+      <form action="order-4-summary-completed">
+      {{ button({
+        "text": "Continue"
+      }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

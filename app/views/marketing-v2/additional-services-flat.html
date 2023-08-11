@@ -1,0 +1,335 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Caltech Web GP - Additional services
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+    <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+      <div class="nhsuk-width-container">
+        <ol class="nhsuk-breadcrumb__list">
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/">Home</a></li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/catalogue-solution/">Catalogue Solutions</a></li>
+          <li class="nhsuk-breadcrumb__item">Caltech Web GP</li>
+        </ol>
+        <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back to Caltech Web GP</a></p>
+      </div>
+    </nav>
+    
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    <a id="maincontent"></a>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-third sidebar" id="sidebar">
+        <nav class="side-nav">
+          {% set template = "includes/sticky-side-nav.njk" %}
+          {% include template %}
+        </nav>
+      </div>
+      <div class="nhsuk-grid-column-two-thirds content" id="content">
+        <h1>
+          Additional Services
+          <span class="nhsuk-caption-xl">Caltech Web GP</span> 
+        </h1>
+        {% from 'contents-list/macro.njk' import contentsList %}
+        {% from "summary-list/macro.njk" import summaryList %}
+  
+        <dl class="nhsuk-summary-list">
+    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Supplier name
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Caltech Health</a> 
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Solution ID
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              10000-001
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Framework(s)
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              GP IT Futures
+            </dd>
+            
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Foundation Solution
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              Yes
+            </dd>
+            
+          </div>
+          
+      </dl>
+      <h2>Additional Services</h2>
+          <p>Additional Services are add-ons that provide additional functionality to a Catalogue Solution for an extra cost. For example, enabling a Catalogue Solution to be used on a mobile device.</p>
+
+          <p>
+            <strong>These are the Additional Services offered with this Catalogue Solution:</strong>
+          </p>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Enterprise Search and Reports
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Enterprise Search and Reports is the fast and efficient way to source, search and report on GP data in real time. With the ability to develop custom searches, you can measure against your key objective, including QOF, LESs/DESs, referral activity and immunisations."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="marketing-page-add-cap-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '£500.00 per month</p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Caltech Web Dispensing
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Caltech Web provides integrated functionality to support dispensing doctors who provide primary healthcare to UK rural patients. This enables dispensing GP practices to provide access to medicines and general healthcare under one roof."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="marketing-page-add-cap-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body"><a href="additional-services-prices">Check prices</a></p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Risk Stratification
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Our risk stratification tool integrates with Caltech Web to support you with early identification of vulnerable and at-risk patients. Searching across multiple risk factors within the patient’s record, it produces an individual risk score"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="marketing-page-add-cap-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body"><a href="additional-services-prices">Check prices</a></p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Document Management
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Caltech Web Document Management helps you workflow both scanned and electronically received documents in your practice, such as Out of Hours notifications, Hospital Discharge letters and NHS111 notifications. Assign different kinds of tasks to different users or teams, so you can work more efficiently."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="marketing-page-add-cap-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body"><a href="additional-services-prices">Check prices</a></p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+          <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Automated Arrivals
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Description"
+                    },
+                    value: {
+                      text: "Reduce pressure on reception staff and manage the flow of patients with a simple to use touch screen kiosk for patients to confirm their arrival. Practices can use their kiosks to offer bookable appointments and show messages and instructions too, all of which can be controlled via a central portal."
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Capabilities and Epics"
+                    },
+                    value: {
+                      html: '<a href="marketing-page-add-cap-epics">Check Capabilities and Epics met</a>'
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Price"
+                    },
+                    value: {
+                      html: '<p class="nhsuk-body"><a href="additional-services-prices">Check prices</a></p>'
+                    }
+                  }
+                ]
+              }) }}
+            </div>
+          </details>
+
+
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+            Solution information last reviewed: 31 March 2020
+          </p>
+
+          {% from 'pagination/macro.njk' import pagination %}
+
+          {{ pagination({
+    "previousUrl": "capabilities-and-epics",
+    "previousPage": "Capabilities and Epics",
+    "nextUrl": "associated-services",
+    "nextPage": "Associated Services"
+  }) }}
+
+
+      </div>
+    </div>
+
+  {% endblock %}
+  {% block pageScripts %}
+
+<script type="text/javascript">
+  $(document).ready(function(){  
+    
+    jQuery.goup({
+      bottomOffset: 100,
+      locationOffset: 60,
+      containerRadius: 23,
+      containerClass: 'nhs-scroll-to-top-button',
+      title: 'Back to top',
+      titleAsText: true,
+      titleAsTextClass: 'scroll-to-top-text'
+    });
+  
+    jQuery('.content, .sidebar').theiaStickySidebar({
+      // Settings
+      additionalMarginTop: 30
+    });
+
+  });
+
+</script>
+
+
+{% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

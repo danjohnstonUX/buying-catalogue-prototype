@@ -1,0 +1,252 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "catalogue-solutions-list",
+    text: "Catalogue Solutions"
+}],
+  href: "marketing-page",
+  text: "Caltech Web GP"
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        <span role="text">Capabilities met
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden"> - </span>
+            Caltech Web GP
+          </span>
+        </span>
+      </h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+      {{ contentsList({
+        items: [
+          {
+            href: "marketing-page",
+            text: "Description"
+          },
+          {
+            href: "marketing-page-2",
+            text: "Features"
+          },
+          {
+            href: "marketing-page-3",
+            text: "Capabilities met",
+            current: "true"
+          },
+          {
+            href: "marketing-page-price",
+            text: "List price"
+          },
+          {
+            href: "marketing-page-4",
+            text: "Integrations"
+          },
+          {
+            href: "marketing-page-5",
+            text: "Implementation timescales"
+          },
+          {
+            href: "marketing-page-6",
+            text: "Client application type"
+          },
+          {
+            href: "marketing-page-7",
+            text: "Hosting type"
+          },
+          {
+            href: "marketing-page-8",
+            text: "Roadmap"
+          },
+          {
+            href: "marketing-page-9",
+            text: "Supplier details"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full"> <!-- two-thirds -->
+
+      <p><b>This Catalogue Solution has demonstrated that it can help meet the following needs in primary care:</b></p>
+
+      {% from 'tables/macro.njk' import table %}
+
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Capability"
+    },
+    {
+      text: ""
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP, 1.0.1</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Status",
+        html: '<strong class="nhsuk-tag nhsuk-tag--green" style="white-space: nowrap;">Fully met</strong>'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics met</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>Clinical Decision Support, 1.0.1</b><br />Supports clinical decision-making to improve Patient safety at the point of care.'
+      },
+      {
+        header: "Status",
+        html: '<strong class="nhsuk-tag nhsuk-tag--yellow" style="white-space: nowrap;">Partially met</strong>'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics met</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>GP Extracts Verification, 1.0.1</b><br />Supports Practice staff in ensuring&nbsp;accuracy of the data that is used with&nbsp;the Calculating Quality Reporting Service (CQRS).'
+      },
+      {
+        header: "Status",
+        html: '<strong class="nhsuk-tag nhsuk-tag--green" style="white-space: nowrap;">Fully met</strong>'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics met</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: "<b>Medicines Optimisation, 1.0.1</b><br />Supports clinicians and pharmacists in reviewing a Patient's medication and requesting changes to medication to ensure the Patient is taking the best combination of medicines."
+      },
+      {
+        header: "Status",
+        html: '<strong class="nhsuk-tag nhsuk-tag--green" style="white-space: nowrap;">Fully met</strong>'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics met</a>'
+      }
+    ],
+    [
+      {
+        header: "Capability",
+        html: '<b>Appointments Management – GP, 1.0.1</b><br />Supports the administration, scheduling, resourcing and reporting of appointments.'
+      },
+      {
+        header: "Status",
+        html: '<strong class="nhsuk-tag nhsuk-tag--green" style="white-space: nowrap;">Fully met</strong>'
+      },
+      {
+        header: "Action",
+        html: '<a href="marketing-page-3-detail" style="white-space: nowrap;">Check Epics met</a>'
+      }
+    ]
+  ]
+}) }}
+
+<!--
+      <h2>Appointments Management – GP, 1.0.1</h2>
+      <p>Supports the administration, scheduling, resourcing and reporting of appointments.</p>
+
+      <h2>Clinical Decision Support, 1.0.1</h2>
+      <p>Supports clinical decision-making to improve Patient safety at the point of care.</p>
+
+      <h2>GP Extracts Verification, 1.0.1</h2>
+      <p>Supports Practice staff in ensuring&nbsp;accuracy of the data that is used with&nbsp;the Calculating Quality Reporting Service (CQRS).</p>
+
+      <h2>Medicines Optimisation, 1.0.1</h2>
+      <p>Supports clinicians and pharmacists in reviewing a Patient's medication and requesting changes to medication to ensure the Patient is taking the best combination of medicines.</p>
+
+      <h2>Patient Information Maintenance, 1.0.1</h2>
+      <p>Supports the registration of Patients and the maintenance of all Patient personal information. Supports the organisation and presentation of a comprehensive Patient Record. Also supports the management of related persons and configuring access to Citizen Services.</p>
+
+      <h2>Prescribing, 1.0.1</h2>
+      <p>Supports the effective and safe prescribing of medical products and appliances to Patients. Information to support prescribing will be available.</p>
+
+      <h2>Productivity, 1.0.1</h2>
+      <p>Supports Patients/Service Users and Health and Care Professionals by delivering improved efficiency or experience related outcomes.</p>
+
+      <h2>Recording Consultations, 1.0.1</h2>
+      <p>Supports the standardised recording of Consultations and other General Practice activities. Also supports the extraction of Female Genital Mutilation (FGM) data for the FGM data set.</p>
+
+      <h2>Referral Management, 1.0.1</h2>
+      <p>Supports recording, reviewing, sending, and reporting of&nbsp;Patient Referrals. Enables Referral information to be included in the Patient Record.</p>
+
+      <h2>Reporting, 1.0.1</h2>
+      <p>>Enables reporting and analysis of data from other Capabilities in the Practice Solution to support clinical care and Practice management.</p>
+
+      <h2>Resource Management, 1.0.1</h2>
+      <p>Supports the management and reporting of Practice information, resources, Staff Members and related organisations. Also enables management of Staff Member availability and inactivity.</p>
+
+      <h2>Scanning, 1.0.1</h2>
+      <p>Support the con[Version] of paper documentation into digital format preserving the document quality and structure.</p>
+
+      <h2>Workflow, 1.0.1</h2>
+      <p>Supports manual and automated management of work in the Practice. Also supports effective planning, tracking, monitoring and reporting.</p>
+-->
+
+<p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+  Solution information last reviewed: 31 March 2020
+</p>
+
+  {% from 'pagination/macro.njk' import pagination %}
+
+  {{ pagination({
+    "previousUrl": "marketing-page-2",
+    "previousPage": "Features",
+    "nextUrl": "marketing-page-price",
+    "nextPage": "List price"
+  }) }}
+  </div>
+</div>
+</article>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

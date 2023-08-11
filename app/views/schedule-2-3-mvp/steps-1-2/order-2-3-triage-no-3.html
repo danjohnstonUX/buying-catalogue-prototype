@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<script>
+  function sendForm() {
+    var radioYes = document.getElementById("contact-1").checked ? document.getElementById("contact-1").value : "";
+    var radioNo = document.getElementById("contact-2").checked ? document.getElementById("contact-2").value : "";
+
+    if(radioNo=="no") {
+        document.location.href = "order-2-4-triage-instructions";
+    }
+    else if(radioYes=="yes") {
+        document.location.href = "order-3-description";
+    }
+  }
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-2-2-triage-over250",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Orders with a value over £250k</h1>
+
+      <p>For orders over £250k, you must execute an Off-Catalogue Competition procedure. </p><p>This means you must invite shortlisted suppliers to provide written tenders. You can then evaluate these tenders and select the Catalogue Solution that best meets your needs based on this information.</p>
+      <p>You’ll not be ready to place an order of this value until this procedure has been carried out.</p>
+
+      {{ button({
+        "text": "Return to orders dashboard",
+        "href":"javascript: sendForm();"
+      }) }}
+
+      <h2>Need help?</h2>
+      <p>We’ve developed a <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1931116641/Executing+a+procurement+a+step+by+step+guide">step-by-step guide to the procurement process</a> (opens in a new tab) and have <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1846902822/Further+Competition+-+Off+Catalogue">more information about executing an Off-Catalogue Competition procedure</a> (opens in a new tab).</p>
+      <p>For help using <a href="https://buying-catalogue.herokuapp.com/">the Buying Catalogue</a>, contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

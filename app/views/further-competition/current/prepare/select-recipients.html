@@ -1,0 +1,1003 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "../competition-tasklist",
+  "text": "Go back"
+}) }}
+
+<style>
+  .nhsuk-expander-index{
+    margin-bottom: 40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary{
+    padding-top:40px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text{
+    text-decoration: none;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter{
+    background-color: #005eb8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.25;
+    position: absolute;
+    margin-bottom: 0;
+    top: -32px;
+    left: 0px;
+  }
+
+  .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+    color:#212b32;
+    display: block;
+  }
+
+  .vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){
+  updateGlobalCount();
+  updateAllSubgroupCounters();
+  document.getElementById('selection-counter').removeAttribute('style');
+
+  const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+  for (var i = 0; i < allCheckboxes.length; i++){
+    allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+  }
+}
+
+function updateSubGroupCount(selectedCheckbox){
+  var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+  updateSubGroupCountWorker(subgroup);
+  updateGlobalCount();
+}
+
+function updateSubGroupCountWorker(subgroup){
+  const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+  const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+  if(count > 0){
+    const endingS = count > 1 ? 's' : '';
+    counter.innerText = ` - ${count} recipient${endingS} selected`;
+  }
+  else{
+    counter.innerText = '';
+  }
+}
+
+function updateAllSubgroupCounters(){
+  const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+  const allSubgroups = [];
+  allSelectedCheckboxes.forEach(function(cv, ci, lo)
+  {
+  allSubgroups.push(cv.getAttribute('subgroup'));
+  });
+  const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+  uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+}
+
+function updateGlobalCount(){
+  const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+  const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+  const globalCounter = document.getElementById('selection-counter');
+  globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+  }
+</script>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Service Recipients<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Your competition
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Select the organisations that will receive the winning solution for this competition.</p>
+
+        <br/>
+
+        <!-- <h2>Select Service Recipients</h2> -->
+        {#
+      <div>
+      {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }} &nbsp;
+      {{ button({
+        "text": "Deselect all",
+        "classes": "nhsuk-button--secondary"
+      }) }} &nbsp;
+      {{ button({
+        "text": "Upload Service Recipients",
+        "classes": "nhsuk-button--secondary",
+        "href": "7-dashboard"
+      }) }}
+      </div>
+      #}
+
+        {{ actionLink({
+        "text": "Upload Service Recipients",
+        "href": "#"
+      }) }}
+
+        <br/>
+
+        <table class="nhsuk-table-responsive nhsuk-u-margin-bottom-5" role="table">
+          <caption class="nhsuk-table__caption"></caption>
+          <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Organisation</th>
+              <th role="columnheader" scope="col">ODS code</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_0__Selected" name="ServiceRecipients[0].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_0__Selected">ASSURA ER LLP HULL DERMATOLOGY</label><input id="ServiceRecipients_0__Name" name="ServiceRecipients[0].Name" type="hidden" value="ASSURA ER LLP HULL DERMATOLOGY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y03508</div>
+                <input type="hidden" id="ServiceRecipients_0__OdsCode" name="ServiceRecipients[0].OdsCode" value="Y03508">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_1__Selected" name="ServiceRecipients[1].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_1__Selected">BEVAN LIMITED</label><input id="ServiceRecipients_1__Name" name="ServiceRecipients[1].Name" type="hidden" value="BEVAN LIMITED"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y07021</div>
+                <input type="hidden" id="ServiceRecipients_1__OdsCode" name="ServiceRecipients[1].OdsCode" value="Y07021">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_2__Selected" name="ServiceRecipients[2].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_2__Selected">BRANSHOLME MIU</label><input id="ServiceRecipients_2__Name" name="ServiceRecipients[2].Name" type="hidden" value="BRANSHOLME MIU"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y00427</div>
+                <input type="hidden" id="ServiceRecipients_2__OdsCode" name="ServiceRecipients[2].OdsCode" value="Y00427">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_3__Selected" name="ServiceRecipients[3].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_3__Selected">BURNBRAE MEDICAL PRACTICE</label><input id="ServiceRecipients_3__Name" name="ServiceRecipients[3].Name" type="hidden" value="BURNBRAE MEDICAL PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81085</div>
+                <input type="hidden" id="ServiceRecipients_3__OdsCode" name="ServiceRecipients[3].OdsCode" value="B81085">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_4__Selected" name="ServiceRecipients[4].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_4__Selected">CAMPUS HEALTH CENTRE</label><input id="ServiceRecipients_4__Name" name="ServiceRecipients[4].Name" type="hidden" value="CAMPUS HEALTH CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81104</div>
+                <input type="hidden" id="ServiceRecipients_4__OdsCode" name="ServiceRecipients[4].OdsCode" value="B81104">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_5__Selected" name="ServiceRecipients[5].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_5__Selected">CHCP - URGENT CARE OOH</label><input id="ServiceRecipients_5__Name" name="ServiceRecipients[5].Name" type="hidden" value="CHCP - URGENT CARE OOH"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y00023</div>
+                <input type="hidden" id="ServiceRecipients_5__OdsCode" name="ServiceRecipients[5].OdsCode" value="Y00023">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_6__Selected" name="ServiceRecipients[6].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_6__Selected">CHCP STROKE REHABILITATION</label><input id="ServiceRecipients_6__Name" name="ServiceRecipients[6].Name" type="hidden" value="CHCP STROKE REHABILITATION"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y04419</div>
+                <input type="hidden" id="ServiceRecipients_6__OdsCode" name="ServiceRecipients[6].OdsCode" value="Y04419">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_7__Selected" name="ServiceRecipients[7].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_7__Selected">CHP LTD - BRANSHOLME</label><input id="ServiceRecipients_7__Name" name="ServiceRecipients[7].Name" type="hidden" value="CHP LTD - BRANSHOLME"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81002</div>
+                <input type="hidden" id="ServiceRecipients_7__OdsCode" name="ServiceRecipients[7].OdsCode" value="B81002">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_8__Selected" name="ServiceRecipients[8].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_8__Selected">CHP LTD - FIELD VIEW</label><input id="ServiceRecipients_8__Name" name="ServiceRecipients[8].Name" type="hidden" value="CHP LTD - FIELD VIEW"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81095</div>
+                <input type="hidden" id="ServiceRecipients_8__OdsCode" name="ServiceRecipients[8].OdsCode" value="B81095">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_9__Selected" name="ServiceRecipients[9].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_9__Selected">CITY HEALTH PRACTICE LTD</label><input id="ServiceRecipients_9__Name" name="ServiceRecipients[9].Name" type="hidden" value="CITY HEALTH PRACTICE LTD"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81074</div>
+                <input type="hidden" id="ServiceRecipients_9__OdsCode" name="ServiceRecipients[9].OdsCode" value="B81074">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_10__Selected" name="ServiceRecipients[10].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_10__Selected">CLIFTON HOUSE MEDICAL CENTRE</label><input id="ServiceRecipients_10__Name" name="ServiceRecipients[10].Name" type="hidden" value="CLIFTON HOUSE MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81054</div>
+                <input type="hidden" id="ServiceRecipients_10__OdsCode" name="ServiceRecipients[10].OdsCode" value="B81054">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_11__Selected" name="ServiceRecipients[11].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_11__Selected">COMMUNITY PAEDIATRICIAN SERVICE (HULL)</label><input id="ServiceRecipients_11__Name" name="ServiceRecipients[11].Name" type="hidden" value="COMMUNITY PAEDIATRICIAN SERVICE (HULL)"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y04461</div>
+                <input type="hidden" id="ServiceRecipients_11__OdsCode" name="ServiceRecipients[11].OdsCode" value="Y04461">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_12__Selected" name="ServiceRecipients[12].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_12__Selected">COMMUNITY SERVICES</label><input id="ServiceRecipients_12__Name" name="ServiceRecipients[12].Name" type="hidden" value="COMMUNITY SERVICES"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y03834</div>
+                <input type="hidden" id="ServiceRecipients_12__OdsCode" name="ServiceRecipients[12].OdsCode" value="Y03834">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_13__Selected" name="ServiceRecipients[13].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_13__Selected">CONCORDIA COMMUNITY CARDIOLOGY SERVICE</label><input id="ServiceRecipients_13__Name" name="ServiceRecipients[13].Name" type="hidden" value="CONCORDIA COMMUNITY CARDIOLOGY SERVICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y03701</div>
+                <input type="hidden" id="ServiceRecipients_13__OdsCode" name="ServiceRecipients[13].OdsCode" value="Y03701">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_14__Selected" name="ServiceRecipients[14].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_14__Selected">CONIFER HOUSE SEXUAL HEALTH CLINIC</label><input id="ServiceRecipients_14__Name" name="ServiceRecipients[14].Name" type="hidden" value="CONIFER HOUSE SEXUAL HEALTH CLINIC"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y03450</div>
+                <input type="hidden" id="ServiceRecipients_14__OdsCode" name="ServiceRecipients[14].OdsCode" value="Y03450">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_15__Selected" name="ServiceRecipients[15].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_15__Selected">CRI HULL DRUGS INTERVENTION PROGRAMME</label><input id="ServiceRecipients_15__Name" name="ServiceRecipients[15].Name" type="hidden" value="CRI HULL DRUGS INTERVENTION PROGRAMME"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y04568</div>
+                <input type="hidden" id="ServiceRecipients_15__OdsCode" name="ServiceRecipients[15].OdsCode" value="Y04568">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_16__Selected" name="ServiceRecipients[16].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_16__Selected">DELTA HEALTHCARE</label><input id="ServiceRecipients_16__Name" name="ServiceRecipients[16].Name" type="hidden" value="DELTA HEALTHCARE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81097</div>
+                <input type="hidden" id="ServiceRecipients_16__OdsCode" name="ServiceRecipients[16].OdsCode" value="B81097">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_17__Selected" name="ServiceRecipients[17].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_17__Selected">DERMATOLOGY CLINIC GPSI</label><input id="ServiceRecipients_17__Name" name="ServiceRecipients[17].Name" type="hidden" value="DERMATOLOGY CLINIC GPSI"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y00894</div>
+                <input type="hidden" id="ServiceRecipients_17__OdsCode" name="ServiceRecipients[17].OdsCode" value="Y00894">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_18__Selected" name="ServiceRecipients[18].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_18__Selected">DR GT HENDOW'S PRACTICE</label><input id="ServiceRecipients_18__Name" name="ServiceRecipients[18].Name" type="hidden" value="DR GT HENDOW'S PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81616</div>
+                <input type="hidden" id="ServiceRecipients_18__OdsCode" name="ServiceRecipients[18].OdsCode" value="B81616">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_19__Selected" name="ServiceRecipients[19].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_19__Selected">DR JAD WEIR &amp; PARTNERS</label><input id="ServiceRecipients_19__Name" name="ServiceRecipients[19].Name" type="hidden" value="DR JAD WEIR &amp; PARTNERS"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81040</div>
+                <input type="hidden" id="ServiceRecipients_19__OdsCode" name="ServiceRecipients[19].OdsCode" value="B81040">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_20__Selected" name="ServiceRecipients[20].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_20__Selected">DRS RAUT AND THOUFEEQ</label><input id="ServiceRecipients_20__Name" name="ServiceRecipients[20].Name" type="hidden" value="DRS RAUT AND THOUFEEQ"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81631</div>
+                <input type="hidden" id="ServiceRecipients_20__OdsCode" name="ServiceRecipients[20].OdsCode" value="B81631">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_21__Selected" name="ServiceRecipients[21].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_21__Selected">EAST HULL FAMILY PRACTICE</label><input id="ServiceRecipients_21__Name" name="ServiceRecipients[21].Name" type="hidden" value="EAST HULL FAMILY PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81008</div>
+                <input type="hidden" id="ServiceRecipients_21__OdsCode" name="ServiceRecipients[21].OdsCode" value="B81008">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_22__Selected" name="ServiceRecipients[22].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_22__Selected">EAST PARK PRACTICE</label><input id="ServiceRecipients_22__Name" name="ServiceRecipients[22].Name" type="hidden" value="EAST PARK PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81645</div>
+                <input type="hidden" id="ServiceRecipients_22__OdsCode" name="ServiceRecipients[22].OdsCode" value="B81645">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_23__Selected" name="ServiceRecipients[23].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_23__Selected">ED CLINIC</label><input id="ServiceRecipients_23__Name" name="ServiceRecipients[23].Name" type="hidden" value="ED CLINIC"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y00424</div>
+                <input type="hidden" id="ServiceRecipients_23__OdsCode" name="ServiceRecipients[23].OdsCode" value="Y00424">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_24__Selected" name="ServiceRecipients[24].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_24__Selected">EXTENDED ACCESS SERVICE</label><input id="ServiceRecipients_24__Name" name="ServiceRecipients[24].Name" type="hidden" value="EXTENDED ACCESS SERVICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y06227</div>
+                <input type="hidden" id="ServiceRecipients_24__OdsCode" name="ServiceRecipients[24].OdsCode" value="Y06227">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_25__Selected" name="ServiceRecipients[25].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_25__Selected">GOODHEART SURGERY</label><input id="ServiceRecipients_25__Name" name="ServiceRecipients[25].Name" type="hidden" value="GOODHEART SURGERY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81119</div>
+                <input type="hidden" id="ServiceRecipients_25__OdsCode" name="ServiceRecipients[25].OdsCode" value="B81119">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_26__Selected" name="ServiceRecipients[26].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_26__Selected">GPSI SEXUAL HEALTH &amp; WOMENS SERVICES</label><input id="ServiceRecipients_26__Name" name="ServiceRecipients[26].Name" type="hidden" value="GPSI SEXUAL HEALTH &amp; WOMENS SERVICES"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y00426</div>
+                <input type="hidden" id="ServiceRecipients_26__OdsCode" name="ServiceRecipients[26].OdsCode" value="Y00426">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_27__Selected" name="ServiceRecipients[27].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_27__Selected">HASP</label><input id="ServiceRecipients_27__Name" name="ServiceRecipients[27].Name" type="hidden" value="HASP"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y07252</div>
+                <input type="hidden" id="ServiceRecipients_27__OdsCode" name="ServiceRecipients[27].OdsCode" value="Y07252">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_28__Selected" name="ServiceRecipients[28].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_28__Selected">HASTINGS MEDICAL CENTRE</label><input id="ServiceRecipients_28__Name" name="ServiceRecipients[28].Name" type="hidden" value="HASTINGS MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81075</div>
+                <input type="hidden" id="ServiceRecipients_28__OdsCode" name="ServiceRecipients[28].OdsCode" value="B81075">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_29__Selected" name="ServiceRecipients[29].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_29__Selected">HAXBY GROUP CALVERT &amp; NEWINGTON</label><input id="ServiceRecipients_29__Name" name="ServiceRecipients[29].Name" type="hidden" value="HAXBY GROUP CALVERT &amp; NEWINGTON"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81675</div>
+                <input type="hidden" id="ServiceRecipients_29__OdsCode" name="ServiceRecipients[29].OdsCode" value="B81675">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_30__Selected" name="ServiceRecipients[30].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_30__Selected">HAXBY GROUP HULL</label><input id="ServiceRecipients_30__Name" name="ServiceRecipients[30].Name" type="hidden" value="HAXBY GROUP HULL"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y02747</div>
+                <input type="hidden" id="ServiceRecipients_30__OdsCode" name="ServiceRecipients[30].OdsCode" value="Y02747">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_31__Selected" name="ServiceRecipients[31].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_31__Selected">HTFT HULL CHILDREN &amp; YOUNG PEOPLE COMM</label><input id="ServiceRecipients_31__Name" name="ServiceRecipients[31].Name" type="hidden" value="HTFT HULL CHILDREN &amp; YOUNG PEOPLE COMM"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y07310</div>
+                <input type="hidden" id="ServiceRecipients_31__OdsCode" name="ServiceRecipients[31].OdsCode" value="Y07310">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_32__Selected" name="ServiceRecipients[32].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_32__Selected">HULL AND EAST YORKSHIRE BOWEL CANCER SCREENING CENTRE</label><input id="ServiceRecipients_32__Name" name="ServiceRecipients[32].Name" type="hidden" value="HULL AND EAST YORKSHIRE BOWEL CANCER SCREENING CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">A99976</div>
+                <input type="hidden" id="ServiceRecipients_32__OdsCode" name="ServiceRecipients[32].OdsCode" value="A99976">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_33__Selected" name="ServiceRecipients[33].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_33__Selected">HULL CCG VOCARENHS111 OOH</label><input id="ServiceRecipients_33__Name" name="ServiceRecipients[33].Name" type="hidden" value="HULL CCG VOCARENHS111 OOH"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y06959</div>
+                <input type="hidden" id="ServiceRecipients_33__OdsCode" name="ServiceRecipients[33].OdsCode" value="Y06959">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_34__Selected" name="ServiceRecipients[34].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_34__Selected">INTEGRATED CARE CENTRE</label><input id="ServiceRecipients_34__Name" name="ServiceRecipients[34].Name" type="hidden" value="INTEGRATED CARE CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y06079</div>
+                <input type="hidden" id="ServiceRecipients_34__OdsCode" name="ServiceRecipients[34].OdsCode" value="Y06079">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_35__Selected" name="ServiceRecipients[35].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_35__Selected">INTERMEDIATE CARE SERVICE</label><input id="ServiceRecipients_35__Name" name="ServiceRecipients[35].Name" type="hidden" value="INTERMEDIATE CARE SERVICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y04395</div>
+                <input type="hidden" id="ServiceRecipients_35__OdsCode" name="ServiceRecipients[35].OdsCode" value="Y04395">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_36__Selected" name="ServiceRecipients[36].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_36__Selected">INTERMEDIATE CARE SERVICE</label><input id="ServiceRecipients_36__Name" name="ServiceRecipients[36].Name" type="hidden" value="INTERMEDIATE CARE SERVICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y06056</div>
+                <input type="hidden" id="ServiceRecipients_36__OdsCode" name="ServiceRecipients[36].OdsCode" value="Y06056">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_37__Selected" name="ServiceRecipients[37].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_37__Selected">JAMES ALEXANDER FAMILY PRACTICE</label><input id="ServiceRecipients_37__Name" name="ServiceRecipients[37].Name" type="hidden" value="JAMES ALEXANDER FAMILY PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81112</div>
+                <input type="hidden" id="ServiceRecipients_37__OdsCode" name="ServiceRecipients[37].OdsCode" value="B81112">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_38__Selected" name="ServiceRecipients[38].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_38__Selected">KINGSTON HEALTH (HULL)</label><input id="ServiceRecipients_38__Name" name="ServiceRecipients[38].Name" type="hidden" value="KINGSTON HEALTH (HULL)"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81011</div>
+                <input type="hidden" id="ServiceRecipients_38__OdsCode" name="ServiceRecipients[38].OdsCode" value="B81011">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_39__Selected" name="ServiceRecipients[39].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_39__Selected">KINGSTON MEDICAL GROUP</label><input id="ServiceRecipients_39__Name" name="ServiceRecipients[39].Name" type="hidden" value="KINGSTON MEDICAL GROUP"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81017</div>
+                <input type="hidden" id="ServiceRecipients_39__OdsCode" name="ServiceRecipients[39].OdsCode" value="B81017">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_40__Selected" name="ServiceRecipients[40].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_40__Selected">LAURBEL SURGERY</label><input id="ServiceRecipients_40__Name" name="ServiceRecipients[40].Name" type="hidden" value="LAURBEL SURGERY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81635</div>
+                <input type="hidden" id="ServiceRecipients_40__OdsCode" name="ServiceRecipients[40].OdsCode" value="B81635">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_41__Selected" name="ServiceRecipients[41].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_41__Selected">MARMOT PCN HUB</label><input id="ServiceRecipients_41__Name" name="ServiceRecipients[41].Name" type="hidden" value="MARMOT PCN HUB"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y07290</div>
+                <input type="hidden" id="ServiceRecipients_41__OdsCode" name="ServiceRecipients[41].OdsCode" value="Y07290">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_42__Selected" name="ServiceRecipients[42].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_42__Selected">MODALITY PARTNERSHIP (HULL)</label><input id="ServiceRecipients_42__Name" name="ServiceRecipients[42].Name" type="hidden" value="MODALITY PARTNERSHIP (HULL)"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81048</div>
+                <input type="hidden" id="ServiceRecipients_42__OdsCode" name="ServiceRecipients[42].OdsCode" value="B81048">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_43__Selected" name="ServiceRecipients[43].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_43__Selected">NORTHPOINT</label><input id="ServiceRecipients_43__Name" name="ServiceRecipients[43].Name" type="hidden" value="NORTHPOINT"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y02344</div>
+                <input type="hidden" id="ServiceRecipients_43__OdsCode" name="ServiceRecipients[43].OdsCode" value="Y02344">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_44__Selected" name="ServiceRecipients[44].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_44__Selected">ORCHARD 2000 GROUP</label><input id="ServiceRecipients_44__Name" name="ServiceRecipients[44].Name" type="hidden" value="ORCHARD 2000 GROUP"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81018</div>
+                <input type="hidden" id="ServiceRecipients_44__OdsCode" name="ServiceRecipients[44].OdsCode" value="B81018">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_45__Selected" name="ServiceRecipients[45].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_45__Selected">PAIN MANAGEMENT GPSI</label><input id="ServiceRecipients_45__Name" name="ServiceRecipients[45].Name" type="hidden" value="PAIN MANAGEMENT GPSI"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y01218</div>
+                <input type="hidden" id="ServiceRecipients_45__OdsCode" name="ServiceRecipients[45].OdsCode" value="Y01218">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_46__Selected" name="ServiceRecipients[46].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_46__Selected">PALLIATIVE CARE CLINIC</label><input id="ServiceRecipients_46__Name" name="ServiceRecipients[46].Name" type="hidden" value="PALLIATIVE CARE CLINIC"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y03108</div>
+                <input type="hidden" id="ServiceRecipients_46__OdsCode" name="ServiceRecipients[46].OdsCode" value="Y03108">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_47__Selected" name="ServiceRecipients[47].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_47__Selected">PRINCES MEDICAL CENTRE</label><input id="ServiceRecipients_47__Name" name="ServiceRecipients[47].Name" type="hidden" value="PRINCES MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81052</div>
+                <input type="hidden" id="ServiceRecipients_47__OdsCode" name="ServiceRecipients[47].OdsCode" value="B81052">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_48__Selected" name="ServiceRecipients[48].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_48__Selected">ST ANDREWS SURGERY</label><input id="ServiceRecipients_48__Name" name="ServiceRecipients[48].Name" type="hidden" value="ST ANDREWS SURGERY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81027</div>
+                <input type="hidden" id="ServiceRecipients_48__OdsCode" name="ServiceRecipients[48].OdsCode" value="B81027">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_49__Selected" name="ServiceRecipients[49].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_49__Selected">SYDENHAM GROUP PRACTICE</label><input id="ServiceRecipients_49__Name" name="ServiceRecipients[49].Name" type="hidden" value="SYDENHAM GROUP PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81058</div>
+                <input type="hidden" id="ServiceRecipients_49__OdsCode" name="ServiceRecipients[49].OdsCode" value="B81058">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_50__Selected" name="ServiceRecipients[50].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_50__Selected">SYMPHONIE PCN</label><input id="ServiceRecipients_50__Name" name="ServiceRecipients[50].Name" type="hidden" value="SYMPHONIE PCN"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y07416</div>
+                <input type="hidden" id="ServiceRecipients_50__OdsCode" name="ServiceRecipients[50].OdsCode" value="Y07416">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_51__Selected" name="ServiceRecipients[51].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_51__Selected">THE AVENUES MEDICAL CENTRE</label><input id="ServiceRecipients_51__Name" name="ServiceRecipients[51].Name" type="hidden" value="THE AVENUES MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81035</div>
+                <input type="hidden" id="ServiceRecipients_51__OdsCode" name="ServiceRecipients[51].OdsCode" value="B81035">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_52__Selected" name="ServiceRecipients[52].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_52__Selected">THE BRIDGE GROUP PRACTICE</label><input id="ServiceRecipients_52__Name" name="ServiceRecipients[52].Name" type="hidden" value="THE BRIDGE GROUP PRACTICE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81046</div>
+                <input type="hidden" id="ServiceRecipients_52__OdsCode" name="ServiceRecipients[52].OdsCode" value="B81046">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_53__Selected" name="ServiceRecipients[53].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_53__Selected">THE OAKS MEDICAL CENTRE</label><input id="ServiceRecipients_53__Name" name="ServiceRecipients[53].Name" type="hidden" value="THE OAKS MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81038</div>
+                <input type="hidden" id="ServiceRecipients_53__OdsCode" name="ServiceRecipients[53].OdsCode" value="B81038">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_54__Selected" name="ServiceRecipients[54].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_54__Selected">THE SUTTON MANOR SURGERY</label><input id="ServiceRecipients_54__Name" name="ServiceRecipients[54].Name" type="hidden" value="THE SUTTON MANOR SURGERY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81020</div>
+                <input type="hidden" id="ServiceRecipients_54__OdsCode" name="ServiceRecipients[54].OdsCode" value="B81020">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_55__Selected" name="ServiceRecipients[55].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_55__Selected">WILBERFORCE SURGERY</label><input id="ServiceRecipients_55__Name" name="ServiceRecipients[55].Name" type="hidden" value="WILBERFORCE SURGERY"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81032</div>
+                <input type="hidden" id="ServiceRecipients_55__OdsCode" name="ServiceRecipients[55].OdsCode" value="B81032">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_56__Selected" name="ServiceRecipients[56].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_56__Selected">WOLSELEY MEDICAL CENTRE</label><input id="ServiceRecipients_56__Name" name="ServiceRecipients[56].Name" type="hidden" value="WOLSELEY MEDICAL CENTRE"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">B81047</div>
+                <input type="hidden" id="ServiceRecipients_56__OdsCode" name="ServiceRecipients[56].OdsCode" value="B81047">
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Organisation</span>
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item"><input class="nhsuk-checkboxes__input" data-val="true" data-val-required="The Selected field is required." id="ServiceRecipients_57__Selected" name="ServiceRecipients[57].Selected" type="checkbox" value="true">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="ServiceRecipients_57__Selected">YPS SSM SERVICE (REFRESH)</label><input id="ServiceRecipients_57__Name" name="ServiceRecipients[57].Name" type="hidden" value="YPS SSM SERVICE (REFRESH)"></div>
+                </div>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS code</span>
+                <div class="nhsuk-input--width-10 nhsuk-u-margin-top-2">Y05235</div>
+                <input type="hidden" id="ServiceRecipients_57__OdsCode" name="ServiceRecipients[57].OdsCode" value="Y05235">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      <br />
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="confirm-recipients">
+            {% from 'button/macro.njk' import button %}
+      
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

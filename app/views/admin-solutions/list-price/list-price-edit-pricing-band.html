@@ -1,0 +1,150 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "list-price-edit-price-tiered",
+    "text": "Go back"
+  }) }}
+
+  <style>
+  .nhsuk-time-input__item{
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 24px;
+  }
+
+  .nhsuk-time-input__input{
+    margin-bottom: 0;
+  }
+
+  .nhsuk-time-input__label{
+    display: block;
+  }
+
+  .nhsuk-time-input{
+    font-size: 0;
+  }
+</style>
+
+  {% set upperRangeHtml %}
+    {{ input({
+      "label": {
+        "text": "Upper range"
+      },
+      "id": "upperrange",
+      "name": "upperrange",
+      "classes": "nhsuk-input--width-10",
+      "value": "89,999"
+    }) }}
+  {% endset -%}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+            <h1>
+              <span role="text">Edit a pricing tier
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+            <p class="nhsuk-lede-text">Provide information about this tier.</p>
+
+            <form action="list-price-edit-price-tiered" method="get">
+
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="cost-per-item">
+                    Price
+              </label>
+              <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                Provide the list price in pounds to a maximum of 4 decimal places.
+              </div>
+              <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false" value="0.1160">
+              </div>
+            </div>
+
+            {{ input({
+              "label": {
+                "text": "Lower range"
+              },
+              "id": "lowerrange",
+              "name": "lowerrange",
+              "classes": "nhsuk-input--width-10",
+              "value": "1"
+            }) }}
+
+            {{ radios({
+              "idPrefix": "upperrangeselect",
+              "name": "upperrangeselect",
+              "fieldset": {
+                "legend": {
+                  "text": "How would you like to define the upper range?",
+                  "classes": "nhsuk-fieldset__legend--s",
+                  "isPageHeading": "false"
+                }
+              },
+              "hint": {
+                "text": "Select one option"
+              },
+              "items": [
+                {
+                  "value": "infinite",
+                  "text": "Infinite upper range"
+
+                },
+                {
+                  "value": "set",
+                  "text": "Set upper range",
+                  "checked": true,
+                  "conditional": {
+                    "html": upperRangeHtml
+                  }
+                }
+              ]
+            }) }}
+            <br/>
+
+            {{ button({
+                "text": "Save and continue"
+            }) }}
+            <p><a href="list-price-edit-price-tiered" style="color: red;">Delete pricing band</a></p>
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

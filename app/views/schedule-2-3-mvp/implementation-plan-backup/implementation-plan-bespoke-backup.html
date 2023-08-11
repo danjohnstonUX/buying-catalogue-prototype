@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("add-milestone-1").checked ? document.getElementById("add-milestone-1").value : "";
+    var opt2 = document.getElementById("add-milestone-2").checked ? document.getElementById("add-milestone-2").value : "";
+
+    if(opt1=="yes") {
+        document.location.href = "implementation-add-bespoke-milestone";
+    }
+    else if(opt2=="no") {
+        document.location.href = "implementation-review-bespoke-milestones";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-1",
+  "text": "Go back"
+}) }}
+
+{% set acHtml %}
+
+{{ textarea({
+"idPrefix": "ac-description",
+"name": "acceptance-criteria",
+"label": {
+  text: "What is the acceptance criteria for this milestone?"
+}
+}) }}
+
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Create a bespoke implementation plan
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      {{ radios({
+        "idPrefix": "milestone",
+        "name": "milestone-radios",
+        "fieldset": {
+          "legend": {
+            "text": "What type of milestone would you like to add?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "m1",
+            "text": "M1 (Go Live) Milestone",
+            "conditional": {
+              "html": acHtml
+            }
+          },
+          {
+            "value": "m2",
+            "text": "M2 (Service Stability) Milestone",
+            "conditional": {
+              "html": acHtml
+            }
+          }
+        ]
+      }) }}
+
+      <br />
+
+      {{ radios({
+        "idPrefix": "add-milestone",
+        "name": "add-milestone-radios",
+        "fieldset": {
+          "legend": {
+            "text": "Would you like to add another milestone?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, add another milestone"
+          },
+          {
+            "value": "no",
+            "text": "No, I have finished adding Milestones"
+          }
+        ]
+      }) }}
+
+      <br />
+
+
+      {{ button({
+        "text": "Continue",
+        "href": "javascript: sendForm();"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

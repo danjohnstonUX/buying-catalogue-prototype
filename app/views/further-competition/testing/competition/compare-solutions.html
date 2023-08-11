@@ -1,0 +1,198 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<script>
+  var list = false;
+  function filterList() {
+    document.getElementById("list").style.display = "none";
+  }
+  function filterListReverse() {
+    document.getElementById("list").style.display = "block";
+  }
+</script>
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+      "href": "competition-name",
+      "text": "Go back"
+    }) }}
+
+    <h1>Compare the solutions for this filter</h1>
+    <p class="nhsuk-lede-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, inventore.
+    </p>
+
+    {{ insetText({
+      "HTML": "<p class='nhsuk-body'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, magnam.</p>"
+    }) }}
+
+    <hr>
+
+    <div class="nhsuk-u-reading-width">
+
+      <h2>Selected Capabilities and Epics</h3>
+
+      <ul>
+        <li>Appointments Management - Citizen and 2 epics</li>
+        <li>Video Consultation and 5 epics</li>
+      </ul>
+
+      <h2>Selected Additional filters</h3>
+
+      {{ summaryList({
+        classes: "nhsuk-u-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Client application type"
+            },
+            value: {
+              text: "Desktop application"
+            }
+          },
+          {
+            key: {
+              text: "Framework"
+            },
+            value: {
+              text: "GP IT Futures"
+            }
+          },
+          {
+            key: {
+              text: "Hosting type"
+            },
+            value: {
+              text: "On premise"
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <hr>
+
+    <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            <h1 class="nhsuk-fieldset__heading">
+              Which solutions would you like to compare? (optional)
+            </h1>
+          </legend>
+    
+          <div class="nhsuk-hint" id="example-hint">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </div>
+    
+          <div class="nhsuk-checkboxes">
+    
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+              <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-1">
+                <a href="#">Online and Video Consult</a>
+              </label>
+              <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                Caltech Health
+              </div>
+              <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                Required Additional services: <br>Document Management, Caltech Mobile
+              </div>
+            </div>
+    
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+              <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-2">
+                <a href="#">Q Doctor</a>
+              </label>
+              <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                MyMed Ltd
+              </div>
+              <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                Required Additional services: <br>None
+              </div>
+            </div>
+    
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="text message">
+              <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-3">
+                <a href="#">healthya Online and Video Consultation</a>
+              </label>
+              <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                ADDVantage Technologies 
+              </div>
+              <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                Required Additional services: <br>None
+              </div>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="text message">
+              <label class="nhsuk-label nhsuk-checkboxes__label nhsuk-u-margin-bottom-0" for="example-4">
+                <a href="#">Engage Consult</a>
+              </label>
+              <div class="nhsuk-hint nhsuk-checkboxes__hint" id="example-hints-1-item-hint">
+                Engage Health Systems Limited 
+              </div>
+              <div class="nhsuk-hint nhsuk-hint-solutions nhsuk-checkboxes__hint">
+                Required Additional services: <br>Document Management, Engage Mobile
+              </div>
+            </div>
+    
+          </div>
+        </fieldset>
+
+      </div>
+
+    </div>
+
+    <hr style="margin-top: 0.5em;" />
+
+    <a href="/compare/current/compare-solution" class="nhsuk-button nhsuk-button--secondary">Compare solutions (opens in a new tab)</a>
+
+    <br>
+
+    <a href="view-solutions-alt" class="nhsuk-button nhsuk nhsuk-u-margin-right-5">Continue</a>
+
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

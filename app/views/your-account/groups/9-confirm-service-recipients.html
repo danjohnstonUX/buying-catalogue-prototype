@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Automated Arrivals Service Recipients
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "8-selected-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        EMIS Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 5 Service Recipients.</p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Assura ER LLP Hull Dermatology</li>
+      <li>Bevan Ltd</li>
+      <li>Bransholme MIU</li>
+      <li>Burnbrae Medical Practice</li>
+      <li>CHCP - Urgent Care OOH</li>
+    </ol>
+  <br/>
+
+  <p>You can <a href="order-5-4-2-add-solution-service-recipient-new-selector-preselected-3">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+            <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="8-selected-service-recipients">
+                  {% from 'button/macro.njk' import button %}
+            
+                  {{ button({
+                    "text": "Save and continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+
+            
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

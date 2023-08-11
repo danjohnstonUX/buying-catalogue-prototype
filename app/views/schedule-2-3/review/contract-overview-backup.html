@@ -1,0 +1,286 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-data-processing-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Contract overview
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <h2>Security measures</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Security measures required?"
+              },
+              value: {
+                text: "Yes"
+              }
+            },
+            {
+              key: {
+                text: "Security measures description"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            }
+          ]
+        }) }}
+
+        <h2>Implementation plan</h2>
+
+        {{ table({
+          panel: false,
+          caption: "Milestone 1: Go Live",
+          firstCellIsHeader: false,
+          head: [
+
+            {
+              text: "Acceptance criteria"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            ],
+            [
+              {
+                text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+              }
+            ],
+            [
+              {
+                text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+              }
+            ],
+            [
+              {
+                text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            ]
+          ]
+        }) }}
+
+        {{ table({
+          panel: false,
+          caption: "Milestone 2: Service Stability",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Acceptance criteria"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            ],
+            [
+              {
+                text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+              }
+            ],
+            [
+              {
+                text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+              }
+            ],
+            [
+              {
+                text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            ]
+          ]
+        }) }}
+
+        <h2>Associated Services Billing</h2>
+
+        {{ table({
+          panel: false,
+          caption: "Implementation",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Milestone"
+            },
+            {
+              text: "Units"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Milestone 1"
+              },
+              {
+                text: "50 of 100"
+              }
+            ],
+            [
+              {
+                text: "Milestone 2"
+              },
+              {
+                text: "25 of 100"
+              }
+            ],
+            [
+              {
+                text: "Billing on invoice"
+              },
+              {
+                text: "25 of 100"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ table({
+          panel: false,
+          caption: "Training",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Milestone"
+            },
+            {
+              text: "Units"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Milestone 1"
+              },
+              {
+                text: "50 of 100"
+              }
+            ],
+            [
+              {
+                text: "Billing on invoice"
+              },
+              {
+                text: "50 of 100"
+              }
+            ]
+          ]
+        }) }}
+
+        <h2>Associate Services Requirements</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Specific requirements required?"
+              },
+              value: {
+                text: "Yes"
+              }
+            },
+            {
+              key: {
+                text: "Requirements detailed in implementation plan?"
+              },
+              value: {
+                text: "No"
+              }
+            },
+            {
+              key: {
+                text: "Name of document where requirements are detailed"
+              },
+              value: {
+                text: "'supporting-document-1'"
+              }
+            }
+          ]
+        }) }}
+
+        <h2>Data Processing Information</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Changes to default Data Processing Information?"
+              },
+              value: {
+                text: "Yes"
+              }
+            }
+          ]
+        }) }}
+
+        {{ table({
+          panel: false,
+          caption: "Variations added",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Variation description"
+            },
+            {
+              text: "Variation reference"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              },
+              {
+                text: "Reference point 1"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue",
+          "href":"contract-preview-submit"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

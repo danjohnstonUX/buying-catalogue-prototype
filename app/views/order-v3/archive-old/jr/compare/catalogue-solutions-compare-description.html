@@ -1,0 +1,182 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Compare description
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+items: [{
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/catalogue-solution/",
+    text: "Catalogue Solutions"
+}],
+  href: "/marketing-page/",
+  text: "Caltech Web GP"
+}) }}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<style>
+  .column-right-margin {
+    border-right: #666 solid 1px;
+  }
+</style>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full-width">
+      <h1>
+        <span role="text">Compare descriptions
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+           
+        </span>
+      </h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+
+      {{ contentsList({
+        items: [
+          {
+            href: "catalogue-solutions-compare-features",
+            text: "Features"
+          },
+          {
+            href: "catalogue-solutions-compare-capabilities",
+            text: "Capabilities"
+          },
+          {
+            href: "catalogue-solutions-compare-epics",
+            text: "Epics"
+          },
+          {
+            href: "marketing-page-10",
+            text: "Standards"
+          },
+          {
+            href: "catalogue-solutions-compare-price",
+            text: "List price"
+          },
+          {
+            href: "marketing-page-additional",
+            text: "Additional Services"
+          },
+          {
+            href: "marketing-page-associated",
+            text: "Associated Services"
+          },
+          {
+            href: "marketing-page-4",
+            text: "Interoperability"
+          },
+          {
+            href: "catalogue-solutions-compare-implementation",
+            text: "Implementation timescales"
+          },
+          {
+            href: "marketing-page-6",
+            text: "Client application type"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+<article>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full-width">
+
+      
+      
+      
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+
+      <h2>Compare by description</h2>
+
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <h2 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m" data-test-id="solution-card-supplier">
+            accuRx Patient Triage
+          </h2>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m">
+            Q Doctor
+          </h3>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <h3 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-weight-bold nhsuk-heading-m" data-test-id="solution-card-supplier">
+            healthya Online and Video Consult
+          </h3>
+          
+        </div>
+      </div>
+  
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third column-right-margin">
+          {% include "compare/includes-description/catalogue-solutions-capabilities-epics-static1.html" %}
+
+          <h3>Summary</h3>
+          <p>Patient Triage allows patients to submit non-urgent queries and requests to their practice online, removing the 
+            need to call up and spend time waiting on the phone.</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third column-right-margin">
+          {% include "compare/includes-description/catalogue-solutions-capabilities-epics-static2.html" %}
+
+          <h3>Summary</h3>
+          <p>Q health is a secure video consultation platform and appointment booking platform used around the NHS, enabling digital appointment booking 
+            (including COVID-19 vaccination appointment management) and remote consultations between clinicians and patients.</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {% include "compare/includes-description/catalogue-solutions-capabilities-epics-static3.html" %}
+
+          <h3>Summary</h3>
+          <p>We are the digital healthcare people, here to work collaboratively with you on your digital journey through the seamless integration of the healthya solution. healthya is an 
+            innovative and intuitive platform designed by a team of people with over 200 years of combined experience in the NHS.</p>
+        </div>
+      </div>
+      <hr style="margin: 0.5em; margin-bottom: 1.5em;" />
+
+    </div>
+  </div>    
+  
+  <hr />
+  <div style="display:inline-block;">
+    <form method="post" action="Save and continue">
+      {% from 'button/macro.njk' import button %}
+  
+      {{ button({
+        "text": "Save and continue"
+      }) }}
+    </form>
+  </div>
+
+  </div>
+</div>
+</article>
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

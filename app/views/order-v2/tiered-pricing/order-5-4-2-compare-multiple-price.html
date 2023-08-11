@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "order-5-4-2-add-solution-service-recipient",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>There is more than one list price for this Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          EMIS Web GP
+        </span></h1>
+        <p class="nhsuk-lede-text">Compare the list prices for this Catalogue Solution. You can confirm the correct list price in the next step and alter them later if you've agreed a different price with the supplier.</p>
+
+        <h2 class="nhsuk-heading-s">List price 1</h2>
+        <p>Tier 1: £1.10 per patient per year for 1 to 89,999 patients<br/>
+          Tier 2: £0.99 per patient per year for 90,000 to 899,999 patients<br/>
+          Tier 3: £0.75 per patient per year for 900,000+ patients</p>
+
+        <h2 class="nhsuk-heading-s">List price 2</h2>
+        <p>Tier 1: £1.25 per patient per year for 1 to 89,999 patients<br/>
+          Tier 2: £0.90 per patient per year for 90,000 to 899,999 patients<br/>
+          Tier 3: £0.70 per patient per year for 900,000+ patients
+        </p>
+
+        <br/>
+
+        <form action="order-5-4-2-add-solution-multiple-price">
+          {{ button({
+  "text": "Continue"
+}) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

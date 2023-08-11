@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Edit funding source
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+<style>
+  .bc-summary-totals .nhsuk-summary-list__row {
+    text-align: right;
+  }
+  .bc-summary-totals .nhsuk-summary-list__key,
+  .bc-summary-totals .nhsuk-summary-list__value,
+  .bc-summary-totals .nhsuk-summary-list__actions {
+    display: inline-block;
+    width: auto;
+  }
+</style>
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "1-funding-table",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Training Day at practice funding source<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C01001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Confirm how you’ll be paying for this solution or service. If you’re using both local and central funding, select mixed funding.</p>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Total cost of Training Day at Practice"
+            },
+            value: {
+              html: "£58,500.00"
+            }
+          }
+        ]
+      }) }}
+
+    {% set mixedQuantity %}
+        <div class="nhsuk-form-group">
+         <label class="nhsuk-label" for="cost-per-item">
+               What amount is being paid for using central funding, in pounds?
+         </label>
+         {# <div class="nhsuk-hint" id="example-with-hint-text-hint">
+           If you are partially paying from central funding, then select mixed funding.
+         </div> #}
+         <div class="govuk-input__wrapper">
+           <div class="govuk-input__prefix" aria-hidden="true">£</div>
+           <input class="nhsuk-input nhsuk-input--width-5" type="text" spellcheck="false" value="30,000.00">
+           <div class="govuk-input__suffix" aria-hidden="true">of central funding</div>
+         </div>
+       </div>
+    {% endset -%}
+
+    {{ radios({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "How would you like to pay?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "false"
+    }
+  },
+  "hint": {
+    "text": "Select one option."
+  },
+  "items": [
+    {
+      "value": "central",
+      "text": "Central funding",
+      "hint": {
+        "text" : "If you’re using your central allocation, make sure you have enough available before selecting central funding."
+      }
+    },
+    {
+      "value": "local",
+      "text": "Local funding",
+      "hint": {
+        "text" : "If you’re using local funding, the supplier will invoice you directly for payment."
+      }
+    },
+    {
+      "value": "mixed",
+      "text": "Mixed funding",
+      "hint": {
+        "text" : "If you’re using both funding sources, make sure you have enough of your central allocation available before selecting mixed funding."
+      }
+    }
+  ]
+}) }}
+
+{{ details({
+  "text": "What is central, local and mixed funding?",
+  "HTML": "
+  <p><b>Central funding</b></p>
+  <p>Central funding means you’re using your centrally held allocation to pay for the order. Any solutions or services you order will be paid for by either NHS England or NHS Digital. The supplier will invoice the relevant organisation directly.<p/>
+  <p>You should make sure you have enough of your central allocation available to pay for your order before placing it.</p>
+  <p><b>Local funding</b></p>
+  <p>Local funding means your organisation will be paying for the order. The supplier will invoice you directly.</p>
+  <p><b>Mixed funding</b></p>
+  <p>Mixed funding means your organisation will start paying with central funding, and when your allocation runs out, will move over to local funding.</p>
+  "
+}) }}
+
+<br/><br/>
+
+      <form action="1-funding-table-assc-service-3-allocated">
+        {{ button({
+          "text": "Save and continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

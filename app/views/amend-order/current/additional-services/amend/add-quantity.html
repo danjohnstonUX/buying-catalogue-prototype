@@ -1,0 +1,298 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    
+  <script>
+    function sendForm() {
+    var opt1 = document.getElementById("as-quantity").value;
+
+    if(opt1==10) {
+        document.location.href = "../../edit-dashboard";
+    }
+    else if(opt1>10) {
+        document.location.href = "add-pdd";
+    }
+    else if(opt1<10) {
+        document.location.href = "add-pcd";
+    }
+  }
+  </script>
+
+    {{ backLink({
+  "href": "../../edit-dashboard",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Quantity of Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Automated Arrivals
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Enter the total amount that you want to order.</p>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-per-item">
+            How many do you want?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="nhsuk-input nhsuk-input--width-5" id="as-quantity" type="text" spellcheck="false" value="10">
+            <div class="govuk-input__suffix" aria-hidden="true">kiosks</div>
+          </div>
+        </div>
+
+        <br/>
+        <div>
+          <div style="display:inline-block;">
+            <form method="post" action="javascript: sendForm();">
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Save and continue"
+              }) }}
+            </form>
+          </div>
+        </div>
+
+        <br/><br/>
+      {% endblock %}
+
+      {% block footer %}
+        {% include "includes/footer.html" %}
+      {% endblock %}
+
+      <!-- Old nunjucks code -->
+
+      {#
+  {% set quantityHtml %}
+  {{ input({
+    id: "quantity",
+    name: "quantity",
+    classes: "nhsuk-u-width-two-thirds",
+    value: "875",
+    label: {
+
+    }
+  }) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+html: quantityHtml
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }} #}
+
+      {#
+
+{% set quantityHtml %}
+{{ input({
+id: "quantity",
+name: "quantity",
+classes: "nhsuk-u-width-two-thirds",
+value: "875",
+label: {
+
+}
+}) }}
+{% endset -%}
+
+
+{{ table({
+responsive: true,
+panel: false,
+caption: "Quantity per practice",
+firstCellIsHeader: false,
+head: [
+{
+text: "Recipient name (ODS code)"
+},
+{
+text: "Practice list size"
+}
+],
+rows: [
+[
+{
+text: "Assura ER LLP Hull Dermatology (Y03508)"
+},
+{
+text: 620
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Bevan Limited (Y07021)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Burnbrae Medical Practice (B81085)"
+},
+{
+text: 285
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dermatology Clinic GPSI (Y00894)"
+},
+{
+text: 440
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Dr Jad Weir & Partners (B81040)"
+},
+{
+text: 325
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Haxby Group Hull (Y02747)"
+},
+{
+text: 598
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Hull CCG Vocarenhs111 OOH (Y06959)"
+},
+{
+text: 525
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "James Alexander Family Practice (B81112)"
+},
+{
+text: 610
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Laurbel Surgery (B81635)"
+},
+{
+text: 425
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Pain Management GPSI (Y01218)"
+},
+{
+text: 348
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "St Andrews Surgery (YB81027)"
+},
+{
+text: 400
+},
+{
+value: quantityHtml
+}
+],
+[
+{
+text: "Sydenham Group Practice (B81027)"
+},
+{
+text: 750
+},
+{
+value: quantityHtml
+}
+]
+]
+}) }}
+
+#}

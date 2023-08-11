@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "implementation-plan-1",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Implementation plan milestones
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">You need to create named milestones as part of your implementation plan. These might be referenced later in your order depending on how you want to be billed.</p>
+
+      {{ input({
+        "label": {
+          "text": " What is the name of this milestone? "
+        },
+        "hint": {
+          "text": "Give your milestone a unique name, for example ‘Go live’ or ‘Service stability’. You must add at least 1 milestone."
+        },
+        "id": "milestone-name",
+        "name": "milestone-name",
+        "classes": "nhsuk-input--width-20"
+      }) }}
+
+      <br />
+
+      {{ button({
+        "text": "Save and continue",
+        "href": "implementation-plan-ac"
+      }) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

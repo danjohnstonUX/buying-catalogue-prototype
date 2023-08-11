@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "order-4-summary-review-completed",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Preview contract
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        {{ button({
+          "text": "Download contract preview PDF",
+          "classes": "nhsuk-button--secondary",
+          "href":"javascript: sendForm();"
+        }) }}
+
+        <br />
+
+        <h2 class="nhsuk-heading-l">Attach the supporting documents</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>.</p>
+
+        <ul>
+          <li>supporting-document-1</li>
+          <li>supporting-document-2</li>
+          <li>supporting-document-3</li>
+        </ul>
+
+        <h2 class="nhsuk-heading-l">Submitting the contract</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>.</p>
+
+        <!---<form>
+          {{ checkboxes({
+            "idPrefix": "example",
+            "name": "example",
+            "fieldset": {
+              "legend": {
+                "text": "You must accept the following to continue",
+                "classes": "nhsuk-fieldset__legend--m"
+              }
+            },
+            "items": [
+              {
+                "value": "contract-obligation",
+                "text": "I have read and agree to all obligations in this contract"
+              },
+              {
+                "value": "reviewed-with-supplier",
+                "text": "I have reviewed this contract with the supplier"
+              }
+            ]
+          }) }}
+        </form>--->
+
+        <br />
+
+        {{ button({
+          "text": "Submit",
+          "href":"post-order-guidance"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

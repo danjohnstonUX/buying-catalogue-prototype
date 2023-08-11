@@ -1,0 +1,150 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<div id="nhsuk-cookie-banner" data-nosnippet="true">
+  <div class="nhsuk-cookie-banner" id="cookiebanner">
+    <div class="nhsuk-width-container">
+        <h2>Cookies on the Buying Catalogue</h2>
+        <p>We've put small files called cookies on your device to make our website work.</p>
+        <p>We'd also like to use analytics cookies. These send information about how our site is used to services called Adobe Analytics and Hotjar. We use this information to improve our website.</p>
+        <p>Let us know if this is OK. We'll use a cookie to save your choice. You can <a href="cookies-policy">read more about our cookies and privacy policy</a> before you choose.</p>
+        <ul>
+            <li><button class="nhsuk-button" href="#" tabindex="2">I’m OK with analytics cookies</button></li><li><button class="nhsuk-button" href="#" tabindex="2">Do not use analytics cookies</button></li>
+        </ul>
+    </div>
+  </div>
+
+<div class="nhsuk-success-banner" id="nhsuk-cookie-confirmation-banner" style="display:none;">
+  <div class="nhsuk-width-container">
+    <p id="nhsuk-success-banner__message">You can change your cookie settings at any time using our <a href="/our-policies/cookies-policy/">cookies page</a>.</p>
+  </div>
+</div>
+</div>
+
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+<div class="nhsuk-global-alert" id="nhsuk-global-alert" role="complementary">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-global-alert__content">
+          <div class="nhsuk-global-alert__message"><h2>Coronavirus (COVID-19)</h2>
+            <p>View Catalogue Solutions that help with coronavirus by <a data-test-id="vaccinations" href="/solutions/vaccinations">organising vaccinations </a>or <a data-test-id="covid19" href="/solutions/covid19">reducing visits to GP practices</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Buying Catalogue</h1>
+      <p class="nhsuk-lede-text">
+        Find out what clinical information solutions are available from procurement frameworks on the Buying Catalogue.
+      </p>
+
+      <hr>
+
+      <h2>About the Buying Catalogue</h2>
+
+      <p>
+        The NHS Digital Buying Catalogue is an online marketplace where you can purchase clinical information systems that meet the digital needs of primary care.
+      </p>
+
+      <p>
+        All the listed products – known as Catalogue Solutions – have been assessed against a set of Capabilities defined by the NHS and a set of Standards defined by NHS Digital.
+      </p>
+
+      <p>
+        The functionality of the Buying Catalogue will be enhanced and the number of Catalogue Solutions available will increase over time.
+      </p>
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "More about: Buyer's guide",
+        "href": "buyers-guide"
+      }) }}
+
+      <hr>
+
+      <h2>Catalogue Solutions</h2>
+
+      <ul>
+        <li>
+          <a href="/docs"><strong>Coronavirus vaccinations</strong></a>
+          <br/>
+          Find Catalogue Solutions that help organise coronavirus vaccinations
+        </li>
+        <li>
+          <a href="/docs"><strong>Reduce GP visits</strong></a>
+          <br/>
+          Find Catalogue Solutions that can help prevent the spread of coronavirus
+        </li>
+        <li>
+          <a href="/docs"><strong>GP IT Futures framework</strong></a>
+          <br/>
+          Find and compare Catalogue solutions available on the GP IT Futures framework
+        </li>
+        <li>
+          <a href="/docs"><strong>DFOCVC Solutions framework</strong></a>
+          <br/>
+          Find DFOCVC Solutions that help organise coronavirus vaccinations
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>Create or manage orders</h2>
+
+      <ul>
+        <li>
+          <a href="/docs"><strong>Manage orders</strong></a>
+          <br/>
+          Complete an order you've already started (log in required)
+        </li>
+        <li>
+          <a href="/docs"><strong>Create a new order</strong></a>
+          <br/>
+          Place a new order (log in required)
+        </li>
+        <li>
+          <a href="nominate-email"><strong>Nominate an organisation</strong></a>
+          <br/>
+          Allow an organisation to create orders on your behalf
+        </li>
+        <li>
+          <a href="/docs"><strong>Request an account</strong></a>
+          <br/>
+          Find Catalogue Solutions that help organise coronavirus vaccinations
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

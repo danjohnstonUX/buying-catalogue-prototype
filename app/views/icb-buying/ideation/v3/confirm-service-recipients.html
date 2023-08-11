@@ -1,0 +1,200 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Confirm Service Recipients for Caltech Web GP
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "2-selected-service-recipients",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Confirm Service Recipients for NHS GREATER MANCHESTER ICB - 00T
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Caltech Web GP
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the organisations you’ve selected to receive this Catalogue Solution.</p>
+
+
+    <h2>Selected Service Recipients</h2>
+    <p>You’ve selected 125 Service Recipients.</p>
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'A'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>A ORGANISATION 1</li>
+          <li>A ORGANISATION 2</li>
+          <li>A ORGANISATION 3</li>
+          <li>A ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'C'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>C ORGANISATION 1</li>
+          <li>C ORGANISATION 2</li>
+          <li>C ORGANISATION 3</li>
+          <li>C ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'D'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>D ORGANISATION 1</li>
+          <li>D ORGANISATION 2</li>
+          <li>D ORGANISATION 3</li>
+          <li>D ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'G'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>G ORGANISATION 1</li>
+          <li>G ORGANISATION 2</li>
+          <li>G ORGANISATION 3</li>
+          <li>G ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'H'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>H ORGANISATION 1</li>
+          <li>H ORGANISATION 2</li>
+          <li>H ORGANISATION 3</li>
+          <li>H ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'K'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>K ORGANISATION 1</li>
+          <li>K ORGANISATION 2</li>
+          <li>K ORGANISATION 3</li>
+          <li>K ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'L'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>L ORGANISATION 1</li>
+          <li>L ORGANISATION 2</li>
+          <li>L ORGANISATION 3</li>
+          <li>L ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Service Recipients beginning with 'M'
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <ul>
+          <li>M ORGANISATION 1</li>
+          <li>M ORGANISATION 2</li>
+          <li>M ORGANISATION 3</li>
+          <li>M ORGANISATION 5</li>
+        </ul>
+      </div>
+    </details>
+
+    
+  <br/>
+
+  <p>You can <a href="4-edit-service-recipients">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p>
+
+            <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="select-recipients-a">
+
+                  {{ button({
+                    "text": "Save and continue"
+                  }) }}
+                </form>
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

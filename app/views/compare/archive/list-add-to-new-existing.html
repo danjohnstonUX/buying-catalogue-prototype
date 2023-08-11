@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select shortlist
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [{
+      href: "/",
+      text: "Home"
+    },
+    {
+      href: "solution-qdoctor",
+      text: "Q Doctor"
+    },
+    {
+      href: "list-add-name",
+      text: "Shortlist name"
+  }]
+  }) }}
+
+{% endblock %}
+
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="shortlist-divider"]:checked').value;
+
+    switch(selectedValue){
+        case "existing-1":
+           document.location.href = "list-add-rationale-sl1";
+           break;
+        case "existing-2":
+           document.location.href = "list-add-rationale-sl2";
+            break;
+        case "new-shortlist":
+           document.location.href = "list-add-name";
+            break;
+    }
+  }
+</script>
+
+<style>
+  .column-right-margin {
+    border-right: #666 solid 1px;
+  }
+</style>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span role="text">Which shortlist do you want to save to?
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+        </span>
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Select a shortlist that you would like to save to.</p>
+
+    <!-- <form action="order-5-4-2-add-solution-service-recipient"> -->
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "shortlist-divider",
+  "name": "shortlist-divider",
+  "fieldset": {
+    "legend": {
+      "text": "Your shortlists",
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "existing-1",
+      "text": "Existing shortlist 1"
+    },
+        {
+      "value": "existing-2",
+      "text": "Existing shortlist 2"
+    },
+    {
+      "divider": "or"
+    },
+    {
+      "value": "new-shortlist",
+      "text": "Create a new shortlist"
+    }
+  ]
+}) }}
+
+<br />
+        
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"javascript: sendForm();"
+        }) }}
+        </form>
+        
+        
+        
+        
+        
+            </div>
+          </div>
+        
+          <br /><br />
+        {% endblock %}
+        
+        {% block footer %}
+        {% include "includes/footer.html" %}
+        {% endblock %}
+        

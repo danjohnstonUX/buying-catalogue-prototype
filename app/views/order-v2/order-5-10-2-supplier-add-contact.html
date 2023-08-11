@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-10-2-supplier-contact-details",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Add a contact
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          Order C000001-01
+        </span>
+      </h1>
+
+
+      <p class="nhsuk-lede-text">Provide details for this contact for [supplier name].</p>
+
+      <form method="post" action="">
+
+        {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>Any new contacts you add will only be available for this order. You must add either a contact name or department name.</p>"
+}) }}
+
+      {% from 'input/macro.njk' import input %}
+
+      {{ input({
+        "label": {
+          "text": "Contact name"
+        },
+        "id": "first-name",
+        "name": "first-name"
+      }) }}
+
+
+
+      {{ input({
+        "label": {
+          "text": "Department name"
+        },
+        "id": "email",
+        "name": "email"
+      }) }}
+
+      {{ input({
+        "label": {
+        "text": "Telephone number"
+        },
+        "id": "phone",
+        "name": "phone",
+        "classes": "nhsuk-input--width-10"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Email address"
+        },
+        "id": "email",
+        "name": "email"
+      }) }}
+
+      <br />
+
+
+      </form>
+
+
+      <div>
+        <div style="display:inline-block;">
+          <form method="post" action="order-5-10-2-supplier-contact-details-newadded-1">
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

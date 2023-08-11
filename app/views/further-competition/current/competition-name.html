@@ -1,0 +1,80 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-hub.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "filter-review",
+      "text": "Go back"
+    }) }}
+
+    <h1>Create competition<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      GREATER MANCHESTER ICB
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      Provide a name and description for your competition.
+    </p>
+
+    {{ input({
+      "label": {
+        "text": "Competition name",
+        "classes": "nhsuk-label--xs"
+      },
+      "hint": {
+        "text": "Provide a unique name for your competition."
+      },
+      "id": "comp-name",
+      "name": "comp-name"
+    }) }}
+
+    {{ textarea({
+      "name": "comp-desc",
+      "id": "example",
+      "label": {
+        "text": "Competition description"
+      },
+      "hint": {
+        "text": "Provide a description to help you identify this competition from any others created for your organisation."
+      }
+    }) }}
+
+    <br>
+
+    <a href="view-solutions" class="nhsuk-button">Save and continue</a>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,289 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../tasklists/tasklist-timescales-completed",
+  "text": "Go back"
+}) }}
+
+    {% from 'tag/macro.njk' import tag %}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Review your order
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-02
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Review the progress of your order. Make sure you’ve included everything you want to order and that all sections are completed.</p>
+
+        <h2 class="bc-c-task-list__task">
+          <span class="bc-c-task-list__task-number">Catalogue Solution</span>
+        </h2>
+
+        {% from 'tag/macro.njk' import tag %}
+
+        <br/>
+        <!-- <table class="nhsuk-table"> <thead class="nhsuk-table__head"> <tr class="nhsuk-table__row"> <th class="nhsuk-table__header" scope="col"> Section</th> <th class="nhsuk-table__header" scope="col"> Status </th> <th class="nhsuk-table__header"
+        scope="col"> Action </th> </tr> </thead> <tbody class="nhsuk-table__body"> <tr class="nhsuk-table__row"> <td class="nhsuk-table__cell" style="width: 50%";"> Catalogue Solution </td> <td class="nhsuk-table__cell"> {{ tag({ text: "Completed", classes:
+        "nhsuk-tag--green" })}} </td> <td class="nhsuk-table__cell"> <a href="step-2-edit/order-5-4-2-add-solution-service-edit">Edit</a> </td> </tr> </tbody> </table> -->
+
+        <!-- <h2 class="bc-c-task-list__task"> <span class="bc-c-task-list__task-number">Catalogue solution</span> </h2> -->
+
+        <h3 class="bc-c-task-list__task">
+          <span class="bc-c-task-list__task-number">Caltech Web GP</span>
+        </h3>
+
+        <table class="nhsuk-table">
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">
+                Section</th>
+              <th class="nhsuk-table__header" scope="col">
+                Status
+              </th>
+              <th class="nhsuk-table__header" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Service Recipients
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Amended",
+                  classes: "nhsuk-tag--orange"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="add-service-recipients">Edit</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Price<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="confirm-price">View</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Quantity<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "In progress",
+                  classes: "nhsuk-tag--yellow"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="add-quantity">Edit</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Planned delivery date<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "In progress",
+                  classes: "nhsuk-tag--yellow"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="add-pdd">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br/>
+        <h2 class="bc-c-task-list__task">
+          <span class="bc-c-task-list__task-number">Additional Services</span>
+        </h2>
+
+        <br/>
+
+        {{ actionLink({
+          "text": "Add Additional Services",
+          "href": "../additional-services/add-additional-services"
+        }) }}
+        {% from 'tag/macro.njk' import tag %}
+
+        <br/>
+        <!-- <table class="nhsuk-table"> <thead class="nhsuk-table__head"> <tr class="nhsuk-table__row"> <th class="nhsuk-table__header" scope="col"> Section</th> <th class="nhsuk-table__header" scope="col"> Status </th> <th class="nhsuk-table__header"
+        scope="col"> Action </th> </tr> </thead> <tbody class="nhsuk-table__body"> <tr class="nhsuk-table__row"> <td class="nhsuk-table__cell" style="width: 50%;"> Additional Services </td> <td class="nhsuk-table__cell"> {{ tag({ text: "Completed", classes:
+        "nhsuk-tag--green" })}} </td> <td class="nhsuk-table__cell"> <a href="">Edit</a> </td> </tr> </tbody> </table> -->
+
+        <h3 class="bc-c-task-list__task">
+          <span class="bc-c-task-list__task-number">Automated Arrivals</span>
+        </h3>
+
+        <table class="nhsuk-table">
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">
+                Section</th>
+              <th class="nhsuk-table__header" scope="col">
+                Status
+              </th>
+              <th class="nhsuk-table__header" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Service Recipients
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="additional-services/amend/add-service-recipients">Edit</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Price<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell"><a href="solutions/confirm-price">View</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Quantity<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="additional-services/amend/view-quantity">View</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br />
+
+        <h3 class="bc-c-task-list__task">
+          <span class="bc-c-task-list__task-number">Document Management </span>
+        </h3>
+
+        <table class="nhsuk-table">
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">
+                Section</th>
+              <th class="nhsuk-table__header" scope="col">
+                Status
+              </th>
+              <th class="nhsuk-table__header" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Service Recipients
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="#">Edit</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Price<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="#">View</a>
+              </td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                Quantity<br/>
+              </td>
+              <td class="nhsuk-table__cell">
+                {{ tag({
+                  text: "Completed",
+                  classes: "nhsuk-tag--green"
+                })}}
+              </td>
+              <td class="nhsuk-table__cell">
+                <a href="#">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <form action="../review-solutions-services">
+          {{ button({
+          "text": "Continue"
+        }) }}
+        </form>
+
+      </div>
+    </div>
+    <br/>
+
+    <!-- <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0"> Order last updated by Sue Smith on 15 March 2021 </p> -->
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

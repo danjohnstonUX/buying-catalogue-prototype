@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+<div class="nhsuk-global-alert" id="nhsuk-global-alert" role="complementary">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-global-alert__content">
+          <div class="nhsuk-global-alert__message"><h2>Coronavirus (COVID-19)</h2>
+            <p>View Catalogue Solutions that help <a data-test-id="vaccinations" href="/catalogue-solution/">organise coronavirus vaccinations</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        {% from 'back-link/macro.njk' import backLink %}
+
+        {{ backLink({
+        "href": "/",
+        "text": "Go back to homepage"
+        }) }}
+
+      <h1>Nominate an organisation to create orders on your behalf</h1>
+      <p class="nhsuk-lede-text">
+        Get support procuring IT systems from the Buying Catalogue.
+      </p>
+
+      <hr>
+
+      <p>
+        You can nominate an organisation registered on the Buying Catalogue to create orders on your behalf using our online form. You’ll need to provide the name of the organisation you're nominating and its ODS code if you know it.
+      </p>
+      <p>
+        We’ll send you an email to confirm this has been set up and then registered users from that organisation will be able to create orders for you.
+      </p>
+      <p>The Buying Catalogue Team aims to respond to nomination requests within 5 working days.</p>
+
+      <p>If for any reason the button does not work, you can send your details to buying.catalogue@nhs.net with the subject line: Buying Catalogue nomination request.</p>
+      <br />
+
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Nominate an organisation",
+      "href": "nominate-email-form"
+    }) }}
+
+
+    <p>If you need advice about using the Buying Catalogue or procuring IT systems, contact the National Commercial and Procurement Hub:</p>
+    <br />
+    {% from 'action-link/macro.njk' import actionLink %}
+
+    {{ actionLink({
+      "text": "Get procurement support",
+      "href": "#"
+    }) }}
+
+    </div>
+  </div>
+  <br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,225 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+"href": "edit-solutions-and-services-pt2",
+"text": "Go back"
+}) }}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>Associated Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+    <p class="nhsuk-lede-text">Review the Associated Services that you've added to this order.
+      You can edit the items that you've added at any time.</p>
+
+    <!-- <p>Use the link to edit Catalogue Solutions or services and assign them to service recipients.</p> -->
+    <hr />
+  </div>
+</div>
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <details class="nhsuk-details nhsuk-expander" open="">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Pricing and quantities
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+
+        <b class="nhsuk-heading-m">Anywhere Consult - Integrated device</b>
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing and quantities</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                List price
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr>
+              <td class="nhsuk-table__cell" style="width: 40%">7-12 care plans per year</td>
+              <td class="nhsuk-table__cell" style="width: 40%">£900 per day</td>
+              <td class="nhsuk-table__cell" style="width: 15%">30 days</td>
+              <td class="nhsuk-table__cell" style="width: 15%">£8,353.80</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <b class="nhsuk-heading-m">Automated Arrivals - Engineering half day</b>
+
+        <table class="nhsuk-table bc-detail">
+          <caption class="nhsuk-table__caption">Pricing and quantities</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="small-text">
+              <th role="columnheader" class="" scope="col">
+                List price
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Price per unit
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Quantity
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr>
+              <td class="nhsuk-table__cell" style="width: 40%">7-12 care plans per year</td>
+              <td class="nhsuk-table__cell" style="width: 40%">£300 per day</td>
+              <td class="nhsuk-table__cell" style="width: 15%">11 days</td>
+              <td class="nhsuk-table__cell" style="width: 15%">£3,444.60</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <b class="nhsuk-heading-m">Total prices</b>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Total one-off cost:
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              £4000.00
+            </dd>
+    
+            <dd class="nhsuk-summary-list__actions">
+    
+              <ul class="nhsuk-summary-list__actions-list">
+    
+              </ul>
+    
+            </dd>
+    
+          </div>
+    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Total monthly cost:
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              £316.03
+            </dd>
+    
+            <dd class="nhsuk-summary-list__actions">
+    
+              <ul class="nhsuk-summary-list__actions-list">
+    
+              </ul>
+    
+            </dd>
+    
+          </div>
+    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Total cost for one year:
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>£3897.00</p>
+            </dd>
+    
+            <dd class="nhsuk-summary-list__actions">
+    
+              <ul class="nhsuk-summary-list__actions-list">
+    
+              </ul>
+    
+            </dd>
+    
+          </div>
+    
+        </dl>
+    
+        <dl class="nhsuk-summary-list">
+    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Total cost of contract (36 months):
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              £11,739.00
+            </dd>
+    
+            <dd class="nhsuk-summary-list__actions">
+    
+              <ul class="nhsuk-summary-list__actions-list">
+    
+              </ul>
+    
+            </dd>
+    
+          </div>
+    
+        </dl>
+
+      </div>
+    </details>
+
+
+
+
+
+
+
+
+    <br />
+
+    <div>
+      <div style="display:inline-block;">
+        <form method="post" action="../order-4-summary-supplier">
+          {% from 'button/macro.njk' import button %}
+
+          <a href="edit-solutions-and-services-pt2" class="nhsuk-button">Continue</a>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

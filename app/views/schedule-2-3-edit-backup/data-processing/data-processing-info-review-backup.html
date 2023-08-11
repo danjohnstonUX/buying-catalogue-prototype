@@ -1,0 +1,235 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "data-processing-info",
+      "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Variations to default Data Processing Information
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Order C000001-01
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <h2 class="nhsuk-heading-m">Caltech Web GP</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Subject matter of the Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "subject matter"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Duration of the Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "duration"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Nature and purposes of Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "nature and purposes"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Type of Personal Data"
+              },
+              value: {
+                text: 'Lorem ipsum dolor sit amet'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "contact details"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Categories of Data Subjects"
+              },
+              value: {
+                text: 'Lorem ipsum dolor sit amet'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "categories"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Implementation</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Subject matter of the Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "subject matter"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Duration of the Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "duration"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Nature and purposes of Processing"
+              },
+              value: {
+                text: "Lorem ipsum dolor sit amet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "nature and purposes"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Type of Personal Data"
+              },
+              value: {
+                text: 'Lorem ipsum dolor sit amet'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "contact details"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Categories of Data Subjects"
+              },
+              value: {
+                text: 'Lorem ipsum dolor sit amet'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Edit",
+                    visuallyHiddenText: "categories"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+
+        {{ button({
+          "text": "Save and continue",
+          "href":"order-4-summary-data-processing-completed"
+        }) }}
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

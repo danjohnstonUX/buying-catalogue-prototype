@@ -1,0 +1,100 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "list-price-add-price-flat",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1>
+              <span role="text">Publish list price
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+            <p class="nhsuk-lede-text">Do you want to publish the list price or save as draft?</p>
+
+            <form action="./" method="post">
+            {{ radios({
+            "idPrefix": "example",
+            "name": "example",
+            "fieldset": {
+                "legend": {
+                "text": "",
+                "classes": "nhsuk-fieldset__legend--l"
+                }
+            },
+            "hint": {
+                "text": ""
+            },
+            "items": [
+                            {
+                "value": "yes",
+                "text": "Publish"
+                },
+                {
+                "value": "no",
+                "text": "Save as draft",
+                "checked": true
+                }
+            ]
+            }) }}
+          <br />
+
+          {% from 'button/macro.njk' import button %}
+
+          {{ button({
+            "text": "Save and continue"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

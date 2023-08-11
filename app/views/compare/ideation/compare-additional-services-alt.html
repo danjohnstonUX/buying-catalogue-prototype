@@ -1,0 +1,151 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-full-width.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+<style>
+
+.section-content {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+</style>
+{% include "includes/header.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+{{ backLink({
+  "href": "index",
+  "text": "Go back"
+}) }}
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full section-content">
+        <h1>Compare Additional Services</h1>
+        <p class="nhsuk-lede-text">
+          Lorem ipsum dolor sit amet consectutor.
+        </p>
+
+        {{ contentsList({
+        items: [
+          {
+            href: "/compare-list-price/",
+            text: "List price"
+          },
+          {
+            href: "compare-additional-services",
+            text: "Additional Services",
+            current: "true"
+          },
+          {
+            href: "compare-associated-services",
+            text: "Associated Services"
+          },
+          {
+            href: "compare-capabilities-epics",
+            text: "Capabilties and Epics"
+          },
+          {
+            href: "compare-interoperability",
+            text: "Interoperability"
+          },
+          {
+            href: "compare-implementation",
+            text: "Implementation"
+          },
+          {
+            href: "compare-client-application-type",
+            text: "Client application type"
+          },
+          {
+            href: "compare-hosting-type",
+            text: "Hosting type"
+          }
+          ]
+        }) }}
+
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Online and Video Consult Additional Services</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Additional Service
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Long Term Conditions Manager</a></td>
+              <td class="nhsuk-table__cell">
+                <span class="nhsuk-u-visually-hidden">Price type: </span><strong>Flat price per Service Recipient</strong><br>£0.2500 per patient per year<br>
+                <span class="nhsuk-u-visually-hidden">Price type: </span><strong>Flat price per practice</strong><br>£500 per practice
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#"> Caltech Mobile</a></td>
+              <td class="nhsuk-table__cell ">£0.0700 per patient per year </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#"> Automated Arrivals</a></td>
+              <td class="nhsuk-table__cell ">£426.1200 per day</td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Extract Services</a></td>
+              <td class="nhsuk-table__cell ">£0.0600 per patient per year </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Caltech Web Dispensing</a></td>
+              <td class="nhsuk-table__cell ">£0.2500 per patient per year </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Document Management</a></td>
+              <td class="nhsuk-table__cell ">£0.1200 per patient per year </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Risk Stratification</a></td>
+              <td class="nhsuk-table__cell ">£0.0600 per patient per year </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell"><a href="#">Enterprise Search and Reports</a></td>
+              <td class="nhsuk-table__cell ">£0.0600 per patient per year </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>   
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

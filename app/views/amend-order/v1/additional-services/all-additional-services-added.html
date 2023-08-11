@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+      "href": "../edit-dashboard",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Additional Services<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Caltech Web GP
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">All the Additional Services available with this Catalogue Solution have already been added to this order.</p>
+
+        <br/>
+
+        <h2>Additional Services already added</h2>
+
+        <ul>
+          <li>
+            Automated Arrivals
+          </li>
+          <li>
+            Caltech Mobile
+          </li>
+          <li>
+            Caltech Web Dispensing
+          </li>
+          <li>
+            Document Management
+          </li>
+          <li>
+            Enterprise Search and Reports
+          </li>
+          <li>
+            Extra Services
+          </li>
+          <li>
+            Long Term Conditions Manager
+          </li>
+          <li>
+            Risk Stratification
+          </li>
+        </ul>
+
+        <br />
+
+        <form action="../edit-dashboard">
+          {{ button({
+        "text": "Continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}
+
+  <!-- Old code <h2>Selected Additional Services</h2> <p>These Additional Services have already been added to your order:</p> <ul class="nhsuk-list nhsuk-list--bullet"> <li>Automated Services</li> <li>Document Management</li> </ul> <hr /> -->

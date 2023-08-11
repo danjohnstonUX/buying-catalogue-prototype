@@ -1,0 +1,174 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+Buying Catalogue
+{% endblock %}
+
+{% block header %}
+
+{% include "includes/header-fc-testing.html" %}
+
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "filters-hub",
+      "text": "Go back to saved filters"
+    }) }}
+
+    <h1>AM & VC desktop apps<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+      <span class="nhsuk-u-visually-hidden"> - </span>
+      NHS WEST YORKSHIRE INTEGRATED CARE BOARD
+    </span></h1>
+    <p class="nhsuk-lede-text">
+      These are the details for this filter.
+    </p>
+
+   {{ actionLink({
+      "text": "Create a competition using this filter",
+      "href": "before-you-start"
+    }) }}    
+
+    <h2>Name and description</h2>
+
+    {{ summaryList({
+      classes: "nhsuk-u-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "OC/VC competition"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt consectetur non voluptatem rem tenetur."
+          }
+        }
+      ]
+    }) }}
+
+
+   <!--  <h2>Capabilities</h2>
+
+    <p>Appointments Management - Citizen</p>
+    <p>Video Consultation</p>
+    <p>Online Consultation</p> -->
+
+
+  {{ table({
+      responsive: true,
+      tableClasses: "nhsuk-u-margin-bottom-9",
+      panel: false,
+      caption: "Capabilities and Epics",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Capability"
+        },
+        {
+          text: "Epic"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Capability",
+            text: "Online Consultation"
+          },
+          {
+            header: "Epics",
+            html: "<ul><li>Accessibility options for online consultation</li><li>Automatic follow-up reminders</li><li>Direct messaging</li><li>Online consultation</li><li>Search online consultations</li></ul>"
+          }
+        ],
+        [
+          {
+            header: "Capability",
+            text: "Video Consultation"
+          },
+          {
+            header: "Epics",
+            html: "<ul><li>Accessibility options for video consultation</li></ul>"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2>Additional filters</h2>
+
+    {{ summaryList({
+      classes: "nhsuk-u-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Client application type"
+          },
+          value: {
+            text: "Desktop application"
+          }
+        },
+        {
+          key: {
+            text: "Framework"
+          },
+          value: {
+            text: "DFOCVC"
+          }
+        },
+        {
+          key: {
+            text: "Hosting type"
+          },
+          value: {
+            text: "None selected"
+          }
+        }
+      ]
+    }) }}
+
+    <h2>View solutions</h2>
+    <p>The results will be based on solutions currently available that match to this filter.</p>
+    <p><a href="filtered-list-applied" target="_blank">View results for this filter (opens in a new tab)</a></p>
+    
+
+    <br>
+
+    <p><a href="#" style="color: #d5281b">Delete filter</a></p>
+
+    <p class="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+      Filter created: 31 March 2023
+    </p>
+
+  </div>
+</div>
+<br /><br />
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

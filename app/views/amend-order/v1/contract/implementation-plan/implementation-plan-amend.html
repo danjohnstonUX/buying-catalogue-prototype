@@ -1,0 +1,298 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-1-1-add-milestone",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Implementation milestones and payment triggers
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden">
+            -
+          </span>
+          Order C000001-02
+        </span>
+      </h1>
+
+      <p class="nhsuk-lede-text">Review the implementation milestones that will act as payment triggers for this order. These milestones will apply to all Service Recipients.</p>
+
+
+      {{ details({
+        "text": "What is the supplier's standard implementation plan?",
+        "HTML": "
+          <p>The typical timescales for the implementation of Caltech Web are around 12 weeks depending on the patient list size.</p>
+          <p>An implementation plan is provided and agreed at the beginning of the process outlining all key dates and activities. Where required these dates are negotiable to fit the needs of the customer.</p>
+          <h3 class='nhsuk-heading-s'>Key activities</h3>
+          <ul>
+              <li>Customer supplied with high level implementation plan and welcome pack</li>
+              <li>Engineer visit to perform install of client software and check connectivity</li>
+              <li>Customer supplied test data loaded into a test system and made available</li>
+              <li>Learning needs analysis performed & agreed training plan for go-live</li>
+              <li>On site visit to train the customer how to check and cleanse their data</li>
+              <li>Any defects and corrections completed on migrated data</li>
+              <li>Practice sign-off of test data</li>
+              <li>Agreed training provide pre and post go-live in line with results from LNA</li>
+              <li>Go-live day, trainers and engineer onsite to support a smooth transition</li>
+          </ul>
+        "
+      }) }}
+
+      <br />
+
+      
+
+      <br />
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Bespoke milestones and payment triggers",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone name"
+          },
+          {
+            text: "Milestone payment trigger"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Interoperability with finance system"
+            },
+            {
+              text: "Payment will be made once the supplier has demonstrated to our satisfaction that their solution works with our finance system."
+            }
+          ],
+          [
+            {
+              text: "Project plan"
+            },
+            {
+              text: "Payments will be made once the supplier's project plan has been signed off by us."
+            }
+          ]
+        ]
+      }) }}
+
+      {{ actionLink({
+        "text": "Add a milestone",
+        "href": "add-milestone-amend"
+      }) }}
+
+      {% from 'tables/macro.njk' import table %}
+      {{ table({
+        panel: false,
+        caption: "Default milestones and payment triggers",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Milestone name"
+          },
+          {
+            text: "Milestone payment trigger"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Delivery date (go live)"
+            },
+            {
+              text: "No payment."
+            }
+          ],
+          [
+            {
+              text: "Service stability"
+            },
+            {
+              text: "Charges commence on achievement of delivery date (go live), but payments will not be made until service stability is achieved."
+            }
+          ]
+        ]
+      }) }}
+
+      
+
+    <!--   <h2 class="nhsuk-heading-m">Payment triggers for Associated Services</h2>
+
+      <p>A one-off payment for any Associated Services on your order will be required 30 days after the service is delivered.</p>
+
+     {{ table({
+        panel: false,
+        caption: "Milestone 1: Go Live",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Acceptance Criteria"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "The supplier evidences to your satisfaction that the implementation plan includes all deliverables and responsibilities of you, the Service Recipient and the supplier, with appropriate time allocated for these to be met."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to your satisfaction that the Catalogue Solution has been configured to meet the Service Recipient’s operational requirements."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to the Service Recipient’s satisfaction that they’ve met their obligations set out in the Training Standard."
+            }
+          ],
+          [
+            {
+              text: "Where the supplier is responsible for training, they evidence to the Service Recipient’s satisfaction that end users can use the Catalogue Solution to fulfil relevant business functions."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to the Service Recipient’s satisfaction that the Catalogue Solution can connect to and access national and other interfaces applicable to it."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to the Service Recipient’s satisfaction that any Associated Services ordered that are applicable to implementation have been effectively provided."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to the Service Recipient’s satisfaction that the requirements of the Data Migration Standard and Catalogue Solution Migration Process applicable to the supplier for go live have been met and that the relevant data has migrated to enable the Service Recipient to conduct their relevant business functions effectively."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to your and the Service Recipient’s satisfaction that they will meet their obligations set out in the Service Management Standard."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to your satisfaction that they have appropriate invoicing arrangements in place."
+            }
+          ],
+          [
+            {
+              text: "Any commercial issues identified to date are visible to both you and the supplier and an agreement on how they are to be handled has been reached between both parties."
+            }
+          ],
+          [
+            {
+              text: "Your approval that all Milestone 1 activities have been successfully completed."
+            }
+          ]
+        ]
+      }) }}
+
+      <br />
+
+      {{ table({
+        panel: false,
+        caption: "Milestone 2: Service Stability",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Acceptance Criteria"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "The Service Recipient confirms that the Catalogue Solution is functioning as specified by the supplier and end users can use it effectively."
+            }
+          ],
+          [
+            {
+              text: "The supplier evidences to your and the Service Recipient’s satisfaction that all of the requirements of the Data Migration Standard and Catalogue Solution Migration Process that are applicable have been met by the supplier, and that all the relevant data has migrated to the Catalogue Solution."
+            }
+          ],
+          [
+            {
+              text: 'The supplier evidences to your and the Service Recipient’s satisfaction that they’re meeting their service management obligations set out in appendix 2 of the Service Management Standard. This must be reasonably demonstrated within 10 working days of achievement of Milestone 1.'
+            }
+          ],
+          [
+            {
+              text: "In relation to Type 2 Catalogue Solutions (which do not need to comply with service levels specified by NHS Digital), the supplier evidences to your and the Service Recipient’s satisfaction that the Catalogue Solution is meeting the applicable service levels."
+            }
+          ],
+          [
+            {
+              text: "Any commercial issues identified to date are visible to both you and the supplier and an agreement on how they’re to be handled has been reached between both parties."
+            }
+          ],
+          [
+            {
+              text: "Your approval that all Milestone 1 and 2 activities have been successfully completed."
+            }
+          ]
+        ]
+      }) }} 
+
+      <br />
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+        "idPrefix": "accept-milestone",
+        "name": "accept-milestones",
+        "fieldset": {
+          "legend": {
+            "text": "Do you want to proceed using these milestones?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No, I’ve agreed bespoke milestones with the supplier"
+          }
+        ]
+      }) }} -->
+
+      <br />
+
+      {{ button({
+        "text": "Continue",
+        "href": "../../tasklists/tasklist-start"
+      }) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

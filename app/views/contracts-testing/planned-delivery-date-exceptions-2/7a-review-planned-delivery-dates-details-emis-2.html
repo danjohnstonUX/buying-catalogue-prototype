@@ -1,0 +1,76 @@
+
+<br />
+{% from 'tables/macro.njk' import table %}
+
+    {{ table({
+    responsive: true,
+    panel: false,
+    caption: "",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Service Recipients"
+      },
+      {
+        text: "ODS code"
+      }
+    ],
+    rows: [
+   [
+     {
+       text: "ST ANDREWS SURGERY"
+     },
+     {
+       text: "B81027"
+     }
+   ],
+   [
+     {
+       text: "SYDENHAM GROUP PRACTICE"
+     },
+     {
+       text: "B81058"
+     }
+   ],
+   [
+     {
+       text: "THE AVENUES MEDICAL CENTRE"
+     },
+     {
+       text: "B81035"
+     }
+   ],
+   [
+     {
+       text: "THE BRIDGE GROUP PRACTICE"
+     },
+     {
+       text: "B81046"
+     }
+   ],
+   [
+     {
+       text: "THE SUTTON MANOR SURGERY"
+     },
+     {
+       text: "B81020"
+     }
+   ],
+   [
+     {
+       text: "WILBERFORCE SURGERY"
+     },
+     {
+       text: "B81032"
+     }
+   ],
+   [
+     {
+       text: "WOLSELEY MEDICAL CENTRE"
+     },
+     {
+       text: "B81047"
+     }
+   ]      
+      ]
+      }) }}

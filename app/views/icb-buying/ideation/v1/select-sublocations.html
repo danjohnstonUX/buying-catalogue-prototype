@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "select-buying-level",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Select sublocations to view<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            NHS GREATER MANCHESTER INTEGRATED CARE BOARD (QOP)
+          </span>
+        </h1>
+        <p class="nhsuk-lede-text">Select the sublocations within your Integrated Care Board that you wish to view practices for.</p>
+
+        <!-- <p><a href="#">Add or remove service recipients</a></p> -->
+
+        {% from 'checkboxes/macro.njk' import checkboxes %}
+
+        {% from 'tables/macro.njk' import table %}
+
+        <form>
+          {{ checkboxes({
+            "idPrefix": "contact",
+            "name": "contact",
+            "fieldset": {
+              "legend": {
+                "text": "Select sublocations",
+                "classes": "nhsuk-fieldset__legend--m",
+                isPageHeading: false
+              }
+            },
+            "hint": {
+              "html": "<p class='nhsuk-u-margin-bottom-2'>These are the available sublocations for your Integrated Care Board.</p>"
+            },
+            "items": [
+              {
+                "value": "icb-00T",
+                "text": "NHS GREATER MANCHESTER ICB - 00T"
+              },
+              {
+                "value": "icb-00V",
+                "text": "NHS GREATER MANCHESTER ICB - 00V"
+              },
+              {
+                "value": "icb-00Y",
+                "text": "NHS GREATER MANCHESTER ICB - 00Y"
+              },
+              {
+                "value": "icb-01D",
+                "text": "NHS GREATER MANCHESTER ICB - 01D"
+              },
+              {
+                "value": "icb-01G",
+                "text": "NHS GREATER MANCHESTER ICB - 01G"
+              },
+              {
+                "value": "icb-01W",
+                "text": "NHS GREATER MANCHESTER ICB - 01W"
+              },
+              {
+                "value": "icb-01Y",
+                "text": "NHS GREATER MANCHESTER ICB - 01Y"
+              },
+              {
+                "value": "icb-02A",
+                "text": "NHS GREATER MANCHESTER ICB - 02A"
+              },
+              {
+                "value": "icb-02H",
+                "text": "NHS GREATER MANCHESTER ICB - 02H"
+              },{
+                "value": "icb-14L",
+                "text": "NHS GREATER MANCHESTER ICB - 14L"
+              }
+            ]
+          }) }}
+        </form>
+
+        <br/>
+
+        <form action="sublocation-1">
+          {{ button({
+        "text": "Save and continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+
+    <br/><br/>
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}
+
+  <!-- Old code <h2>Selected Additional Services</h2> <p>These Additional Services have already been added to your order:</p> <ul class="nhsuk-list nhsuk-list--bullet"> <li>Automated Services</li> <li>Document Management</li> </ul> <hr /> -->

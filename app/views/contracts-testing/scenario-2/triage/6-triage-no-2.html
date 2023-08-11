@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  £40k and £250k orders
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "5-triage-40-250",
+  "text": "Go back"
+}) }}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Orders with a value between £40k and £250k</h1>
+
+      <p>You must execute an On-Catalogue Competition procedure. This means you must carry out a competition of similar Catalogue Solutions using information available on the Buying Catalogue. </p>
+      <p>Score Catalogue Solutions based on how they perform against certain criteria, for example, price, implementation timescales or service levels. You’ll need to keep evidence of how you ended up selecting a particular solution.</p>
+      <p>You’ll not be ready to place an order of this value until this procedure has been carried out.</p>
+
+      {{ button({
+        "text": "Return to orders dashboard",
+        "href":"../index"
+      }) }}
+
+
+      <h2>Need help?</h2>
+      <p>We’ve developed a <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1931116641/Executing+a+procurement+a+step+by+step+guide">step-by-step guide to the procurement process</a> (opens in a new tab) and have <a href="https://gpitbjss.atlassian.net/wiki/spaces/BG/pages/1846968344/Further+Competition+-+On+Catalogue">more information about executing an On-Catalogue Competition procedure</a> (opens in a new tab).</p>
+      <p>For help using the Buying Catalogue, contact the National and Commercial Procurement Hub:</p>
+      {{ actionLink({
+        "text": "Get procurement support",
+        "href": "../procurement-hub"
+      }) }}
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

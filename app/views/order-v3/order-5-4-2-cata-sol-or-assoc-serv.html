@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="example-hints"]:checked').value;
+
+    switch(selectedValue){
+        case "gateway":
+           document.location.href = "order-5-4-2-add-solution-service";
+           break;
+        case "verify":
+           document.location.href = "order-5-4-2-add-associated-service-v2";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "order-5-4-1-solutions",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>What do you want to add to your order?
+  <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    Order C000001-01
+  </span>
+</h1>
+<p class="nhsuk-lede-text">If you want to order both, select Catalogue Solution and you’ll be able to add Associated Services afterwards.</p>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example-hints",
+  "name": "example-hints",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "gateway",
+      "text": "Catalogue Solution",
+      "hint": {
+        "text": "These are clinical IT systems that have meet the necessary requirements to feature on the Buying Catalogue."
+      }
+    },
+    {
+      "value": "verify",
+      "text": "Associated Service",
+      "hint": {
+        "text": "These are products that support the implementation of a solution and can be bought independently. For example, training or data migration or arranging the merging or splitting of existing practices."
+      }
+    }
+  ]
+}) }}
+
+
+<br/>
+
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

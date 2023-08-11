@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+<script>
+  function sendForm() {
+    var selectedValue = document.querySelector('input[name="add-another-additional"]:checked').value;
+
+    switch(selectedValue){
+        case "yes":
+           document.location.href = "order-5-4-2-add-solution-service";
+           break;
+        case "no":
+           document.location.href = "order-5-4-2-add-associated-service-v2";
+            break;
+    }
+  }
+</script>
+
+
+{{ backLink({
+  "href": "order-5-4-2-add-additional-service-quantity-2",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+{% from 'input/macro.njk' import input %}
+
+<h1>Do you want to add another Additional Service?
+  <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    Order C000001-01
+  </span>
+</h1>
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "add-another-additional",
+  "name": "add-another-additional",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes",
+      "hint": {
+        "text": ""
+      }
+    },
+    {
+      "value": "no",
+      "text": "No",
+      "hint": {
+        "text": ""
+      }
+    }
+  ]
+}) }}
+
+<br/>
+
+<form>
+{{ button({
+  "text": "Save and continue",
+  "href":"javascript: sendForm();"
+}) }}
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

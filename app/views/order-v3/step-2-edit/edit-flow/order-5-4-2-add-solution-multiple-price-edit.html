@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "order-5-4-2-add-solution-service-recipient-confirm",
+  "text": "Go back"
+}) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>List price for Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          EMIS Web GP
+        </span></h1>
+      <p class="nhsuk-lede-text">Select the list price for this Catalogue Solution. If you've agreed a different price with the supplier, the values can be altered later.</p>
+
+      {% from 'radios/macro.njk' import radios %}
+
+      {{ radios({
+  "idPrefix": "cat_solution",
+  "name": "cat_solution",
+  "fieldset": {
+    "legend": {
+      "text": "Select list price",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "true"
+    }
+  },
+
+  "items": [
+    {
+      "value": "genysys",
+      "text": "1-6 care plans per year",
+      "conditional": {
+        "html": genysysHtml
+      }
+    },
+    {
+      "value": "online and video consult",
+      "text": "7–12 care plans per year ",
+      "conditional": {
+        "html": phoneHtml
+      }
+    },
+    {
+      "value": "video consult",
+      "text": "13+ care plans per year",
+      "conditional": {
+        "html": mobileHtml
+
+      }
+    }
+  ]
+}) }}
+
+      <br/>
+
+      
+
+      <div>
+        <div style="display:inline-block;">
+          <form method="post" action="order-5-4-2-select-solution-confirm-price-edit">
+            {% from 'button/macro.njk' import button %}
+      
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br/><br/>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

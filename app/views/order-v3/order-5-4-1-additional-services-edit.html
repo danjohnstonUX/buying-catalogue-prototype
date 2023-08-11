@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+
+<script>
+  function sendForm() {
+    var radioYes = document.getElementById("contact-1").checked ? document.getElementById("contact-1").value : "";
+    var radioNo = document.getElementById("contact-2").checked ? document.getElementById("contact-2").value : "";
+
+    if(radioNo=="document management") {
+        document.location.href = "order-5-4-1-document-management-edit";
+    }
+    else if(radioYes=="automated arrivals") {
+        document.location.href = "order-5-4-1-automated-arrivals-edit";
+    }
+  }
+</script>
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-solutions2",
+  "text": "Go back"
+}) }}
+
+<h1>Your Additional Services</h1>
+  
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+<form name="triage" id="triage">
+      {% from 'radios/macro.njk' import radios %}
+      {% from 'input/macro.njk' import input %}
+
+      {{ radios({
+        "idPrefix": "contact",
+        "name": "contact",
+        "fieldset": {
+          "legend": {
+            "text": "Which Additional Service do you want to edit",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": "true"
+          }
+        },
+        
+        "items": [
+          {
+            "value": "automated arrivals",
+            "text": "Automated Arrivals"
+          },
+          {
+            "value": "document management",
+            "text": "Document Management"
+          }
+        ]
+      }) }}
+</form>
+<br />
+
+{{ button({
+  "text": "Continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

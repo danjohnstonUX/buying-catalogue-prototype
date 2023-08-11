@@ -1,0 +1,893 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  <script type="text/javascript" src="/js/accessible-autocomplete.min.js"></script>
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %} {{ breadcrumb({ items: [ ], href: "/", text: "Home" }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+    "href": "admin-organisation-manage-nominated-orgs",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-u-margin-bottom-7">
+          <h1 class="nhsuk-u-margin-bottom-0">Nominate an organisation</h1>
+          <p id="page-heading-org-name" class="nhsuk-caption-xl">Cheshire and Merseyside Commissioning Hub</p>
+        </div>
+
+        <p class="nhsuk-lede-text">Provide the following information to nominate an organisation that can create orders on your behalf.</p>
+
+        <form action="admin-organisation-manage-nominated-orgs" method="post">
+
+          {{ select({
+                "id": "select-1-search",
+                "name": "select-1-search",
+                "label": {
+                    "text": "Organisation"
+                },
+                "items": [
+                          {
+                            "value": 1,
+                            "text": "NHS Digital"
+                          },
+                          {
+                            "value": 2,
+                            "text": "Cheshire and Merseyside Commissioning Hub"
+                          },
+                          {
+                            "value": 3,
+                            "text": "Cumbria and North East Commissioning Hub"
+                          },
+                          {
+                            "value": 4,
+                            "text": "Cumbria and North East – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 5,
+                            "text": "East Commissioning Hub"
+                          },
+                          {
+                            "value": 6,
+                            "text": "East – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 7,
+                            "text": "Greater Manchester Commissioning Hub"
+                          },
+                          {
+                            "value": 8,
+                            "text": "Hampshire, Isle of Wight and Thames Valley Commissioning Hub"
+                          },
+                          {
+                            "value": 9,
+                            "text": "Hampshire, Isle of Wight and Thames Valley – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 10,
+                            "text": "Kent, Surrey and Sussex Commissioning Hub"
+                          },
+                          {
+                            "value": 11,
+                            "text": "Kent, Surrey and Sussex – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 12,
+                            "text": "Lancashire and Greater Manchester Commissioning Hub"
+                          },
+                          {
+                            "value": 13,
+                            "text": "Lancashire Commissioning Hub"
+                          },
+                          {
+                            "value": 14,
+                            "text": "Lancashire – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 15,
+                            "text": "London Commissioning Hub"
+                          },
+                          {
+                            "value": 16,
+                            "text": "London – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 17,
+                            "text": "National Commissioning Hub 1"
+                          },
+                          {
+                            "value": 18,
+                            "text": "National Commissioning Hub 2"
+                          },
+                          {
+                            "value": 19,
+                            "text": "NHS Barking and Dagenham CCG"
+                          },
+                          {
+                            "value": 20,
+                            "text": "NHS Barnsley CCG"
+                          },
+                          {
+                            "value": 21,
+                            "text": "NHS Basildon and Brentwood CCG"
+                          },
+                          {
+                            "value": 22,
+                            "text": "NHS Bassetlaw CCG"
+                          },
+                          {
+                            "value": 23,
+                            "text": "NHS Bath and North East Somerset, Swindon and Wiltshire CCG"
+                          },
+                          {
+                            "value": 24,
+                            "text": "NHS Bedfordshire CCG"
+                          },
+                          {
+                            "value": 25,
+                            "text": "NHS Berkshire West CCG"
+                          },
+                          {
+                            "value": 26,
+                            "text": "NHS Birmingham and Solihull CCG"
+                          },
+                          {
+                            "value": 27,
+                            "text": "NHS Birmingham Crosscity CCG"
+                          },
+                          {
+                            "value": 28,
+                            "text": "NHS Birmingham South and Central CCG"
+                          },
+                          {
+                            "value": 29,
+                            "text": "NHS Blackburn With Darwen CCG"
+                          },
+                          {
+                            "value": 30,
+                            "text": "NHS Blackpool CCG"
+                          },
+                          {
+                            "value": 31,
+                            "text": "NHS Bolton CCG"
+                          },
+                          {
+                            "value": 32,
+                            "text": "NHS Bradford District and Craven CCG"
+                          },
+                          {
+                            "value": 33,
+                            "text": "NHS Brent CCG"
+                          },
+                          {
+                            "value": 34,
+                            "text": "NHS Brighton and Hove CCG"
+                          },
+                          {
+                            "value": 35,
+                            "text": "NHS Bristol CCG"
+                          },
+                          {
+                            "value": 36,
+                            "text": "NHS Bristol, North Somerset and South Gloucestershire CCG"
+                          },
+                          {
+                            "value": 37,
+                            "text": "NHS Buckinghamshire CCG"
+                          },
+                          {
+                            "value": 38,
+                            "text": "NHS Bury CCG"
+                          },
+                          {
+                            "value": 39,
+                            "text": "NHS Calderdale CCG"
+                          },
+                          {
+                            "value": 40,
+                            "text": "NHS Cambridgeshire and Peterborough CCG"
+                          },
+                          {
+                            "value": 41,
+                            "text": "NHS Cannock Chase CCG"
+                          },
+                          {
+                            "value": 42,
+                            "text": "NHS Castle Point and Rochford CCG"
+                          },
+                          {
+                            "value": 43,
+                            "text": "NHS Central London (Westminster) CCG"
+                          },
+                          {
+                            "value": 44,
+                            "text": "NHS Central Manchester CCG"
+                          },
+                          {
+                            "value": 45,
+                            "text": "NHS Cheshire CCG"
+                          },
+                          {
+                            "value": 46,
+                            "text": "NHS Chorley and South Ribble CCG"
+                          },
+                          {
+                            "value": 47,
+                            "text": "NHS City and Hackney CCG"
+                          },
+                          {
+                            "value": 48,
+                            "text": "NHS County Durham CCG"
+                          },
+                          {
+                            "value": 49,
+                            "text": "NHS Coventry and Rugby CCG"
+                          },
+                          {
+                            "value": 50,
+                            "text": "NHS Derby and Derbyshire CCG"
+                          },
+                          {
+                            "value": 51,
+                            "text": "NHS Devon CCG"
+                          },
+                          {
+                            "value": 52,
+                            "text": "NHS Doncaster CCG"
+                          },
+                          {
+                            "value": 53,
+                            "text": "NHS Dorset CCG"
+                          },
+                          {
+                            "value": 54,
+                            "text": "NHS Dudley CCG"
+                          },
+                          {
+                            "value": 55,
+                            "text": "NHS Ealing CCG"
+                          },
+                          {
+                            "value": 56,
+                            "text": "NHS East and North Hertfordshire CCG"
+                          },
+                          {
+                            "value": 57,
+                            "text": "NHS East Berkshire CCG"
+                          },
+                          {
+                            "value": 58,
+                            "text": "NHS East Lancashire CCG"
+                          },
+                          {
+                            "value": 59,
+                            "text": "NHS East Leicestershire and Rutland CCG"
+                          },
+                          {
+                            "value": 60,
+                            "text": "NHS East Riding of Yorkshire CCG"
+                          },
+                          {
+                            "value": 61,
+                            "text": "NHS East Staffordshire CCG"
+                          },
+                          {
+                            "value": 62,
+                            "text": "NHS East Sussex CCG"
+                          },
+                          {
+                            "value": 63,
+                            "text": "NHS Fareham and Gosport CCG"
+                          },
+                          {
+                            "value": 64,
+                            "text": "NHS Fylde and Wyre CCG"
+                          },
+                          {
+                            "value": 65,
+                            "text": "NHS Gloucestershire CCG"
+                          },
+                          {
+                            "value": 66,
+                            "text": "NHS Greater Huddersfield CCG"
+                          },
+                          {
+                            "value": 67,
+                            "text": "NHS Greater Preston CCG"
+                          },
+                          {
+                            "value": 68,
+                            "text": "NHS Halton CCG"
+                          },
+                          {
+                            "value": 69,
+                            "text": "NHS Hammersmith and Fulham CCG"
+                          },
+                          {
+                            "value": 70,
+                            "text": "NHS Harrow CCG"
+                          },
+                          {
+                            "value": 71,
+                            "text": "NHS Havering CCG"
+                          },
+                          {
+                            "value": 72,
+                            "text": "NHS Herefordshire and Worcestershire CCG"
+                          },
+                          {
+                            "value": 73,
+                            "text": "NHS Herts Valleys CCG"
+                          },
+                          {
+                            "value": 74,
+                            "text": "NHS Heywood, Middleton and Rochdale CCG"
+                          },
+                          {
+                            "value": 75,
+                            "text": "NHS Hillingdon CCG"
+                          },
+                          {
+                            "value": 76,
+                            "text": "NHS Hounslow CCG"
+                          },
+                          {
+                            "value": 77,
+                            "text": "NHS Hull CCG"
+                          },
+                          {
+                            "value": 78,
+                            "text": "NHS Ipswich and East Suffolk CCG"
+                          },
+                          {
+                            "value": 79,
+                            "text": "NHS Isle of Wight CCG"
+                          },
+                          {
+                            "value": 80,
+                            "text": "NHS Kent and Medway CCG"
+                          },
+                          {
+                            "value": 81,
+                            "text": "NHS Kernow CCG"
+                          },
+                          {
+                            "value": 82,
+                            "text": "NHS Knowsley CCG"
+                          },
+                          {
+                            "value": 83,
+                            "text": "NHS Leeds CCG"
+                          },
+                          {
+                            "value": 84,
+                            "text": "NHS Leeds North CCG"
+                          },
+                          {
+                            "value": 85,
+                            "text": "NHS Leeds West CCG"
+                          },
+                          {
+                            "value": 86,
+                            "text": "NHS Leicester City CCG"
+                          },
+                          {
+                            "value": 87,
+                            "text": "NHS Lincolnshire CCG"
+                          },
+                          {
+                            "value": 88,
+                            "text": "NHS Liverpool CCG"
+                          },
+                          {
+                            "value": 89,
+                            "text": "NHS Luton CCG"
+                          },
+                          {
+                            "value": 90,
+                            "text": "NHS Manchester CCG"
+                          },
+                          {
+                            "value": 91,
+                            "text": "NHS Mid Essex CCG"
+                          },
+                          {
+                            "value": 92,
+                            "text": "NHS Milton Keynes CCG"
+                          },
+                          {
+                            "value": 93,
+                            "text": "NHS Morecambe Bay CCG"
+                          },
+                          {
+                            "value": 94,
+                            "text": "NHS Newcastle Gateshead CCG"
+                          },
+                          {
+                            "value": 95,
+                            "text": "NHS Newham CCG"
+                          },
+                          {
+                            "value": 96,
+                            "text": "NHS Norfolk and Waveney CCG"
+                          },
+                          {
+                            "value": 97,
+                            "text": "NHS Northamptonshire CCG"
+                          },
+                          {
+                            "value": 98,
+                            "text": "NHS North Central London CCG"
+                          },
+                          {
+                            "value": 99,
+                            "text": "NHS North Cumbria CCG"
+                          },
+                          {
+                            "value": 100,
+                            "text": "NHS North East Essex CCG"
+                          },
+                          {
+                            "value": 101,
+                            "text": "NHS North East Hampshire and Farnham CCG"
+                          },
+                          {
+                            "value": 102,
+                            "text": "NHS North East Lincolnshire CCG"
+                          },
+                          {
+                            "value": 103,
+                            "text": "NHS Northern, Eastern and Western Devon CCG"
+                          },
+                          {
+                            "value": 104,
+                            "text": "NHS North Hampshire CCG"
+                          },
+                          {
+                            "value": 105,
+                            "text": "NHS North Kirklees CCG"
+                          },
+                          {
+                            "value": 106,
+                            "text": "NHS North Lincolnshire CCG"
+                          },
+                          {
+                            "value": 107,
+                            "text": "NHS North Staffordshire CCG"
+                          },
+                          {
+                            "value": 108,
+                            "text": "NHS North Tyneside CCG"
+                          },
+                          {
+                            "value": 109,
+                            "text": "NHS Northumberland CCG"
+                          },
+                          {
+                            "value": 110,
+                            "text": "NHS North Yorkshire CCG"
+                          },
+                          {
+                            "value": 111,
+                            "text": "NHS Nottingham and Nottinghamshire CCG"
+                          },
+                          {
+                            "value": 112,
+                            "text": "NHS Oldham CCG"
+                          },
+                          {
+                            "value": 113,
+                            "text": "NHS Oxfordshire CCG"
+                          },
+                          {
+                            "value": 114,
+                            "text": "NHS Portsmouth CCG"
+                          },
+                          {
+                            "value": 115,
+                            "text": "NHS Redbridge CCG"
+                          },
+                          {
+                            "value": 116,
+                            "text": "NHS Rotherham CCG"
+                          },
+                          {
+                            "value": 117,
+                            "text": "NHS Salford CCG"
+                          },
+                          {
+                            "value": 118,
+                            "text": "NHS Sandwell and West Birmingham CCG"
+                          },
+                          {
+                            "value": 119,
+                            "text": "NHS Sheffield CCG"
+                          },
+                          {
+                            "value": 120,
+                            "text": "NHS Shropshire CCG"
+                          },
+                          {
+                            "value": 121,
+                            "text": "NHS Solihull CCG"
+                          },
+                          {
+                            "value": 122,
+                            "text": "NHS Somerset CCG"
+                          },
+                          {
+                            "value": 123,
+                            "text": "NHS Southampton CCG"
+                          },
+                          {
+                            "value": 124,
+                            "text": "NHS South Devon and Torbay CCG"
+                          },
+                          {
+                            "value": 125,
+                            "text": "NHS South Eastern Hampshire CCG"
+                          },
+                          {
+                            "value": 126,
+                            "text": "NHS South East London CCG"
+                          },
+                          {
+                            "value": 127,
+                            "text": "NHS South East Staffordshire and Seisdon Peninsula CCG"
+                          },
+                          {
+                            "value": 128,
+                            "text": "NHS Southend CCG"
+                          },
+                          {
+                            "value": 129,
+                            "text": "NHS South Gloucestershire CCG"
+                          },
+                          {
+                            "value": 130,
+                            "text": "NHS Southport and Formby CCG"
+                          },
+                          {
+                            "value": 131,
+                            "text": "NHS South Sefton CCG"
+                          },
+                          {
+                            "value": 132,
+                            "text": "NHS South Tyneside CCG"
+                          },
+                          {
+                            "value": 133,
+                            "text": "NHS South Warwickshire CCG"
+                          },
+                          {
+                            "value": 134,
+                            "text": "NHS South West London CCG"
+                          },
+                          {
+                            "value": 135,
+                            "text": "NHS Stafford and Surrounds CCG"
+                          },
+                          {
+                            "value": 136,
+                            "text": "NHS St Helens CCG"
+                          },
+                          {
+                            "value": 137,
+                            "text": "NHS Stockport CCG"
+                          },
+                          {
+                            "value": 138,
+                            "text": "NHS Stoke On Trent CCG"
+                          },
+                          {
+                            "value": 139,
+                            "text": "NHS Sunderland CCG"
+                          },
+                          {
+                            "value": 140,
+                            "text": "NHS Surrey Heartlands CCG"
+                          },
+                          {
+                            "value": 141,
+                            "text": "NHS Surrey Heath CCG"
+                          },
+                          {
+                            "value": 142,
+                            "text": "NHS Tameside and Glossop CCG"
+                          },
+                          {
+                            "value": 143,
+                            "text": "NHS Tees Valley CCG"
+                          },
+                          {
+                            "value": 144,
+                            "text": "NHS Telford and Wrekin CCG"
+                          },
+                          {
+                            "value": 145,
+                            "text": "NHS Thurrock CCG"
+                          },
+                          {
+                            "value": 146,
+                            "text": "NHS Tower Hamlets CCG"
+                          },
+                          {
+                            "value": 147,
+                            "text": "NHS Trafford CCG"
+                          },
+                          {
+                            "value": 148,
+                            "text": "NHS Vale of York CCG"
+                          },
+                          {
+                            "value": 149,
+                            "text": "NHS Wakefield CCG"
+                          },
+                          {
+                            "value": 150,
+                            "text": "NHS Walsall CCG"
+                          },
+                          {
+                            "value": 151,
+                            "text": "NHS Waltham Forest CCG"
+                          },
+                          {
+                            "value": 152,
+                            "text": "NHS Warrington CCG"
+                          },
+                          {
+                            "value": 153,
+                            "text": "NHS Warwickshire North CCG"
+                          },
+                          {
+                            "value": 154,
+                            "text": "NHS West Essex CCG"
+                          },
+                          {
+                            "value": 155,
+                            "text": "NHS West Hampshire CCG"
+                          },
+                          {
+                            "value": 156,
+                            "text": "NHS West Lancashire CCG"
+                          },
+                          {
+                            "value": 157,
+                            "text": "NHS West Leicestershire CCG"
+                          },
+                          {
+                            "value": 158,
+                            "text": "NHS West London CCG"
+                          },
+                          {
+                            "value": 159,
+                            "text": "NHS West Suffolk CCG"
+                          },
+                          {
+                            "value": 160,
+                            "text": "NHS West Sussex CCG"
+                          },
+                          {
+                            "value": 161,
+                            "text": "NHS Wigan Borough CCG"
+                          },
+                          {
+                            "value": 162,
+                            "text": "NHS Windsor, Ascot and Maidenhead CCG"
+                          },
+                          {
+                            "value": 163,
+                            "text": "NHS Wirral CCG"
+                          },
+                          {
+                            "value": 164,
+                            "text": "NHS Wokingham CCG"
+                          },
+                          {
+                            "value": 165,
+                            "text": "NHS Wolverhampton CCG"
+                          },
+                          {
+                            "value": 166,
+                            "text": "North East and Yorkshire Commissioning Hub"
+                          },
+                          {
+                            "value": 167,
+                            "text": "North East and Yorkshire – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 168,
+                            "text": "North Midlands Commissioning Hub"
+                          },
+                          {
+                            "value": 169,
+                            "text": "North Midlands – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 170,
+                            "text": "North West Commissioning Hub"
+                          },
+                          {
+                            "value": 171,
+                            "text": "North West – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 172,
+                            "text": "South Central Commissioning Hub"
+                          },
+                          {
+                            "value": 173,
+                            "text": "South East Commissioning Hub"
+                          },
+                          {
+                            "value": 174,
+                            "text": "South East – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 175,
+                            "text": "South West Commissioning Hub"
+                          },
+                          {
+                            "value": 176,
+                            "text": "South West North Commissioning Hub"
+                          },
+                          {
+                            "value": 177,
+                            "text": "South West South Commissioning Hub"
+                          },
+                          {
+                            "value": 178,
+                            "text": "South West South – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 179,
+                            "text": "Wessex Commissioning Hub"
+                          },
+                          {
+                            "value": 180,
+                            "text": "West Midlands Commissioning Hub"
+                          },
+                          {
+                            "value": 181,
+                            "text": "Yorkshire and Humber Commissioning Hub"
+                          },
+                          {
+                            "value": 182,
+                            "text": "Yorkshire and Humber – H&J Commissioning Hub"
+                          },
+                          {
+                            "value": 185,
+                            "text": "NHS Anglia Commissioning Support Unit"
+                          },
+                          {
+                            "value": 186,
+                            "text": "NHS Arden and Greater East Midlands Commissioning Support Unit"
+                          },
+                          {
+                            "value": 187,
+                            "text": "NHS Central Eastern Commissioning Support Unit"
+                          },
+                          {
+                            "value": 188,
+                            "text": "NHS Central Midlands Commissioning Support Unit"
+                          },
+                          {
+                            "value": 189,
+                            "text": "NHS Central Southern Commissioning Support Unit"
+                          },
+                          {
+                            "value": 190,
+                            "text": "NHS Cheshire and Merseyside Commissioning Support Unit"
+                          },
+                          {
+                            "value": 191,
+                            "text": "NHS Greater Manchester Commissioning Support Unit"
+                          },
+                          {
+                            "value": 192,
+                            "text": "NHS Kent and Medway Commissioning Support Unit"
+                          },
+                          {
+                            "value": 193,
+                            "text": "NHS Midlands and Lancashire Commissioning Support Unit"
+                          },
+                          {
+                            "value": 194,
+                            "text": "NHS NEL CSU"
+                          },
+                          {
+                            "value": 195,
+                            "text": "NHS North and East London Commissioning Support Unit"
+                          },
+                          {
+                            "value": 196,
+                            "text": "NHS North of England Commissioning Support Unit"
+                          },
+                          {
+                            "value": 197,
+                            "text": "NHS North West London Commissioning Support Unit"
+                          },
+                          {
+                            "value": 198,
+                            "text": "NHS South, Central and West Commissioning Support Unit"
+                          },
+                          {
+                            "value": 199,
+                            "text": "NHS South London Commissioning Support Unit"
+                          },
+                          {
+                            "value": 200,
+                            "text": "NHS Staffordshire and Lancashire Commissioning Support Unit"
+                          },
+                          {
+                            "value": 201,
+                            "text": "NHS Surrey and Sussex Commissioning Support Unit"
+                          },
+                          {
+                            "value": 202,
+                            "text": "NHS West and South Yorkshire and Bassetlaw Commissioning Support Unit"
+                          },
+                          {
+                            "value": 203,
+                            "text": "Optum Health Solutions (UK) Limited"
+                          }
+                      ]
+            }) }}
+
+            {{ input({
+            "label": {
+            "text": "ODS code for organisation you're nominating (optional)"
+          },
+          hint: {
+          text: ""
+            },
+            "id": "input-width-5",
+            "name": "test-width-5",
+            "classes": "nhsuk-input--width-5"
+          }) }}
+
+          <br />
+
+          {{ button({
+              "text": "Save and continue",
+              "type": "submit"
+            }) }}
+
+        </form>
+      </div>
+    </div>
+
+    <script>
+      accessibleAutocomplete.enhanceSelectElement({selectElement: document.querySelector('#select-1-search'), required: true, minLength: 2, displayMenu: 'overlay', showAllValues: true});
+    </script>
+
+  {% endblock %}
+
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}

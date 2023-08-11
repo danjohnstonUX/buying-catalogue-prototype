@@ -1,0 +1,177 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "/admin-solutions/",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>Add a solution</h1>
+            <p class="nhsuk-lede-text">Provide the following information about your Catalogue Solution.</p>
+
+            <h2>Solution details</h2>
+
+
+            <form action="admin-solution" method="post">
+
+            {% from 'input/macro.njk' import input %}
+
+            {{ input({
+              "label": {
+                "text": "Solution name"
+              },
+              "id": "solution-name",
+              "name": "solution-name"
+            }) }}
+
+            <!--{{ input({
+              "label": {
+                "text": "Supplier"
+              },
+              "id": "supplier",
+              "name": "supplier"
+            }) }} -->
+
+            {% from 'select/macro.njk' import select %}
+
+            {{ select({
+              "id": "select-1",
+              "name": "select-1",
+              "label": {
+                "text": "Supplier name"
+              },
+              "items": [
+                {
+                  "value": 1,
+                  "text": "Caltech Health (10000)"
+                },
+                {
+                  "value": 2,
+                  "text": "Initech Systems (10008)"
+                },
+                {
+                  "value": 3,
+                  "text": "Cyberdyne Systems (20004)"
+                }
+              ]
+            }) }}
+
+
+
+            <!--div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="example">
+                Solution ID
+              </label>
+              <p>10000&nbsp;-&nbsp;008</p>
+              <!-- <input class="nhsuk-input nhsuk-input--width-4" id="input-width-4" name="test-width-4" type="text" value="008" /> >
+            </div-->
+
+
+            {% from 'checkboxes/macro.njk' import checkboxes %}
+            {% from 'input/macro.njk' import input %}
+
+            {% set gpitHtml %}
+
+              {{ checkboxes({
+              "idPrefix": "example",
+              "name": "example",
+              "items": [
+                {
+                  "value": "foundation",
+                  "text": "Foundation Solution"
+                }
+              ]
+              }) }}
+            {% endset -%}
+
+            {{ checkboxes({
+              "idPrefix": "contact",
+              "name": "contact",
+              "fieldset": {
+                "legend": {
+                  "text": "Frameworks",
+                  "classes": "nhsuk-fieldset__legend--l",
+                  isPageHeading: true
+                }
+              },
+              "hint": {
+                "text": "Select all that apply."
+              },
+              "items": [
+                {
+                  "value": "gpit",
+                  "text": "GP IT Futures Framework",
+                  "conditional": {
+                    "html": gpitHtml
+                  }
+                },
+                {
+                  "value": "dfocvc",
+                  "text": "DFOCVC Framework"
+                },
+                {
+                  "value": "tif",
+                  "text": "Tech Innovation Framework"
+                }
+              ]
+            }) }}
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

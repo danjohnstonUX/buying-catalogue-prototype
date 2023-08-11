@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Approximate order
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+<!--
+Radio 1: order-2-2-triage-under40
+Radio 2: order-2-2-triage-40-250
+Radio 3: order-2-2-triage-over250
+Radio 4: order-2-4-triage-instructions
+-->
+
+<script>
+  function sendForm() {
+    var opt1 = document.getElementById("price-1").checked ? document.getElementById("price-1").value : "";
+    var opt2 = document.getElementById("price-2").checked ? document.getElementById("price-2").value : "";
+    var opt3 = document.getElementById("price-3").checked ? document.getElementById("price-3").value : "";
+    var opt4 = document.getElementById("price-4").checked ? document.getElementById("price-4").value : "";
+
+    if(opt1=="opt1") {
+        document.location.href = "5-triage-under40";
+    }
+    else if(opt2=="opt2") {
+        document.location.href = "5-triage-40-250";
+    }
+    else if(opt3=="opt3") {
+        document.location.href = "5-triage-over250";
+    }
+    else if(opt4=="opt4") {
+        document.location.href = "5-triage-instructions";
+    }
+  }
+</script>
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "3-cata-sol-or-assoc-serv-triage",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+{% from 'radios/macro.njk' import radios %}
+{% from 'fieldset/macro.njk' import fieldset %}
+{% from 'hint/macro.njk' import hint %}
+
+{% call fieldset({
+  legend: {
+    "text": "What is the approximate value of the order you want to place?",
+    "classes": "nhsuk-fieldset__legend--l",
+    "isPageHeading": true
+  }
+  }) %}
+  {{ hint({
+    "text": "The value of your order determines which procedure you should have executed to identify any solution and services you’re ordering."
+  }) }}
+  {{ radios({
+    "idPrefix": "price",
+    "name": "price",
+    "items": [
+  {
+    "value": "opt1",
+    "text": "Under £40k"
+  },
+  {
+    "value": "opt2",
+    "text": "£40k to £250k"
+  },
+  {
+    "value": "opt3",
+    "text": "Over £250k"
+  },
+  {
+    "value": "opt4",
+    "text": "I'm not sure"
+  }
+]
+}) }}
+{% endcall %}
+
+{{ button({
+  "text": "Continue",
+  "href":"javascript: sendForm();"
+}) }}
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

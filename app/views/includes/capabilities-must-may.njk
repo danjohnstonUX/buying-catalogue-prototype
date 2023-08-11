@@ -1,0 +1,492 @@
+{% set newCaps = [ 
+    {
+      "category-name": "Appointments",
+      "all-capabilities": [
+      {
+        "capability": "Appointments Management – Citizen",
+        "capability-code": "C1",
+        "expired": false,
+        "must-capabilties": [
+          {
+            "name": "Manage Appointments",
+            "code": "C1E1",
+            "active": true
+          }          
+        ],
+        "may-capabilities": [
+          {
+            "name": "Manage Appointments by Proxy",
+            "code": "C1E2",
+            "active": true
+          },
+          {
+            "name": "Supplier-defined epic 5",
+            "code": "S020X01E05",
+            "active": true
+          }
+        ]
+        },
+        {
+        "capability": "Appointments Management – GP",
+        "capability-code": "C5",
+        "expired": false,
+        "must-capabilties": [
+          {
+            "name": "Manage Session templates",
+            "code": "C5E1",
+            "active": true
+          },
+          {
+            "name": "Manage Sessions",
+            "code": "C5E2",
+            "active": true
+          },
+          {
+            "name": "Configure Appointments",
+            "code": "C5E3",
+            "active": true
+          },
+          {
+            "name": "Practice configuration",
+            "code": "C5E4",
+            "active": true
+          },
+          {
+            "name": "Manage Appointments",
+            "code": "C5E5",
+            "active": true
+          },
+          {
+            "name": "View Appointment reports",
+            "code": "C5E6",
+            "active": true
+          },
+          {
+            "name": "Access Patient Record",
+            "code": "C5E7",
+            "active": true
+          }                  
+        ],
+        "may-capabilities": []
+        },
+        {
+        "capability": "Cross-organisation Appointment Booking",
+        "capability-code": "C23",
+        "expired": false,
+        "must-capabilties": [
+          {
+            "name": "Make Appointments available to external organisations",
+            "code": "C23E1",
+            "active": true
+          },
+          {
+            "name": "Search externally bookable Appointment slots",
+            "code": "C23E2",
+            "active": true
+          },
+          {
+            "name": "Book externally bookable Appointment slots",
+            "code": "C23E3",
+            "active": true
+          },
+          {
+            "name": "Maintain Appointments",
+            "code": "C23E4",
+            "active": true
+          }             
+        ],
+        "may-capabilities": [
+          {
+            "name": "Notifications",
+            "code": "C23E5",
+            "active": true
+          },
+          {
+            "name": "Manage Appointment Requests",
+            "code": "C23E6",
+            "active": true
+          },
+          {
+            "name": "Booking approval",
+            "code": "C23E7",
+            "active": true
+          },
+          {
+            "name": "Report on usage of Cross-Organisation Appointments",
+            "code": "C23E8",
+            "active": true
+          },
+          {
+            "name": "Manage Cross-Organisation Appointment Booking templates",
+            "code": "C23E9",
+            "active": true
+          }
+        ]
+        },
+        {
+        "capability": "Appointments Management – COVID-19 Vaccinations",
+        "capability-code": "C46",
+        "expired": false,
+        "must-capabilties": [
+          {
+            "name": "Define appointment availability for COVID-19 vaccination site",
+            "code": "C46E1",
+            "active": true
+          },
+          {
+            "name": "Book COVID-19 vaccination appointments for eligible Patients registered across different GP Practices",
+            "code": "C46E2",
+            "active": true
+          },
+          {
+            "name": "Record that a COVID-19 vaccination appointment for a Patient has been completed",
+            "code": "C46E3",
+            "active": true
+          },
+          {
+            "name": "Extract COVID-19 vaccination appointments data for NHS Digital",
+            "code": "C46E4",
+            "active": true
+          }             
+        ],
+        "may-capabilities": [
+          {
+            "name": "Automatically record which Patients have had COVID-19 vaccination invites created",
+            "code": "C46E10",
+            "active": true
+          },
+          {
+            "name": "View whether Patients have had a COVID-19 vaccination invite communication created",
+            "code": "C46E11",
+            "active": true
+          },
+          {
+            "name": "Automatically bulk send booking reminders to Patients via SMS messages for COVID-19 vaccination invites",
+            "code": "C46E12",
+            "active": true
+          },
+          {
+            "name": "Automatically bulk create booking reminders to Patients as letters for COVID-19 vaccination invites",
+            "code": "C46E13",
+            "active": true
+          },
+          {
+            "name": "Automatically bulk send booking reminders to Patients via email for COVID-19 vaccination invites",
+            "code": "C46E14",
+            "active": true
+          },
+          {
+            "name": "Book Appointments across Solutions using GP Connect Appointments Management",
+            "code": "C46E15",
+            "active": true
+          },
+          {
+            "name": "Patients can book their own COVID-19 vaccination appointments",
+            "code": "C46E16",
+            "active": true
+          },
+          {
+            "name": "Patients can re-schedule their own future COVID-19 vaccination appointment",
+            "code": "C46E17",
+            "active": true
+          }
+        ]
+        }
+      ]
+    },
+    {
+      "category-name": "Care coordination",
+      "all-capabilities": [
+        {
+        "capability": "Communication Management",
+        "capability-code": "C7",
+        "expired": false,
+        "must-capabilties": [
+          {
+            "name": "Manage communication consents for a Patient",
+            "code": "C7E1",
+            "active": false
+          },
+          {
+            "name": "Manage communication preferences for a Patient",
+            "code": "C7E2",
+            "active": false
+          },
+          {
+            "name": "Manage communication templates",
+            "code": " C7E3",
+            "active": true
+          },
+          {
+            "name": "Create communications",
+            "code": " C7E4",
+            "active": true
+          },
+          {
+            "name": "Manage automated communications",
+            "code": " C7E5",
+            "active": true
+          },
+          {
+            "name": "View communication reports",
+            "code": " C7E6",
+            "active": true
+          },
+          {
+            "name": "Access Patient Record",
+            "code": " C7E7",
+            "active": true
+          }
+        ],
+        "may-capabilities": [
+          {
+            "name": "Manage incoming communications",
+            "code": "C7E100",
+            "active": true
+          },
+          {
+            "name": "Manage communication consents for a Proxy",
+            "code": "C7E8",
+            "active": true
+          },
+          {
+            "name": "Manage communication preferences for a Proxy",
+            "code": "C7E9",
+            "active": true
+          }
+        ]
+      }
+      ]
+    },
+    {
+      "category-name": "Citizen services",
+      "all-capabilities": [
+        {
+        "capability": "Citizen service management",
+        "capability-code": "BB",
+        "expired": false,
+        "must-capabilties": [
+            {
+              "name": "Communicate With Practice – Citizen",
+              "code": "BBJK",
+              "active": true
+            },
+            {
+              "name": "Personal Health Record",
+              "code": "BBER",
+              "active": true
+            }
+          ],
+          "may-capabilities": [
+            {
+              "name": "Prescription Ordering – Citizen",
+              "code": "BB32",
+              "active": false
+            },
+            {
+              "name": "View Record – Citizen",
+              "code": "BB09",
+              "active": true
+            }
+          ]
+      }
+      ]
+    },
+    {
+      "category-name": "Consultations",
+      "all-capabilities": [
+        {
+          "capability": "Consultations management",
+          "capability-code": "CM",
+          "expired": false,
+          "must-capabilties": [
+            {
+              "name": "Clinical Decision Support",
+              "code": "CM94",
+              "active": true
+            },
+            {
+              "name": "e-Consultations (Professional to Professional)",
+              "code": "CM67",
+              "active": false
+            },
+            {
+              "name": "Online Consultation",
+              "code": "CM09",
+              "active": true
+            }
+            ],
+            "may-capabilties": [
+              {
+                "name": "Recording Consultations",
+                "code": "CM98",
+                "active": true
+              },
+              {
+                "name": "Video Consultation",
+                "code": "CM76",
+                "active": true
+              }
+          ]
+        }
+        ]
+    },
+    {
+      "category-name": "Document and artefact management",
+      "all-capabilities": [
+        {
+          "capability": "Document and artefact management",
+          "capability-code": "DA",
+          "expired": false,
+          "must-capabilties": [
+            {
+              "name": "Document Management",
+              "code": "DA0O",
+              "active": true
+            },
+            {
+              "name": "Scanning",
+              "code": "DA40",
+              "active": true
+            }
+            ],
+            "may-capabilties": [
+            {
+              "name": "Unstructured Data Extraction",
+              "code": "DA00",
+              "active": true
+            }
+          ]
+        }
+        ]
+    },
+    {
+      "category-name": "Health or care organisation management",
+      "all-capabilities": [
+        {
+          "capability": "Health or care organisation management",
+          "capability-code": "HC",
+          "expired": false,
+          "must-capabilties": [
+            {
+              "name": "Resource Management",
+              "code": "HC66",
+              "active": true
+            },
+            {
+              "name": "Workflow",
+              "code": "HC02",
+              "active": true
+            }
+          ]
+        }
+        ]
+    },
+    {
+      "category-name": "Medicines management",
+      "all-capabilities": [
+        {
+          "capability": "Medince management",
+          "capability-code": "MM",
+          "expired": false,
+            "must-capabilties": [
+              {
+                "name": "Medicines Optimisation",
+                "code": "MM50",
+                "active": true
+              }
+            ],
+            "may-capabilties": [
+              {
+                "name": "Prescribing",
+                "code": "MM89",
+                "active": true
+              }
+            ]
+          }
+          ]
+    },
+    {
+        "category-name": "Patient care management",
+        "all-capabilities": [
+        {
+            "capability": "Patient care management",
+            "capability-code": "PCM",
+            "expired": false,
+            "must-capabilties": [
+              {
+                "name": "Patient Information Maintenance",
+                "code": "PCM90",
+                "active": true
+              },
+              {
+                "name": "Shared Care Plans",
+                "code": "PCM90",
+                "active": true
+              }
+            ],
+            "may-capabilties": [
+              {
+                "name": "Unified Care Record",
+                "code": "PCM34",
+                "active": false
+              }
+            ]
+          }
+          ]
+    },
+      {
+          "category-name": "Reporting and data analytics",
+          "all-capabilities": [
+            {
+              "capability": "Reporting and analytics",
+              "capability-code": "RA",
+              "expired": true,
+              "must-capabilties": [
+                {
+                  "name": "Data Analytics for Integrated and Federated Care",
+                  "code": "RA56",
+                  "active": true
+                },
+                {
+                  "name": "GP Extracts Verification",
+                  "code": "RA30",
+                  "active": false
+                },
+                {
+                  "name": "Population Health Management",
+                  "code": "RA40",
+                  "active": true
+                },
+                {
+                  "name": "Reporting",
+                  "code": "RA81",
+                  "active": true
+                },
+                {
+                  "name": "Risk Stratification",
+                  "code": "RA05",
+                  "active": true
+                }
+              ]
+            }
+            ]
+      },
+      
+        {
+            "category-name": "Supplier defined Capabilities",
+            "all-capabilities": [
+              {
+                  "capability": "Productivity",
+                  "capability-code": "P",
+                  "expired": true
+                },
+                {
+                  "capability": "More Productivity",
+                  "capability-code": "P904",
+                  "expired": false
+                }
+                ]
+        }
+  ]
+%}

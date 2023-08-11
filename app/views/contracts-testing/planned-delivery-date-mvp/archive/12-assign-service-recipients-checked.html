@@ -1,0 +1,375 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Select Service Recipients for EMIS Web GP
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-proxy.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}{% endblock %}
+  <!-- Your page content goes inside the content block -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+  "href": "11-add-planned-delivery-date",
+  "text": "Go back"
+}) }}
+
+    <style>
+      .nhsuk-expander-index {
+        margin-bottom: 40px;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary {
+        padding-top: 40px;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text {
+        text-decoration: none;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text__letter {
+        background-color: #005eb8;
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.25;
+        position: absolute;
+        margin-bottom: 0;
+        top: -32px;
+        left: 0;
+      }
+
+      .nhsuk-expander-index .nhsuk-details__summary .nhsuk-details__summary-text .nhsuk-details_summary-subtext {
+        color: #212b32;
+        display: block;
+      }
+    </style>
+
+    <script type="text/javascript">
+
+      window.onload = function () {
+        updateGlobalCount();
+        updateAllSubgroupCounters();
+        document.getElementById('selection-counter').removeAttribute('style');
+
+        const allCheckboxes = document.querySelectorAll('.nhsuk-checkboxes__input');
+
+        for (var i = 0; i < allCheckboxes.length; i++) {
+          allCheckboxes[i].addEventListener('change', updateSubGroupCount, false);
+        }
+      }
+
+      function updateSubGroupCount(selectedCheckbox) {
+        var subgroup = selectedCheckbox.target.getAttribute('subgroup');
+        updateSubGroupCountWorker(subgroup);
+        updateGlobalCount();
+      }
+
+      function updateSubGroupCountWorker(subgroup) {
+        const count = document.querySelectorAll(`.nhsuk-checkboxes__input[subgroup=${subgroup}]:checked`).length;
+        const counter = document.querySelector(`.counter-class[subgroup=${subgroup}]`);
+        if (count > 0) {
+          counter.innerText = ` - ${count} selected`;
+        } else {
+          counter.innerText = '';
+        }
+      }
+
+      function updateAllSubgroupCounters() {
+        const allSelectedCheckboxes = document.querySelectorAll(`.nhsuk-checkboxes__input:checked`)
+        const allSubgroups = [];
+        allSelectedCheckboxes.forEach(function (cv, ci, lo) {
+          allSubgroups.push(cv.getAttribute('subgroup'));
+        });
+        const uniqueSubgroups = allSubgroups.filter((v, i, a) => a.indexOf(v) === i);
+
+        uniqueSubgroups.forEach(subgroup => updateSubGroupCountWorker(subgroup));
+      }
+
+      function updateGlobalCount() {
+        const countChecked = document.querySelectorAll('.nhsuk-checkboxes__input:checked').length;
+        const totalCount = document.querySelectorAll('.nhsuk-checkboxes__input').length;
+        const globalCounter = document.getElementById('selection-counter');
+        globalCounter.innerText = `${countChecked} out of ${totalCount} selected`;
+      }
+    </script>
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h1>Service Recipients for Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+              -
+            </span>
+            Training Day at Practice
+          </span>
+        </h1>
+
+        <p class="nhsuk-lede-text">Apply the Service Recipients for your order to your planned delivery date.</p>
+        
+
+        <p style="font-size: 24px;"><b>Planned delivery date:</b> 29 September 2022</p>
+
+
+        <hr />
+
+        <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+          <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">A</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#B">B</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">C</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">D</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#E">E</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#F">F</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#G">G</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#H">H</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#I">I</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#J">J</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#K">K</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#L">L</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#M">M</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#N">N</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#O">O</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#P">P</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Q">Q</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#R">R</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#S">S</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#T">T</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#U">U</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#V">V</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#W">W</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#X">X</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Y">Y</a>
+            </li>
+            <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+              <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Z">Z</a>
+            </li>
+          </ol>
+        </nav>
+        <br/>
+
+        <!-- <h2>Select Service Recipients</h2> -->
+        {{ button({
+        "text": "Select all",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+        &nbsp;
+        {{ button({
+        "text": "Deselect all",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+        <p id="selection-counter" style="display:none;"></p>
+        <br/>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> T <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              3 Service Recipients<span class="counter-class" subgroup="T"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-48" name="example" type="checkbox" value="email" subgroup="T" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-48">
+                        THE AVENUES MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81035"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-49" name="example" type="checkbox" value="email" subgroup="T" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-49">
+                        THE BRIDGE GROUP PRACTICE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81046"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-51" name="example" type="checkbox" value="email" subgroup="T" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-51">
+                        THE SUTTON MANOR SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81020"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <details class="nhsuk-details nhsuk-expander nhsuk-expander-index" open>
+        <summary class="nhsuk-details__summary">
+          <h3 class="nhsuk-details__summary-text__letter">
+            <span class="nhsuk-u-visually-hidden">letter</span> W <span class="nhsuk-u-visually-hidden">-</span>
+          </h3>
+          <span class="nhsuk-details__summary-text">
+            <span class="nhsuk-details_summary-subtext">
+              2 Service Recipients<span class="counter-class" subgroup="W"></span>
+            </span>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          {{ table({
+              responsive: true,
+              panel: false,
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Organisation"
+                },
+                {
+                  text: "ODS code"
+                }
+              ],
+              rows: [
+                  [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-52" name="example" type="checkbox" value="email" subgroup="W" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-52">
+                        WILBERFORCE SURGERY
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81032"
+                  }
+                ],
+                [
+                  {
+                    html: '<div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="recipient-53" name="example" type="checkbox" value="email" subgroup="W" checked>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="recipient-53">
+                        WOLSELEY MEDICAL CENTRE
+                      </label>
+                    </div>'
+                  },
+                  {
+                    text: "B81047"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </details>
+
+      <p class="nhsuk-u-font-size-22">5 out of 5 selected</p>
+
+      <br />
+
+      <div>
+        <div style="display:inline-block;">
+          <form action="13-planned-delivery-date-hub">
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+          </form>
+        </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

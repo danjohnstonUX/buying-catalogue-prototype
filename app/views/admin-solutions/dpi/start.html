@@ -1,0 +1,132 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-admin.html" %}
+  {% endblock%}
+
+  <!-- Breadcrumb goes inside the beforeContent block -->
+  {% block beforeContent %}
+
+    <!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+  {% endblock %}
+
+  <!-- Your page content goes inside the content block -->
+  <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+  {% block content %}
+    {% from 'back-link/macro.njk' import backLink %}
+
+    {{ backLink({
+    "href": "/admin-solutions/",
+    "text": "Go back"
+  }) }}
+
+    <form action="/dpi-upload-route" method="post">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {%if data['error'] == 'true' %}
+            <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+                <h2 class="nhsuk-error-summary__title" id="dpi-choice-title">
+                  There is a problem
+                </h2>
+                <div class="nhsuk-error-summary__body">
+                  {# <p>
+                    Describe the errors and how to correct them
+                  </p> #}
+                  <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+                    <li>
+                      <a href="#upload-choice">Please make a selection</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            {% endif %}
+
+           <h1>
+              <span role="text">Data Processing Information
+                <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  Caltech Web GP
+                </span>
+              </span>
+            </h1>
+            <p class="nhsuk-lede-text">Inform potential buyers how your data is processed</p>
+
+            {# <h2>Solution details</h2> #}
+
+          <div class="nhsuk-form-group {%if data['error'] == 'true' %} nhsuk-form-group--error {% endif %}">
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                <h2 class="nhsuk-fieldset__heading">
+                  How would you like to provide your Data Processing Information?
+               </h2>
+              </legend>
+              {%if data['error'] == 'true' %}
+                <span class="nhsuk-error-message" id="example-error-error">
+                  <span class="nhsuk-u-visually-hidden">Error:</span> Please make a selection
+                </span>
+              {% endif %}
+              {# <div class="nhsuk-hint" id="contact-hint">
+                To upload your Data Processing Information your data will need to be added to an Excel sheet following the provided template. 
+              </div> #}
+
+              <div class="nhsuk-radios">
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="upload-choice" name="dpi-choice" type="radio" value="upload-dpi"> 
+                  <label class="nhsuk-label nhsuk-radios__label" for="upload-choice">
+          Upload my Data Processing Information
+        </label>
+        <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+          To upload your Data Processing Information your data will need to be added to an Excel sheet following the provided template.
+        </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="enter-choice" name="dpi-choice" type="radio" value="enter-dpi">
+                  <label class="nhsuk-label nhsuk-radios__label" for="enter-choice">
+          Enter my Data Processing Information
+        </label>
+                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+
+
+            <button class="nhsuk-button nhsuk-u-margin-top-7" data-module="nhsuk-button" type="submit">
+  Save and continue
+</button>
+
+        </form>
+
+      {% endblock %}
+
+      {% block footer %}
+        {% include "includes/footer.html" %}
+      {% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-2-add-solution-service-recipient-edit",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Are you sure you want to change your Service Recipients?
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Anywhere Consult
+      </span>
+    </h1>
+
+    <p class="nhsuk-lede-text">Review the changes you've made to the Service Recipients for this Catalogue Solution.</p>
+
+{{ warningCallout({
+  "heading": "Removing a Service Recipient",
+  "HTML": "<p>Removing a Service Recipient will mean the organisation will no longer receive the Catalogue Solution you're ordering.</p>
+<p>Make sure you review the price and quantity you're ordering once you've confirmed the change of recipients.</p>"
+}) }}
+
+
+
+<h2>Changes to your Service Recipients</h2>
+<p>You’ve made the following changes to your order.</p>
+    <p><b>Removed:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Assura ER LLP Hull Dermatology</li>
+      <li>Bevan Ltd</li>
+    </ol>
+  <br/>
+  <p><b>Added:</b></p>
+    <ol class="nhsuk-list nhsuk-list--bullet">
+      <li>Orchard 2000 Group</li>
+    </ol>
+  <hr />
+
+
+{% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "example-hints",
+  "name": "example-hints",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--l",
+      "text": "Do you want to confirm your changes?",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes, I want to confirm changes to my Service Recipients",
+      "hint": {
+        "text": ""
+      }
+    },
+    {
+      "value": "no",
+      "text": "No, I do not want to confirm changes to my Service Recipients",
+      "hint": {
+        "text": ""
+      }
+    }
+  ]
+}) }}
+
+  <!-- <p>You can <a href="serv-rec-test-1">add or remove Service Recipients</a> if needed, or edit them later if you continue with your order.</p> -->
+
+      <br />
+
+            <div>
+              <div style="display:inline-block;">
+                <form method="post" action="order-5-4-2-add-solution-multiple-price-loop-1">
+                  {% from 'button/macro.njk' import button %}
+
+                  {{ button({
+                    "text": "Save and continue"
+                  }) }}
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

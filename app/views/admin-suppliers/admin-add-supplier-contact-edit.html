@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "admin-supplier-contacts-edit",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+
+            <h1>Contact details<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+              <span class="nhsuk-u-visually-hidden"> - </span>
+              Jim Jeffries
+            </span></h1>
+            <p class="nhsuk-lede-text">Provide details for this contact for [supplier name].</p>
+
+            <form method="post" action="admin-supplier">
+
+              {{ insetText({
+  "HTML": "<p>You must provide either a contact name or department name and either a telephone number or email address.</p>"
+}) }}
+
+            {% from 'input/macro.njk' import input %}
+
+            {{ input({
+              "label": {
+                "text": "Contact name"
+              },
+              "id": "first-name",
+              "name": "first-name"
+            }) }}
+
+
+
+            {{ input({
+              "label": {
+                "text": "Department name"
+              },
+              "id": "email",
+              "name": "email"
+            }) }}
+
+            {{ input({
+              "label": {
+              "text": "Telephone number"
+              },
+              "id": "phone",
+              "name": "phone",
+              "classes": "nhsuk-input--width-10"
+            }) }}
+
+            {{ input({
+              "label": {
+                "text": "Email address"
+              },
+              "id": "email",
+              "name": "email"
+            }) }}
+
+            <br />
+
+            {% from 'button/macro.njk' import button %}
+
+            {{ button({
+              "text": "Save and continue"
+            }) }}
+<p><a href="#" style="color: red;">Delete contact</a></p>
+            </form>
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,95 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-admin.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+<!-- {% from 'breadcrumb/macro.njk' import breadcrumb %}
+
+  {{ breadcrumb({
+  items: [
+  ],
+  href: "/",
+  text: "Home"
+  }) }} -->
+
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+  {% from 'back-link/macro.njk' import backLink %}
+
+  {{ backLink({
+    "href": "/admin-buyers/",
+    "text": "Go back"
+  }) }}
+
+    <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1 class="nhsuk-heading-xl">Import practice lists</h1>
+
+            <p class="nhsuk-lede-text">
+              Import the latest practice list sizes for buyer organisations.
+            </p>
+
+
+
+            {% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+"HTML": "<p>The link to the latest practice list CSV file can be <a href=\"https://digital.nhs.uk/data-and-information/publications/statistical/patients-registered-at-a-gp-practice/\" title=\"External website\">copied from the NHS Digital website</a> (opens in a new tab).</p>"
+}) }}
+
+              {% from 'input/macro.njk' import input %}
+
+              {{ input({
+                "label": {
+                  "text": "Practice lists URL"
+                },
+                "hint": {
+                  "text": "Enter the URL of the latest practice list CSV file. It should take between 60 and 90 seconds to import."
+                },
+                "id": "practice-list-input",
+                "name": "practice-list-input"
+              }) }}
+
+
+
+              {% from 'button/macro.njk' import button %}
+
+              {{ button({
+                "text": "Import practice lists",
+                "classes": "nhsuk-button--primary",
+                "href": "practice-list-updated-confirmation"
+              }) }}
+
+            </form>
+
+          </div>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

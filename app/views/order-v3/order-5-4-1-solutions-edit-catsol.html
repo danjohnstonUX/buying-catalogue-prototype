@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Buying Catalogue
+{% endblock %}
+
+{% block header %}
+{% include "includes/header-proxy.html" %}
+{% endblock%}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+
+{% endblock %}
+<!-- Your page content goes inside the content block -->
+{% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "order-5-4-1-solutions2",
+  "text": "Go back"
+}) }}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>Your Catalogue Solution<span class="nhsuk-caption-xl nhsuk-caption--bottom">
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        Order C000001-01
+      </span></h1>
+      <p class="nhsuk-lede-text">Add any Catalogue Solutions and services you want to be part of this order.</p>
+
+      
+<!-- <p>Use the link to add Catalogue Solutions and/or services and assign them to service recipients.</p> -->
+    </div>
+</div>
+
+<h2>Emis Web GP</h2>
+
+{% from "summary-list/macro.njk" import summaryList %}
+
+{{ summaryList({
+
+  rows: [
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Assura ER LLP Hull Dermatology"
+      }
+    },
+    {
+      key: {
+        text: "Service recipient"
+      },
+      value: {
+        text: "Bevan Limited"
+      }
+    },
+    {
+      key: {
+        text: "Price"
+      },
+      value: {
+        html: "£1.26"
+      }
+    },
+    {
+      key: {
+        text: "Quantity"
+      },
+      value: {
+        html: '875'
+      }
+    }
+  ]
+}) }}
+
+<br />
+
+{% from 'action-link/macro.njk' import actionLink %}
+
+  {{ actionLink({
+    "text": "Edit Service Recipients and quantities",
+    "href": "order-5-4-2-add-solution-service-recipient-edit"
+  }) }}
+  {% from 'action-link/macro.njk' import actionLink %}
+
+  {{ actionLink({
+    "text": "Edit price",
+    "href": "order-5-4-2-select-solution-confirm-price-edit"
+  }) }}
+
+<br />
+
+
+
+
+<form action="order-5-4-1-solutions">
+{{ button({
+  "text": "Continue"
+}) }}
+
+
+</form>
+
+    </div>
+  </div>
+
+  <br /><br />
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
